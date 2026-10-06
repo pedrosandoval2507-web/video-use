@@ -1,0 +1,22 @@
+{
+  "title": "How I Edit Videos in 10 Minutes",
+  "accent": "#7c5cff",
+
+  "recording": "../../inbox/tella/my-recording.mp4",
+
+  "intro": { "enabled": true, "subtitle": "A quick walkthrough" },
+
+  "lowerThird": { "enabled": true, "name": "Your Name", "role": "Creator", "at": 2 },
+
+  "outro": { "enabled": true, "cta": "Thanks for watching", "handle": "@yourchannel" },
+
+  "music": {
+    "file": "../../inbox/music/my-track.mp3",
+    "volume": 0.18,
+    "duck": true,
+    "fadeIn": 1.5,
+    "fadeOut": 3
+  },
+
+  "loudness": -14
+}

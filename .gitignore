@@ -58,3 +58,9 @@ master.srt
 takes_packed.md
 edl.json
 project.md
+
+# reels: per-episode renders and media
+reels/episodes/*/out/
+reels/episodes/*/cutout/
+reels/episodes/*/*.mp4
+reels/episodes/*/*.mov
