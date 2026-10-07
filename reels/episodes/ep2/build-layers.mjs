@@ -15,7 +15,7 @@ const ZOOMS = [
   { at: 0, dur: 2.3, from: 1.12, to: 1.32, push: true },
   { at: 14.5, dur: 1.5, to: 1.2 },
   { at: 39.25, dur: 3.0, to: 1.2 },
-  { at: 50.15, dur: 5.8, to: 1.25 },
+  { at: 50.15, dur: 5.8, to: 1.1 },
 ];
 
 function zoomTimeline() {

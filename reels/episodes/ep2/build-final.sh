@@ -29,7 +29,7 @@ cat > final/index.html <<HTML
     <div id="root" data-composition-id="reel" data-start="0" data-duration="$DUR" data-width="1080" data-height="1920">
       <div class="layer" id="l_base" data-composition-id="base" data-composition-src="compositions/base.html" data-start="0" data-duration="$DUR" data-track-index="0"></div>
       <div class="layer" id="l_graphics" data-composition-id="graphics" data-composition-src="compositions/graphics.html" data-start="0" data-duration="$DUR" data-track-index="1"></div>
-      <div class="layer" id="l_presenter" data-composition-id="presenter" data-composition-src="compositions/presenter.html" data-start="0" data-duration="$DUR" data-track-index="2"></div>
+      <div class="layer" id="l_presenter" data-composition-id="presenter" data-composition-src="compositions/presenter.html" data-start="0" data-duration="50.05" data-track-index="2"></div>
       <div class="layer" id="l_captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-track-kind="captions" data-start="0" data-duration="$DUR" data-track-index="3"></div>
     </div>
     <script>

@@ -97,8 +97,8 @@ const G = [
 
   // Five alcoholics -> you are the sixth.
   ["sixth", 26.35, 2.75, `
-    <div class="title" style="top:235px"><span id="s1">5</span> <span class="serif big" id="s2">alcoólatras</span></div>
-    <div class="row" id="srow" style="top:345px">
+    <div class="title t2" style="top:228px"><span id="s1">5</span> <span class="serif big" id="s2">alcoólatras</span></div>
+    <div class="row small" id="srow" style="top:352px">
       ${[0, 1, 2, 3, 4].map((i) => `<div class="pw" id="sp${i}">${person()}${glass}</div>`).join("")}
       <div class="pw you" id="spy">${person("red")}<div class="youtag">VOCÊ</div></div>
     </div>`,
@@ -108,8 +108,8 @@ const G = [
 
   // Negative vs positive (strikethrough on the negative side).
   ["negpos", 32.85, 5.25, `
-    <div class="line" id="l1" style="top:235px"><span class="dot neg">${svg("cross", 54)}</span><span class="what"><span class="strike" id="st">bar e bebida</span></span><span class="tag">negativa</span></div>
-    <div class="line" id="l2" style="top:370px"><span class="dot pos">${svg("check", 54)}</span><span class="what">negócios e <span class="serif">crescer</span></span><span class="tag">positiva</span></div>`,
+    <div class="line" id="l1" style="top:230px"><span class="dot neg">${svg("cross", 54)}</span><span class="what"><span class="strike" id="st">bar e bebida</span></span><span class="tag">negativa</span></div>
+    <div class="line" id="l2" style="top:330px"><span class="dot pos">${svg("check", 54)}</span><span class="what">negócios e <span class="serif">crescer</span></span><span class="tag">positiva</span></div>`,
     [rise("#l1", 2.1, 0.35), `tl.fromTo("#st", { "--s": 0 }, { "--s": 1, duration: 0.35, ease: "power2.out" }, 2.6);`, rise("#l2", 3.9, 0.35)]],
 
   // Close-up: business + growth tiles beside the head.
@@ -126,7 +126,7 @@ const G = [
 
   // CTA between chin and captions.
   ["cta", 50.1, 5.866, `
-    <div class="ctabox" id="cta" style="top:875px">
+    <div class="ctabox" id="cta" style="top:935px">
       <div class="ctaq">quem são as <span class="serif">suas</span> <span class="markbig small">5</span>?</div>
       <div class="ctasub">comenta aqui 👇</div>
     </div>`,
@@ -153,8 +153,9 @@ html, body { width: ${W}px; height: ${H}px; overflow: hidden; background: transp
 .row.small .pp { width: 62px; height: 93px; }
 .pp.red { color: #ff3b30; filter: drop-shadow(0 0 18px rgba(255,59,48,0.55)); }
 .pw { position: relative; }
-.pw .gl { position: absolute; right: -12px; top: 58px; }
-.youtag { position: absolute; left: 50%; transform: translateX(-50%); bottom: -40px; font-weight: 900; font-size: 26px; letter-spacing: 0.12em; color: #ff3b30; }
+.pw .gl { position: absolute; right: -14px; top: 40px; width: 26px; height: 32px; }
+.title.t2 { font-size: 64px; } .title.t2 .serif.big { font-size: 100px; }
+.youtag { position: absolute; left: 110%; top: 30px; font-weight: 900; font-size: 26px; letter-spacing: 0.12em; color: #ff3b30; }
 .tile { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 14px; }
 .tbox { background: #fff; border-radius: 34px; display: flex; align-items: center; justify-content: center;
   box-shadow: 0 14px 36px rgba(0,0,0,0.22), 0 2px 6px rgba(0,0,0,0.12); }
@@ -175,13 +176,13 @@ html, body { width: ${W}px; height: ${H}px; overflow: hidden; background: transp
 .stxt { font-weight: 700; font-size: 42px; line-height: 1.18; }
 .stxt .serif { font-size: 56px; }
 .src { margin-top: 14px; font-size: 22px; font-weight: 500; color: #8a8a8a; }
-.line { position: absolute; left: 90px; right: 90px; height: 110px; background: #fff; border-radius: 28px; display: flex; align-items: center; gap: 24px; padding: 0 30px 0 22px;
+.line { position: absolute; left: 110px; right: 110px; height: 88px; background: #fff; border-radius: 28px; display: flex; align-items: center; gap: 24px; padding: 0 30px 0 22px;
   box-shadow: 0 12px 34px rgba(0,0,0,0.2); }
-.dot { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.dot { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .dot.neg { background: #ff3b30; } .dot.pos { background: #22c55e; }
 .okdot { display: inline-flex; width: 84px; height: 84px; border-radius: 50%; background: #22c55e; align-items: center; justify-content: center; vertical-align: middle; }
-.what { flex: 1; font-weight: 800; font-size: 46px; }
-.what .serif { font-size: 60px; }
+.what { flex: 1; font-weight: 800; font-size: 40px; }
+.what .serif { font-size: 52px; }
 .strike { position: relative; color: #8a8a8a; --s: 0; }
 .strike::after { content: ""; position: absolute; left: -4px; right: -4px; top: 52%; height: 6px; background: #ff3b30; border-radius: 3px; transform-origin: left; transform: scaleX(var(--s)); }
 .tag { font-weight: 900; font-size: 22px; letter-spacing: 0.16em; text-transform: uppercase; color: #6b6b6b; }
