@@ -10,6 +10,8 @@ Whenever the user asks to edit a video (especially a vertical video of them talk
 - a suspense hook, images with a woosh, real data with a source,
 - **upbeat/motivational music** (never melancholic).
 
+**Approved reference video: `reels/episodes/ep2/`** — the creator wants this exact format on every new video.
+
 The step-by-step workflow is in the `reels-editor` skill (`.claude/skills/reels-editor/SKILL.md`), and the scripts are in `reels/scripts/`.
 
 The `video-use` skill (root `SKILL.md`) still applies to its production-correctness rules; on style, `reels/EDITING-STYLE.md` takes precedence.

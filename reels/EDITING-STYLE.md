@@ -2,6 +2,8 @@
 
 The creator's preferences, gathered from feedback on the first videos. Apply them to every edit unless told otherwise.
 
+> ✅ **APPROVED REFERENCE (Oct 2026): `reels/episodes/ep2/`** — "Você é a média das 5 pessoas" v2. The creator said: *"Agora sim, perfeito!"* and asked for **this format on every video from now on**. When in doubt, copy what ep2 does (its `build-graphics.mjs` is the template for titles, icon tiles, cards and the CTA).
+
 ## Format and safe zones (Instagram Reels)
 - Canvas 1080×1920 (9:16), full screen, **no border or frame** around the video.
 - **Never put text in the top ~12% or the bottom ~22%** of the screen: the Reels interface covers them.
@@ -57,3 +59,11 @@ The creator asked for this look on top of the rules above: **several fonts to gi
   - Prefer **upbeat, energetic, motivational** music: in Tella's catalog, "Bright Startup Energy", "Modern Tech Pulse", "Chill House Screenbeat" or "Playful Product Walkthrough"; on Epidemic Sound, *Upbeat / Motivational / Hopeful*, 100–125 BPM.
   - The suspense (riser, heartbeat) stays **only in the hook**. After the impact, the mood turns energetic. Don't string together more than one "dark" effect in a row.
 - End: a question / CTA for comments ("Quem são as suas 5? Comenta aqui"), in the safe zone.
+
+## The approved recipe (ep2) in one glance
+- **Every 2–5 s something new appears** at the top (13–30% of the height): a mixed-font title, an icon row that builds up, a white card with real data, a red marker word, a strikethrough comparison.
+- **Text and graphics in near-black `#141414`** on white tiles/cards (shadowed) or directly on the wall; accents in **red `#ff3b30`** and green ✓ `#22c55e`. Serif = *Instrument Serif Italic* (`reels/episodes/ep2/fonts/`, downloaded from Google Fonts), sans = Inter 800–900.
+- **Icons**: simple line icons drawn in inline SVG (stroke 7, round caps) inside white rounded tiles, numbered label pill underneath ("01 academia").
+- **Follow the head**: wide shot → graphics above the head; close-up (head near the top) → tiles **beside** the head; CTA in a white box **between the chin and the captions** (~48%), above the cut-out layer. Check every graphic with `hyperframes snapshot` over the real frame (and with the zoom applied) before rendering.
+- **Keep punch-in zooms small (≤1.2) while graphics are on screen**, so the head doesn't grow into them.
+- **Sound**: suspense riser + heartbeat + impact in the hook; `press` on each icon pop, `ui-reveal` on cards, `deep-woosh` on group entrances, `error`/`success` on comparisons, `notification-chime` on the CTA. Music "Bright Startup Energy" from 2.35 s at ~12%, mix to −14 LUFS.

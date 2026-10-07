@@ -7,6 +7,17 @@ description: Edits vertical Reels/TikTok videos in Pedro's approved format (safe
 
 Read `reels/EDITING-STYLE.md` first. It holds the creator's preferences and is the source of truth.
 
+**Approved template: `reels/episodes/ep2/`** (the creator loved it — use this flow for every new video):
+1. Copy `reels/episodes/ep2/*.mjs *.sh` into `reels/episodes/<name>/`, put the video in as `source.mp4`, download the Instrument Serif fonts into `fonts/`.
+2. Transcribe in Tella (`create_source` + PUT + `create_video` + `get_transcript`) → `words.tsv`; fix errors.
+3. `npx hyperframes remove-background` on the source (split in 2 halves in parallel, then concat to `cutout/presenter.mov`; wait by checking the logs for "Removed background", never `pgrep -f` a pattern that's in your own command).
+4. Map the head position per shot (scene detection + frames with a 10% grid). Rewrite the groups in `build-graphics.mjs` for the new script; set `EMPHASIS` in `build-captions.mjs` and `ZOOMS` in `build-layers.mjs`.
+5. `./build-final.sh` → `final/` (base < graphics < cut-out < captions as nested HyperFrames compositions). Check with `hyperframes snapshot final --at ...`, fix overlaps.
+6. Render with `npx hyperframes render final -o renders/reel.mp4 -q delivery --workers 2` (4 workers runs out of memory).
+7. `./mix.sh` (voice + upbeat music after the hook, −14 LUFS) → upload to Tella, add the catalog SFX with `apply_video_edits`, `export_video` (subtitles off), download from prod-compose.tella.tv and send it (compress below 30 MB for chat).
+
+The older Tella-assembly pipeline below still works but ep2's local composition is the approved path.
+
 ## Pipeline
 
 Create `reels/episodes/<name>/`, copy the scripts from `reels/scripts/` into it, and put the video in as `source.mp4`. The scripts use `../../graphics/intro/gsap.min.js`.
