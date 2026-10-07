@@ -6,6 +6,7 @@ Whenever the user asks to edit a video (especially a vertical video of them talk
 - text only inside the Reels safe zones; the face never gets covered,
 - the person **cut out in front** of images and cards,
 - light-blue captions, phrase by phrase, with red emphasis words and words that grow in,
+- **mixed fonts for emphasis** (bold sans + italic serif on the key word) and **minimalist icons** for abstract ideas,
 - a suspense hook, images with a woosh, real data with a source,
 - **upbeat/motivational music** (never melancholic).
 

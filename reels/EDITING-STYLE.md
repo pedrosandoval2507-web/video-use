@@ -27,6 +27,22 @@ How to do it: cut the person out with AI (`hyperframes remove-background`), bake
 - **Emphasis words**: **red** (`#ff3b30`) and larger.
 - The platform's default captions (Tella) stay off: these are rendered in HyperFrames.
 
+## Typography and minimalist graphics (reference: @lukachoi_ Reel, Oct 2026)
+The creator asked for this look on top of the rules above: **several fonts to give emphasis** and **minimalist images and icons**, so the video feels more dynamic.
+
+- **Mix fonts inside one phrase**: a bold sans-serif (Inter 800–900) for the plain words plus an **elegant italic serif** (e.g. *Instrument Serif Italic* / *Playfair Display Italic*) for the word that carries the idea. Examples from the reference: "a IA *sozinha*", "a *cereja* do bolo", "salva pra não *esquecer*", "botar em *prática*".
+- **One giant word** at key moments: a single word in large serif italic (~200–260 px) with a soft drop shadow, sitting behind/above the head (e.g. "*estilo*").
+- **Tilted stamp / label**: small uppercase tag in a bordered box, rotated ~-5°, under a title ("NÃO SABE EDITAR").
+- **Marker highlight** on a key word (a solid block behind the text). The reference uses yellow; **here it is red `#ff3b30` with white text** (or light-blue `rgba(196,228,255,0.92)` with dark text). Still **no yellow**.
+- **Strikethrough** for what to avoid ("vídeo ~~genérico~~"), the struck word faded/grey.
+- **Small spaced uppercase kicker** above a group ("3 FERRAMENTAS", "AS MINHAS VERSÕES"): ~24 px, letter-spacing 0.2em.
+- **Minimalist icons, not stock photos**, for abstract ideas: clean, flat or soft-3D single objects on a white rounded tile or floating with a soft shadow (cherry, bookmark, document 📄, GitHub logo, app logos). One icon = one idea. Pop in with a small scale bounce + `pop` SFX.
+- **Icon rows that build up**: items appear one by one as they are named (numbered labels "01 / 02 / 03"), then get a ✓ check as they are confirmed.
+- **Mini-cards of screenshots/files** (a `.md` file card, a phone UI, v1→v4 thumbnails with ✕ red / ✓ check) to show process instead of telling it.
+- Keep the background clean: lots of empty space, at most one graphic group on screen, white/light tiles, thin borders, rounded corners.
+- All of this still follows the safe zones and layering above (graphics above the head, person cut out in front, face never covered).
+- Final beat may cut to a **black screen with one big bold line** (e.g. "POR QUE NÃO VOCÊ?") for ~1 s.
+
 ## Hook (first ~2–3 s)
 - Suspense feel: **suspense riser + heartbeat**, a slow push-in zoom, and an **impact** at the end of the hook sentence.
 - Short title on screen during the hook (in the safe zone).
