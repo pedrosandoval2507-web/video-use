@@ -85,3 +85,5 @@ reels/episodes/*/snap/
 reels/episodes/parts/
 reels/episodes/cutout/
 reels/episodes/peek/
+reels/episodes/out/
+reels/episodes/*/renders/
