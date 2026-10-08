@@ -80,3 +80,8 @@ reels/episodes/*/node_modules/
 reels/episodes/*/package.json
 reels/episodes/*/qa/
 reels/episodes/*/tella_dl/
+reels/episodes/*/raw/
+reels/episodes/*/snap/
+reels/episodes/parts/
+reels/episodes/cutout/
+reels/episodes/peek/

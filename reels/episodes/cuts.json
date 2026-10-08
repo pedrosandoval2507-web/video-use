@@ -1,0 +1,101 @@
+{
+ "_note": "Raw takes from Drive folder 16g4vcBpsuA3JPtFlC5Jm1DvedTFuBgCv. The three files share the same body take (ep3 timeline used); only the hook differs. Times in seconds on each raw file; words in ms on the same raw timeline (Tella transcript, cleaned: false starts removed, Zeigarnik spelled right).",
+ "hooks": {
+  "ep3": {
+   "src": "ep3/raw/sdr.mp4",
+   "segs": [
+    [
+     0.33,
+     5.72
+    ]
+   ],
+   "words": "436 636 Você|636 856 não|856 1016 tá|1016 1796 sobrecarregado|1796 1956 de|1956 2436 trabalho.|2576 2656 Tá|2656 3436 sobrecarregado|3436 3616 de|3616 3896 coisas|3896 4036 que|4036 4256 você|4256 4716 começou,|4856 4956 mas|4956 5076 não|5076 5576 terminou."
+  },
+  "ep4": {
+   "src": "ep4/raw/sdr.mp4",
+   "segs": [
+    [
+     0.45,
+     4.3
+    ],
+    [
+     6.04,
+     7.75
+    ]
+   ],
+   "words": "571 691 Tem|691 851 um|851 1251 motivo|1251 1971 científico|1971 2111 do|2111 2471 porquê|2471 2591 que|2591 2811 você|2811 2951 não|2951 3231 consegue|3231 3571 focar|3571 3811 em|3811 4131 nada.|6140 6291 E|6291 6531 isso|6531 6791 não|6791 6971 é|6971 7531 preguiça."
+  },
+  "ep5": {
+   "src": "ep5/raw/sdr.mp4",
+   "segs": [
+    [
+     3.95,
+     6.4
+    ],
+    [
+     9.54,
+     12.25
+    ]
+   ],
+   "words": "4050 4220 Seu|4220 4560 cérebro|4560 5040 odeia|5040 5420 coisas|5420 5640 pela|5640 6220 metade.|9640 9760 E|9760 9940 isso|9940 10080 tá|10080 10240 te|10240 10640 travando|10640 11020 mais|11020 11180 do|11180 11260 que|11260 11480 você|11480 12080 imagina."
+  }
+ },
+ "body": {
+  "src": "ep3/raw/sdr.mp4",
+  "segs": [
+   [
+    8.62,
+    12.28
+   ],
+   [
+    18.52,
+    23.25
+   ],
+   [
+    30.15,
+    33.5
+   ],
+   [
+    39.87,
+    43.62
+   ],
+   [
+    61.02,
+    63.36
+   ],
+   [
+    66.21,
+    69.55
+   ],
+   [
+    79.45,
+    83.55
+   ],
+   [
+    93.73,
+    98.68
+   ],
+   [
+    103.85,
+    111.05
+   ],
+   [
+    115.66,
+    118.1
+   ],
+   [
+    123.4,
+    125.5
+   ],
+   [
+    139.09,
+    143.86
+   ],
+   [
+    148.08,
+    150.07
+   ]
+  ],
+  "words": "8720 8856 Eu|8856 8996 vou|8996 9076 ser|9076 9456 honesto|9456 9556 que|9556 9656 eu|9656 10016 percebi|10016 10236 isso|10236 10476 olhando|10476 10616 pra|10616 10736 minha|10736 11076 própria|11076 11536 rotina,|11656 12016 primeiro.|18620 18696 Tinha|18696 18876 que|18876 19216 conciliar|19216 19396 o|19396 19796 trabalho|19796 20016 junto|20016 20116 com|20116 20596 faculdade,|20736 20856 com|20856 21216 criação|21216 21356 de|21356 21736 conteúdo|21736 21896 e|21896 22096 várias|22096 22396 outras|22396 22676 coisas|22676 23016 também.|30250 30357 E|30357 30497 tinha|30497 30837 dias|30837 30957 que|30957 31037 eu|31037 31397 terminava|31477 31837 exausto|31837 32097 sem|32097 32437 fazer|32437 32797 quase|32797 33317 nada.|39970 40177 Mas|40177 40417 aí|40417 40517 que|40517 40577 eu|40577 40837 entendi|40837 40997 o|40997 41417 porquê|41417 41617 e|41617 41757 foi|41757 41877 o|41877 42277 estudo|42277 42457 que|42457 42617 me|42617 43157 comprovou|43157 43497 isso.|61120 61202 E|61202 61302 ele|61302 61402 é|61402 61742 chamado|61742 61922 de|61922 62282 efeito|62282 63222 Zeigarnik.|66310 66420 Porque|66420 66482 o|66482 66922 cérebro|66922 67502 trata|67502 67622 a|67622 67942 tarefa|67942 68522 inacabada|68522 68782 como|68782 68922 um|68922 69450 alarme.|79572 79672 Porque|79672 79772 ele|79772 79892 não|79892 79992 te|79992 80272 deixa|80272 80752 esquecer|80752 80972 e|80972 81192 fica|81192 81372 te|81372 81932 relembrando|81932 82152 a|82152 82472 cada|82472 82872 momento|82872 83052 que|83052 83432 passa.|93830 93885 E|93885 94025 uma|94025 94665 pesquisadora|94665 95085 chamada|95085 95465 Sophie|95465 95925 Leroy|95925 96365 encontrou|96365 96525 uma|96525 96745 coisa|96745 96925 que|96925 97465 piora|97465 98105 bastante|98105 98580 isso.|103950 104125 Porque|104125 104365 quando|104365 104700 você|106505 106965 troca|106965 107145 de|107145 107545 tarefa,|107545 108045 parte|108045 108205 do|108205 108445 seu|108445 108865 cérebro,|109005 109145 ele|109145 109505 fica|109505 110145 relembrando|110145 110325 da|110325 110705 anterior.|115760 115865 E|115865 116025 ela|116025 116345 chamou|116345 116585 isso|116585 116805 de|116805 117305 resíduo|117305 117405 de|117405 117845 atenção.|123500 123692 Então|123692 124092 agora,|124192 124432 junta|124432 124612 essas|124612 124872 duas|124872 125352 coisas.|139190 139272 De|139272 139472 um|139472 139732 lado,|139832 140032 10|140032 140472 projetos|140472 141072 começados,|141392 141412 ou|141412 141652 seja,|142032 142292 10|142292 142772 alarmes|142772 142932 que|142932 143192 estão|143192 143780 tocando.|148180 148272 E|148272 148492 você|148492 148992 nunca|148992 149192 tá|149192 149552 inteiro|149552 149912 deles."
+ }
+}
