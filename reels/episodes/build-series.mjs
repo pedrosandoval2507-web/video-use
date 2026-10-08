@@ -380,7 +380,7 @@ const ZOOMS = [
   { at: b("resíduo") - 0.1, dur: 1.8, to: 1.08 },
   { at: b("inteiro") - 0.3, dur: DUR - b("inteiro") + 0.3, to: 1.06 },
 ];
-function cam(id, src, bg) {
+function cam(id, src, bg, clips = [[0, DUR]]) {
   const z = ZOOMS.map((q) => q.push
     ? `tl.fromTo("#cam", { scale: ${q.from} }, { scale: ${q.to}, duration: ${q.dur.toFixed(3)}, ease: "none" }, ${q.at});
       tl.to("#cam", { scale: 1, duration: 0.3, ease: "power2.inOut" }, ${q.dur.toFixed(3)});`
@@ -402,7 +402,7 @@ function cam(id, src, bg) {
   </head>
   <body>
     <div id="root" data-composition-id="${id}" data-start="0" data-duration="${DUR}" data-width="${W}" data-height="${H}">
-      <div id="cam"><video id="${id}-video" class="clip" data-start="0" data-duration="${DUR}" data-track-index="0" src="${src}" muted playsinline></video></div>
+      <div id="cam">${clips.map(([a, d], k) => `<video id="${id}-video${k}" class="clip" data-start="${a.toFixed(3)}" data-duration="${d.toFixed(3)}" data-track-index="${k}" src="${clips.length > 1 ? `${id}_${k}.mov` : src}" muted playsinline></video>`).join("")}</div>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });
@@ -425,7 +425,18 @@ mkdirSync(join(F, "compositions", "fonts"), { recursive: true });
 mkdirSync(join(F, "fonts"), { recursive: true });
 const C = join(F, "compositions");
 writeFileSync(join(C, "base.html"), cam("base", "source.mp4", "#000"));
-writeFileSync(join(C, "presenter.html"), cam("presenter", "presenter.mov", "transparent"));
+// The cut-out only matters where a graphic sits behind the person (front graphics are drawn over it anyway),
+// so the presenter layer is limited to those windows: rendering extracts every frame of it as PNG.
+const wins = [];
+for (const g of groups.filter((x) => x[0] === "back").map((x) => [Math.max(0, x[2] - 0.3), Math.min(DUR, x[2] + x[3] + 0.1)]).sort((p, q) => p[0] - q[0])) {
+  const last = wins[wins.length - 1];
+  if (last && g[0] <= last[1]) last[1] = Math.max(last[1], g[1]); else wins.push([...g]);
+}
+const fps30 = (t) => Math.round(t * 30) / 30;
+const clips = wins.map(([a, e]) => [fps30(a), fps30(e) - fps30(a)]);
+clips.forEach(([a, d], k) => execFileSync("ffmpeg", ["-v", "error", "-y", "-ss", a.toFixed(3), "-i", join(DIR, "cutout", "presenter.mov"), "-t", d.toFixed(3),
+  "-c:v", "prores_ks", "-profile:v", "4444", "-pix_fmt", "yuva444p10le", join(C, `presenter_${k}.mov`)]));
+writeFileSync(join(C, "presenter.html"), cam("presenter", "presenter.mov", "transparent", clips.length ? clips : [[0, 0.5]]));
 writeFileSync(join(C, "back.html"), comp("back", groups.filter((g) => g[0] === "back")));
 writeFileSync(join(C, "front.html"), comp("front", groups.filter((g) => g[0] === "front")));
 writeFileSync(join(C, "captions.html"), captions());
