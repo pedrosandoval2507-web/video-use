@@ -87,3 +87,18 @@ reels/episodes/cutout/
 reels/episodes/peek/
 reels/episodes/out/
 reels/episodes/*/renders/
+# batch 2 media (keep only scripts + words/plans)
+reels/episodes/b2/raw/
+reels/episodes/b2/sdr/
+reels/episodes/b2/px/
+reels/episodes/b2/sfx/
+reels/episodes/b2/peek/
+reels/episodes/b2/face/
+reels/episodes/b2/ep*/source.mp4
+reels/episodes/b2/ep*/cutout/
+reels/episodes/b2/ep*/final/
+reels/episodes/b2/ep*/renders/
+reels/episodes/b2/ep*/snap/
+reels/episodes/b2/*.log
+reels/episodes/b2/ep*/*.log
+reels/episodes/b2/uploads.txt
