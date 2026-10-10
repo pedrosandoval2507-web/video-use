@@ -19,7 +19,7 @@ export const hook = {
   ],
   ep09: ({ w, HOOK }) => [
     mix("h1", 0.0, w("faturava") - 0.1, [["eu quase", w("quase")], ["quebrei", w("quebrei"), "serif"]]),
-    card("h2", w("faturava") - 0.1, w("e") - 0.05, { kicker: "UMA EMPRESA QUE FATURAVA", big: `<span class="red">6 dígitos</span>/mês`, bigAt: w("seis") }, { L: "back", overlap: 50 }),
+    card("h2", w("faturava") - 0.1, w("e") - 0.05, { kicker: "UMA EMPRESA QUE FATURAVA", big: `<span class="red">6 dígitos</span>/mês`, bigAt: w("seis") }),
     mix("h3", w("e") - 0.05, HOOK - 0.05, [["3 erros", w("três"), "mark"], ["bobos", w("bobos"), "serif"]]),
   ],
 };
@@ -49,7 +49,7 @@ export function body({ b, bp, HOOK, DUR }) {
       { icon: "tag", num: "02", label: "peças", at: b("peças") },
       { icon: "globe", num: "03", label: "domínio?", at: b("domínio"), color: "#ff3b30" },
     ]),
-    card("indisp", bp("e quando") - 0.1, b("então") - 0.1, { icon: "globe", kicker: "SUAMARCA.COM.BR", big: `<span class="red">indisponível</span>`, bigAt: b("disponível", 2), sub: "outra empresa já tinha o nome", subAt: b("nome", 3) }, { L: "back", overlap: 50 }),
+    card("indisp", bp("e quando") - 0.1, b("então") - 0.1, { icon: "globe", kicker: "SUAMARCA.COM.BR", big: `<span class="red">indisponível</span>`, bigAt: b("disponível", 2), sub: "outra empresa já tinha o nome", subAt: b("nome", 3) }),
     stat("perd", b("então") - 0.1, bp("já salva") - 0.15, { value: "2", post: `<span class="u">meses perdidos</span>`, at: b("dois") - 0.1 }),
     cta("cta", bp("já salva") - 0.15, DUR, `salva antes de abrir o <span class="serif">CNPJ</span>`, "e me segue pra mais 👇"),
   ];

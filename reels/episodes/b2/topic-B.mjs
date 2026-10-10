@@ -1,15 +1,13 @@
 // Script B: "500 mil no 1º mês — as 3 decisões". ep04/ep05/ep06 = three hooks, same body.
-// Medium framing (chin ~47%): data cards tucked under the chin (back layer, cut-out in front).
+// Medium framing (chin ~47%): cards sit under the chin, in front (the torso would hide a card behind the cut-out).
 import { mix, tiles, card, cta } from "./lib.mjs";
 
 export const EMPH = ["três", "conteúdo", "anúncio", "orgânica", "fomo", "suspense", "influenciadoras", "jornalistas", "comunidade", "recompra", "genial", "anuncia", "diferença", "escalar", "500", "16"];
 export const hookEnd = ({ p }) => p("e essas aqui foram");
-const money = (id, t0, t1, at, kicker) => card(id, t0, t1, { kicker, big: `R$ <span class="red">500 mil</span>`, bigAt: at }, { L: "back", overlap: 50 });
+const money = (id, t0, t1, at, kicker) => card(id, t0, t1, { kicker, big: `R$ <span class="red">500 mil</span>`, bigAt: at });
 
 export const hook = {
-  ep04: ({ w, HOOK }) => [
-    money("h1", 0.1, HOOK - 0.05, w("resultado"), "FATURAMENTO · 1º MÊS DA EMPRESA"),
-  ],
+  ep04: () => [], // the iPad with the real result is the hook visual: nothing goes over it
   ep05: ({ w, HOOK }) => [
     mix("h1", 0.0, w("faturei") - 0.05, [["com", w("com")], ["16 anos", w("16"), "mark"]]),
     money("h2", w("faturei") - 0.05, HOOK - 0.05, w("500"), "1º MÊS DA MINHA EMPRESA"),
@@ -29,7 +27,7 @@ export function body({ b, bp, HOOK, DUR }) {
     ], { kicker: "DECISÃO 01" }),
     mix("ning", b("hoje") - 0.1, bp("as pessoas querem") - 0.1, [["ninguém quer ver", b("ninguém")], ["anúncio", b("anúncio", 2), "strike"]]),
     mix("org", bp("as pessoas querem") - 0.1, bp("a segunda") - 0.1, [[["de forma", b("forma")], ["orgânica", b("orgânica"), "serif"]], [["na rotina de quem já", b("rotina")], ["acompanha", b("acompanha"), "red"]]]),
-    card("fomo", bp("a segunda") - 0.1, b("enquanto") - 0.1, { kicker: "DECISÃO 02", big: "FOMO", bigAt: b("fomo"), sub: `medo de <span class="serif">ficar de fora</span>`, subAt: b("fomo") + 0.5 }, { L: "back", overlap: 50 }),
+    card("fomo", bp("a segunda") - 0.1, b("enquanto") - 0.1, { kicker: "DECISÃO 02", big: "FOMO", bigAt: b("fomo"), sub: `medo de <span class="serif">ficar de fora</span>`, subAt: b("fomo") + 0.5 }),
     tiles("susp", b("enquanto") - 0.1, b("deixando") - 0.1, [
       { icon: "users", label: "todo mundo queria", at: b("queriam") },
       { icon: "lock", label: "suspense", at: b("suspense"), color: "#ff3b30" },
