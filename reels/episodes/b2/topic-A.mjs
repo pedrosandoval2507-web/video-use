@@ -15,7 +15,7 @@ export const hook = {
     stat("h2", w("você", 2) - 0.05, HOOK - 0.05, { value: "57", post: "%", countTo: 57, at: w("57%") - 0.1 }),
   ],
   ep03: ({ w, HOOK }) => [
-    mix("h1", 0.0, w("e") - 0.05, [["12 mil pessoas", w("12"), "mark"], ["por", w("por")], ["32 anos", w("32"), "serif"]]),
+    mix("h1", 0.0, w("e") - 0.05, [[["12 mil pessoas", w("12"), "mark"]], [["por", w("por")], ["32 anos", w("32"), "serif"]]]),
     mix("h2", w("e") - 0.05, HOOK - 0.05, [["vai te", w("vai")], ["surpreender", w("surpreender"), "serif"]]),
   ],
 };

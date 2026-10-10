@@ -73,6 +73,12 @@ function rowHtml(parts, t0, top, size = 66) {
     const cls = { serif: "serif big", mark: "markbig", strike: "strike", red: "redw", small: "smallw" }[kind] || "";
     return `<span id="${id}" class="${cls}">${txt}</span>`;
   });
+  // estimated width (Inter 800 ~0.58em/char, serif x1.75 ~0.45em/char, marker x1.2 + padding): shrink to fit 980 px
+  const est = parts.reduce((n, [txt, , kind = ""]) => {
+    const t = txt.replace(/<[^>]+>/g, "").length;
+    return n + 18 + (kind === "serif" ? t * 0.45 * 1.75 : kind === "mark" ? t * 0.62 * 1.2 + 0.7 : kind === "small" ? t * 0.42 : t * 0.58) * size + (kind === "mark" ? 44 : 0);
+  }, 0);
+  if (est > 980) size = Math.floor(size * 980 / est);
   const hasSerif = parts.some((x) => x[2] === "serif" || x[2] === "mark");
   const h = hasSerif ? 128 : size >= 66 ? 86 : 70;
   return { html: `<div class="title" style="top:${top}px;font-size:${size}px;height:${h}px">${spans.join(" ")}</div>`, an, sfx, h };
