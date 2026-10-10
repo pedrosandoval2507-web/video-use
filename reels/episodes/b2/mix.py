@@ -28,6 +28,7 @@ out = ep / "renders" / "final.mp4"
 subprocess.run(["ffmpeg", "-v", "error", "-y", *ins, "-filter_complex", ";".join(f), "-map", "0:v", "-map", "[a]", "-c:v", "copy",
                 "-c:a", "aac", "-b:a", "192k", "-t", f"{DUR}", "-movflags", "+faststart", str(out)], check=True)
 chat = ep / "renders" / "chat.mp4"
-subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(out), "-c:v", "libx264", "-crf", "23", "-preset", "slow", "-maxrate", "3.5M", "-bufsize", "7M",
+rate = int(min(3500, 27e6 * 8 / DUR / 1000 - 200))  # stay under the 30 MB chat limit
+subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(out), "-c:v", "libx264", "-crf", "23", "-preset", "slow", "-maxrate", f"{rate}k", "-bufsize", f"{2 * rate}k",
                 "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(chat)], check=True)
 print(out, chat, f"{chat.stat().st_size / 1e6:.1f} MB")
