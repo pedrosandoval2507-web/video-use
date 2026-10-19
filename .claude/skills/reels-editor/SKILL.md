@@ -14,6 +14,8 @@ Read `reels/EDITING-STYLE.md` first. It holds the creator's preferences and is t
 4. Map the head position per shot (scene detection + frames with a 10% grid). Rewrite the groups in `build-graphics.mjs` for the new script; set `EMPHASIS` in `build-captions.mjs` and `ZOOMS` in `build-layers.mjs`.
 5. `./build-final.sh` → `final/` (base < graphics < cut-out < captions as nested HyperFrames compositions). Check with `hyperframes snapshot final --at ...`, fix overlaps.
 6. Render with `npx hyperframes render final -o renders/reel.mp4 -q delivery --workers 2` (4 workers runs out of memory).
+   For videos longer than ~1 min the cut-out PNG extraction (~20 GB) fills the cloud disk: use `reels/episodes/ep3/composite.sh` instead (HyperFrames renders bg + top layers, FFmpeg stacks the zoomed cut-out between them).
+   Raw takes with retakes (ep3): pick the best take per line in `raw_words.tsv`, then `make-edl.py` + `make-cut.sh` build a frame-exact jump-cut `source.mp4` (iPhone HLG tone-mapped to SDR) and the remapped `words.tsv`.
 7. `./mix.sh` (voice + upbeat music after the hook, −14 LUFS) → upload to Tella, add the catalog SFX with `apply_video_edits`, `export_video` (subtitles off), download from prod-compose.tella.tv and send it (compress below 30 MB for chat).
 
 The older Tella-assembly pipeline below still works but ep2's local composition is the approved path.
