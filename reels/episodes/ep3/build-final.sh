@@ -1,15 +1,15 @@
 #!/bin/bash
 # Assembles final/: one master HyperFrames composition stacking
-#   base (zoomed recording) < graphics (titles, icons, cards) < presenter (AI cut-out, same zooms) < captions
+#   base (zoomed recording) < graphics (titles, icon tiles) < presenter (AI cut-out, same zooms) < front (chest cards, CTA) < captions
 set -e
 cd "$(dirname "$0")"
 node build-layers.mjs && node build-captions.mjs > /dev/null && node build-graphics.mjs > /dev/null
 rm -rf final && mkdir -p final/compositions/fonts
-for c in base presenter graphics captions; do cp $c/index.html final/compositions/$c.html; done
+for c in base presenter graphics front captions; do cp $c/index.html final/compositions/$c.html; done
 for d in final final/compositions; do cp graphics/gsap.min.js $d/; done
 mkdir -p final/fonts && cp fonts/InstrumentSerif-Italic.woff2 final/fonts/ && cp fonts/InstrumentSerif-Italic.woff2 final/compositions/fonts/
 for d in final final/compositions; do ln -s "$PWD/source.mp4" $d/source.mp4; ln -s "$PWD/cutout/presenter.mov" $d/presenter.mov; done
-DUR=55.966
+DUR=73.767
 cat > final/index.html <<HTML
 <!doctype html>
 <html lang="pt-BR">
@@ -29,8 +29,9 @@ cat > final/index.html <<HTML
     <div id="root" data-composition-id="reel" data-start="0" data-duration="$DUR" data-width="1080" data-height="1920">
       <div class="layer" id="l_base" data-composition-id="base" data-composition-src="compositions/base.html" data-start="0" data-duration="$DUR" data-track-index="0"></div>
       <div class="layer" id="l_graphics" data-composition-id="graphics" data-composition-src="compositions/graphics.html" data-start="0" data-duration="$DUR" data-track-index="1"></div>
-      <div class="layer" id="l_presenter" data-composition-id="presenter" data-composition-src="compositions/presenter.html" data-start="0" data-duration="50.05" data-track-index="2"></div>
-      <div class="layer" id="l_captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-track-kind="captions" data-start="0" data-duration="$DUR" data-track-index="3"></div>
+      <div class="layer" id="l_presenter" data-composition-id="presenter" data-composition-src="compositions/presenter.html" data-start="0" data-duration="$DUR" data-track-index="2"></div>
+      <div class="layer" id="l_front" data-composition-id="front" data-composition-src="compositions/front.html" data-start="0" data-duration="$DUR" data-track-index="3"></div>
+      <div class="layer" id="l_captions" data-composition-id="captions" data-composition-src="compositions/captions.html" data-track-kind="captions" data-start="0" data-duration="$DUR" data-track-index="4"></div>
     </div>
     <script>
       const tl = gsap.timeline({ paused: true });

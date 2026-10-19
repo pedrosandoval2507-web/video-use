@@ -74,6 +74,7 @@ reels/episodes/*/base/
 reels/episodes/*/presenter/
 reels/episodes/*/captions/
 reels/episodes/*/graphics/
+reels/episodes/*/front/
 reels/episodes/*/cards/
 reels/episodes/*/fonts/
 reels/episodes/*/node_modules/

@@ -1,21 +1,23 @@
 // Builds two HyperFrames compositions that share one zoom timeline:
 //   base/      -> the recording with punch-in zooms baked in (opaque MP4, original audio muxed back in later)
 //   presenter/ -> the AI cut-out of the person with the *same* zooms (transparent MOV), layered above images/cards
-import { writeFileSync, mkdirSync, copyFileSync, symlinkSync, existsSync, rmSync } from "node:fs";
+import { writeFileSync, mkdirSync, copyFileSync, symlinkSync, rmSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const W = 1080, H = 1920, DUR = 55.966;
+const W = 1080, H = 1920, DUR = 73.767;
 const ORIGIN = "50% 40%";   // zoom around the face, so it stays in place instead of drifting up
 const EASE_IN = 0.3, EASE_OUT = 0.3;
 
-// [start s, duration s, scale]. The hook is a slow suspense push-in.
+// [start s, duration s, scale]. The hook is a slow suspense push-in. Close-up framing, so zooms stay ≤1.12.
 const ZOOMS = [
-  { at: 0, dur: 2.3, from: 1.12, to: 1.32, push: true },
-  { at: 14.5, dur: 1.5, to: 1.2 },
-  { at: 39.25, dur: 3.0, to: 1.2 },
-  { at: 50.15, dur: 5.8, to: 1.1 },
+  { at: 0, dur: 3.75, from: 1.0, to: 1.1, push: true },
+  { at: 14.95, dur: 1.6, to: 1.1 },
+  { at: 25.85, dur: 1.2, to: 1.08 },
+  { at: 41.15, dur: 1.0, to: 1.12 },
+  { at: 54.8, dur: 1.3, to: 1.1 },
+  { at: 70.05, dur: 1.6, to: 1.1 },
 ];
 
 function zoomTimeline() {
@@ -66,7 +68,7 @@ for (const [dir, src, bg] of [["base", "source.mp4", "#000"], ["presenter", "pre
   copyFileSync(join(HERE, "../../graphics/intro/gsap.min.js"), join(d, "gsap.min.js"));
   const media = join(d, src);
   const target = dir === "base" ? join(HERE, "source.mp4") : join(HERE, "cutout", "presenter.mov");
-  if (existsSync(media)) rmSync(media);
+  rmSync(media, { force: true });   // also clears a dangling link (cut-out not rendered yet)
   symlinkSync(target, media);
   writeFileSync(join(d, "index.html"), page(dir, src, bg));
 }

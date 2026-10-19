@@ -1,136 +1,163 @@
-// Builds graphics/index.html: one transparent 1080x1920 HyperFrames composition with every
-// kinetic title, minimalist icon tile and data card of the reel (style: reels/EDITING-STYLE.md,
-// "Typography and minimalist graphics"). The person cut-out is layered on top of this later.
+// Builds the kinetic titles, minimalist icon tiles and data cards of the reel (style: reels/EDITING-STYLE.md,
+// "Typography and minimalist graphics") as two transparent 1080x1920 HyperFrames compositions:
+//   graphics/ -> behind the person cut-out (titles behind the hair, tiles beside the head)
+//   front/    -> above the cut-out (cards over the chest, the CTA), still below the captions
 import { writeFileSync, mkdirSync, copyFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const W = 1080, H = 1920, DUR = 55.966;
+const W = 1080, H = 1920, DUR = 73.767;
 
 // ---- minimalist line icons (viewBox 0 0 100 100) ----
 const S = `fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"`;
 const ICON = {
   dumbbell: `<path ${S} d="M28 50H72"/><rect ${S} x="14" y="32" width="14" height="36" rx="4"/><rect ${S} x="72" y="32" width="14" height="36" rx="4"/><path ${S} d="M8 42v16M92 42v16"/>`,
-  cap: `<path ${S} d="M8 40 50 22 92 40 50 58Z"/><path ${S} d="M27 49v16c14 10 32 10 46 0V49"/><path ${S} d="M92 40v20"/>`,
-  bulb: `<path ${S} d="M50 12a26 26 0 0 1 16 46c-3 3-4 6-4 10H38c0-4-1-7-4-10a26 26 0 0 1 16-46Z"/><path ${S} d="M39 80h22M43 90h14"/>`,
-  target: `<circle ${S} cx="46" cy="54" r="34"/><circle ${S} cx="46" cy="54" r="19"/><circle cx="46" cy="54" r="6" fill="currentColor"/><path ${S} d="M46 54 84 16M72 16h12v12"/>`,
-  globe: `<circle ${S} cx="50" cy="50" r="37"/><ellipse ${S} cx="50" cy="50" rx="15" ry="37"/><path ${S} d="M13 50h74M20 31h60M20 69h60"/>`,
+  medal: `<path ${S} d="M34 10l16 30 16-30"/><circle ${S} cx="50" cy="64" r="24"/><path ${S} d="M44 58l6-5v23"/>`,
+  trophy: `<path ${S} d="M30 14h40v24a20 20 0 0 1-40 0Z"/><path ${S} d="M30 22H16c0 14 6 20 14 20M70 22h14c0 14-6 20-14 20"/><path ${S} d="M50 58v16M34 88h32M40 74h20v14H40Z"/>`,
   briefcase: `<rect ${S} x="12" y="32" width="76" height="52" rx="9"/><path ${S} d="M37 32v-9h26v9M12 54h76"/>`,
   chart: `<path ${S} d="M12 84h78"/><path ${S} d="M16 70 38 48l16 12 32-34"/><path ${S} d="M70 26h16v16"/>`,
+  key: `<circle ${S} cx="32" cy="50" r="18"/><path ${S} d="M50 50h40M78 50v14M66 50v10"/>`,
+  target: `<circle ${S} cx="46" cy="54" r="34"/><circle ${S} cx="46" cy="54" r="19"/><circle cx="46" cy="54" r="6" fill="currentColor"/><path ${S} d="M46 54 84 16M72 16h12v12"/>`,
+  clock: `<circle ${S} cx="50" cy="52" r="36"/><path ${S} d="M50 30v24l16 10"/>`,
   people: `<circle ${S} cx="36" cy="34" r="12"/><path ${S} d="M14 82c0-16 10-26 22-26s22 10 22 26"/><circle ${S} cx="68" cy="38" r="10"/><path ${S} d="M60 58c3-1 5-2 8-2 11 0 19 9 19 23"/>`,
+  down: `<path ${S} d="M50 14v68M24 56l26 26 26-26"/>`,
+  up: `<path ${S} d="M50 86V18M24 44l26-26 26 26"/>`,
   check: `<path fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" d="M28 52l15 15 30-32"/>`,
   cross: `<path fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" d="M33 33l34 34M67 33 33 67"/>`,
 };
 const svg = (name, size, color = "#141414") =>
   `<svg viewBox="0 0 100 100" width="${size}" height="${size}" style="color:${color}">${ICON[name]}</svg>`;
-const person = (cls = "") =>
-  `<svg class="pp ${cls}" viewBox="0 0 60 90" width="84" height="126"><circle cx="30" cy="20" r="14" fill="currentColor"/><path d="M6 86c0-26 10-40 24-40s24 14 24 40Z" fill="currentColor"/></svg>`;
-const glass = `<svg class="gl" viewBox="0 0 40 50" width="34" height="42"><path d="M6 6h28l-4 38H10Z" fill="#f5b100" stroke="#141414" stroke-width="3.5" stroke-linejoin="round"/><path d="M6 6h28v7H6Z" fill="#fff" stroke="#141414" stroke-width="3.5" stroke-linejoin="round"/></svg>`;
 
-// ---- groups: [id, start, dur, html, gsap entrance (relative to start)] ----
-// Positions follow the head in each shot: wide shots (head top ~28-35%) take titles at 13-26%;
-// close-ups (20.5-25.7, 38.2-end, head top ~15-18%) put tiles beside the head.
-const tile = (id, icon, num, label, x, y, size = 150) => `
+// ---- groups: [id, start, dur, html, gsap entrance (relative to start), front?] ----
+// Close-up all the way: hair top ~15%, chin ~42%, face between x 380-700, shoulders from ~45%.
+// The busy ceiling makes dark text unreadable, so every phrase sits on a white box: short labels at the top
+// (12.4-16%, mostly above the hair), tiles and side words beside the head (x 20-320 / 760-1060, y 380-760),
+// titles, cards and the CTA over the chest (y 985-1200), above the cut-out and clear of the captions (~1250+).
+const FB = 985;   // front title boxes: between the chin and the captions
+const tile = (id, icon, num, label, x, y, size = 120, color) => `
   <div class="tile" id="${id}" style="left:${x}px;top:${y}px">
-    <div class="tbox" style="width:${size + 56}px;height:${size + 56}px">${svg(icon, size)}</div>
+    <div class="tbox" style="width:${size + 56}px;height:${size + 56}px">${svg(icon, size, color)}</div>
     <div class="tlab"><span class="num">${num}</span>${label}</div>
   </div>`;
+const fbox = (id, inner, top = FB) => `<div class="fbox" style="top:${top}px"><div class="in" id="${id}">${inner}</div></div>`;
+const kicker = (id, text, top = 238) => `<div class="kpill" id="${id}" style="top:${top}px"><span>${text}</span></div>`;
 const pop = (sel, t) => `tl.fromTo("${sel}", { opacity: 0, scale: 0.4, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.38, ease: "back.out(2.2)" }, ${t});`;
 const rise = (sel, t, d = 0.35) => `tl.fromTo("${sel}", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: ${d}, ease: "power3.out" }, ${t});`;
+const slam = (sel, t, rot = 0) => `tl.fromTo("${sel}", { opacity: 0, scale: 1.6, rotate: ${rot - 6} }, { opacity: 1, scale: 1, rotate: ${rot}, duration: 0.42, ease: "back.out(2)" }, ${t});`;
+const strike = (sel, t) => `tl.fromTo("${sel}", { "--s": 0 }, { "--s": 1, duration: 0.35, ease: "power2.out" }, ${t});`;
 
 const G = [
-  // Hook: "você é a média" (sans + italic serif), then five people pop in on "cinco pessoas".
-  ["hook", 0.0, 2.6, `
-    <div class="row small" id="ppl" style="top:236px">${[0, 1, 2, 3, 4].map((i) => `<div id="hp${i}">${person()}</div>`).join("")}</div>
-    <div class="title" style="top:340px"><span id="h1">você</span> <span id="h2">é a</span> <span class="serif big" id="h3">média</span></div>`,
-    [rise("#h1", 0.03, 0.25), rise("#h2", 0.27, 0.25),
-     `tl.fromTo("#h3", { opacity: 0, scale: 1.6, rotate: -6 }, { opacity: 1, scale: 1, rotate: 0, duration: 0.45, ease: "back.out(2)" }, 0.5);`,
-     ...[0, 1, 2, 3, 4].map((i) => pop(`#hp${i}`, (0.97 + i * 0.12).toFixed(2))),
-     `tl.to("#ppl", { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, 2.2);`]],
+  // Hook: "3 LIÇÕES" stamp, esporte -> negócios tiles.
+  ["hook", 0.15, 3.65, `
+    <div class="title" style="top:236px"><span class="markbig" id="h1">3 lições</span></div>
+    ${tile("h_esp", "medal", "", "esporte", 40, 400)}
+    ${tile("h_neg", "briefcase", "", "negócios", 828, 400)}`,
+    [slam("#h1", 0.05, -3), pop("#h_esp", 1.4), pop("#h_neg", 2.65)]],
 
-  // Context: gym -> university -> 2 months (icon row that builds up).
-  ["ctx", 2.9, 4.4, `
-    ${tile("t_gym", "dumbbell", "01", "academia", 200, 250)}
-    ${tile("t_uni", "cap", "02", "faculdade", 640, 250)}
-    <div class="pill" id="months" style="left:420px;top:560px">há <span class="serif">2 meses</span></div>`,
-    [pop("#t_gym", 0.2), pop("#t_uni", 2.3), pop("#months", 3.45)]],
+  // Since childhood, physical activity.
+  ["ctx", 3.85, 3.2, `
+    <div class="side" id="c1" style="left:20px;top:400px"><div class="sans">desde</div><div class="serif huge">pequeno</div></div>
+    ${tile("c_fis", "dumbbell", "", "atividade física", 790, 400)}`,
+    [rise("#c1", 0.0, 0.35), pop("#c_fis", 2.0)]],
 
-  // The quote.
-  ["quote", 7.4, 2.95, `
-    <div class="card" id="qcard" style="left:90px;top:240px;width:900px">
-      <div class="kicker">A FRASE</div>
-      <div class="qt">“Você é a <span class="serif">média</span> das <span class="mark">5 pessoas</span> com quem mais convive.”</div>
-      <div class="by">— Jim Rohn</div>
-    </div>`,
-    [rise("#qcard", 0, 0.4)]],
+  // What sport taught me impacts my businesses.
+  ["impacto", 8.65, 5.2, `
+    ${tile("i_neg", "briefcase", "", "meus negócios", 40, 400)}
+    ${tile("i_up", "chart", "", "impacto positivo", 790, 400, 120, "#16a34a")}`,
+    [pop("#i_up", 1.75), pop("#i_neg", 3.55)]],
 
-  // "simplesmente impossível" with a red marker.
-  ["impossivel", 10.45, 3.95, `
-    <div class="title" style="top:260px"><span id="i1">simplesmente</span></div>
-    <div class="title" style="top:360px"><span class="markbig" id="i2">impossível</span></div>`,
-    [rise("#i1", 0.0, 0.3),
-     `tl.fromTo("#i2", { opacity: 0, scale: 0.5, rotate: -8 }, { opacity: 1, scale: 1, rotate: -3, duration: 0.4, ease: "back.out(2.4)" }, 0.5);`]],
+  // Lesson 1: constância, the key to your goals.
+  ["licao1", 13.95, 5.05, `
+    ${kicker("l1k", "LIÇÃO 01")}
+    ${tile("l1_key", "key", "", "a chave", 40, 440)}
+    ${tile("l1_tgt", "target", "", "objetivos", 828, 440)}`,
+    [rise("#l1k", 0.0, 0.3), pop("#l1_key", 2.15), pop("#l1_tgt", 4.25)]],
+  ["licao1_t", 14.95, 4.05, fbox("l1t", `<span class="serif big">constância</span>`), [slam("#l1t", 0.0)], true],
 
-  // "eu concordo" + check.
-  ["concordo", 14.6, 1.6, `
-    <div class="title" style="top:270px"><span id="c1">eu</span> <span class="serif big" id="c2">concordo</span> <span class="okdot" id="c3">${svg("check", 64)}</span></div>`,
-    [rise("#c1", 0.0, 0.25), rise("#c2", 0.12, 0.3), pop("#c3", 0.6)]],
+  // Sport = business; one decision rarely changes everything.
+  ["umadec", 20.2, 5.15, `
+    ${tile("u_esp", "medal", "", "esporte", 40, 420)}
+    ${tile("u_neg", "briefcase", "", "empresa", 828, 420)}`,
+    [pop("#u_esp", 0.05), pop("#u_neg", 0.55)]],
+  ["umadec_t", 22.6, 2.75, fbox("u0", `<span>só</span> <span class="red">1</span> <span class="serif big strike" id="u2">decisão</span> <span class="xdot" id="u3">${svg("cross", 46)}</span>`),
+    [rise("#u0", 0.0, 0.3), strike("#u2", 0.75), pop("#u3", 0.9)], true],
 
-  // Real data card.
-  ["stat57", 16.95, 3.5, `
-    <div class="card" id="scard" style="left:90px;top:235px;width:900px">
-      <div class="srow"><div class="bignum" id="n57">0%</div>
-      <div class="stxt">mais chance de <span class="serif">engordar</span> se um amigo próximo engordar</div></div>
-      <div class="src">Christakis &amp; Fowler · New England Journal of Medicine, 2007</div>
+  // ...but the sum of small decisions (title) + real data card on the chest.
+  ["soma", 25.45, 1.45, fbox("s0", `<span>a</span> <span class="markbig small" id="s2">soma</span> <span>de</span> <span class="serif big">pequenas</span>`),
+    [rise("#s0", 0.0, 0.3), slam("#s2", 0.45, -2)], true],
+  ["soma_card", 26.9, 2.7, `
+    <div class="card" id="scard" style="left:90px;top:${FB}px;width:900px;padding:22px 36px 20px">
+      <div class="srow"><div class="bignum" id="n37">0x</div>
+      <div class="stxt">melhor em 1 ano, ficando só <span class="serif">1%</span> melhor por dia</div></div>
+      <div class="src">1,01³⁶⁵ ≈ 37,8 · James Clear, Hábitos Atômicos (2018)</div>
     </div>`,
     [rise("#scard", 0, 0.4),
-     `const n57 = { v: 0 }; tl.to(n57, { v: 57, duration: 1.1, ease: "power2.out", onUpdate: () => { document.getElementById("n57").textContent = Math.round(n57.v) + "%"; } }, 0.2);`]],
+     `const n37 = { v: 0 }; tl.to(n37, { v: 37, duration: 1.1, ease: "power2.out", onUpdate: () => { document.getElementById("n37").textContent = Math.round(n37.v) + "x"; } }, 0.25);`],
+    true],
 
-  // Close-up: what shapes you (tiles beside the head).
-  ["molda", 20.9, 4.8, `
-    <div class="kicker solo" id="mk" style="top:236px">O QUE TE MOLDA</div>
-    ${tile("t_pens", "bulb", "01", "como pensam", 130, 290, 110)}
-    ${tile("t_obj", "target", "02", "objetivos", 438, 290, 110)}
-    ${tile("t_mun", "globe", "03", "o mundo", 746, 290, 110)}`,
-    [rise("#mk", 0.0, 0.3), pop("#t_pens", 0.15), pop("#t_obj", 0.75), pop("#t_mun", 3.85)]],
+  // Lesson 2: err early, get it right early.
+  ["licao2", 29.65, 4.3, `
+    ${kicker("l2k", "LIÇÃO 02")}
+    <div class="side" id="e1" style="left:20px;top:400px"><div class="sans">erra</div><div class="serif huge red">cedo</div><span class="xdot sm">${svg("cross", 38)}</span></div>
+    <div class="side" id="e2" style="left:760px;top:400px"><div class="sans">acerta</div><div class="serif huge green">cedo</div><span class="okdot sm">${svg("check", 40)}</span></div>`,
+    [rise("#l2k", 0.0, 0.3), rise("#e1", 1.45, 0.35), rise("#e2", 2.65, 0.35)]],
 
-  // Five alcoholics -> you are the sixth.
-  ["sixth", 26.35, 2.75, `
-    <div class="title t2" style="top:228px"><span id="s1">5</span> <span class="serif big" id="s2">alcoólatras</span></div>
-    <div class="row small" id="srow" style="top:352px">
-      ${[0, 1, 2, 3, 4].map((i) => `<div class="pw" id="sp${i}">${person()}${glass}</div>`).join("")}
-      <div class="pw you" id="spy">${person("red")}<div class="youtag">VOCÊ</div></div>
+  // Training vs competition -> 100% ready.
+  ["treino", 34.05, 7.85, `
+    ${tile("t_tre", "dumbbell", "01", "treino", 40, 420)}
+    ${tile("t_com", "trophy", "02", "competição", 815, 420)}`,
+    [pop("#t_tre", 1.7), pop("#t_com", 5.4)]],
+  ["treino_t", 40.35, 1.6, fbox("t0", `<span class="markbig" id="t100">0%</span> <span class="serif big">pronto</span>`),
+    [rise("#t0", 0.0, 0.3),
+     `const n100 = { v: 0 }; tl.to(n100, { v: 100, duration: 0.8, ease: "power2.out", onUpdate: () => { document.getElementById("t100").textContent = Math.round(n100.v) + "%"; } }, 0.1);`], true],
+
+  // Business: don't postpone out of fear -> more time to get it right.
+  ["adiar", 45.0, 6.0, `
+    <div class="side" id="a2" style="left:20px;top:400px"><div class="sans">adiar</div><div class="serif huge strike" id="a3">projetos</div><div class="tag2">com medo</div></div>
+    ${tile("a_clk", "clock", "", "+ tempo", 828, 420, 120, "#16a34a")}`,
+    [rise("#a2", 1.15, 0.35), strike("#a3", 2.4), pop("#a_clk", 4.45)]],
+  ["adiar_t", 42.05, 2.95, fbox("a0", `<span>no</span> <span class="serif big">empreendedorismo</span>`), [rise("#a0", 0.0, 0.35)], true],
+
+  // Lesson 3: you're the average of your team.
+  ["licao3", 51.1, 5.0, `
+    ${kicker("l3k", "LIÇÃO 03")}
+    ${tile("m_ppl", "people", "", "seu time", 40, 440)}`,
+    [rise("#l3k", 0.0, 0.3), pop("#m_ppl", 4.5)]],
+  ["licao3_t", 54.75, 1.35, fbox("m0", `<span>a</span> <span class="serif big" id="m2">média</span> <span>do seu</span> <span class="markbig small" id="m4">time</span>`),
+    [rise("#m0", 0.0, 0.3), slam("#m4", 0.55, -2)], true],
+
+  // Bad team pulls you down, good team lifts you up.
+  ["times", 56.15, 5.45, `
+    ${tile("r_bad", "down", "", "time ruim", 40, 420, 120, "#ff3b30")}
+    ${tile("r_good", "up", "", "time bom", 828, 420, 120, "#16a34a")}`,
+    [pop("#r_bad", 1.0), pop("#r_good", 2.7)]],
+
+  // Partner, team, people around you.
+  ["quem", 61.7, 3.95, `
+    ${kicker("qk", "QUEM TE CERCA")}
+    <div class="stack" style="left:30px;top:420px">
+      <div class="spill" id="q1"><span class="num">01</span>sócio</div>
+      <div class="spill" id="q2"><span class="num">02</span>equipe</div>
+      <div class="spill" id="q3"><span class="num">03</span>convívio</div>
     </div>`,
-    [rise("#s1", 0.45, 0.25), rise("#s2", 0.8, 0.3),
-     ...[0, 1, 2, 3, 4].map((i) => pop(`#sp${i}`, (0.8 + i * 0.1).toFixed(2))),
-     pop("#spy", 2.3)]],
+    [rise("#qk", 0.0, 0.3), pop("#q1", 0.3), pop("#q2", 0.82), pop("#q3", 1.3)]],
 
-  // Negative vs positive (strikethrough on the negative side).
-  ["negpos", 32.85, 5.25, `
-    <div class="line" id="l1" style="top:230px"><span class="dot neg">${svg("cross", 54)}</span><span class="what"><span class="strike" id="st">bar e bebida</span></span><span class="tag">negativa</span></div>
-    <div class="line" id="l2" style="top:330px"><span class="dot pos">${svg("check", 54)}</span><span class="what">negócios e <span class="serif">crescer</span></span><span class="tag">positiva</span></div>`,
-    [rise("#l1", 2.1, 0.35), `tl.fromTo("#st", { "--s": 0 }, { "--s": 1, duration: 0.35, ease: "power2.out" }, 2.6);`, rise("#l2", 3.9, 0.35)]],
+  // Two worlds that look different but are extremely alike.
+  ["mundos", 65.8, 6.0, `
+    ${tile("w_esp", "medal", "", "esporte", 40, 420)}
+    ${tile("w_neg", "briefcase", "", "negócios", 828, 420)}`,
+    [pop("#w_esp", 1.1), pop("#w_neg", 1.6)]],
+  ["mundos_t", 70.0, 1.8, fbox("w0", `<span class="serif big">extremamente</span> <span class="markbig small" id="w2">parecidos</span>`),
+    [rise("#w0", 0.0, 0.35), slam("#w2", 0.8, -2)], true],
 
-  // Close-up: business + growth tiles beside the head.
-  ["negocios", 40.2, 2.4, `
-    ${tile("t_neg", "briefcase", "01", "negócios", 20, 470, 120)}
-    ${tile("t_cre", "chart", "02", "crescer", 820, 470, 120)}`,
-    [pop("#t_neg", 0.1), pop("#t_cre", 1.1)]],
-
-  // Close-up: "cresça junto" + friends icon.
-  ["junto", 45.55, 3.5, `
-    ${tile("t_ami", "people", "", "amigos", 20, 470, 120)}
-    <div class="side" id="jt" style="left:790px;top:470px"><div class="sans">cresça</div><div class="serif huge">junto</div></div>`,
-    [rise("#jt", 0.05, 0.35), pop("#t_ami", 1.95)]],
-
-  // CTA between chin and captions.
-  ["cta", 50.1, 5.866, `
-    <div class="ctabox" id="cta" style="top:935px">
-      <div class="ctaq">quem são as <span class="serif">suas</span> <span class="markbig small">5</span>?</div>
-      <div class="ctasub">comenta aqui 👇</div>
+  // CTA on the chest, above the cut-out.
+  ["cta", 71.85, 1.917, `
+    <div class="ctabox" id="cta" style="top:${FB}px">
+      <div class="ctaq"><span class="serif">segue</span> pra mais <span class="markbig small">lições</span></div>
+      <div class="ctasub">esporte × empreendedorismo 👇</div>
     </div>`,
-    [rise("#cta", 0.05, 0.4)]],
+    [rise("#cta", 0.0, 0.35)], true],
 ];
 
 const CSS = `
@@ -195,37 +222,73 @@ html, body { width: ${W}px; height: ${H}px; overflow: hidden; background: transp
 .ctasub { margin-top: 4px; font-weight: 700; font-size: 30px; color: #6b6b6b; }
 `;
 
-let body = "", anim = "";
-G.forEach(([id, at, dur, html, an], i) => {
-  body += `      <div class="grp clip" id="g_${id}" data-start="${at}" data-duration="${dur}" data-track-index="${i}">${html}\n      </div>\n`;
-  // Entrance animations are written relative to the group start; shift them to absolute time.
-  const shifted = an.map((s) => s.replace(/, ([0-9.]+)\);$/, (_, t) => `, ${(at + +t).toFixed(3)});`)).join("\n      ");
-  anim += `      ${shifted}\n      tl.to("#g_${id}", { opacity: 0, duration: 0.22, ease: "power2.in" }, ${(at + dur - 0.22).toFixed(3)});\n`;
-});
 
-const out = `<!doctype html>
+const CSS_EP3 = `
+.kpill { position: absolute; left: 0; right: 0; text-align: center; }
+.kpill span { display: inline-block; background: #141414; color: #fff; font-weight: 900; font-size: 28px; letter-spacing: 0.22em; padding: 8px 18px 8px 24px; border-radius: 10px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25); }
+.title .strike, .side .strike { color: #141414; }
+.side .huge.red { color: #ff3b30; border-bottom-color: #ff3b30; }
+.side .huge.green { color: #16a34a; border-bottom-color: #16a34a; }
+.side .huge.strike { color: #8a8a8a; border-bottom: none; }
+.side .tag2 { margin-top: 8px; font-weight: 900; font-size: 24px; letter-spacing: 0.16em; text-transform: uppercase; color: #ff3b30; }
+.xdot { display: inline-flex; width: 70px; height: 70px; border-radius: 50%; background: #ff3b30; align-items: center; justify-content: center; vertical-align: middle; }
+.side .xdot.sm, .side .okdot.sm { width: 58px; height: 58px; margin-top: 10px; }
+.stack { position: absolute; display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.spill { background: #fff; border-radius: 999px; padding: 12px 26px 12px 14px; font-weight: 800; font-size: 40px; display: flex; gap: 14px; align-items: center;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.22); }
+.spill .num { font-size: 22px; }
+.bignum { min-width: 230px; font-size: 130px; }
+.fbox { position: absolute; left: 0; right: 0; text-align: center; }
+.fbox .in { display: inline-block; background: #fff; border-radius: 30px; padding: 6px 34px 14px; font-weight: 800; font-size: 62px; letter-spacing: -0.02em; line-height: 1.15;
+  box-shadow: 0 16px 44px rgba(0,0,0,0.28); }
+.fbox .in > span { display: inline-block; vertical-align: middle; }
+.fbox .serif.big { font-size: 96px; letter-spacing: 0; }
+.fbox .red { color: #ff3b30; font-weight: 900; }
+.fbox .strike { color: #8a8a8a; }
+.side { width: 300px; background: #fff; border-radius: 30px; padding: 14px 10px 18px; box-shadow: 0 14px 36px rgba(0,0,0,0.22); }
+.side .sans { font-size: 46px; text-shadow: none; }
+.side .huge { font-size: 96px; text-shadow: none; }
+.side .huge.strike { font-size: 84px; }
+.title .markbig { font-size: 76px; }
+.stxt { font-size: 38px; }
+`;
+
+function page(id, groups) {
+  let body = "", anim = "";
+  groups.forEach(([gid, at, dur, html, an], i) => {
+    body += `      <div class="grp clip" id="g_${gid}" data-start="${at}" data-duration="${dur}" data-track-index="${i}">${html}\n      </div>\n`;
+    // Entrance animations are written relative to the group start; shift them to absolute time.
+    const shifted = an.map((s) => s.replace(/, ([0-9.]+)\);$/, (_, t) => `, ${(at + +t).toFixed(3)});`)).join("\n      ");
+    anim += `      ${shifted}\n      tl.to("#g_${gid}", { opacity: 0, duration: 0.22, ease: "power2.in" }, ${(at + dur - 0.22).toFixed(3)});\n`;
+  });
+  return `<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=${W}, height=${H}" />
     <script src="gsap.min.js"></script>
-    <style>${CSS}</style>
+    <style>${CSS}${CSS_EP3}</style>
   </head>
   <body>
-    <div id="root" data-composition-id="graphics" data-start="0" data-duration="${DUR}" data-width="${W}" data-height="${H}">
+    <div id="root" data-composition-id="${id}" data-start="0" data-duration="${DUR}" data-width="${W}" data-height="${H}">
 ${body}    </div>
     <script>
       const tl = gsap.timeline({ paused: true });
 ${anim}      window.__timelines = window.__timelines || {};
-      window.__timelines["graphics"] = tl;
+      window.__timelines["${id}"] = tl;
       tl.seek(0);
     </script>
   </body>
 </html>
 `;
-const dir = join(HERE, "graphics");
-mkdirSync(join(dir, "fonts"), { recursive: true });
-writeFileSync(join(dir, "index.html"), out);
-copyFileSync(join(HERE, "../../graphics/intro/gsap.min.js"), join(dir, "gsap.min.js"));
-copyFileSync(join(HERE, "fonts/InstrumentSerif-Italic.woff2"), join(dir, "fonts/InstrumentSerif-Italic.woff2"));
-console.log(G.map(([id, at, dur]) => `${id} @${at}s ${dur}s`).join("\n"));
+}
+
+for (const [id, groups] of [["graphics", G.filter((g) => !g[5])], ["front", G.filter((g) => g[5])]]) {
+  const dir = join(HERE, id);
+  mkdirSync(join(dir, "fonts"), { recursive: true });
+  writeFileSync(join(dir, "index.html"), page(id, groups));
+  copyFileSync(join(HERE, "../../graphics/intro/gsap.min.js"), join(dir, "gsap.min.js"));
+  copyFileSync(join(HERE, "fonts/InstrumentSerif-Italic.woff2"), join(dir, "fonts/InstrumentSerif-Italic.woff2"));
+}
+console.log(G.map(([id, at, dur, , , front]) => `${id} @${at}s ${dur}s${front ? " (front)" : ""}`).join("\n"));
