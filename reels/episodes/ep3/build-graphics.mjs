@@ -31,6 +31,7 @@ const svg = (name, size, color = "#141414") =>
 
 // ---- groups: [id, start, dur, html, gsap entrance (relative to start), front?] ----
 // Close-up all the way: hair top ~15%, chin ~42%, face between x 380-700, shoulders from ~45%.
+// Top labels go in front too: the hair rises over them when he leans in.
 // The busy ceiling makes dark text unreadable, so every phrase sits on a white box: short labels at the top
 // (12.4-16%, mostly above the hair), tiles and side words beside the head (x 20-320 / 760-1060, y 380-760),
 // titles, cards and the CTA over the chest (y 985-1200), above the cut-out and clear of the captions (~1250+).
@@ -50,10 +51,10 @@ const strike = (sel, t) => `tl.fromTo("${sel}", { "--s": 0 }, { "--s": 1, durati
 const G = [
   // Hook: "3 LIÇÕES" stamp, esporte -> negócios tiles.
   ["hook", 0.15, 3.65, `
-    <div class="title" style="top:236px"><span class="markbig" id="h1">3 lições</span></div>
     ${tile("h_esp", "medal", "", "esporte", 40, 400)}
     ${tile("h_neg", "briefcase", "", "negócios", 828, 400)}`,
-    [slam("#h1", 0.05, -3), pop("#h_esp", 1.4), pop("#h_neg", 2.65)]],
+    [pop("#h_esp", 1.4), pop("#h_neg", 2.65)]],
+  ["hook_t", 0.15, 3.65, `<div class="title" style="top:236px"><span class="markbig" id="h1">3 lições</span></div>`, [slam("#h1", 0.05, -3)], true],
 
   // Since childhood, physical activity.
   ["ctx", 3.85, 3.2, `
@@ -68,11 +69,11 @@ const G = [
     [pop("#i_up", 1.75), pop("#i_neg", 3.55)]],
 
   // Lesson 1: constância, the key to your goals.
+  ["licao1_k", 13.95, 5.05, kicker("l1k", "LIÇÃO 01"), [rise("#l1k", 0.0, 0.3)], true],
   ["licao1", 13.95, 5.05, `
-    ${kicker("l1k", "LIÇÃO 01")}
     ${tile("l1_key", "key", "", "a chave", 40, 440)}
     ${tile("l1_tgt", "target", "", "objetivos", 828, 440)}`,
-    [rise("#l1k", 0.0, 0.3), pop("#l1_key", 2.15), pop("#l1_tgt", 4.25)]],
+    [pop("#l1_key", 2.15), pop("#l1_tgt", 4.25)]],
   ["licao1_t", 14.95, 4.05, fbox("l1t", `<span class="serif big">constância</span>`), [slam("#l1t", 0.0)], true],
 
   // Sport = business; one decision rarely changes everything.
@@ -97,11 +98,11 @@ const G = [
     true],
 
   // Lesson 2: err early, get it right early.
+  ["licao2_k", 29.65, 4.3, kicker("l2k", "LIÇÃO 02"), [rise("#l2k", 0.0, 0.3)], true],
   ["licao2", 29.65, 4.3, `
-    ${kicker("l2k", "LIÇÃO 02")}
     <div class="side" id="e1" style="left:20px;top:400px"><div class="sans">erra</div><div class="serif huge red">cedo</div><span class="xdot sm">${svg("cross", 38)}</span></div>
     <div class="side" id="e2" style="left:760px;top:400px"><div class="sans">acerta</div><div class="serif huge green">cedo</div><span class="okdot sm">${svg("check", 40)}</span></div>`,
-    [rise("#l2k", 0.0, 0.3), rise("#e1", 1.45, 0.35), rise("#e2", 2.65, 0.35)]],
+    [rise("#e1", 1.45, 0.35), rise("#e2", 2.65, 0.35)]],
 
   // Training vs competition -> 100% ready.
   ["treino", 34.05, 7.85, `
@@ -120,10 +121,10 @@ const G = [
   ["adiar_t", 42.05, 2.95, fbox("a0", `<span>no</span> <span class="serif big">empreendedorismo</span>`), [rise("#a0", 0.0, 0.35)], true],
 
   // Lesson 3: you're the average of your team.
+  ["licao3_k", 51.1, 5.0, kicker("l3k", "LIÇÃO 03"), [rise("#l3k", 0.0, 0.3)], true],
   ["licao3", 51.1, 5.0, `
-    ${kicker("l3k", "LIÇÃO 03")}
     ${tile("m_ppl", "people", "", "seu time", 40, 440)}`,
-    [rise("#l3k", 0.0, 0.3), pop("#m_ppl", 4.5)]],
+    [pop("#m_ppl", 4.5)]],
   ["licao3_t", 54.75, 1.35, fbox("m0", `<span>a</span> <span class="serif big" id="m2">média</span> <span>do seu</span> <span class="markbig small" id="m4">time</span>`),
     [rise("#m0", 0.0, 0.3), slam("#m4", 0.55, -2)], true],
 
@@ -134,14 +135,14 @@ const G = [
     [pop("#r_bad", 1.0), pop("#r_good", 2.7)]],
 
   // Partner, team, people around you.
+  ["quem_k", 61.7, 3.95, kicker("qk", "QUEM TE CERCA"), [rise("#qk", 0.0, 0.3)], true],
   ["quem", 61.7, 3.95, `
-    ${kicker("qk", "QUEM TE CERCA")}
     <div class="stack" style="left:30px;top:420px">
       <div class="spill" id="q1"><span class="num">01</span>sócio</div>
       <div class="spill" id="q2"><span class="num">02</span>equipe</div>
       <div class="spill" id="q3"><span class="num">03</span>convívio</div>
     </div>`,
-    [rise("#qk", 0.0, 0.3), pop("#q1", 0.3), pop("#q2", 0.82), pop("#q3", 1.3)]],
+    [pop("#q1", 0.3), pop("#q2", 0.82), pop("#q3", 1.3)]],
 
   // Two worlds that look different but are extremely alike.
   ["mundos", 65.8, 6.0, `
