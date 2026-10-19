@@ -69,6 +69,8 @@ reels/episodes/*/snap*/
 reels/episodes/*/prev/
 reels/episodes/*/audio/
 reels/episodes/*/final/
+reels/episodes/*/final_bg/
+reels/episodes/*/final_top/
 reels/episodes/*/renders/
 reels/episodes/*/base/
 reels/episodes/*/presenter/
