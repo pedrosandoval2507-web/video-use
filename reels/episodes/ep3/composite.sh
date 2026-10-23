@@ -13,8 +13,8 @@ sed -i -e '/id="l_presenter"/d' -e '/id="l_front"/d' -e '/id="l_captions"/d' fin
 sed -i -e '/id="l_base"/d' -e '/id="l_graphics"/d' -e '/id="l_presenter"/d' \
   -e 's/html, body { width: 1080px; height: 1920px; overflow: hidden; background: #000; }/html, body { width: 1080px; height: 1920px; overflow: hidden; background: transparent; }/' final_top/index.html
 mkdir -p renders out
-npx hyperframes render final_bg -o out/bg.mp4 -q delivery --workers 2 --video-frame-format jpg --quiet
-npx hyperframes render final_top -o out/top.mov --format mov --workers 2 --quiet
+hyperframes render final_bg -o out/bg.mp4 -q delivery --workers 2 --video-frame-format jpg --quiet
+hyperframes render final_top -o out/top.mov --format mov --workers 2 --quiet
 rm -rf /tmp/hyperframes-extract-cache-*
 
 # The same zoom curve GSAP applies in build-layers.mjs, as an FFmpeg expression of t.

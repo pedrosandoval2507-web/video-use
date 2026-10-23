@@ -10,10 +10,10 @@ mkdir -p out/seg
 VF="zscale=w=1080:h=1920:f=spline36:t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,fps=30"
 i=0; list=""
 while read -r s n; do
-  d=$(echo "scale=4; $n / 30" | bc)
+  d=$(awk -v n="$n" 'BEGIN { printf "%.4f", n / 30 }')
   f=out/seg/$(printf %02d $i).mov
-  ffmpeg -nostdin -v error -y -ss "$s" -t "$(echo "$d + 0.2" | bc)" -i "$RAW" -map 0:v:0 -map 0:a:0 -vf "$VF" -frames:v "$n" \
-    -af "aresample=48000,apad,atrim=0:$d,afade=t=in:d=0.015,afade=t=out:st=$(echo "$d - 0.015" | bc):d=0.015" \
+  ffmpeg -nostdin -v error -y -ss "$s" -t "$(awk -v d="$d" 'BEGIN { printf "%.4f", d + 0.2 }')" -i "$RAW" -map 0:v:0 -map 0:a:0 -vf "$VF" -frames:v "$n" \
+    -af "aresample=48000,apad,atrim=0:$d,afade=t=in:d=0.015,afade=t=out:st=$(awk -v d="$d" 'BEGIN { printf "%.4f", d - 0.015 }'):d=0.015" \
     -c:v libx264 -crf 16 -preset fast -c:a pcm_s16le "$f" &
   list+="file 'seg/$(printf %02d $i).mov'"$'\n'
   i=$((i + 1))
