@@ -47,6 +47,7 @@ The creator asked for this look on top of the rules above: **several fonts to gi
 
 ## Hook (first ~2–3 s)
 - Suspense feel: **suspense riser + heartbeat**, a slow push-in zoom, and an **impact** at the end of the hook sentence.
+  - ⚠️ **Feedback on ep3: the hook sound was "MUITO alto".** Keep the hook SFX well under the voice: riser ~0.15, heartbeat ~0.2, impact ~0.25 (Tella volume), never louder than the speech.
 - Short title on screen during the hook (in the safe zone).
 
 ## Throughout the video
@@ -59,6 +60,8 @@ The creator asked for this look on top of the rules above: **several fonts to gi
   - Prefer **upbeat, energetic, motivational** music: in Tella's catalog, "Bright Startup Energy", "Modern Tech Pulse", "Chill House Screenbeat" or "Playful Product Walkthrough"; on Epidemic Sound, *Upbeat / Motivational / Hopeful*, 100–125 BPM.
   - The suspense (riser, heartbeat) stays **only in the hook**. After the impact, the mood turns energetic. Don't string together more than one "dark" effect in a row.
 - End: a question / CTA for comments ("Quem são as suas 5? Comenta aqui"), in the safe zone.
+- **When he says "me segue", show the print of his Instagram profile** (`reels/assets/perfil.png`, @_pedromsandoval) as a card that pops in, in the safe zone, face uncovered.
+- **Cut tight**: no pauses, no dead air, no retakes; only the best take of each line (see ep3 `make-edl.py`).
 
 ## The approved recipe (ep2) in one glance
 - **Every 2–5 s something new appears** at the top (13–30% of the height): a mixed-font title, an icon row that builds up, a white card with real data, a red marker word, a strikethrough comparison.
