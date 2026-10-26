@@ -196,7 +196,7 @@ const CSS_EP3 = `
 .cbar i.red { background: #ff3b30; }
 .cval { width: 250px; text-align: right; font-weight: 900; font-size: 42px; white-space: nowrap; letter-spacing: -0.03em; }
 .cval.red { color: #ff3b30; }
-.pcard { position: absolute; left: 270px; top: 930px; width: 540px; background: #fff; border-radius: 28px; padding: 10px 10px 14px; text-align: center;
+.pcard { position: absolute; left: 270px; top: 1090px; width: 540px; background: #fff; border-radius: 28px; padding: 10px 10px 14px; text-align: center;
   box-shadow: 0 18px 50px rgba(0,0,0,0.3); }
 .pcard img { width: 100%; display: block; border-radius: 20px; }
 .pcard .ctasub { margin-top: 8px; font-weight: 800; font-size: 30px; color: #141414; }
