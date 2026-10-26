@@ -1,0 +1,160 @@
+{
+ "capEnd": 33.75,
+ "punch": [
+  [
+   0,
+   1.0
+  ],
+  [
+   1.92,
+   1.1
+  ],
+  [
+   4.2,
+   1.0
+  ],
+  [
+   5.85,
+   1.12
+  ],
+  [
+   8.94,
+   1.0
+  ],
+  [
+   10.46,
+   1.1
+  ],
+  [
+   11.97,
+   1.0
+  ],
+  [
+   15.17,
+   1.1
+  ],
+  [
+   17.6,
+   1.0
+  ],
+  [
+   19.7,
+   1.12
+  ],
+  [
+   23.12,
+   1.0
+  ],
+  [
+   25.47,
+   1.12
+  ],
+  [
+   28.38,
+   1.0
+  ],
+  [
+   31.28,
+   1.12
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 5.7,
+   "type": "news",
+   "img": "reading",
+   "kicker": "TAVA PENSANDO AQUI",
+   "title": "A gente espera se sentir pronto pra começar"
+  },
+  {
+   "t": 5.85,
+   "d": 3.05,
+   "type": "full",
+   "big": "QUASE NUNCA",
+   "small": "esse dia chega",
+   "img": "sprint"
+  },
+  {
+   "t": 8.94,
+   "d": 3.0,
+   "type": "news",
+   "img": "perfil_bfore",
+   "kicker": "B/FORE",
+   "title": "Quando abri a B/Fore, eu tinha 16 anos",
+   "pos": "50% 25%"
+  },
+  {
+   "t": 11.0,
+   "d": 1.0,
+   "type": "stat",
+   "value": 16,
+   "label": "anos",
+   "prefix": "",
+   "suffix": " anos",
+   "count": 0.5
+  },
+  {
+   "t": 12.0,
+   "d": 3.15,
+   "type": "news",
+   "img": "reading",
+   "kicker": "A REAL",
+   "title": "Não sabia quase nada"
+  },
+  {
+   "t": 15.2,
+   "d": 4.45,
+   "type": "news",
+   "img": "handshake_cafe",
+   "kicker": "AINDA BEM",
+   "title": "Aprendi tudo na prática, fazendo"
+  },
+  {
+   "t": 19.7,
+   "d": 3.4,
+   "type": "news",
+   "img": "swim",
+   "kicker": "PENSA COMIGO",
+   "title": "Ninguém aprende a nadar lendo sobre natação",
+   "pos": "50% 25%"
+  },
+  {
+   "t": 23.12,
+   "d": 2.3,
+   "type": "news",
+   "img": "handshake_office",
+   "kicker": "NO EMPREENDEDORISMO",
+   "title": "É a mesma coisa"
+  },
+  {
+   "t": 25.47,
+   "d": 2.85,
+   "type": "full",
+   "big": "O PRONTO",
+   "small": "vem no caminho",
+   "img": "sprint"
+  },
+  {
+   "t": 28.38,
+   "d": 2.9,
+   "type": "news",
+   "img": "phone_walk",
+   "kicker": "SE VOCÊ TÁ ESPERANDO…",
+   "title": "…se sentir pronto pra começar",
+   "pos": "50% 30%"
+  },
+  {
+   "t": 31.28,
+   "d": 2.45,
+   "type": "full",
+   "big": "COMEÇA AGORA",
+   "small": "esse é o seu sinal"
+  },
+  {
+   "t": 33.75,
+   "d": 2.75,
+   "type": "profile"
+  }
+ ]
+}

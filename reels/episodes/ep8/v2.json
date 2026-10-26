@@ -1,0 +1,88 @@
+{
+ "videoTop": -180,
+ "shots": [
+  {
+   "t": 0.0,
+   "img": "reading",
+   "label": "esperando"
+  },
+  {
+   "t": 2.4,
+   "img": "sprint",
+   "label": "pra começar"
+  },
+  {
+   "t": 4.5,
+   "text": "se sentir<br><i>pronto</i>?"
+  },
+  {
+   "t": 5.85,
+   "text": "esse dia<br><b>quase nunca</b><br>chega"
+  },
+  {
+   "t": 7.4,
+   "img": "phone_desk",
+   "label": "o dia ideal"
+  },
+  {
+   "t": 8.9,
+   "img": "perfil_bfore",
+   "label": "B/Fore · 16 anos",
+   "pos": "50% 30%"
+  },
+  {
+   "t": 11.9,
+   "img": "reading",
+   "label": "não sabia quase nada"
+  },
+  {
+   "t": 14.6,
+   "img": "handshake_cafe",
+   "label": "não esperei"
+  },
+  {
+   "t": 17.0,
+   "img": "phone_desk",
+   "label": "aprendi na prática"
+  },
+  {
+   "t": 19.7,
+   "img": "swim",
+   "label": "natação",
+   "pos": "50% 25%"
+  },
+  {
+   "t": 22.7,
+   "img": "handshake_office",
+   "label": "empreendedorismo"
+  },
+  {
+   "t": 25.4,
+   "img": "sprint",
+   "label": "o pronto vem no caminho",
+   "full": true
+  },
+  {
+   "t": 28.3,
+   "text": "esse é o<br>seu <b>sinal</b>"
+  },
+  {
+   "t": 31.2,
+   "img": "sprint",
+   "label": "começa agora",
+   "pos": "50% 40%"
+  },
+  {
+   "t": 33.7,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  },
+  {
+   "t": 35.3,
+   "img": "perfil_grid",
+   "label": "me segue",
+   "pos": "50% 10%"
+  }
+ ]
+}

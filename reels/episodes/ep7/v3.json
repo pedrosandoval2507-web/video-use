@@ -1,0 +1,191 @@
+{
+ "capEnd": 42.3,
+ "punch": [
+  [
+   0,
+   1.0
+  ],
+  [
+   1.15,
+   1.12
+  ],
+  [
+   4.6,
+   1.0
+  ],
+  [
+   6.05,
+   1.1
+  ],
+  [
+   11.12,
+   1.0
+  ],
+  [
+   15.5,
+   1.14
+  ],
+  [
+   18.88,
+   1.0
+  ],
+  [
+   21.57,
+   1.08
+  ],
+  [
+   24.5,
+   1.0
+  ],
+  [
+   28.6,
+   1.12
+  ],
+  [
+   30.08,
+   1.0
+  ],
+  [
+   33.7,
+   1.1
+  ],
+  [
+   37.0,
+   1.0
+  ],
+  [
+   39.13,
+   1.12
+  ],
+  [
+   41.4,
+   1.0
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 4.4,
+   "type": "news",
+   "img": "crowd",
+   "kicker": "VOCÊ JÁ PAROU PRA PENSAR?",
+   "title": "Ninguém tá prestando tanta atenção em você"
+  },
+  {
+   "t": 4.6,
+   "d": 4.3,
+   "type": "news",
+   "img": "cornell_tower",
+   "kicker": "PESQUISA · CORNELL",
+   "title": "Alunos entraram na sala com uma camisa vergonhosa",
+   "pos": "50% 30%"
+  },
+  {
+   "t": 9.0,
+   "d": 2.1,
+   "type": "full",
+   "big": "😳",
+   "small": "camisa vergonhosa"
+  },
+  {
+   "t": 11.15,
+   "d": 7.7,
+   "type": "bars",
+   "title": "Quantos repararam na camisa?",
+   "stagger": 3.4,
+   "src": "Gilovich, Medvec e Savitsky · Cornell (2000)",
+   "bars": [
+    [
+     "eles achavam",
+     50,
+     "~50%"
+    ],
+    [
+     "na real",
+     23,
+     "23%"
+    ]
+   ]
+  },
+  {
+   "t": 19.0,
+   "d": 2.9,
+   "type": "news",
+   "img": "social_apps",
+   "kicker": "A GENTE DEIXA DE…",
+   "title": "Postar",
+   "pos": "50% 50%"
+  },
+  {
+   "t": 21.95,
+   "d": 1.85,
+   "type": "news",
+   "img": "phone_desk",
+   "kicker": "A GENTE DEIXA DE…",
+   "title": "Falar"
+  },
+  {
+   "t": 23.85,
+   "d": 2.9,
+   "type": "news",
+   "img": "crowd",
+   "kicker": "A GENTE DEIXA DE…",
+   "title": "Se expor"
+  },
+  {
+   "t": 26.8,
+   "d": 1.75,
+   "type": "news",
+   "img": "law_class",
+   "kicker": "COM MEDO DE…",
+   "title": "Críticas"
+  },
+  {
+   "t": 28.6,
+   "d": 1.45,
+   "type": "full",
+   "big": "QUASE NINGUÉM",
+   "small": "tá fazendo isso"
+  },
+  {
+   "t": 30.9,
+   "d": 2.75,
+   "type": "lower",
+   "title": "E se fizer…",
+   "sub": "é momentâneo. Passa rápido."
+  },
+  {
+   "t": 33.7,
+   "d": 5.4,
+   "type": "news",
+   "img": "phone_walk",
+   "kicker": "A REAL",
+   "title": "Cada um tá preocupado com a própria vida",
+   "pos": "50% 30%"
+  },
+  {
+   "t": 39.13,
+   "d": 1.2,
+   "type": "full",
+   "big": "POSTA",
+   "small": "aquele vídeo",
+   "img": "social_apps"
+  },
+  {
+   "t": 40.33,
+   "d": 1.05,
+   "type": "full",
+   "big": "MANDA",
+   "small": "aquela mensagem",
+   "img": "phone_desk"
+  },
+  {
+   "t": 41.38,
+   "d": 0.92,
+   "type": "full",
+   "big": "COMEÇA",
+   "small": "só começa",
+   "img": "sprint"
+  }
+ ]
+}

@@ -1,0 +1,221 @@
+{
+ "capEnd": 59.7,
+ "punch": [
+  [
+   0,
+   1.0
+  ],
+  [
+   1.37,
+   1.12
+  ],
+  [
+   4.37,
+   1.0
+  ],
+  [
+   8.25,
+   1.1
+  ],
+  [
+   11.55,
+   1.0
+  ],
+  [
+   13.4,
+   1.12
+  ],
+  [
+   20.5,
+   1.0
+  ],
+  [
+   24.2,
+   1.08
+  ],
+  [
+   30.98,
+   1.0
+  ],
+  [
+   33.5,
+   1.14
+  ],
+  [
+   36.5,
+   1.0
+  ],
+  [
+   40.7,
+   1.12
+  ],
+  [
+   43.0,
+   1.0
+  ],
+  [
+   47.6,
+   1.12
+  ],
+  [
+   50.7,
+   1.0
+  ],
+  [
+   53.0,
+   1.1
+  ],
+  [
+   55.6,
+   1.0
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 4.2,
+   "type": "news",
+   "img": "mj_bulls",
+   "kicker": "1984 · NBA",
+   "title": "Michael Jordan não queria assinar com a Nike"
+  },
+  {
+   "t": 1.4,
+   "d": 2.9,
+   "type": "lower",
+   "title": "Michael Jordan",
+   "sub": "novato, 21 anos"
+  },
+  {
+   "t": 4.4,
+   "d": 3.8,
+   "type": "news",
+   "img": "adidas_logo",
+   "kicker": "O MOTIVO",
+   "title": "Ele era fã da Adidas",
+   "pos": "50% 50%"
+  },
+  {
+   "t": 8.25,
+   "d": 2.95,
+   "type": "news",
+   "img": "handshake_office",
+   "kicker": "A REUNIÃO",
+   "title": "A mãe convenceu ele a ir"
+  },
+  {
+   "t": 13.4,
+   "d": 4.25,
+   "type": "news",
+   "img": "nike_logo",
+   "kicker": "A PROPOSTA",
+   "title": "Algo que nenhum jogador recebia",
+   "pos": "50% 50%"
+  },
+  {
+   "t": 17.7,
+   "d": 2.75,
+   "type": "full",
+   "big": "AIR JORDAN",
+   "small": "um tênis com o nome dele",
+   "img": "aj1_nike"
+  },
+  {
+   "t": 20.5,
+   "d": 3.6,
+   "type": "news",
+   "img": "money",
+   "kicker": "O DETALHE",
+   "title": "Ele ganha uma parte de cada venda"
+  },
+  {
+   "t": 25.6,
+   "d": 10.8,
+   "type": "bars",
+   "title": "Air Jordan · meta × realidade",
+   "stagger": 8.0,
+   "bars": [
+    [
+     "meta da Nike (4 anos)",
+     3,
+     "US$ 3 mi"
+    ],
+    [
+     "vendeu no 1º ano",
+     126,
+     "US$ 126 mi"
+    ]
+   ]
+  },
+  {
+   "t": 38.3,
+   "d": 4.6,
+   "type": "stat",
+   "value": 5,
+   "label": "por ano · marca Jordan",
+   "prefix": "US$ ",
+   "suffix": " bi"
+  },
+  {
+   "t": 43.0,
+   "d": 2.4,
+   "type": "news",
+   "img": "contract",
+   "kicker": "PENSA COMIGO",
+   "title": "O maior contrato da história…"
+  },
+  {
+   "t": 45.4,
+   "d": 2.15,
+   "type": "full",
+   "big": "QUASE",
+   "small": "não aconteceu",
+   "img": "mj_dunk"
+  },
+  {
+   "t": 48.0,
+   "d": 2.6,
+   "type": "stat",
+   "value": 21,
+   "label": "anos · não queria a reunião",
+   "prefix": "",
+   "suffix": " anos"
+  },
+  {
+   "t": 53.0,
+   "d": 1.1,
+   "type": "news",
+   "img": "handshake_office",
+   "kicker": "01",
+   "title": "Vá na reunião"
+  },
+  {
+   "t": 54.1,
+   "d": 1.5,
+   "type": "news",
+   "img": "phone_desk",
+   "kicker": "02",
+   "title": "Atenda a ligação"
+  },
+  {
+   "t": 55.6,
+   "d": 2.45,
+   "type": "news",
+   "img": "friends",
+   "kicker": "03",
+   "title": "Saia com as pessoas"
+  },
+  {
+   "t": 58.05,
+   "d": 1.65,
+   "type": "full",
+   "big": "OPORTUNIDADE",
+   "small": "é aí que ela chega"
+  },
+  {
+   "t": 59.7,
+   "d": 3.5,
+   "type": "profile"
+  }
+ ]
+}

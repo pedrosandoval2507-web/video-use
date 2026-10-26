@@ -1,0 +1,161 @@
+{
+ "videoTop": -180,
+ "shots": [
+  {
+   "t": 0.0,
+   "img": "mj_bulls",
+   "label": "1984"
+  },
+  {
+   "t": 1.35,
+   "img": "mj_portrait",
+   "label": "Michael Jordan",
+   "pos": "50% 30%"
+  },
+  {
+   "t": 4.0,
+   "img": "nike_logo",
+   "label": "Nike"
+  },
+  {
+   "t": 5.75,
+   "img": "adidas_logo",
+   "label": "fã da Adidas"
+  },
+  {
+   "t": 7.35,
+   "img": "handshake_office",
+   "label": "a reunião"
+  },
+  {
+   "t": 8.4,
+   "text": "a <i>mãe</i> dele<br>convenceu"
+  },
+  {
+   "t": 10.85,
+   "img": "mj_dunk",
+   "full": true
+  },
+  {
+   "t": 13.3,
+   "img": "nike_logo",
+   "label": "a proposta da Nike"
+  },
+  {
+   "t": 15.0,
+   "img": "contract",
+   "label": "algo que ninguém recebia"
+  },
+  {
+   "t": 17.7,
+   "img": "aj1_nike",
+   "label": "um tênis com o nome dele",
+   "full": true
+  },
+  {
+   "t": 20.45,
+   "img": "money",
+   "label": "comissão por venda"
+  },
+  {
+   "t": 22.45,
+   "img": "aj1_game",
+   "label": "cada par vendido"
+  },
+  {
+   "t": 24.15,
+   "img": "aj1_1985",
+   "label": "meta da Nike"
+  },
+  {
+   "t": 26.6,
+   "text": "meta:<br><b>US$ 3 mi</b><br>em <i>4 anos</i>"
+  },
+  {
+   "t": 29.2,
+   "img": "mj_bulls",
+   "label": "1985"
+  },
+  {
+   "t": 31.0,
+   "img": "aj1_1985",
+   "label": "1º ano"
+  },
+  {
+   "t": 32.6,
+   "text": "vendeu<br><b>US$ 126 mi</b>",
+   "full": true
+  },
+  {
+   "t": 35.5,
+   "img": "money"
+  },
+  {
+   "t": 36.5,
+   "img": "mj_dunk",
+   "label": "marca Jordan"
+  },
+  {
+   "t": 39.4,
+   "text": "<b>US$ 5 bi</b><br>por <i>ano</i>"
+  },
+  {
+   "t": 41.0,
+   "img": "mj_portrait",
+   "label": "ele recebe uma parte",
+   "pos": "50% 30%"
+  },
+  {
+   "t": 43.0,
+   "img": "contract",
+   "label": "o maior contrato da história"
+  },
+  {
+   "t": 45.4,
+   "img": "handshake_office",
+   "full": true
+  },
+  {
+   "t": 47.6,
+   "img": "mj_bulls",
+   "label": "21 anos"
+  },
+  {
+   "t": 50.0,
+   "img": "handshake_cafe",
+   "label": "mesmo sem vontade"
+  },
+  {
+   "t": 52.9,
+   "img": "handshake_office",
+   "label": "vá na reunião"
+  },
+  {
+   "t": 54.1,
+   "img": "phone_desk",
+   "label": "atenda a ligação"
+  },
+  {
+   "t": 55.6,
+   "img": "friends",
+   "label": "saia com as pessoas"
+  },
+  {
+   "t": 58.1,
+   "img": "mj_dunk",
+   "full": true
+  },
+  {
+   "t": 59.7,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  },
+  {
+   "t": 61.5,
+   "img": "perfil_grid",
+   "label": "me segue",
+   "pos": "50% 10%"
+  }
+ ]
+}

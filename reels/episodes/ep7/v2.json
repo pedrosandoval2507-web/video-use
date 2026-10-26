@@ -1,0 +1,99 @@
+{
+ "videoTop": -180,
+ "shots": [
+  {
+   "t": 0.0,
+   "img": "crowd",
+   "pos": "50% 70%"
+  },
+  {
+   "t": 1.7,
+   "img": "phone_walk",
+   "label": "cada um na sua"
+  },
+  {
+   "t": 3.9,
+   "img": "cornell_tower",
+   "label": "Cornell University"
+  },
+  {
+   "t": 6.0,
+   "img": "student_class",
+   "label": "alunos"
+  },
+  {
+   "t": 8.9,
+   "text": "uma camisa<br>bem <i>vergonhosa</i> 😳"
+  },
+  {
+   "t": 11.1,
+   "img": "law_class",
+   "label": "todo mundo vai reparar?"
+  },
+  {
+   "t": 13.7,
+   "img": "student_class",
+   "full": true
+  },
+  {
+   "t": 15.5,
+   "text": "só <b>23%</b><br>reparou"
+  },
+  {
+   "t": 18.5,
+   "img": "social_apps",
+   "label": "postar"
+  },
+  {
+   "t": 21.5,
+   "img": "phone_desk",
+   "label": "falar"
+  },
+  {
+   "t": 23.8,
+   "img": "crowd",
+   "label": "se expor",
+   "pos": "50% 70%"
+  },
+  {
+   "t": 26.6,
+   "img": "law_class",
+   "label": "críticas?"
+  },
+  {
+   "t": 29.6,
+   "img": "phone_walk",
+   "full": true
+  },
+  {
+   "t": 32.6,
+   "text": "é <i>momentâneo</i>"
+  },
+  {
+   "t": 33.7,
+   "img": "friends",
+   "label": "cada um com a sua vida"
+  },
+  {
+   "t": 36.5,
+   "img": "phone_walk",
+   "pos": "50% 30%"
+  },
+  {
+   "t": 39.1,
+   "img": "social_apps",
+   "label": "posta o vídeo",
+   "full": true
+  },
+  {
+   "t": 40.2,
+   "img": "phone_desk",
+   "label": "manda a mensagem"
+  },
+  {
+   "t": 41.4,
+   "img": "sprint",
+   "label": "começa"
+  }
+ ]
+}
