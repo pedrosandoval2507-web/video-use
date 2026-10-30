@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PERFIL = "data:image/jpeg;base64," + readFileSync(join(HERE, "../../assets/photos/perfil_header.jpg")).toString("base64");
-const W = 1080, H = 1920, DUR = 36.5;
+const W = 1080, H = 1920, DUR = 63.2;
 
 // ---- minimalist line icons (viewBox 0 0 100 100) ----
 const S = `fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"`;
@@ -59,29 +59,53 @@ const slam = (sel, t, rot = 0) => `tl.fromTo("${sel}", { opacity: 0, scale: 1.6,
 const strike = (sel, t) => `tl.fromTo("${sel}", { "--s": 0 }, { "--s": 1, duration: 0.35, ease: "power2.out" }, ${t});`;
 
 const G = [
-  ["hook_k", 0.1, 5.7, kicker("hk", "TAVA PENSANDO AQUI"), [rise("#hk", 0.0, 0.3)], true],
-  ["hook_t", 3.5, 2.3, fbox("h0", `<span>esperar se sentir</span> <span class="serif big">pronto</span>`), [rise("#h0", 0.0, 0.3)], true],
-  ["dia", 7.3, 1.6, fbox("d0", `<span>esse dia</span> <span class="markbig small">quase nunca</span> <span>chega</span>`), [rise("#d0", 0.0, 0.3)], true],
-  // B/Fore at 16.
-  ["bfore", 8.9, 4.3, `
-    <div class="side" id="b1" style="left:20px;top:400px"><div class="sans">abri a</div><div class="serif huge">B/Fore</div></div>
-    <div class="side" id="b2" style="left:760px;top:400px"><div class="sans">com</div><div class="serif huge red">16 anos</div></div>`,
-    [rise("#b1", 1.5, 0.35), rise("#b2", 2.2, 0.35)]],
-  ["nada", 13.25, 1.9, fbox("n0", `<span>não sabia</span> <span class="serif big">quase nada</span>`), [rise("#n0", 0.0, 0.3)], true],
-  ["pratica", 15.2, 4.45, `
-    ${tile("p_ok", "ok", "", "não esperei", 40, 420, 120, "#16a34a")}`,
-    [pop("#p_ok", 0.8)]],
-  ["pratica_t", 17.95, 1.7, fbox("p0", `<span>aprendi na</span> <span class="markbig small">prática</span>`), [rise("#p0", 0.0, 0.3)], true],
-  // You don't learn to swim reading about swimming.
-  ["nadar", 19.7, 5.7, `
-    <div class="side" id="s1" style="left:20px;top:400px"><div class="sans">lendo</div><div class="serif huge strike" id="s1s">natação</div></div>
-    ${tile("s_wv", "wave", "", "nadando", 790, 400, 120, "#2563eb")}`,
-    [rise("#s1", 1.8, 0.35), strike("#s1s", 2.4), pop("#s_wv", 1.4)]],
-  ["empre_k", 23.1, 2.3, kicker("ek", "NO EMPREENDEDORISMO"), [rise("#ek", 0.0, 0.3)], true],
-  ["caminho", 26.7, 1.65, fbox("c0", `<span>o pronto vem no</span> <span class="serif big">caminho</span>`), [rise("#c0", 0.0, 0.3)], true],
-  ["sinal_k", 28.4, 3.3, kicker("sk", "SE VOCÊ TÁ ESPERANDO"), [rise("#sk", 0.0, 0.3)], true],
-  ["sinal", 31.7, 2.05, fbox("s0", `<span>esse é o seu</span> <span class="markbig small">sinal</span>`), [rise("#s0", 0.0, 0.3)], true],
-  ["cta", 33.75, 2.75, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
+  // Hook.
+  ["hook_k", 0.1, 4.1, kicker("hk", "1984 · NIKE × JORDAN"), [rise("#hk", 0.0, 0.3)], true],
+  ["hook_t", 2.4, 2.0, fbox("h0", `<span>não queria a</span> <span class="markbig" id="h1">Nike</span>`), [rise("#h0", 0.0, 0.25), slam("#h1", 1.1, -3)], true],
+  // Adidas fan; his mother convinced him.
+  ["adidas", 5.6, 5.4, `
+    ${tile("a_ad", "heart", "", "fã da Adidas", 40, 400, 120, "#ff3b30")}
+    ${tile("a_mae", "user", "", "a mãe dele", 828, 400)}`,
+    [pop("#a_ad", 0.2), pop("#a_mae", 2.85)]],
+  // Something no other player got.
+  ["inedito", 14.9, 2.75, fbox("i0", `<span>algo que</span> <span class="serif big">nenhum</span> <span>jogador tinha</span>`), [rise("#i0", 0.0, 0.3)], true],
+  ["tenis", 17.7, 6.4, `
+    ${tile("t_sh", "shoe", "01", "tênis com o nome dele", 20, 400)}
+    ${tile("t_pc", "chart", "02", "% de cada venda", 790, 400, 120, "#16a34a")}`,
+    [pop("#t_sh", 1.05), pop("#t_pc", 3.8)]],
+  // Goal vs reality.
+  ["meta", 25.6, 10.85, `
+    <div class="card cmp" id="mc" style="left:70px;top:${FB}px;width:940px">
+      <div class="crow" id="mr1"><div class="clab">meta da Nike<small>em 4 anos</small></div><div class="cbar"><i id="mb1"></i></div><div class="cval">US$ 3 mi</div></div>
+      <div class="crow" id="mr2"><div class="clab">Air Jordan<small>no 1º ano</small></div><div class="cbar"><i id="mb2" class="red"></i></div><div class="cval red" id="mv2">US$ 0 mi</div></div>
+    </div>`,
+    [rise("#mc", 0.0, 0.35), `tl.fromTo("#mb1", { width: "0%" }, { width: "2.4%", duration: 0.6, ease: "power2.out" }, 1.5);`,
+     `tl.set("#mr2", { opacity: 0 }, 0.0);`, rise("#mr2", 7.0, 0.3),
+     `tl.fromTo("#mb2", { width: "0%" }, { width: "100%", duration: 1.4, ease: "power2.out" }, 8.1);`,
+     `const m2 = { v: 0 }; tl.to(m2, { v: 126, duration: 1.4, ease: "power2.out", onUpdate: () => { document.getElementById("mv2").textContent = "US$ " + Math.round(m2.v) + " mi"; } }, 8.1);`],
+    true],
+  // Jordan brand today.
+  ["hoje", 36.5, 6.4, `
+    <div class="side" id="j1" style="left:20px;top:400px"><div class="sans">por ano</div><div class="serif huge" style="font-size:72px">US$ 5 bi</div><div class="tag2">marca Jordan</div></div>
+    ${tile("j_pc", "chart", "", "uma parte é dele", 790, 400, 120, "#16a34a")}`,
+    [rise("#j1", 1.9, 0.35), pop("#j_pc", 5.1)]],
+  // Biggest contract in history; 21 years old.
+  ["maior", 44.2, 2.6, fbox("c0", `<span>o maior</span> <span class="serif big">contrato</span> <span>da história</span>`), [rise("#c0", 0.0, 0.3)], true],
+  ["vinte", 47.6, 3.0, `
+    <div class="side" id="v1" style="left:20px;top:400px"><div class="sans">um cara de</div><div class="serif huge red">21 anos</div></div>`,
+    [rise("#v1", 0.5, 0.35)]],
+  // Go to the meeting, answer the call, go out.
+  ["va_k", 50.7, 7.4, kicker("vk", "MESMO SEM VONTADE"), [rise("#vk", 0.3, 0.3)], true],
+  ["va", 50.7, 7.4, `
+    <div class="stack" style="left:30px;top:420px">
+      <div class="spill" id="q1"><span class="num">01</span>vá na reunião</div>
+      <div class="spill" id="q2"><span class="num">02</span>atenda a ligação</div>
+      <div class="spill" id="q3"><span class="num">03</span>saia com as pessoas</div>
+    </div>`,
+    [pop("#q1", 2.4), pop("#q2", 3.6), pop("#q3", 5.0)]],
+  ["oport", 58.1, 1.55, fbox("o0", `<span>é aí que a</span> <span class="markbig small">oportunidade</span> <span>chega</span>`), [rise("#o0", 0.0, 0.3)], true],
+  // CTA: profile print.
+  ["cta", 59.7, 3.5, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
 ];
 
 const CSS = `

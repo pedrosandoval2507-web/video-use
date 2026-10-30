@@ -1,0 +1,5 @@
+{"dur": 46.27, "music_at": 4.7, "cap_end": 43.3,
+ "emphasis": [9, 15, 21, 36, 50, 55, 61, 71, 77, 82, 89, 96, 114, 127, 133],
+ "force_break": [4],
+ "zooms": "  { at: 0, dur: 4.5, from: 1.0, to: 1.1, push: true },\n  { at: 14.3, dur: 0.9, to: 1.08 },\n  { at: 21.8, dur: 1.0, to: 1.1 },\n  { at: 26.8, dur: 1.2, to: 1.06 },\n  { at: 39.9, dur: 1.5, to: 1.08 },",
+ "g_file": "g.js"}
