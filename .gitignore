@@ -89,3 +89,4 @@ reels/entregas/
 reels/episodes/*/raw/
 reels/episodes/*/final_v4/
 reels/episodes/*/qa/
+reels/episodes/*/out_voice.raw
