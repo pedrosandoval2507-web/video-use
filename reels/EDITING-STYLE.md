@@ -70,3 +70,23 @@ The creator asked for this look on top of the rules above: **several fonts to gi
 - **Follow the head**: wide shot → graphics above the head; close-up (head near the top) → tiles **beside** the head; CTA in a white box **between the chin and the captions** (~48%), above the cut-out layer. Check every graphic with `hyperframes snapshot` over the real frame (and with the zoom applied) before rendering.
 - **Keep punch-in zooms small (≤1.2) while graphics are on screen**, so the head doesn't grow into them.
 - **Sound**: suspense riser + heartbeat + impact in the hook; `press` on each icon pop, `ui-reveal` on cards, `deep-woosh` on group entrances, `error`/`success` on comparisons, `notification-chime` on the CTA. Music "Bright Startup Energy" from 2.35 s at ~12%, mix to −14 LUFS.
+
+## The 3 variations (approved package, ep6–ep8)
+
+When the creator sends videos "for the 3 variations", deliver all three for each video. Every variation cuts silences down to 0.1 s.
+
+- **V1, the approved format:** everything above. Pipeline: `build-final.sh`, then `composite.sh`, `mix.sh`, `scripts/add-sfx.py <ep> v1`.
+- **V2, split screen:** the speaker sits in the bottom half and photos fill the top half, one per mention (person, product, logo, place).
+  - No photo stays more than 3 s.
+  - Each photo has a slow zoom in or out, a punch on the cut and a black label chip. Sometimes a photo takes the full screen.
+  - Captions are white with a black outline, sitting on the seam.
+  - Built from `<ep>/v2.json` with `scripts/build-v2-split.mjs`; SFX is a woosh on every cut.
+- **V3, data cards (inspired by @tarik_lopes, not a copy):**
+  - Dark news cards at the top (photo, red kicker, headline), white lower thirds and stat pills.
+  - Horizontal bar charts that grow, kept away from the face.
+  - Full-screen dark slides with one big word, and hard punch-in zooms on the camera.
+  - The profile card on "me segue" sits below the face.
+  - Built from `<ep>/v3.json` with `scripts/build-v3-tarik.mjs`; SFX is a "plim" on every card, plus a woosh and impact on full screens.
+- **Photos:** the proxy blocks Wikimedia. Import `commons.wikimedia.org/wiki/Special:FilePath/<File>?width=1600` through Tella `import_from_url`, download the screenshot, then crop it with Pillow.
+- **SFX:** synthesized files in `assets/sfx/`, because Tella's catalog isn't downloadable. Keep the hook quiet: riser 0.15, heartbeat 0.2, impact 0.25.
+- **Delivery:** each file is compressed under 30 MB (`reels/entregas/`, ignored by git) and sent in chat.
