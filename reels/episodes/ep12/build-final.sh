@@ -9,8 +9,8 @@ for c in base presenter graphics front captions; do cp $c/index.html final/compo
 for d in final final/compositions; do cp graphics/gsap.min.js $d/; done
 mkdir -p final/fonts && cp fonts/InstrumentSerif-Italic.woff2 final/fonts/ && cp fonts/InstrumentSerif-Italic.woff2 final/compositions/fonts/
 for d in final final/compositions; do ln -s "$PWD/source.mp4" $d/source.mp4; ln -s "$PWD/cutout/presenter.mov" $d/presenter.mov; done
-DUR=36.5
-CAP_END=33.75   # captions stop when the profile card takes over ("me segue")
+DUR=47.33
+CAP_END=45.03   # captions stop when the profile card takes over ("me segue")
 cat > final/index.html <<HTML
 <!doctype html>
 <html lang="pt-BR">

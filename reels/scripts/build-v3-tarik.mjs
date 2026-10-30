@@ -121,15 +121,15 @@ const html = `<!doctype html>
       .fdim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.8) 100%); }
       .fbig { position: absolute; left: 40px; right: 40px; bottom: 1015px; font-weight: 900; font-size: 140px; letter-spacing: -0.05em; line-height: 1; }
       .fsm { position: absolute; left: 40px; right: 40px; top: 930px; font-weight: 800; font-size: 46px; color: #ff3b30; text-shadow: 0 2px 14px rgba(0,0,0,0.9); }
-      .lower { position: absolute; left: 60px; top: 1400px; background: #fff; color: #141414; border-radius: 16px; padding: 12px 24px 14px; border-left: 10px solid #ff3b30;
+      .lower { position: absolute; left: 60px; top: ${cfg.lowerTop ?? 1400}px; background: #fff; color: #141414; border-radius: 16px; padding: 12px 24px 14px; border-left: 10px solid #ff3b30;
         box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
       .lt { font-weight: 900; font-size: 40px; letter-spacing: -0.02em; }
       .ls { font-weight: 700; font-size: 26px; color: #6b6b6b; }
-      .prof { position: absolute; left: 240px; top: 1080px; width: 600px; background: #fff; border-radius: 28px; padding: 10px 10px 14px; text-align: center;
+      .prof { position: absolute; left: 240px; top: ${cfg.profTop ?? 1080}px; width: 600px; background: #fff; border-radius: 28px; padding: 10px 10px 14px; text-align: center;
         box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
       .prof img { width: 100%; display: block; border-radius: 20px; }
       .pf { margin-top: 8px; font-weight: 900; font-size: 34px; color: #141414; }
-      #l_captions { position: absolute; left: 0; top: 1075px; width: ${W}px; height: 440px; z-index: 8; }
+      #l_captions { position: absolute; left: 0; top: ${cfg.capTop ?? 1075}px; width: ${W}px; height: 440px; z-index: 8; }
     </style>
   </head>
   <body>

@@ -1,0 +1,114 @@
+{
+ "videoTop": -330,
+ "shots": [
+  {
+   "t": 0,
+   "text": "essa semana o <b>Itaú</b>"
+  },
+  {
+   "t": 2.2,
+   "text": "uma empresa <i>brasileira</i>"
+  },
+  {
+   "t": 3.6,
+   "img": "money",
+   "label": "quase R$ 3 bi"
+  },
+  {
+   "t": 5.7,
+   "text": "<b>NeoSpace</b>"
+  },
+  {
+   "t": 7.6,
+   "text": "só <i>2 anos</i> de vida"
+  },
+  {
+   "t": 9.0,
+   "img": "phone_desk",
+   "label": "IA para bancos"
+  },
+  {
+   "t": 12.0,
+   "text": "o mais <i>interessante</i>"
+  },
+  {
+   "t": 14.6,
+   "text": "como isso <b>aconteceu</b>"
+  },
+  {
+   "t": 16.5,
+   "img": "handshake_office",
+   "label": "01 · cliente"
+  },
+  {
+   "t": 18.9,
+   "text": "começo de <b>2025</b>"
+  },
+  {
+   "t": 20.3,
+   "img": "handshake_cafe",
+   "label": "02 · sócios"
+  },
+  {
+   "t": 22.4,
+   "img": "money",
+   "label": "US$ 15 mi"
+  },
+  {
+   "t": 24.4,
+   "text": "<b>15%</b> da empresa"
+  },
+  {
+   "t": 26.0,
+   "text": "menos de <i>2 anos</i> depois"
+  },
+  {
+   "t": 27.8,
+   "img": "contract",
+   "label": "03 · dono"
+  },
+  {
+   "t": 29.3,
+   "text": "<b>100%</b> por R$ 2,9 bi",
+   "full": true
+  },
+  {
+   "t": 31.2,
+   "img": "money",
+   "label": "R$ 2,9 bilhões"
+  },
+  {
+   "t": 33.0,
+   "text": "eles não <b>venderam</b>"
+  },
+  {
+   "t": 35.3,
+   "text": "resolveram um <i>problema</i>"
+  },
+  {
+   "t": 37.5,
+   "img": "handshake_office",
+   "label": "o banco comprou"
+  },
+  {
+   "t": 40.1,
+   "text": "o melhor <b>pitch</b>",
+   "full": true
+  },
+  {
+   "t": 41.8,
+   "text": "um cliente que não <i>vive sem</i> você"
+  },
+  {
+   "t": 43.5,
+   "img": "handshake_cafe",
+   "label": "o melhor pitch"
+  },
+  {
+   "t": 45.03,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  }
+ ]
+}

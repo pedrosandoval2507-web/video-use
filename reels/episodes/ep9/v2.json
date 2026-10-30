@@ -1,0 +1,96 @@
+{
+ "videoTop": -250,
+ "shots": [
+  {
+   "t": 0,
+   "text": "o maior <b>YouTuber</b> do mundo"
+  },
+  {
+   "t": 2.4,
+   "text": "<i>chocolate</i> &gt; vídeos"
+  },
+  {
+   "t": 4.6,
+   "img": "social_apps",
+   "label": "creator economy"
+  },
+  {
+   "t": 7.2,
+   "text": "a nova <i>virada</i> do mercado"
+  },
+  {
+   "t": 9.8,
+   "text": "a empresa do <b>MrBeast</b>"
+  },
+  {
+   "t": 11.8,
+   "img": "contract",
+   "label": "documentos"
+  },
+  {
+   "t": 13.3,
+   "img": "handshake_office",
+   "label": "investidores"
+  },
+  {
+   "t": 14.3,
+   "text": "o que mostraram <i>chocou</i>"
+  },
+  {
+   "t": 15.8,
+   "img": "money",
+   "label": "US$ 250 mi"
+  },
+  {
+   "t": 18.3,
+   "text": "só com <b>chocolate</b>"
+  },
+  {
+   "t": 20.1,
+   "text": "os vídeos: <b>prejuízo</b>"
+  },
+  {
+   "t": 22.6,
+   "text": "o mercado <i>inverteu</i>",
+   "full": true
+  },
+  {
+   "t": 25.6,
+   "img": "social_apps",
+   "label": "vídeos = marketing"
+  },
+  {
+   "t": 27.4,
+   "text": "o negócio é o <b>produto</b>"
+  },
+  {
+   "t": 30.0,
+   "img": "crowd",
+   "label": "audiência"
+  },
+  {
+   "t": 32.9,
+   "text": "<i>qualquer</i> pessoa"
+  },
+  {
+   "t": 35.6,
+   "img": "phone_walk",
+   "label": "hoje"
+  },
+  {
+   "t": 38.4,
+   "img": "money",
+   "label": "muito valioso"
+  },
+  {
+   "t": 40.4,
+   "text": "algo pra <b>ofertar</b>"
+  },
+  {
+   "t": 43.3,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  }
+ ]
+}

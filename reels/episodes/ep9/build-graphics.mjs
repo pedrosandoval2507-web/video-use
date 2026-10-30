@@ -65,8 +65,8 @@ const G = [
   ["virada", 5.3, 3.3, fbox("v0", `<span>a nova</span> <span class="serif big">virada</span> <span>do mercado</span>`), [rise("#v0", 0.0, 0.3)], true],
   // Investor documents.
   ["docs", 9.8, 4.8, `
-    ${tile("d_doc", "pen", "", "documentos", 40, 400)}
-    ${tile("d_inv", "people", "", "investidores", 828, 400)}`,
+    ${tile("d_doc", "pen", "", "documentos", 40, 330)}
+    ${tile("d_inv", "people", "", "investidores", 828, 330)}`,
     [pop("#d_doc", 2.0), pop("#d_inv", 2.7)]],
   // Chocolate vs videos.
   ["cmp", 14.7, 7.9, `
@@ -82,13 +82,13 @@ const G = [
   ["inverteu", 22.6, 2.9, fbox("i0", `<span>o mercado</span> <span class="markbig small">inverteu</span>`), [rise("#i0", 0.0, 0.3)], true],
   // Videos became marketing; the product is the business.
   ["mkt", 25.6, 7.2, `
-    <div class="side" id="k1" style="left:10px;top:400px;width:340px"><div class="sans">vídeos =</div><div class="serif huge" style="font-size:64px">marketing</div></div>
-    ${tile("k_prod", "briefcase", "", "produto = negócio", 760, 400, 120, "#16a34a")}`,
+    <div class="side" id="k1" style="left:10px;top:330px;width:340px"><div class="sans">vídeos =</div><div class="serif huge" style="font-size:64px">marketing</div></div>
+    ${tile("k_prod", "briefcase", "", "produto = negócio", 760, 330, 120, "#16a34a")}`,
     [rise("#k1", 1.0, 0.35), pop("#k_prod", 3.4)]],
   ["qualquer", 32.9, 3.0, fbox("q0", `<span>serve pra</span> <span class="serif big">qualquer</span> <span>pessoa</span>`), [rise("#q0", 0.0, 0.3)], true],
   // Audience + something to offer.
   ["valor", 36.0, 7.2, `
-    <div class="stack" style="left:30px;top:420px">
+    <div class="stack" style="left:30px;top:340px">
       <div class="spill" id="a1"><span class="num">01</span>audiência</div>
       <div class="spill" id="a2"><span class="num">02</span>algo pra oferecer</div>
     </div>`,

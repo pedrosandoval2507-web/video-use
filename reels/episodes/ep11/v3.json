@@ -1,0 +1,143 @@
+{
+ "capEnd": 47.06,
+ "capTop": 1150,
+ "lowerTop": 1570,
+ "punch": [
+  [
+   0,
+   1
+  ],
+  [
+   1.91,
+   1.12
+  ],
+  [
+   2.66,
+   1
+  ],
+  [
+   13.99,
+   1.1
+  ],
+  [
+   15.5,
+   1
+  ],
+  [
+   18.4,
+   1.12
+  ],
+  [
+   19.4,
+   1
+  ],
+  [
+   44.4,
+   1.1
+  ],
+  [
+   47.0,
+   1
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 2.6,
+   "type": "news",
+   "kicker": "LEMBRA DELE?",
+   "title": "O Labubu esgotava em minutos"
+  },
+  {
+   "t": 4.7,
+   "d": 4.9,
+   "type": "stat",
+   "value": 3,
+   "prefix": "quase ",
+   "suffix": "x",
+   "label": "o crescimento da Pop Mart em 2025",
+   "count": 0.6
+  },
+  {
+   "t": 9.8,
+   "d": 3.0,
+   "type": "news",
+   "kicker": "ESSE MÊS",
+   "title": "Saiu o resultado do trimestre"
+  },
+  {
+   "t": 12.9,
+   "d": 6.5,
+   "type": "bars",
+   "title": "POP MART · RECEITA DO TRIMESTRE",
+   "bars": [
+    [
+     "um ano antes",
+     100,
+     "100%"
+    ],
+    [
+     "agora",
+     50,
+     "−50%"
+    ],
+    [
+     "nos EUA",
+     30,
+     "−70%"
+    ]
+   ],
+   "stagger": 2.2,
+   "src": "Bloomberg"
+  },
+  {
+   "t": 19.4,
+   "d": 4.0,
+   "type": "full",
+   "big": "FILA NA PORTA",
+   "small": "o mesmo produto, um ano atrás",
+   "img": "crowd"
+  },
+  {
+   "t": 23.4,
+   "d": 5.0,
+   "type": "lower",
+   "title": "O fundador tentou segurar o hype",
+   "sub": "diminuiu os lotes"
+  },
+  {
+   "t": 28.5,
+   "d": 3.6,
+   "type": "full",
+   "big": "A MODA PASSOU",
+   "small": "mais rápido que o planejado"
+  },
+  {
+   "t": 32.2,
+   "d": 5.4,
+   "type": "news",
+   "kicker": "SERVE PRA",
+   "title": "Qualquer negócio que você criar"
+  },
+  {
+   "t": 37.6,
+   "d": 1.55,
+   "type": "full",
+   "big": "PASSAGEIRA",
+   "small": "a moda é"
+  },
+  {
+   "t": 39.1,
+   "d": 7.9,
+   "type": "lower",
+   "title": "Viralizar ✓   Depender disso ✕",
+   "sub": "quando a moda acaba, a empresa vai junto"
+  },
+  {
+   "t": 47.06,
+   "d": 2.37,
+   "type": "profile"
+  }
+ ],
+ "profTop": 1220
+}

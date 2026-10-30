@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PERFIL = "data:image/jpeg;base64," + readFileSync(join(HERE, "../../assets/photos/perfil_header.jpg")).toString("base64");
-const W = 1080, H = 1920, DUR = 63.2;
+const W = 1080, H = 1920, DUR = 49.43;
 
 // ---- minimalist line icons (viewBox 0 0 100 100) ----
 const S = `fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"`;
@@ -45,7 +45,7 @@ const svg = (name, size, color = "#141414") =>
 // The busy ceiling makes dark text unreadable, so every phrase sits on a white box: short labels at the top
 // (12.4-16%, mostly above the hair), tiles and side words beside the head (x 20-320 / 760-1060, y 380-760),
 // titles, cards and the CTA over the chest (y 985-1200), above the cut-out and clear of the captions (~1250+).
-const FB = 1010;   // front title boxes: between the chin and the captions
+const FB = 1430;   // close framing: title boxes go below the captions so they never cover the chin or mouth
 const tile = (id, icon, num, label, x, y, size = 120, color) => `
   <div class="tile" id="${id}" style="left:${x}px;top:${y}px">
     <div class="tbox" style="width:${size + 56}px;height:${size + 56}px">${svg(icon, size, color)}</div>
@@ -59,53 +59,41 @@ const slam = (sel, t, rot = 0) => `tl.fromTo("${sel}", { opacity: 0, scale: 1.6,
 const strike = (sel, t) => `tl.fromTo("${sel}", { "--s": 0 }, { "--s": 1, duration: 0.35, ease: "power2.out" }, ${t});`;
 
 const G = [
-  // Hook.
-  ["hook_k", 0.1, 4.1, kicker("hk", "1984 · NIKE × JORDAN"), [rise("#hk", 0.0, 0.3)], true],
-  ["hook_t", 2.4, 2.0, fbox("h0", `<span>não queria a</span> <span class="markbig" id="h1">Nike</span>`), [rise("#h0", 0.0, 0.25), slam("#h1", 1.1, -3)], true],
-  // Adidas fan; his mother convinced him.
-  ["adidas", 5.6, 5.4, `
-    ${tile("a_ad", "heart", "", "fã da Adidas", 40, 400, 120, "#ff3b30")}
-    ${tile("a_mae", "user", "", "a mãe dele", 828, 400)}`,
-    [pop("#a_ad", 0.2), pop("#a_mae", 2.85)]],
-  // Something no other player got.
-  ["inedito", 14.9, 2.75, fbox("i0", `<span>algo que</span> <span class="serif big">nenhum</span> <span>jogador tinha</span>`), [rise("#i0", 0.0, 0.3)], true],
-  ["tenis", 17.7, 6.4, `
-    ${tile("t_sh", "shoe", "01", "tênis com o nome dele", 20, 400)}
-    ${tile("t_pc", "chart", "02", "% de cada venda", 790, 400, 120, "#16a34a")}`,
-    [pop("#t_sh", 1.05), pop("#t_pc", 3.8)]],
-  // Goal vs reality.
-  ["meta", 25.6, 10.85, `
+  // Hook: remember Labubu?
+  ["hook_k", 0.1, 2.5, kicker("hk", "POP MART · LABUBU"), [rise("#hk", 0.0, 0.3)], true],
+  ["hook_t", 2.7, 2.0, fbox("h0", `<span>esgotava em</span> <span class="markbig small">minutos</span>`), [rise("#h0", 0.0, 0.3)], true],
+  ["tripl", 4.7, 4.9, `
+    <div class="side" id="t1" style="left:10px;top:330px;width:340px"><div class="sans">a Pop Mart quase</div><div class="serif huge" style="font-size:96px">3x</div></div>
+    ${tile("t_up", "up", "", "em 2025", 790, 330, 120, "#16a34a")}`,
+    [rise("#t1", 2.2, 0.35), pop("#t_up", 3.9)]],
+  ["tri_k", 9.8, 3.0, kicker("rk", "RESULTADO DO TRIMESTRE"), [rise("#rk", 0.0, 0.3)], true],
+  // Revenue almost halved; -70% in the US.
+  ["receita", 12.9, 6.5, `
     <div class="card cmp" id="mc" style="left:70px;top:${FB}px;width:940px">
-      <div class="crow" id="mr1"><div class="clab">meta da Nike<small>em 4 anos</small></div><div class="cbar"><i id="mb1"></i></div><div class="cval">US$ 3 mi</div></div>
-      <div class="crow" id="mr2"><div class="clab">Air Jordan<small>no 1º ano</small></div><div class="cbar"><i id="mb2" class="red"></i></div><div class="cval red" id="mv2">US$ 0 mi</div></div>
+      <div class="crow" id="mr1"><div class="clab">receita<small>no trimestre</small></div><div class="cbar"><i id="mb1" class="red"></i></div><div class="cval red">−50%</div></div>
+      <div class="crow" id="mr2"><div class="clab">nos EUA<small>no trimestre</small></div><div class="cbar"><i id="mb2" class="red"></i></div><div class="cval red">−70%</div></div>
     </div>`,
-    [rise("#mc", 0.0, 0.35), `tl.fromTo("#mb1", { width: "0%" }, { width: "2.4%", duration: 0.6, ease: "power2.out" }, 1.5);`,
-     `tl.set("#mr2", { opacity: 0 }, 0.0);`, rise("#mr2", 7.0, 0.3),
-     `tl.fromTo("#mb2", { width: "0%" }, { width: "100%", duration: 1.4, ease: "power2.out" }, 8.1);`,
-     `const m2 = { v: 0 }; tl.to(m2, { v: 126, duration: 1.4, ease: "power2.out", onUpdate: () => { document.getElementById("mv2").textContent = "US$ " + Math.round(m2.v) + " mi"; } }, 8.1);`],
+    [rise("#mc", 0.0, 0.35), `tl.fromTo("#mb1", { width: "100%" }, { width: "50%", duration: 0.9, ease: "power2.inOut" }, 0.7);`,
+     `tl.set("#mr2", { opacity: 0 }, 0.0);`, rise("#mr2", 4.7, 0.3),
+     `tl.fromTo("#mb2", { width: "100%" }, { width: "30%", duration: 0.9, ease: "power2.inOut" }, 5.0);`],
     true],
-  // Jordan brand today.
-  ["hoje", 36.5, 6.4, `
-    <div class="side" id="j1" style="left:20px;top:400px"><div class="sans">por ano</div><div class="serif huge" style="font-size:72px">US$ 5 bi</div><div class="tag2">marca Jordan</div></div>
-    ${tile("j_pc", "chart", "", "uma parte é dele", 790, 400, 120, "#16a34a")}`,
-    [rise("#j1", 1.9, 0.35), pop("#j_pc", 5.1)]],
-  // Biggest contract in history; 21 years old.
-  ["maior", 44.2, 2.6, fbox("c0", `<span>o maior</span> <span class="serif big">contrato</span> <span>da história</span>`), [rise("#c0", 0.0, 0.3)], true],
-  ["vinte", 47.6, 3.0, `
-    <div class="side" id="v1" style="left:20px;top:400px"><div class="sans">um cara de</div><div class="serif huge red">21 anos</div></div>`,
-    [rise("#v1", 0.5, 0.35)]],
-  // Go to the meeting, answer the call, go out.
-  ["va_k", 50.7, 7.4, kicker("vk", "MESMO SEM VONTADE"), [rise("#vk", 0.3, 0.3)], true],
-  ["va", 50.7, 7.4, `
-    <div class="stack" style="left:30px;top:420px">
-      <div class="spill" id="q1"><span class="num">01</span>vá na reunião</div>
-      <div class="spill" id="q2"><span class="num">02</span>atenda a ligação</div>
-      <div class="spill" id="q3"><span class="num">03</span>saia com as pessoas</div>
+  ["fila", 19.4, 4.0, fbox("f0", `<span>tinha</span> <span class="serif big">fila</span> <span>na porta</span>`), [rise("#f0", 1.9, 0.3)], true],
+  // He tried to hold the hype; the fad passed faster.
+  ["hype", 23.4, 8.7, `
+    <div class="side" id="y1" style="left:10px;top:330px;width:340px"><div class="sans">segurar o</div><div class="serif huge" style="font-size:96px">hype</div></div>
+    ${tile("y_clk", "clock", "", "a moda passou", 790, 330, 120, "#ff3b30")}`,
+    [rise("#y1", 1.8, 0.35), pop("#y_clk", 6.9)]],
+  ["qualquer_k", 32.2, 5.4, kicker("qk", "SERVE PRA QUALQUER NEGÓCIO"), [rise("#qk", 2.0, 0.3)], true],
+  ["passa", 37.6, 1.55, fbox("p0", `<span>a moda é</span> <span class="markbig small">passageira</span>`), [rise("#p0", 0.0, 0.3)], true],
+  // Going viral is great; depending on it isn't.
+  ["viral", 39.1, 7.9, `
+    <div class="stack" style="left:30px;top:340px">
+      <div class="spill" id="s1"><span class="num">01</span>viralizar ✓</div>
+      <div class="spill" id="s2"><span class="num">02</span>depender disso ✕</div>
     </div>`,
-    [pop("#q1", 2.4), pop("#q2", 3.6), pop("#q3", 5.0)]],
-  ["oport", 58.1, 1.55, fbox("o0", `<span>é aí que a</span> <span class="markbig small">oportunidade</span> <span>chega</span>`), [rise("#o0", 0.0, 0.3)], true],
+    [pop("#s1", 0.3), pop("#s2", 2.4)]],
   // CTA: profile print.
-  ["cta", 59.7, 3.5, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
+  ["cta", 47.06, 2.37, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
 ];
 
 const CSS = `

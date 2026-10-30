@@ -1,0 +1,128 @@
+{
+ "capEnd": 45.03,
+ "capTop": 1150,
+ "lowerTop": 1570,
+ "punch": [
+  [
+   0,
+   1
+  ],
+  [
+   4.57,
+   1.12
+  ],
+  [
+   5.7,
+   1
+  ],
+  [
+   28.36,
+   1.1
+  ],
+  [
+   30.0,
+   1
+  ],
+  [
+   31.14,
+   1.12
+  ],
+  [
+   33.0,
+   1
+  ],
+  [
+   35.6,
+   1.08
+  ],
+  [
+   40.1,
+   1
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 5.5,
+   "type": "news",
+   "img": "money",
+   "kicker": "ESSA SEMANA",
+   "title": "Itaú compra startup brasileira por quase R$ 3 bi"
+  },
+  {
+   "t": 5.7,
+   "d": 3.3,
+   "type": "stat",
+   "value": 2,
+   "prefix": "só ",
+   "suffix": " anos",
+   "label": "a idade da NeoSpace",
+   "count": 0.5
+  },
+  {
+   "t": 9.0,
+   "d": 3.6,
+   "type": "lower",
+   "title": "NeoSpace",
+   "sub": "inteligência artificial para bancos"
+  },
+  {
+   "t": 12.6,
+   "d": 3.9,
+   "type": "full",
+   "big": "COMO?",
+   "small": "o mais interessante da história"
+  },
+  {
+   "t": 16.5,
+   "d": 3.6,
+   "type": "news",
+   "img": "handshake_office",
+   "kicker": "01 · CLIENTE",
+   "title": "Primeiro, o Itaú virou cliente"
+  },
+  {
+   "t": 20.1,
+   "d": 5.9,
+   "type": "news",
+   "img": "contract",
+   "kicker": "02 · SÓCIO (2025)",
+   "title": "15% por US$ 15 milhões"
+  },
+  {
+   "t": 26.0,
+   "d": 6.9,
+   "type": "news",
+   "img": "money",
+   "kicker": "03 · DONO (2026)",
+   "title": "100% por R$ 2,9 bilhões"
+  },
+  {
+   "t": 33.0,
+   "d": 2.3,
+   "type": "full",
+   "big": "NÃO VENDERAM",
+   "small": "pro banco"
+  },
+  {
+   "t": 35.3,
+   "d": 4.8,
+   "type": "lower",
+   "title": "Resolveram um problema",
+   "sub": "tão bem que o banco comprou a solução"
+  },
+  {
+   "t": 40.1,
+   "d": 4.9,
+   "type": "full",
+   "big": "O MELHOR PITCH",
+   "small": "um cliente que não vive sem você"
+  },
+  {
+   "t": 45.03,
+   "d": 2.3,
+   "type": "profile"
+  }
+ ],
+ "profTop": 1220
+}

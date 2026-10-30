@@ -1,0 +1,112 @@
+{
+ "videoTop": -380,
+ "shots": [
+  {
+   "t": 0,
+   "text": "lembram do <b>Labubu</b>?"
+  },
+  {
+   "t": 2.6,
+   "img": "crowd",
+   "label": "esgotava em minutos"
+  },
+  {
+   "t": 4.7,
+   "text": "<b>Pop Mart</b>"
+  },
+  {
+   "t": 6.8,
+   "text": "quase <i>3x</i> em 2025"
+  },
+  {
+   "t": 9.8,
+   "text": "esse <i>mês</i>"
+  },
+  {
+   "t": 11.0,
+   "text": "o resultado do <b>trimestre</b>"
+  },
+  {
+   "t": 12.9,
+   "img": "money",
+   "label": "receita"
+  },
+  {
+   "t": 14.0,
+   "text": "caiu quase <b>pela metade</b>",
+   "full": true
+  },
+  {
+   "t": 15.5,
+   "text": "nos <b>EUA</b>"
+  },
+  {
+   "t": 17.7,
+   "text": "<b>−70%</b>",
+   "full": true
+  },
+  {
+   "t": 19.4,
+   "img": "crowd",
+   "label": "fila na porta"
+  },
+  {
+   "t": 22.0,
+   "text": "o <i>mesmo</i> produto"
+  },
+  {
+   "t": 23.4,
+   "text": "o <b>fundador</b>"
+  },
+  {
+   "t": 25.0,
+   "text": "segurar o <i>hype</i>"
+  },
+  {
+   "t": 26.0,
+   "img": "contract",
+   "label": "menos lotes"
+  },
+  {
+   "t": 28.5,
+   "text": "a moda <b>passou</b>",
+   "full": true
+  },
+  {
+   "t": 31.3,
+   "text": "mais rápido que o <i>planejado</i>"
+  },
+  {
+   "t": 32.2,
+   "text": "o que eu quero falar"
+  },
+  {
+   "t": 34.4,
+   "text": "<i>qualquer</i> negócio"
+  },
+  {
+   "t": 37.0,
+   "img": "phone_walk",
+   "label": "a moda é passageira"
+  },
+  {
+   "t": 39.1,
+   "img": "social_apps",
+   "label": "viralizar"
+  },
+  {
+   "t": 41.5,
+   "text": "<b>depender</b> disso"
+  },
+  {
+   "t": 44.3,
+   "text": "a empresa vai <i>junto</i>"
+  },
+  {
+   "t": 47.06,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  }
+ ]
+}

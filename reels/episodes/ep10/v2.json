@@ -1,0 +1,137 @@
+{
+ "videoTop": -250,
+ "shots": [
+  {
+   "t": 0,
+   "text": "<b>2008</b>",
+   "full": true
+  },
+  {
+   "t": 1.5,
+   "text": "dinheiro pra <i>1 foguete</i>"
+  },
+  {
+   "t": 3.6,
+   "text": "<b>Elon Musk</b>"
+  },
+  {
+   "t": 5.5,
+   "text": "<b>SpaceX</b>"
+  },
+  {
+   "t": 6.9,
+   "text": "dinheiro pra <b>4</b> foguetes"
+  },
+  {
+   "t": 8.4,
+   "text": "<b>3</b> explodiram",
+   "full": true
+  },
+  {
+   "t": 10.9,
+   "text": "não deram <i>certo</i>"
+  },
+  {
+   "t": 11.4,
+   "text": "a <b>Tesla</b>"
+  },
+  {
+   "t": 13.0,
+   "img": "money",
+   "label": "quase falindo"
+  },
+  {
+   "t": 15.2,
+   "text": "se <i>esse</i> foguete desse errado"
+  },
+  {
+   "t": 17.5,
+   "text": "era o <b>fim</b>",
+   "full": true
+  },
+  {
+   "t": 19.5,
+   "text": "setembro de <b>2008</b>"
+  },
+  {
+   "t": 21.0,
+   "text": "o <b>4º</b> foguete"
+  },
+  {
+   "t": 22.6,
+   "text": "chegou na <i>órbita</i>"
+  },
+  {
+   "t": 23.9,
+   "img": "handshake_office",
+   "label": "logo depois"
+  },
+  {
+   "t": 26.5,
+   "img": "contract",
+   "label": "contrato com a NASA"
+  },
+  {
+   "t": 28.6,
+   "text": "<b>US$ 1,6 bi</b>"
+  },
+  {
+   "t": 30.9,
+   "text": "junho de <b>2026</b>"
+  },
+  {
+   "t": 33.6,
+   "img": "money",
+   "label": "bolsa de valores"
+  },
+  {
+   "t": 36.4,
+   "text": "o maior <b>IPO</b> da história",
+   "full": true
+  },
+  {
+   "t": 38.9,
+   "text": "levantou <b>US$ 75 bi</b>"
+  },
+  {
+   "t": 41.7,
+   "text": "do dia pra <i>noite</i>"
+  },
+  {
+   "t": 44.0,
+   "text": "<b>US$ 1,8 tri</b>",
+   "full": true
+  },
+  {
+   "t": 47.0,
+   "text": "a <i>um foguete</i> de fechar"
+  },
+  {
+   "t": 49.9,
+   "text": "todas as <b>operações</b>"
+  },
+  {
+   "t": 51.9,
+   "text": "fracasso <i>×</i> sucesso"
+  },
+  {
+   "t": 54.5,
+   "text": "várias <i>vezes</i>"
+  },
+  {
+   "t": 56.4,
+   "text": "uma <b>única</b> coisa"
+  },
+  {
+   "t": 58.0,
+   "text": "mais uma <i>tentativa</i>",
+   "full": true
+  },
+  {
+   "t": 59.45,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  }
+ ]
+}
