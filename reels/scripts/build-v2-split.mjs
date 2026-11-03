@@ -38,7 +38,7 @@ shots.forEach((s, i) => {
   const d = (s.end - s.t).toFixed(3), id = `s${i}`;
   const box = s.full ? `top:0;height:${H}px` : `top:0;height:${TOP_H}px`;
   const inner = s.img
-    ? `<img src="photos/${s.img}.jpg" style="object-position:${s.pos || "50% 40%"}" />`
+    ? `<img src="photos/${s.img}.jpg" style="object-position:${s.pos || "50% 40%"};object-fit:${s.fit || "cover"};background:${s.bg || "transparent"}" />`
     : `<div class="tcard"><div class="ttext">${esc(s.text)}</div></div>`;
   const chip = s.label ? `<div class="chip" style="bottom:${s.full ? 520 : 40}px">${esc(s.label)}</div>` : "";
   body += `      <div class="shot clip${s.full ? " full" : ""}" id="${id}" style="${box}" data-start="${s.t.toFixed(3)}" data-duration="${d}" data-track-index="${2 + (i % 2)}"><div class="kb" id="${id}k">${inner}</div>${chip}</div>\n`;

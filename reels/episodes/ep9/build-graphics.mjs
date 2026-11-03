@@ -8,6 +8,9 @@ import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PERFIL = "data:image/jpeg;base64," + readFileSync(join(HERE, "../../assets/photos/perfil_header.jpg")).toString("base64");
+const PHOTO = (n) => "data:image/jpeg;base64," + readFileSync(join(HERE, `../../assets/photos/${n}.jpg`)).toString("base64");
+// A real photo card on the graphics layer (behind the cut-out, so it never covers the speaker).
+const pcardImg = (id, n, x, y, w = 330) => `<div class="side" id="${id}" style="left:${x}px;top:${y}px;width:${w}px;background:none;padding:0;box-shadow:none;border:0"><img src="${PHOTO(n)}" style="width:${w}px;border-radius:26px;border:7px solid #fff;box-shadow:0 14px 40px rgba(0,0,0,0.35);display:block" /></div>`;
 const W = 1080, H = 1920, DUR = 46.27;
 
 // ---- minimalist line icons (viewBox 0 0 100 100) ----
@@ -62,12 +65,13 @@ const G = [
   // Hook: the biggest YouTuber earns more from chocolate than from his videos.
   ["hook_k", 0.1, 4.5, kicker("hk", "MRBEAST · CREATOR ECONOMY"), [rise("#hk", 0.0, 0.3)], true],
   ["hook_t", 2.2, 2.4, fbox("h0", `<span>mais com</span> <span class="markbig" id="h1">chocolate</span>`), [rise("#h0", 0.0, 0.25), slam("#h1", 0.25, -3)], true],
+  ["mb_photo", 0.4, 4.1, pcardImg("mb1", "mrbeast_smile", 20, 330, 380), [pop("#mb1", 0.0)]],
   ["virada", 5.3, 3.3, fbox("v0", `<span>a nova</span> <span class="serif big">virada</span> <span>do mercado</span>`), [rise("#v0", 0.0, 0.3)], true],
   // Investor documents.
   ["docs", 9.8, 4.8, `
-    ${tile("d_doc", "pen", "", "documentos", 40, 330)}
+    ${pcardImg("mb2", "mrbeast_portrait", 20, 330, 300)}
     ${tile("d_inv", "people", "", "investidores", 828, 330)}`,
-    [pop("#d_doc", 2.0), pop("#d_inv", 2.7)]],
+    [pop("#mb2", 0.4), pop("#d_inv", 2.7)]],
   // Chocolate vs videos.
   ["cmp", 14.7, 7.9, `
     <div class="card cmp" id="mc" style="left:70px;top:${FB}px;width:940px">

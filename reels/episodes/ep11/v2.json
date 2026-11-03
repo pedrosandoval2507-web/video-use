@@ -3,12 +3,17 @@
  "shots": [
   {
    "t": 0,
-   "text": "lembram do <b>Labubu</b>?"
+   "img": "labubu_plush",
+   "label": "Labubu",
+   "pos": "50% 50%",
+   "fit": "contain",
+   "bg": "#ffffff"
   },
   {
    "t": 2.6,
-   "img": "crowd",
-   "label": "esgotava em minutos"
+   "img": "labubu_beach",
+   "label": "esgotava em minutos",
+   "pos": "50% 45%"
   },
   {
    "t": 4.7,
@@ -52,7 +57,11 @@
   },
   {
    "t": 22.0,
-   "text": "o <i>mesmo</i> produto"
+   "img": "labubu_plush",
+   "label": "o mesmo produto",
+   "pos": "50% 50%",
+   "fit": "contain",
+   "bg": "#ffffff"
   },
   {
    "t": 23.4,

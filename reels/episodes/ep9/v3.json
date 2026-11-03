@@ -54,7 +54,8 @@
    "d": 4.5,
    "type": "news",
    "kicker": "MRBEAST",
-   "title": "Ganha mais com chocolate do que com vídeos"
+   "title": "Ganha mais com chocolate do que com vídeos",
+   "img": "mrbeast_smile"
   },
   {
    "t": 8.6,
@@ -68,9 +69,10 @@
    "t": 9.8,
    "d": 4.8,
    "type": "news",
-   "img": "contract",
+   "img": "mrbeast_portrait",
    "kicker": "DOCUMENTOS A INVESTIDORES",
-   "title": "O que eles mostraram chocou"
+   "title": "O que eles mostraram chocou",
+   "pos": "50% 25%"
   },
   {
    "t": 14.7,

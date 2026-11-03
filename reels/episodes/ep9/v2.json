@@ -3,7 +3,9 @@
  "shots": [
   {
    "t": 0,
-   "text": "o maior <b>YouTuber</b> do mundo"
+   "img": "mrbeast_smile",
+   "label": "o maior YouTuber do mundo",
+   "pos": "50% 30%"
   },
   {
    "t": 2.4,
@@ -20,7 +22,9 @@
   },
   {
    "t": 9.8,
-   "text": "a empresa do <b>MrBeast</b>"
+   "img": "mrbeast_portrait",
+   "label": "a empresa do MrBeast",
+   "pos": "50% 30%"
   },
   {
    "t": 11.8,

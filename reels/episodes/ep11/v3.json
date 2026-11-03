@@ -46,7 +46,9 @@
    "d": 2.6,
    "type": "news",
    "kicker": "LEMBRA DELE?",
-   "title": "O Labubu esgotava em minutos"
+   "title": "O Labubu esgotava em minutos",
+   "img": "labubu_plush",
+   "pos": "50% 25%"
   },
   {
    "t": 4.7,
@@ -63,7 +65,8 @@
    "d": 3.0,
    "type": "news",
    "kicker": "ESSE MÊS",
-   "title": "Saiu o resultado do trimestre"
+   "title": "Saiu o resultado do trimestre",
+   "img": "labubu_beach"
   },
   {
    "t": 12.9,

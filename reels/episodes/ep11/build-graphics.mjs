@@ -8,6 +8,9 @@ import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PERFIL = "data:image/jpeg;base64," + readFileSync(join(HERE, "../../assets/photos/perfil_header.jpg")).toString("base64");
+const PHOTO = (n) => "data:image/jpeg;base64," + readFileSync(join(HERE, `../../assets/photos/${n}.jpg`)).toString("base64");
+// A real photo card on the graphics layer (behind the cut-out, so it never covers the speaker).
+const pcardImg = (id, n, x, y, w = 330) => `<div class="side" id="${id}" style="left:${x}px;top:${y}px;width:${w}px;background:none;padding:0;box-shadow:none;border:0"><img src="${PHOTO(n)}" style="width:${w}px;border-radius:26px;border:7px solid #fff;box-shadow:0 14px 40px rgba(0,0,0,0.35);display:block" /></div>`;
 const W = 1080, H = 1920, DUR = 49.43;
 
 // ---- minimalist line icons (viewBox 0 0 100 100) ----
@@ -62,6 +65,7 @@ const G = [
   // Hook: remember Labubu?
   ["hook_k", 0.1, 2.5, kicker("hk", "POP MART · LABUBU"), [rise("#hk", 0.0, 0.3)], true],
   ["hook_t", 2.7, 2.0, fbox("h0", `<span>esgotava em</span> <span class="markbig small">minutos</span>`), [rise("#h0", 0.0, 0.3)], true],
+  ["lb_photo", 1.8, 2.9, pcardImg("lb1", "labubu_plush", 30, 300, 300), [pop("#lb1", 0.1)]],
   ["tripl", 4.7, 4.9, `
     <div class="side" id="t1" style="left:10px;top:330px;width:340px"><div class="sans">a Pop Mart quase</div><div class="serif huge" style="font-size:96px">3x</div></div>
     ${tile("t_up", "up", "", "em 2025", 790, 330, 120, "#16a34a")}`,
@@ -77,6 +81,7 @@ const G = [
      `tl.set("#mr2", { opacity: 0 }, 0.0);`, rise("#mr2", 4.7, 0.3),
      `tl.fromTo("#mb2", { width: "100%" }, { width: "30%", duration: 0.9, ease: "power2.inOut" }, 5.0);`],
     true],
+  ["lb_fila", 19.4, 4.0, pcardImg("lb2", "labubu_beach", 30, 300, 520), [pop("#lb2", 0.1)]],
   ["fila", 19.4, 4.0, fbox("f0", `<span>tinha</span> <span class="serif big">fila</span> <span>na porta</span>`), [rise("#f0", 1.9, 0.3)], true],
   // He tried to hold the hype; the fad passed faster.
   ["hype", 23.4, 8.7, `
