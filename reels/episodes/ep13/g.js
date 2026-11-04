@@ -27,6 +27,6 @@ const G = [
   ["res_k", 36.9, 5.6, kicker("rk", "O RESULTADO VEM"), [rise("#rk", 0.4, 0.3)], true],
   ["ninguem", 40.6, 1.9, fbox("g0", `<span>no dia que</span> <span class="serif big">ninguém</span> <span>tá vendo</span>`), [rise("#g0", 0.0, 0.3)], true],
   // CTA: comment so we connect.
-  ["cta_k", 42.5, 8.3, kicker("ck", "SE VOCÊ TAMBÉM TÁ CONSTRUINDO"), [rise("#ck", 0.3, 0.3)], true],
-  ["cta", 47.5, 3.3, fbox("c0", `<span>comenta</span> <span class="markbig small">aqui</span> <span>👇</span>`), [rise("#c0", 0.0, 0.3)], true],
+  ["cta_k", 42.4, 5.27, kicker("ck", "SE VOCÊ TAMBÉM TÁ CONSTRUINDO"), [rise("#ck", 0.3, 0.3)], true],
+  ["cta", 44.4, 3.27, fbox("c0", `<span>comenta</span> <span class="markbig small">aqui</span> <span>👇</span>`), [rise("#c0", 0.0, 0.3)], true],
 ];

@@ -104,22 +104,17 @@
    "label": "ninguém tá vendo"
   },
   {
-   "t": 42.5,
+   "t": 42.4,
    "img": "reading",
    "label": "se você tá construindo algo"
   },
   {
-   "t": 45.0,
-   "img": "friends",
-   "label": "bora se conectar"
-  },
-  {
-   "t": 47.5,
+   "t": 44.4,
    "text": "comenta <b>aqui</b> 👇",
    "full": true
   },
   {
-   "t": 49.4,
+   "t": 46.2,
    "text": "vamos juntos nessa <i>jornada</i>"
   }
  ]

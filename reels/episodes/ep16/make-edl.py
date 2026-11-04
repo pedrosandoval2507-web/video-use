@@ -4,7 +4,7 @@
 #   edl.tsv   -> source in-point (s) and length (frames at 30 fps) of each kept segment
 #   words.tsv -> word timings on the edited timeline (start_ms, end_ms, word), for the captions
 # Usage: python3 make-edl.py <voice.raw: mono s16le 16 kHz of the source audio>
-import sys
+import os, sys
 import numpy as np
 
 SR = 16000
@@ -17,7 +17,7 @@ a = np.fromfile(sys.argv[1], dtype=np.int16).astype(float) / 32768
 hop = SR // 100
 db = 20 * np.log10(np.array([np.sqrt((a[i:i + hop] ** 2).mean() + 1e-12) for i in range(0, len(a) - hop, hop)]))
 FLOOR = float(np.percentile(db, 10))
-SIL_DB = FLOOR + (34 if FLOOR < -55 else 12)   # quiet room: 34 dB over the floor (cuts every pause >= 0.1 s); noisy room: 12 dB
+SIL_DB = FLOOR + float(os.environ.get("EDL_SIL_OFFSET", 34 if FLOOR < -55 else 12))   # quiet room: 34 dB over the floor (cuts every pause >= 0.1 s); noisy room: 12 dB  # EDL_SIL_OFFSET: raise it for a noisy room
 
 def quiet(i0, i1):
     return db[max(0, i0):i1] < SIL_DB

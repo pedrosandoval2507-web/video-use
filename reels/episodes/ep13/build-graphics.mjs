@@ -11,7 +11,7 @@ const PERFIL = "data:image/jpeg;base64," + readFileSync(join(HERE, "../../assets
 const PHOTO = (n) => "data:image/jpeg;base64," + readFileSync(join(HERE, `../../assets/photos/${n}.jpg`)).toString("base64");
 // A real photo card on the graphics layer (behind the cut-out, so it never covers the speaker).
 const pcardImg = (id, n, x, y, w = 330) => `<div class="side" id="${id}" style="left:${x}px;top:${y}px;width:${w}px;background:none;padding:0;box-shadow:none;border:0"><img src="${PHOTO(n)}" style="width:${w}px;border-radius:26px;border:7px solid #fff;box-shadow:0 14px 40px rgba(0,0,0,0.35);display:block" /></div>`;
-const W = 1080, H = 1920, DUR = 50.8;
+const W = 1080, H = 1920, DUR = 47.67;
 
 // ---- minimalist line icons (viewBox 0 0 100 100) ----
 const S = `fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"`;
@@ -90,8 +90,8 @@ const G = [
   ["res_k", 36.9, 5.6, kicker("rk", "O RESULTADO VEM"), [rise("#rk", 0.4, 0.3)], true],
   ["ninguem", 40.6, 1.9, fbox("g0", `<span>no dia que</span> <span class="serif big">ninguém</span> <span>tá vendo</span>`), [rise("#g0", 0.0, 0.3)], true],
   // CTA: comment so we connect.
-  ["cta_k", 42.5, 8.3, kicker("ck", "SE VOCÊ TAMBÉM TÁ CONSTRUINDO"), [rise("#ck", 0.3, 0.3)], true],
-  ["cta", 47.5, 3.3, fbox("c0", `<span>comenta</span> <span class="markbig small">aqui</span> <span>👇</span>`), [rise("#c0", 0.0, 0.3)], true],
+  ["cta_k", 42.4, 5.27, kicker("ck", "SE VOCÊ TAMBÉM TÁ CONSTRUINDO"), [rise("#ck", 0.3, 0.3)], true],
+  ["cta", 44.4, 3.27, fbox("c0", `<span>comenta</span> <span class="markbig small">aqui</span> <span>👇</span>`), [rise("#c0", 0.0, 0.3)], true],
 ];
 
 const CSS = `

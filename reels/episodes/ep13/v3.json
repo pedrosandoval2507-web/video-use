@@ -1,5 +1,5 @@
 {
- "capEnd": 50.8,
+ "capEnd": 47.67,
  "capTop": 1150,
  "lowerTop": 1570,
  "punch": [
@@ -116,16 +116,16 @@
    "sub": "vem no dia que ninguém tá vendo"
   },
   {
-   "t": 42.5,
-   "d": 5.0,
+   "t": 42.4,
+   "d": 2.0,
    "type": "news",
    "img": "reading",
    "kicker": "SE VOCÊ TAMBÉM",
    "title": "Tá construindo algo"
   },
   {
-   "t": 47.5,
-   "d": 3.3,
+   "t": 44.4,
+   "d": 3.27,
    "type": "full",
    "big": "COMENTA AQUI",
    "small": "bora construir junto"

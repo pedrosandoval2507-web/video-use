@@ -1,5 +1,5 @@
 {
- "capEnd": 38.8,
+ "capEnd": 34.83,
  "capTop": 1150,
  "lowerTop": 1570,
  "punch": [
@@ -8,106 +8,106 @@
    1
   ],
   [
-   2.53,
+   2.27,
    1.12
   ],
   [
-   4.09,
-   1.0
+   3.7,
+   1
   ],
   [
-   17.39,
+   16.01,
    1.12
   ],
   [
-   18.27,
-   1.0
+   16.6,
+   1
   ],
   [
-   29.63,
+   26.29,
    1.1
   ],
   [
-   30.9,
-   1.0
+   27.53,
+   1
   ],
   [
-   34.2,
+   30.6,
    1.08
   ],
   [
-   35.7,
-   1.0
+   32.0,
+   1
   ]
  ],
  "items": [
   {
    "t": 0.1,
-   "d": 3.9,
+   "d": 3.5,
    "type": "news",
    "kicker": "VOCÊ JÁ PAROU PRA PENSAR?",
    "title": "O que as pessoas mais se arrependem no fim da vida"
   },
   {
-   "t": 4.1,
-   "d": 4.8,
+   "t": 3.7,
+   "d": 4.5,
    "type": "lower",
    "title": "Bronnie Ware",
    "sub": "enfermeira australiana"
   },
   {
-   "t": 8.9,
-   "d": 5.6,
+   "t": 8.3,
+   "d": 5.2,
    "type": "news",
    "img": "reading",
    "kicker": "A PESQUISA",
    "title": "Anos cuidando de pacientes em estado terminal"
   },
   {
-   "t": 14.6,
-   "d": 3.7,
+   "t": 13.6,
+   "d": 2.9,
    "type": "full",
    "big": "Nº 1: CORAGEM",
    "small": "o maior arrependimento"
   },
   {
-   "t": 18.3,
-   "d": 5.9,
+   "t": 16.6,
+   "d": 4.6,
    "type": "lower",
    "title": "Viver a vida que queriam",
    "sub": "e não a expectativa dos outros"
   },
   {
-   "t": 24.3,
-   "d": 4.4,
+   "t": 21.27,
+   "d": 4.1,
    "type": "news",
    "kicker": "O QUE MAIS SURPREENDEU",
    "title": "Ninguém se arrependia do que fez"
   },
   {
-   "t": 28.8,
-   "d": 2.1,
+   "t": 25.45,
+   "d": 2.0,
    "type": "full",
    "big": "NÃO FEZ",
    "small": "é disso que se arrependiam"
   },
   {
-   "t": 30.9,
-   "d": 4.8,
+   "t": 27.53,
+   "d": 4.4,
    "type": "lower",
    "title": "Medo da aprovação dos outros?",
    "sub": "talvez valha pensar nisso"
   },
   {
-   "t": 35.7,
-   "d": 3.1,
+   "t": 32.0,
+   "d": 2.8,
    "type": "full",
    "big": "PENSA NISSO",
    "small": ""
   },
   {
-   "t": 38.8,
-   "d": 4.4,
+   "t": 34.83,
+   "d": 3.94,
    "type": "profile"
   }
  ],

@@ -6,17 +6,17 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const W = 1080, H = 1920, DUR = 43.2;
+const W = 1080, H = 1920, DUR = 38.77;
 const ORIGIN = "50% 40%";   // zoom around the face, so it stays in place instead of drifting up
 const EASE_IN = 0.3, EASE_OUT = 0.3;
 
 // [start s, duration s, scale]. The hook is a slow suspense push-in. Close-up framing, so zooms stay ≤1.12.
 const ZOOMS = [
-  { at: 0, dur: 3.9, from: 1.0, to: 1.1, push: true },
-  { at: 17.3, dur: 1.4, to: 1.1 },
-  { at: 25.9, dur: 1.0, to: 1.06 },
-  { at: 29.6, dur: 1.3, to: 1.1 },
-  { at: 34.2, dur: 1.2, to: 1.08 },
+  { at: 0, dur: 3.6, from: 1.0, to: 1.1, push: true },
+  { at: 16.0, dur: 1.2, to: 1.1 },
+  { at: 22.9, dur: 1.0, to: 1.06 },
+  { at: 26.3, dur: 1.2, to: 1.1 },
+  { at: 30.6, dur: 1.1, to: 1.08 },
 ];
 
 function zoomTimeline() {
