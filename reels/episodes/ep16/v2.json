@@ -1,0 +1,104 @@
+{
+ "videoTop": -380,
+ "shots": [
+  {
+   "t": 0,
+   "text": "o que as pessoas mais se <b>arrependem</b>?"
+  },
+  {
+   "t": 2.3,
+   "text": "ao final da <i>vida</i>"
+  },
+  {
+   "t": 4.1,
+   "text": "uma enfermeira <b>australiana</b>"
+  },
+  {
+   "t": 5.8,
+   "text": "<i>Bronnie Ware</i>"
+  },
+  {
+   "t": 7.0,
+   "img": "reading",
+   "label": "uma das suas pesquisas"
+  },
+  {
+   "t": 8.9,
+   "text": "anos <i>cuidando</i> de pessoas"
+  },
+  {
+   "t": 10.8,
+   "text": "em estado <b>terminal</b>"
+  },
+  {
+   "t": 12.4,
+   "text": "o que elas mais <i>falavam</i>"
+  },
+  {
+   "t": 14.6,
+   "text": "o arrependimento <b>nº 1</b>",
+   "full": true
+  },
+  {
+   "t": 17.2,
+   "text": "<b>coragem</b>",
+   "full": true
+  },
+  {
+   "t": 18.3,
+   "img": "sprint",
+   "label": "coragem de viver"
+  },
+  {
+   "t": 20.3,
+   "text": "a vida que <i>queriam</i>"
+  },
+  {
+   "t": 22.7,
+   "text": "não a expectativa dos <b>outros</b>"
+  },
+  {
+   "t": 24.3,
+   "text": "o que mais <i>surpreendeu</i>"
+  },
+  {
+   "t": 25.9,
+   "text": "ninguém se arrependia do que <b>fez</b>"
+  },
+  {
+   "t": 28.8,
+   "text": "e sim do que <b>não fez</b>",
+   "full": true
+  },
+  {
+   "t": 30.9,
+   "img": "phone_walk",
+   "label": "em dúvida de fazer"
+  },
+  {
+   "t": 33.7,
+   "text": "medo da <b>aprovação</b>"
+  },
+  {
+   "t": 35.7,
+   "img": "reading",
+   "label": "pense nesse estudo"
+  },
+  {
+   "t": 37.3,
+   "text": "pensa <i>nisso</i>"
+  },
+  {
+   "t": 38.8,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  },
+  {
+   "t": 41.0,
+   "img": "perfil_grid",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  }
+ ]
+}

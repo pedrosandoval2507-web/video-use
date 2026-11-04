@@ -1,0 +1,115 @@
+{
+ "capEnd": 38.8,
+ "capTop": 1150,
+ "lowerTop": 1570,
+ "punch": [
+  [
+   0,
+   1
+  ],
+  [
+   2.53,
+   1.12
+  ],
+  [
+   4.09,
+   1.0
+  ],
+  [
+   17.39,
+   1.12
+  ],
+  [
+   18.27,
+   1.0
+  ],
+  [
+   29.63,
+   1.1
+  ],
+  [
+   30.9,
+   1.0
+  ],
+  [
+   34.2,
+   1.08
+  ],
+  [
+   35.7,
+   1.0
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 3.9,
+   "type": "news",
+   "kicker": "VOCÊ JÁ PAROU PRA PENSAR?",
+   "title": "O que as pessoas mais se arrependem no fim da vida"
+  },
+  {
+   "t": 4.1,
+   "d": 4.8,
+   "type": "lower",
+   "title": "Bronnie Ware",
+   "sub": "enfermeira australiana"
+  },
+  {
+   "t": 8.9,
+   "d": 5.6,
+   "type": "news",
+   "img": "reading",
+   "kicker": "A PESQUISA",
+   "title": "Anos cuidando de pacientes em estado terminal"
+  },
+  {
+   "t": 14.6,
+   "d": 3.7,
+   "type": "full",
+   "big": "Nº 1: CORAGEM",
+   "small": "o maior arrependimento"
+  },
+  {
+   "t": 18.3,
+   "d": 5.9,
+   "type": "lower",
+   "title": "Viver a vida que queriam",
+   "sub": "e não a expectativa dos outros"
+  },
+  {
+   "t": 24.3,
+   "d": 4.4,
+   "type": "news",
+   "kicker": "O QUE MAIS SURPREENDEU",
+   "title": "Ninguém se arrependia do que fez"
+  },
+  {
+   "t": 28.8,
+   "d": 2.1,
+   "type": "full",
+   "big": "NÃO FEZ",
+   "small": "é disso que se arrependiam"
+  },
+  {
+   "t": 30.9,
+   "d": 4.8,
+   "type": "lower",
+   "title": "Medo da aprovação dos outros?",
+   "sub": "talvez valha pensar nisso"
+  },
+  {
+   "t": 35.7,
+   "d": 3.1,
+   "type": "full",
+   "big": "PENSA NISSO",
+   "small": ""
+  },
+  {
+   "t": 38.8,
+   "d": 4.4,
+   "type": "profile"
+  }
+ ],
+ "profTop": 1220
+}

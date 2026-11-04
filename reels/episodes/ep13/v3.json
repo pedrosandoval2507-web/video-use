@@ -1,0 +1,134 @@
+{
+ "capEnd": 50.8,
+ "capTop": 1150,
+ "lowerTop": 1570,
+ "punch": [
+  [
+   0,
+   1
+  ],
+  [
+   3.24,
+   1.12
+  ],
+  [
+   4.31,
+   1.0
+  ],
+  [
+   15.97,
+   1.1
+  ],
+  [
+   16.5,
+   1.0
+  ],
+  [
+   21.34,
+   1.12
+  ],
+  [
+   22.0,
+   1.0
+  ],
+  [
+   35.37,
+   1.1
+  ],
+  [
+   36.9,
+   1.0
+  ],
+  [
+   41.15,
+   1.08
+  ],
+  [
+   42.5,
+   1.0
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 5.5,
+   "type": "news",
+   "kicker": "TAVA PENSANDO AQUI",
+   "title": "Todo mundo posta o dia 1. Ninguém posta o dia 47"
+  },
+  {
+   "t": 5.7,
+   "d": 5.4,
+   "type": "lower",
+   "title": "Dia 1",
+   "sub": "empolgante: projeto novo, academia, foco"
+  },
+  {
+   "t": 13.4,
+   "d": 2.1,
+   "type": "full",
+   "big": "DIA 47",
+   "small": "muito chato"
+  },
+  {
+   "t": 16.5,
+   "d": 5.4,
+   "type": "news",
+   "img": "phone_walk",
+   "kicker": "NO DIA 47",
+   "title": "Ninguém tá vendo e dá vontade de parar"
+  },
+  {
+   "t": 22.0,
+   "d": 6.0,
+   "type": "news",
+   "img": "sprint",
+   "kicker": "DIA 47, DIA 53, DIAS ALEATÓRIOS",
+   "title": "É ali que se separa quem quer de quem desiste"
+  },
+  {
+   "t": 28.1,
+   "d": 3.0,
+   "type": "full",
+   "big": "QUER × DESISTE",
+   "small": ""
+  },
+  {
+   "t": 31.2,
+   "d": 3.2,
+   "type": "news",
+   "img": "social_apps",
+   "kicker": "NA INTERNET",
+   "title": "Tudo parece perfeito"
+  },
+  {
+   "t": 34.4,
+   "d": 2.4,
+   "type": "full",
+   "big": "NADA",
+   "small": "acontece no dia 1"
+  },
+  {
+   "t": 36.9,
+   "d": 5.6,
+   "type": "lower",
+   "title": "O resultado",
+   "sub": "vem no dia que ninguém tá vendo"
+  },
+  {
+   "t": 42.5,
+   "d": 5.0,
+   "type": "news",
+   "img": "reading",
+   "kicker": "SE VOCÊ TAMBÉM",
+   "title": "Tá construindo algo"
+  },
+  {
+   "t": 47.5,
+   "d": 3.3,
+   "type": "full",
+   "big": "COMENTA AQUI",
+   "small": "bora construir junto"
+  }
+ ]
+}

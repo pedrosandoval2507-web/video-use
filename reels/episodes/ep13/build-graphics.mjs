@@ -11,7 +11,7 @@ const PERFIL = "data:image/jpeg;base64," + readFileSync(join(HERE, "../../assets
 const PHOTO = (n) => "data:image/jpeg;base64," + readFileSync(join(HERE, `../../assets/photos/${n}.jpg`)).toString("base64");
 // A real photo card on the graphics layer (behind the cut-out, so it never covers the speaker).
 const pcardImg = (id, n, x, y, w = 330) => `<div class="side" id="${id}" style="left:${x}px;top:${y}px;width:${w}px;background:none;padding:0;box-shadow:none;border:0"><img src="${PHOTO(n)}" style="width:${w}px;border-radius:26px;border:7px solid #fff;box-shadow:0 14px 40px rgba(0,0,0,0.35);display:block" /></div>`;
-const W = 1080, H = 1920, DUR = 49.43;
+const W = 1080, H = 1920, DUR = 50.8;
 
 // ---- minimalist line icons (viewBox 0 0 100 100) ----
 const S = `fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"`;
@@ -62,43 +62,36 @@ const slam = (sel, t, rot = 0) => `tl.fromTo("${sel}", { opacity: 0, scale: 1.6,
 const strike = (sel, t) => `tl.fromTo("${sel}", { "--s": 0 }, { "--s": 1, duration: 0.35, ease: "power2.out" }, ${t});`;
 
 const G = [
-  // Hook: remember Labubu?
-  ["hook_k", 0.1, 2.5, kicker("hk", "POP MART · LABUBU"), [rise("#hk", 0.0, 0.3)], true],
-  ["hook_t", 2.7, 2.0, fbox("h0", `<span>esgotava em</span> <span class="markbig small">minutos</span>`), [rise("#h0", 0.0, 0.3)], true],
-  ["lb_photo", 1.8, 2.9, pcardImg("lb1", "labubu_plush", 30, 300, 300), [pop("#lb1", 0.1)]],
-  ["tripl", 4.7, 4.9, `
-    <div class="side" id="t1" style="left:10px;top:330px;width:340px"><div class="sans">a Pop Mart quase</div><div class="serif huge" style="font-size:96px">3x</div></div>
-    ${tile("t_up", "up", "", "em 2025", 790, 330, 120, "#16a34a")}`,
-    [rise("#t1", 2.2, 0.35), pop("#t_up", 3.9)]],
-  ["tri_k", 9.8, 3.0, kicker("rk", "RESULTADO DO TRIMESTRE"), [rise("#rk", 0.0, 0.3)], true],
-  // Revenue almost halved; -70% in the US.
-  ["receita", 12.9, 6.5, `
-    <div class="card cmp" id="mc" style="left:70px;top:${FB}px;width:940px">
-      <div class="crow" id="mr1"><div class="clab">receita<small>no trimestre</small></div><div class="cbar"><i id="mb1" class="red"></i></div><div class="cval red">−50%</div></div>
-      <div class="crow" id="mr2"><div class="clab">nos EUA<small>no trimestre</small></div><div class="cbar"><i id="mb2" class="red"></i></div><div class="cval red">−70%</div></div>
-    </div>`,
-    [rise("#mc", 0.0, 0.35), `tl.fromTo("#mb1", { width: "100%" }, { width: "50%", duration: 0.9, ease: "power2.inOut" }, 0.7);`,
-     `tl.set("#mr2", { opacity: 0 }, 0.0);`, rise("#mr2", 4.7, 0.3),
-     `tl.fromTo("#mb2", { width: "100%" }, { width: "30%", duration: 0.9, ease: "power2.inOut" }, 5.0);`],
-    true],
-  ["lb_fila", 19.4, 4.0, pcardImg("lb2", "labubu_beach", 30, 300, 520), [pop("#lb2", 0.1)]],
-  ["fila", 19.4, 4.0, fbox("f0", `<span>tinha</span> <span class="serif big">fila</span> <span>na porta</span>`), [rise("#f0", 1.9, 0.3)], true],
-  // He tried to hold the hype; the fad passed faster.
-  ["hype", 23.4, 8.7, `
-    <div class="side" id="y1" style="left:10px;top:330px;width:340px"><div class="sans">segurar o</div><div class="serif huge" style="font-size:96px">hype</div></div>
-    ${tile("y_clk", "clock", "", "a moda passou", 790, 330, 120, "#ff3b30")}`,
-    [rise("#y1", 1.8, 0.35), pop("#y_clk", 6.9)]],
-  ["qualquer_k", 32.2, 5.4, kicker("qk", "SERVE PRA QUALQUER NEGÓCIO"), [rise("#qk", 2.0, 0.3)], true],
-  ["passa", 37.6, 1.55, fbox("p0", `<span>a moda é</span> <span class="markbig small">passageira</span>`), [rise("#p0", 0.0, 0.3)], true],
-  // Going viral is great; depending on it isn't.
-  ["viral", 39.1, 7.9, `
+  // Hook: everyone posts day 1, nobody posts day 47.
+  ["hook_k", 0.1, 5.5, kicker("hk", "TAVA PENSANDO AQUI"), [rise("#hk", 0.0, 0.3)], true],
+  ["hook_t", 2.5, 3.1, fbox("h0", `<span>dia</span> <span class="markbig" id="h1">1</span> <span>×</span> <span>dia</span> <span class="markbig" id="h2">47</span>`), [rise("#h0", 0.0, 0.25), slam("#h1", 0.7, -3), slam("#h2", 1.8, 3)], true],
+  // Day 1: new project, gym, focus.
+  ["dia1", 5.7, 5.4, `
+    ${tile("d_brief", "briefcase", "", "novo projeto", 40, 330)}
+    ${tile("d_gym", "dumbbell", "", "academia", 828, 330)}`,
+    [pop("#d_brief", 2.5), pop("#d_gym", 3.9)]],
+  ["todos", 11.1, 2.2, fbox("t0", `<span>todo mundo</span> <span class="serif big">quer ver</span>`), [rise("#t0", 0.0, 0.3)], true],
+  // Day 47: boring, nobody watching.
+  ["d47", 13.4, 6.0, `
+    <div class="side" id="q1" style="left:10px;top:330px;width:300px"><div class="sans">dia</div><div class="serif huge">47</div></div>
+    ${tile("q_clk", "clock", "", "ninguém vê", 790, 330, 120, "#ff3b30")}`,
+    [rise("#q1", 0.2, 0.35), pop("#q_clk", 3.3)]],
+  ["parar", 19.4, 2.5, fbox("p0", `<span>vontade de</span> <span class="markbig small">parar</span>`), [rise("#p0", 0.9, 0.3)], true],
+  ["separa", 22.0, 6.0, `
     <div class="stack" style="left:30px;top:340px">
-      <div class="spill" id="s1"><span class="num">01</span>viralizar ✓</div>
-      <div class="spill" id="s2"><span class="num">02</span>depender disso ✕</div>
+      <div class="spill" id="s1"><span class="num">01</span>dia 47</div>
+      <div class="spill" id="s2"><span class="num">02</span>dia 53</div>
+      <div class="spill" id="s3"><span class="num">03</span>dias aleatórios</div>
     </div>`,
-    [pop("#s1", 0.3), pop("#s2", 2.4)]],
-  // CTA: profile print.
-  ["cta", 47.06, 2.37, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
+    [pop("#s1", 1.6), pop("#s2", 2.8), pop("#s3", 5.0)]],
+  ["desiste", 28.1, 3.0, fbox("x0", `<span>quem</span> <span class="serif big">quer</span> <span>× quem</span> <span class="markbig small">desiste</span>`), [rise("#x0", 0.0, 0.3)], true],
+  ["internet", 31.2, 3.2, `${tile("i_gl", "globe", "", "a internet parece perfeita", 40, 330)}`, [pop("#i_gl", 1.4)]],
+  ["nada", 34.4, 2.4, fbox("n0", `<span>nada acontece no</span> <span class="markbig small">dia 1</span>`), [rise("#n0", 0.9, 0.3)], true],
+  ["res_k", 36.9, 5.6, kicker("rk", "O RESULTADO VEM"), [rise("#rk", 0.4, 0.3)], true],
+  ["ninguem", 40.6, 1.9, fbox("g0", `<span>no dia que</span> <span class="serif big">ninguém</span> <span>tá vendo</span>`), [rise("#g0", 0.0, 0.3)], true],
+  // CTA: comment so we connect.
+  ["cta_k", 42.5, 8.3, kicker("ck", "SE VOCÊ TAMBÉM TÁ CONSTRUINDO"), [rise("#ck", 0.3, 0.3)], true],
+  ["cta", 47.5, 3.3, fbox("c0", `<span>comenta</span> <span class="markbig small">aqui</span> <span>👇</span>`), [rise("#c0", 0.0, 0.3)], true],
 ];
 
 const CSS = `

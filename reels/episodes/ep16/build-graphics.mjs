@@ -11,7 +11,7 @@ const PERFIL = "data:image/jpeg;base64," + readFileSync(join(HERE, "../../assets
 const PHOTO = (n) => "data:image/jpeg;base64," + readFileSync(join(HERE, `../../assets/photos/${n}.jpg`)).toString("base64");
 // A real photo card on the graphics layer (behind the cut-out, so it never covers the speaker).
 const pcardImg = (id, n, x, y, w = 330) => `<div class="side" id="${id}" style="left:${x}px;top:${y}px;width:${w}px;background:none;padding:0;box-shadow:none;border:0"><img src="${PHOTO(n)}" style="width:${w}px;border-radius:26px;border:7px solid #fff;box-shadow:0 14px 40px rgba(0,0,0,0.35);display:block" /></div>`;
-const W = 1080, H = 1920, DUR = 46.27;
+const W = 1080, H = 1920, DUR = 43.2;
 
 // ---- minimalist line icons (viewBox 0 0 100 100) ----
 const S = `fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"`;
@@ -48,7 +48,7 @@ const svg = (name, size, color = "#141414") =>
 // The busy ceiling makes dark text unreadable, so every phrase sits on a white box: short labels at the top
 // (12.4-16%, mostly above the hair), tiles and side words beside the head (x 20-320 / 760-1060, y 380-760),
 // titles, cards and the CTA over the chest (y 985-1200), above the cut-out and clear of the captions (~1250+).
-const FB = 1010;   // front title boxes: between the chin and the captions
+const FB = 1430;   // close framing: title boxes go below the captions so they never cover the chin or mouth
 const tile = (id, icon, num, label, x, y, size = 120, color) => `
   <div class="tile" id="${id}" style="left:${x}px;top:${y}px">
     <div class="tbox" style="width:${size + 56}px;height:${size + 56}px">${svg(icon, size, color)}</div>
@@ -62,43 +62,33 @@ const slam = (sel, t, rot = 0) => `tl.fromTo("${sel}", { opacity: 0, scale: 1.6,
 const strike = (sel, t) => `tl.fromTo("${sel}", { "--s": 0 }, { "--s": 1, duration: 0.35, ease: "power2.out" }, ${t});`;
 
 const G = [
-  // Hook: the biggest YouTuber earns more from chocolate than from his videos.
-  ["hook_k", 0.1, 4.5, kicker("hk", "MRBEAST · CREATOR ECONOMY"), [rise("#hk", 0.0, 0.3)], true],
-  ["hook_t", 2.2, 2.4, fbox("h0", `<span>mais com</span> <span class="markbig" id="h1">chocolate</span>`), [rise("#h0", 0.0, 0.25), slam("#h1", 0.25, -3)], true],
-  ["mb_photo", 0.4, 4.1, pcardImg("mb1", "mrbeast_smile", 20, 330, 380), [pop("#mb1", 0.0)]],
-  ["virada", 5.3, 3.3, fbox("v0", `<span>a nova</span> <span class="serif big">virada</span> <span>do mercado</span>`), [rise("#v0", 0.0, 0.3)], true],
-  // Investor documents.
-  ["docs", 9.8, 4.8, `
-    ${pcardImg("mb2", "mrbeast_portrait", 20, 330, 300)}
-    ${tile("d_inv", "people", "", "investidores", 828, 330)}`,
-    [pop("#mb2", 0.4), pop("#d_inv", 2.7)]],
-  // Chocolate vs videos.
-  ["cmp", 14.7, 7.9, `
-    <div class="card cmp" id="mc" style="left:70px;top:${FB}px;width:940px">
-      <div class="crow" id="mr1"><div class="clab">chocolate<small>em um ano</small></div><div class="cbar"><i id="mb1"></i></div><div class="cval" id="mv1">US$ 0 mi</div></div>
-      <div class="crow" id="mr2"><div class="clab">vídeos<small>no mesmo ano</small></div><div class="cbar"><i id="mb2" class="red"></i></div><div class="cval red">prejuízo</div></div>
-    </div>`,
-    [rise("#mc", 0.0, 0.35), `tl.fromTo("#mb1", { width: "0%" }, { width: "100%", duration: 1.3, ease: "power2.out" }, 1.1);`,
-     `const m1 = { v: 0 }; tl.to(m1, { v: 250, duration: 1.3, ease: "power2.out", onUpdate: () => { document.getElementById("mv1").textContent = "US$ " + Math.round(m1.v) + " mi"; } }, 1.1);`,
-     `tl.set("#mr2", { opacity: 0 }, 0.0);`, rise("#mr2", 5.4, 0.3),
-     `tl.fromTo("#mb2", { width: "0%" }, { width: "6%", duration: 0.5, ease: "power2.out" }, 5.6);`],
-    true],
-  ["inverteu", 22.6, 2.9, fbox("i0", `<span>o mercado</span> <span class="markbig small">inverteu</span>`), [rise("#i0", 0.0, 0.3)], true],
-  // Videos became marketing; the product is the business.
-  ["mkt", 25.6, 7.2, `
-    <div class="side" id="k1" style="left:10px;top:330px;width:340px"><div class="sans">vídeos =</div><div class="serif huge" style="font-size:64px">marketing</div></div>
-    ${tile("k_prod", "briefcase", "", "produto = negócio", 760, 330, 120, "#16a34a")}`,
-    [rise("#k1", 1.0, 0.35), pop("#k_prod", 3.4)]],
-  ["qualquer", 32.9, 3.0, fbox("q0", `<span>serve pra</span> <span class="serif big">qualquer</span> <span>pessoa</span>`), [rise("#q0", 0.0, 0.3)], true],
-  // Audience + something to offer.
-  ["valor", 36.0, 7.2, `
+  // Hook: what do people regret most at the end of life?
+  ["hook_k", 0.1, 3.9, kicker("hk", "VOCÊ JÁ PAROU PRA PENSAR?"), [rise("#hk", 0.0, 0.3)], true],
+  ["hook_t", 1.6, 2.4, fbox("h0", `<span>o maior</span> <span class="markbig small">arrependimento</span>`), [rise("#h0", 0.9, 0.3)], true],
+  // Bronnie Ware, an Australian nurse.
+  ["bronnie", 4.1, 4.8, `
+    <div class="side" id="b1" style="left:10px;top:330px;width:340px"><div class="sans">enfermeira</div><div class="serif huge" style="font-size:58px">Bronnie Ware</div></div>
+    ${tile("b_gl", "globe", "", "Austrália", 790, 330)}`,
+    [rise("#b1", 1.7, 0.35), pop("#b_gl", 1.1)]],
+  ["cuid", 8.9, 3.5, `${tile("c_ht", "heart", "", "anos cuidando de pacientes", 40, 330, 120, "#ff3b30")}`, [pop("#c_ht", 1.2)]],
+  ["notou", 12.4, 2.2, fbox("n0", `<span>o que elas mais</span> <span class="serif big">falavam</span>`), [rise("#n0", 0.0, 0.3)], true],
+  // Regret number 1: courage.
+  ["n1_k", 14.6, 3.7, kicker("nk", "ARREPENDIMENTO Nº 1"), [rise("#nk", 0.0, 0.3)], true],
+  ["coragem", 17.2, 1.1, fbox("c0", `<span class="markbig" id="c1">coragem</span>`), [rise("#c0", 0.0, 0.2), slam("#c1", 0.1, -3)], true],
+  ["viver", 18.3, 5.9, `
     <div class="stack" style="left:30px;top:340px">
-      <div class="spill" id="a1"><span class="num">01</span>audiência</div>
-      <div class="spill" id="a2"><span class="num">02</span>algo pra oferecer</div>
+      <div class="spill" id="v1"><span class="num">✓</span>a vida que queriam</div>
+      <div class="spill" id="v2"><span class="num">✕</span>a expectativa dos outros</div>
     </div>`,
-    [pop("#a1", 0.2), pop("#a2", 5.3)]],
+    [pop("#v1", 2.7), pop("#v2", 4.6)]],
+  ["surp_k", 24.3, 4.4, kicker("sk", "O QUE MAIS SURPREENDEU"), [rise("#sk", 0.0, 0.3)], true],
+  ["naofez", 28.8, 2.1, fbox("x0", `<span>não ter</span> <span class="markbig small">feito</span>`), [rise("#x0", 0.8, 0.3)], true],
+  ["medo", 30.9, 4.8, `
+    <div class="side" id="m1" style="left:10px;top:330px;width:340px"><div class="sans">medo da</div><div class="serif huge red" style="font-size:62px">aprovação</div></div>`,
+    [rise("#m1", 3.3, 0.35)]],
+  ["estudo", 35.7, 3.1, fbox("e0", `<span>pensa nesse</span> <span class="serif big">estudo</span>`), [rise("#e0", 0.8, 0.3)], true],
   // CTA: profile print.
-  ["cta", 43.3, 2.97, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
+  ["cta", 38.8, 4.4, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
 ];
 
 const CSS = `

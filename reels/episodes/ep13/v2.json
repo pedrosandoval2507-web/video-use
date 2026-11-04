@@ -1,0 +1,126 @@
+{
+ "videoTop": -300,
+ "shots": [
+  {
+   "t": 0,
+   "text": "todo mundo posta o <b>dia 1</b>"
+  },
+  {
+   "t": 2.9,
+   "text": "e nunca o <i>dia 47</i>"
+  },
+  {
+   "t": 5.7,
+   "text": "o dia 1 é <i>empolgante</i>"
+  },
+  {
+   "t": 7.6,
+   "img": "phone_desk",
+   "label": "novo projeto"
+  },
+  {
+   "t": 9.2,
+   "img": "sprint",
+   "label": "academia"
+  },
+  {
+   "t": 10.2,
+   "text": "começa com <b>foco</b>"
+  },
+  {
+   "t": 11.1,
+   "img": "social_apps",
+   "label": "todo mundo quer ver"
+  },
+  {
+   "t": 13.4,
+   "text": "o <b>dia 47</b>",
+   "full": true
+  },
+  {
+   "t": 15.0,
+   "text": "é muito <i>chato</i>"
+  },
+  {
+   "t": 16.5,
+   "img": "phone_walk",
+   "label": "ninguém tá vendo"
+  },
+  {
+   "t": 18.3,
+   "text": "o resultado não <i>apareceu</i>"
+  },
+  {
+   "t": 19.4,
+   "text": "vontade de <b>parar</b>",
+   "full": true
+  },
+  {
+   "t": 22.0,
+   "text": "justamente no <b>dia 47</b>"
+  },
+  {
+   "t": 24.2,
+   "text": "no dia <i>53</i>"
+  },
+  {
+   "t": 25.3,
+   "text": "dias <i>aleatórios</i>"
+  },
+  {
+   "t": 28.1,
+   "text": "quem <i>quer</i>"
+  },
+  {
+   "t": 29.9,
+   "text": "× quem <b>desiste</b>"
+  },
+  {
+   "t": 31.2,
+   "img": "social_apps",
+   "label": "tudo parece perfeito"
+  },
+  {
+   "t": 33.0,
+   "img": "phone_desk",
+   "label": "na internet"
+  },
+  {
+   "t": 34.4,
+   "text": "nada acontece no <b>dia 1</b>",
+   "full": true
+  },
+  {
+   "t": 36.9,
+   "text": "o resultado que você <i>espera</i>"
+  },
+  {
+   "t": 39.3,
+   "text": "vem no dia que <b>ninguém</b> vê"
+  },
+  {
+   "t": 41.0,
+   "img": "phone_walk",
+   "label": "ninguém tá vendo"
+  },
+  {
+   "t": 42.5,
+   "img": "reading",
+   "label": "se você tá construindo algo"
+  },
+  {
+   "t": 45.0,
+   "img": "friends",
+   "label": "bora se conectar"
+  },
+  {
+   "t": 47.5,
+   "text": "comenta <b>aqui</b> 👇",
+   "full": true
+  },
+  {
+   "t": 49.4,
+   "text": "vamos juntos nessa <i>jornada</i>"
+  }
+ ]
+}
