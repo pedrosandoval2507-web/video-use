@@ -7,7 +7,7 @@ set -e
 cd "$(dirname "$0")"
 RAW=$1
 mkdir -p out/seg
-VF="zscale=w=1080:h=1920:f=spline36:t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p,fps=30"
+VF="scale=1080:1920:flags=lanczos,format=yuv420p,fps=30"   # this take is already SDR 1080x1920
 i=0; list=""
 while read -r s n; do
   d=$(awk -v n="$n" 'BEGIN { printf "%.4f", n / 30 }')
