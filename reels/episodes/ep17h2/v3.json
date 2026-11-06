@@ -1,0 +1,154 @@
+{
+ "capEnd": 72.16,
+ "capTop": 1150,
+ "lowerTop": 1570,
+ "punch": [
+  [
+   0,
+   1.0
+  ],
+  [
+   3.04,
+   1.12
+  ],
+  [
+   5.53,
+   1.0
+  ],
+  [
+   10.48,
+   1.1
+  ],
+  [
+   10.93,
+   1
+  ],
+  [
+   25.08,
+   1.12
+  ],
+  [
+   26.73,
+   1
+  ],
+  [
+   37.73,
+   1.1
+  ],
+  [
+   39.93,
+   1
+  ],
+  [
+   54.03,
+   1.08
+  ],
+  [
+   55.43,
+   1
+  ],
+  [
+   70.73,
+   1.1
+  ],
+  [
+   72.13,
+   1
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 5.38,
+   "type": "news",
+   "kicker": "WORKAHOLIC 24/7",
+   "title": "Esse papo de workaholic 24/7 faz você render menos"
+  },
+  {
+   "t": 5.53,
+   "d": 5.4,
+   "type": "news",
+   "img": "social_apps",
+   "kicker": "NA INTERNET",
+   "title": "Trabalhe 24/7 e nunca pare"
+  },
+  {
+   "t": 10.93,
+   "d": 5.2,
+   "type": "lower",
+   "title": "Trabalhar muito ✓",
+   "sub": "mas não é só isso"
+  },
+  {
+   "t": 18.83,
+   "d": 3.2,
+   "type": "full",
+   "big": "PRIORIDADES",
+   "small": "defina as suas"
+  },
+  {
+   "t": 22.33,
+   "d": 4.4,
+   "type": "news",
+   "img": "sprint",
+   "kicker": "AS MINHAS",
+   "title": "Sono, treino e trabalho"
+  },
+  {
+   "t": 26.73,
+   "d": 4.0,
+   "type": "full",
+   "big": "TRABALHO",
+   "small": "não é o principal"
+  },
+  {
+   "t": 30.83,
+   "d": 9.0,
+   "type": "news",
+   "img": "phone_walk",
+   "kicker": "SE EU NÃO DURMO E NÃO TREINO",
+   "title": "A cabeça não funciona o resto do dia"
+  },
+  {
+   "t": 43.73,
+   "d": 3.9,
+   "type": "full",
+   "big": "SEM EFICIÊNCIA",
+   "small": "trabalhando, mas sem render"
+  },
+  {
+   "t": 47.73,
+   "d": 4.4,
+   "type": "lower",
+   "title": "Antes das prioridades",
+   "sub": "eu precisei me conhecer"
+  },
+  {
+   "t": 52.13,
+   "d": 9.2,
+   "type": "news",
+   "img": "sprint",
+   "kicker": "EU RENDO MAIS DE MANHÃ",
+   "title": "Acordo cedo, treino, trabalho e durmo cedo"
+  },
+  {
+   "t": 61.43,
+   "d": 4.8,
+   "type": "lower",
+   "title": "Funciona pra mim",
+   "sub": "pra você pode ser diferente"
+  },
+  {
+   "t": 70.03,
+   "d": 2.1,
+   "type": "full",
+   "big": "CRIE A SUA",
+   "small": "rotina"
+  },
+  {
+   "t": 72.13,
+   "d": 3.03,
+   "type": "profile"
+  }
+ ]
+}

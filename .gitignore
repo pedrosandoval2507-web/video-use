@@ -90,3 +90,9 @@ reels/episodes/*/raw/
 reels/episodes/*/final_v4/
 reels/episodes/*/qa/
 reels/episodes/*/out_voice.raw
+reels/episodes/**/*.mp4
+reels/episodes/**/*.mov
+reels/episodes/**/*.wav
+reels/episodes/**/cutout/
+reels/episodes/**/out/
+reels/episodes/**/raw/

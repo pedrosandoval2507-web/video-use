@@ -1,0 +1,3 @@
+file 'seg/00.mov'
+file 'seg/01.mov'
+file 'seg/02.mov'

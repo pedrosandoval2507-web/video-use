@@ -1,0 +1,473 @@
+{
+ "body": {
+  "emph": [
+   11,
+   13,
+   16,
+   26,
+   46,
+   70,
+   71,
+   73,
+   78,
+   88,
+   97,
+   101,
+   106,
+   124,
+   136,
+   152,
+   164,
+   196,
+   206,
+   220,
+   224
+  ],
+  "zooms": [
+   [
+    4.9,
+    1.0,
+    1.06
+   ],
+   [
+    19.5,
+    1.6,
+    1.08
+   ],
+   [
+    31.9,
+    1.5,
+    1.1
+   ],
+   [
+    41.6,
+    1.0,
+    1.06
+   ],
+   [
+    47.6,
+    1.4,
+    1.08
+   ],
+   [
+    65.2,
+    1.4,
+    1.1
+   ]
+  ],
+  "cap_end": 66.63,
+  "cold": [
+   18.35,
+   21.0
+  ],
+  "punch": [
+   [
+    4.95,
+    1.1
+   ],
+   [
+    5.4,
+    1
+   ],
+   [
+    19.55,
+    1.12
+   ],
+   [
+    21.2,
+    1
+   ],
+   [
+    32.2,
+    1.1
+   ],
+   [
+    34.4,
+    1
+   ],
+   [
+    48.5,
+    1.08
+   ],
+   [
+    49.9,
+    1
+   ],
+   [
+    65.2,
+    1.1
+   ],
+   [
+    66.6,
+    1
+   ]
+  ]
+ },
+ "hooks": {
+  "h1": {
+   "emph": [
+    3,
+    15
+   ],
+   "kicker": "PRIORIDADES",
+   "g": "[\"hook_t\", 2.8, {D2}, fbox(\"h0\", `<span>por isso eu</span> <span class=\"markbig\" id=\"hh1\">rendo mais</span>`), [rise(\"#h0\", 0.0, 0.25), slam(\"#hh1\", 0.65, -3)], true],",
+   "v2": [
+    [
+     0,
+     "eu não trabalho <b>24h</b> por dia"
+    ],
+    [
+     2.1,
+     "e por isso eu <i>rendo mais</i>"
+    ]
+   ],
+   "title": "Eu não trabalho 24h por dia, e é por isso que eu rendo mais"
+  },
+  "h2": {
+   "emph": [
+    4,
+    15
+   ],
+   "kicker": "WORKAHOLIC 24/7",
+   "g": "[\"hook_t\", 3.0, {D2}, fbox(\"h0\", `<span>você rende</span> <span class=\"markbig\" id=\"hh1\">menos</span>`), [rise(\"#h0\", 0.0, 0.25), slam(\"#hh1\", 1.2, -3)], true],",
+   "v2": [
+    [
+     0,
+     "esse papo de <b>workaholic</b>"
+    ],
+    [
+     1.8,
+     "trabalhar <i>24/7</i>"
+    ],
+    [
+     3.6,
+     "você rende <b>menos</b>"
+    ]
+   ],
+   "title": "Esse papo de workaholic 24/7 faz você render menos"
+  },
+  "h3": {
+   "emph": [
+    1,
+    6
+   ],
+   "kicker": "MINHA ROTINA",
+   "g": "[\"hook_t\", 1.0, {D2}, fbox(\"h0\", `<span>3 coisas que eu</span> <span class=\"serif big\">não negocio</span>`), [rise(\"#h0\", 0.0, 0.3)], true],",
+   "v2": [
+    [
+     0,
+     "<b>3</b> coisas que eu não negocio"
+    ],
+    [
+     2.4,
+     "trabalho é só <i>uma</i> delas"
+    ]
+   ],
+   "title": "Três coisas que eu não negocio, e trabalho é só uma delas"
+  },
+  "h4": {
+   "emph": [
+    6,
+    7
+   ],
+   "kicker": "PENSA RÁPIDO",
+   "g": "[\"hook_t\", 1.2, {D2}, fbox(\"h0\", `<span>só</span> <span class=\"markbig small\">3 prioridades</span>`), [rise(\"#h0\", 0.0, 0.3)], true],",
+   "v2": [
+    [
+     0,
+     "só <b>3</b> prioridades"
+    ],
+    [
+     2.1,
+     "quais seriam as <i>suas</i>?"
+    ]
+   ],
+   "title": "Se você tivesse só 3 prioridades, quais seriam?"
+  },
+  "h5": {
+   "emph": [
+    5,
+    17
+   ],
+   "kicker": "CONVERSANDO COM UM AMIGO",
+   "g": "[\"hook_t\", 2.7, {D2}, fbox(\"h0\", `<span>como você</span> <span class=\"serif big\">concilia</span> <span>tudo?</span>`), [rise(\"#h0\", 0.9, 0.3)], true],",
+   "v2": [
+    [
+     0,
+     "conversando com um <b>amigo</b>",
+     "friends"
+    ],
+    [
+     2.2,
+     "como você <i>concilia</i>"
+    ],
+    [
+     4.4,
+     "tudo na sua <b>rotina</b>?"
+    ]
+   ],
+   "title": "Um amigo me perguntou como eu concilio tudo na minha rotina"
+  }
+ },
+ "body_v2": [
+  [
+   0,
+   "workaholic <b>24/7</b>"
+  ],
+  [
+   2.9,
+   "trabalhar sem parar",
+   "phone_desk"
+  ],
+  [
+   5.4,
+   "trabalhar <i>muito</i> ✓"
+  ],
+  [
+   7.4,
+   "pelo contrário",
+   "handshake_office"
+  ],
+  [
+   9.4,
+   "eu acho <i>sim</i>"
+  ],
+  [
+   10.6,
+   "mas antes disso"
+  ],
+  [
+   12.7,
+   "defina suas <b>prioridades</b>",
+   null,
+   true
+  ],
+  [
+   14.0,
+   "pera aí"
+  ],
+  [
+   16.8,
+   "vou usar as <i>minhas</i>"
+  ],
+  [
+   18.4,
+   "minhas <i>prioridades</i>"
+  ],
+  [
+   19.5,
+   "<b>sono</b>"
+  ],
+  [
+   19.9,
+   "treino",
+   "sprint"
+  ],
+  [
+   20.4,
+   "trabalho",
+   "phone_desk"
+  ],
+  [
+   21.2,
+   "pode parecer <i>estranho</i>"
+  ],
+  [
+   22.5,
+   "trabalho não é o <b>principal</b>"
+  ],
+  [
+   25.3,
+   "a <i>verdade</i> é"
+  ],
+  [
+   27.4,
+   "se eu não <b>durmo</b> bem"
+  ],
+  [
+   30.0,
+   "e não treino",
+   "sprint"
+  ],
+  [
+   31.9,
+   "a cabeça não <b>funciona</b>",
+   null,
+   true
+  ],
+  [
+   34.4,
+   "e se a cabeça não funciona"
+  ],
+  [
+   36.2,
+   "o trabalho também não",
+   "phone_desk"
+  ],
+  [
+   38.2,
+   "eu fico trabalhando"
+  ],
+  [
+   39.8,
+   "mas sem <b>eficiência</b>"
+  ],
+  [
+   42.2,
+   "antes de saber as prioridades"
+  ],
+  [
+   45.0,
+   "me <i>conhecer</i>",
+   null,
+   true
+  ],
+  [
+   46.6,
+   "eu rendo mais de <b>manhã</b>"
+  ],
+  [
+   49.0,
+   "acordo <i>cedo</i>"
+  ],
+  [
+   51.3,
+   "treino",
+   "sprint"
+  ],
+  [
+   52.2,
+   "trabalho",
+   "phone_desk"
+  ],
+  [
+   52.8,
+   "durmo <i>cedo</i>"
+  ],
+  [
+   54.6,
+   "essa <b>rotina</b>"
+  ],
+  [
+   55.9,
+   "assim funciona pra <i>mim</i>"
+  ],
+  [
+   57.8,
+   "pra você pode ser <b>diferente</b>"
+  ],
+  [
+   60.7,
+   "a <i>dica</i>"
+  ],
+  [
+   61.9,
+   "copiar a rotina dos outros",
+   "social_apps"
+  ],
+  [
+   64.5,
+   "crie a <b>sua</b>",
+   null,
+   true
+  ],
+  [
+   66.6,
+   "@_pedromsandoval",
+   "perfil_header"
+  ],
+  [
+   68.0,
+   "@_pedromsandoval",
+   "perfil_grid"
+  ]
+ ],
+ "body_v3": [
+  {
+   "t": 0.0,
+   "d": 5.4,
+   "type": "news",
+   "img": "social_apps",
+   "kicker": "NA INTERNET",
+   "title": "Trabalhe 24/7 e nunca pare"
+  },
+  {
+   "t": 5.4,
+   "d": 5.2,
+   "type": "lower",
+   "title": "Trabalhar muito ✓",
+   "sub": "mas não é só isso"
+  },
+  {
+   "t": 13.3,
+   "d": 3.2,
+   "type": "full",
+   "big": "PRIORIDADES",
+   "small": "defina as suas"
+  },
+  {
+   "t": 16.8,
+   "d": 4.4,
+   "type": "news",
+   "img": "sprint",
+   "kicker": "AS MINHAS",
+   "title": "Sono, treino e trabalho"
+  },
+  {
+   "t": 21.2,
+   "d": 4.0,
+   "type": "full",
+   "big": "TRABALHO",
+   "small": "não é o principal"
+  },
+  {
+   "t": 25.3,
+   "d": 9.0,
+   "type": "news",
+   "img": "phone_walk",
+   "kicker": "SE EU NÃO DURMO E NÃO TREINO",
+   "title": "A cabeça não funciona o resto do dia"
+  },
+  {
+   "t": 38.2,
+   "d": 3.9,
+   "type": "full",
+   "big": "SEM EFICIÊNCIA",
+   "small": "trabalhando, mas sem render"
+  },
+  {
+   "t": 42.2,
+   "d": 4.4,
+   "type": "lower",
+   "title": "Antes das prioridades",
+   "sub": "eu precisei me conhecer"
+  },
+  {
+   "t": 46.6,
+   "d": 9.2,
+   "type": "news",
+   "img": "sprint",
+   "kicker": "EU RENDO MAIS DE MANHÃ",
+   "title": "Acordo cedo, treino, trabalho e durmo cedo"
+  },
+  {
+   "t": 55.9,
+   "d": 4.8,
+   "type": "lower",
+   "title": "Funciona pra mim",
+   "sub": "pra você pode ser diferente"
+  },
+  {
+   "t": 64.5,
+   "d": 2.1,
+   "type": "full",
+   "big": "CRIE A SUA",
+   "small": "rotina"
+  },
+  {
+   "t": 66.6,
+   "d": 3.03,
+   "type": "profile"
+  }
+ ]
+}

@@ -1,0 +1,187 @@
+{
+ "videoTop": -250,
+ "shots": [
+  {
+   "t": 0,
+   "img": "friends",
+   "label": "conversando com um amigo"
+  },
+  {
+   "t": 2.2,
+   "text": "como você <i>concilia</i>"
+  },
+  {
+   "t": 4.4,
+   "text": "tudo na sua <b>rotina</b>?"
+  },
+  {
+   "t": 6.0,
+   "text": "workaholic <b>24/7</b>"
+  },
+  {
+   "t": 8.9,
+   "img": "phone_desk",
+   "label": "trabalhar sem parar"
+  },
+  {
+   "t": 11.4,
+   "text": "trabalhar <i>muito</i> ✓"
+  },
+  {
+   "t": 13.4,
+   "img": "handshake_office",
+   "label": "pelo contrário"
+  },
+  {
+   "t": 15.4,
+   "text": "eu acho <i>sim</i>"
+  },
+  {
+   "t": 16.6,
+   "text": "mas antes disso"
+  },
+  {
+   "t": 18.7,
+   "text": "defina suas <b>prioridades</b>",
+   "full": true
+  },
+  {
+   "t": 20.0,
+   "text": "pera aí"
+  },
+  {
+   "t": 22.8,
+   "text": "vou usar as <i>minhas</i>"
+  },
+  {
+   "t": 24.4,
+   "text": "minhas <i>prioridades</i>"
+  },
+  {
+   "t": 25.5,
+   "text": "<b>sono</b>"
+  },
+  {
+   "t": 25.9,
+   "img": "sprint",
+   "label": "treino"
+  },
+  {
+   "t": 26.4,
+   "img": "phone_desk",
+   "label": "trabalho"
+  },
+  {
+   "t": 27.2,
+   "text": "pode parecer <i>estranho</i>"
+  },
+  {
+   "t": 28.5,
+   "text": "trabalho não é o <b>principal</b>"
+  },
+  {
+   "t": 31.3,
+   "text": "a <i>verdade</i> é"
+  },
+  {
+   "t": 33.4,
+   "text": "se eu não <b>durmo</b> bem"
+  },
+  {
+   "t": 36.0,
+   "img": "sprint",
+   "label": "e não treino"
+  },
+  {
+   "t": 37.9,
+   "text": "a cabeça não <b>funciona</b>",
+   "full": true
+  },
+  {
+   "t": 40.4,
+   "text": "e se a cabeça não funciona"
+  },
+  {
+   "t": 42.2,
+   "img": "phone_desk",
+   "label": "o trabalho também não"
+  },
+  {
+   "t": 44.2,
+   "text": "eu fico trabalhando"
+  },
+  {
+   "t": 45.8,
+   "text": "mas sem <b>eficiência</b>"
+  },
+  {
+   "t": 48.2,
+   "text": "antes de saber as prioridades"
+  },
+  {
+   "t": 51.0,
+   "text": "me <i>conhecer</i>",
+   "full": true
+  },
+  {
+   "t": 52.6,
+   "text": "eu rendo mais de <b>manhã</b>"
+  },
+  {
+   "t": 55.0,
+   "text": "acordo <i>cedo</i>"
+  },
+  {
+   "t": 57.3,
+   "img": "sprint",
+   "label": "treino"
+  },
+  {
+   "t": 58.2,
+   "img": "phone_desk",
+   "label": "trabalho"
+  },
+  {
+   "t": 58.8,
+   "text": "durmo <i>cedo</i>"
+  },
+  {
+   "t": 60.6,
+   "text": "essa <b>rotina</b>"
+  },
+  {
+   "t": 61.9,
+   "text": "assim funciona pra <i>mim</i>"
+  },
+  {
+   "t": 63.8,
+   "text": "pra você pode ser <b>diferente</b>"
+  },
+  {
+   "t": 66.7,
+   "text": "a <i>dica</i>"
+  },
+  {
+   "t": 67.9,
+   "img": "social_apps",
+   "label": "copiar a rotina dos outros"
+  },
+  {
+   "t": 70.5,
+   "text": "crie a <b>sua</b>",
+   "full": true
+  },
+  {
+   "t": 72.6,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  },
+  {
+   "t": 74.0,
+   "img": "perfil_grid",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  }
+ ]
+}

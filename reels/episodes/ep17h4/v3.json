@@ -1,0 +1,154 @@
+{
+ "capEnd": 70.53,
+ "capTop": 1150,
+ "lowerTop": 1570,
+ "punch": [
+  [
+   0,
+   1.0
+  ],
+  [
+   2.15,
+   1.12
+  ],
+  [
+   3.9,
+   1.0
+  ],
+  [
+   8.85,
+   1.1
+  ],
+  [
+   9.3,
+   1
+  ],
+  [
+   23.45,
+   1.12
+  ],
+  [
+   25.1,
+   1
+  ],
+  [
+   36.1,
+   1.1
+  ],
+  [
+   38.3,
+   1
+  ],
+  [
+   52.4,
+   1.08
+  ],
+  [
+   53.8,
+   1
+  ],
+  [
+   69.1,
+   1.1
+  ],
+  [
+   70.5,
+   1
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 3.75,
+   "type": "news",
+   "kicker": "PENSA RÁPIDO",
+   "title": "Se você tivesse só 3 prioridades, quais seriam?"
+  },
+  {
+   "t": 3.9,
+   "d": 5.4,
+   "type": "news",
+   "img": "social_apps",
+   "kicker": "NA INTERNET",
+   "title": "Trabalhe 24/7 e nunca pare"
+  },
+  {
+   "t": 9.3,
+   "d": 5.2,
+   "type": "lower",
+   "title": "Trabalhar muito ✓",
+   "sub": "mas não é só isso"
+  },
+  {
+   "t": 17.2,
+   "d": 3.2,
+   "type": "full",
+   "big": "PRIORIDADES",
+   "small": "defina as suas"
+  },
+  {
+   "t": 20.7,
+   "d": 4.4,
+   "type": "news",
+   "img": "sprint",
+   "kicker": "AS MINHAS",
+   "title": "Sono, treino e trabalho"
+  },
+  {
+   "t": 25.1,
+   "d": 4.0,
+   "type": "full",
+   "big": "TRABALHO",
+   "small": "não é o principal"
+  },
+  {
+   "t": 29.2,
+   "d": 9.0,
+   "type": "news",
+   "img": "phone_walk",
+   "kicker": "SE EU NÃO DURMO E NÃO TREINO",
+   "title": "A cabeça não funciona o resto do dia"
+  },
+  {
+   "t": 42.1,
+   "d": 3.9,
+   "type": "full",
+   "big": "SEM EFICIÊNCIA",
+   "small": "trabalhando, mas sem render"
+  },
+  {
+   "t": 46.1,
+   "d": 4.4,
+   "type": "lower",
+   "title": "Antes das prioridades",
+   "sub": "eu precisei me conhecer"
+  },
+  {
+   "t": 50.5,
+   "d": 9.2,
+   "type": "news",
+   "img": "sprint",
+   "kicker": "EU RENDO MAIS DE MANHÃ",
+   "title": "Acordo cedo, treino, trabalho e durmo cedo"
+  },
+  {
+   "t": 59.8,
+   "d": 4.8,
+   "type": "lower",
+   "title": "Funciona pra mim",
+   "sub": "pra você pode ser diferente"
+  },
+  {
+   "t": 68.4,
+   "d": 2.1,
+   "type": "full",
+   "big": "CRIE A SUA",
+   "small": "rotina"
+  },
+  {
+   "t": 70.5,
+   "d": 3.03,
+   "type": "profile"
+  }
+ ]
+}
