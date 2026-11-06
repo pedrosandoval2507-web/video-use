@@ -11,7 +11,6 @@
    73,
    78,
    88,
-   97,
    101,
    106,
    124,
@@ -35,27 +34,27 @@
     1.08
    ],
    [
-    31.9,
+    27.96,
     1.5,
     1.1
    ],
    [
-    41.6,
+    37.63,
     1.0,
     1.06
    ],
    [
-    47.6,
+    43.65,
     1.4,
     1.08
    ],
    [
-    65.2,
+    60.73,
     1.4,
     1.1
    ]
   ],
-  "cap_end": 66.63,
+  "cap_end": 62.16,
   "cold": [
    18.35,
    21.0
@@ -78,27 +77,27 @@
     1
    ],
    [
-    32.2,
+    28.29,
     1.1
    ],
    [
-    34.4,
+    30.79,
     1
    ],
    [
-    48.5,
+    44.56,
     1.08
    ],
    [
-    49.9,
+    46.44,
     1
    ],
    [
-    65.2,
+    60.73,
     1.1
    ],
    [
-    66.6,
+    62.13,
     1
    ]
   ]
@@ -211,7 +210,7 @@
  },
  "body_v2": [
   [
-   0,
+   0.0,
    "workaholic <b>24/7</b>"
   ],
   [
@@ -277,107 +276,107 @@
    "trabalho não é o <b>principal</b>"
   ],
   [
-   25.3,
+   25.31,
    "a <i>verdade</i> é"
   ],
   [
-   27.4,
+   26.53,
    "se eu não <b>durmo</b> bem"
   ],
   [
-   30.0,
+   27.0,
    "e não treino",
    "sprint"
   ],
   [
-   31.9,
+   27.96,
    "a cabeça não <b>funciona</b>",
    null,
    true
   ],
   [
-   34.4,
+   30.79,
    "e se a cabeça não funciona"
   ],
   [
-   36.2,
+   32.23,
    "o trabalho também não",
    "phone_desk"
   ],
   [
-   38.2,
+   34.23,
    "eu fico trabalhando"
   ],
   [
-   39.8,
+   35.83,
    "mas sem <b>eficiência</b>"
   ],
   [
-   42.2,
+   38.23,
    "antes de saber as prioridades"
   ],
   [
-   45.0,
+   41.03,
    "me <i>conhecer</i>",
    null,
    true
   ],
   [
-   46.6,
+   42.63,
    "eu rendo mais de <b>manhã</b>"
   ],
   [
-   49.0,
+   45.5,
    "acordo <i>cedo</i>"
   ],
   [
-   51.3,
+   47.2,
    "treino",
    "sprint"
   ],
   [
-   52.2,
+   47.73,
    "trabalho",
    "phone_desk"
   ],
   [
-   52.8,
+   48.32,
    "durmo <i>cedo</i>"
   ],
   [
-   54.6,
+   49.9,
    "essa <b>rotina</b>"
   ],
   [
-   55.9,
+   51.43,
    "assim funciona pra <i>mim</i>"
   ],
   [
-   57.8,
+   53.33,
    "pra você pode ser <b>diferente</b>"
   ],
   [
-   60.7,
+   56.23,
    "a <i>dica</i>"
   ],
   [
-   61.9,
+   57.43,
    "copiar a rotina dos outros",
    "social_apps"
   ],
   [
-   64.5,
+   60.03,
    "crie a <b>sua</b>",
    null,
    true
   ],
   [
-   66.6,
+   62.13,
    "@_pedromsandoval",
    "perfil_header"
   ],
   [
-   68.0,
+   63.53,
    "@_pedromsandoval",
    "perfil_grid"
   ]
@@ -421,51 +420,51 @@
    "small": "não é o principal"
   },
   {
-   "t": 25.3,
-   "d": 9.0,
+   "t": 25.31,
+   "d": 5.38,
    "type": "news",
    "img": "phone_walk",
    "kicker": "SE EU NÃO DURMO E NÃO TREINO",
    "title": "A cabeça não funciona o resto do dia"
   },
   {
-   "t": 38.2,
+   "t": 34.23,
    "d": 3.9,
    "type": "full",
    "big": "SEM EFICIÊNCIA",
    "small": "trabalhando, mas sem render"
   },
   {
-   "t": 42.2,
+   "t": 38.23,
    "d": 4.4,
    "type": "lower",
    "title": "Antes das prioridades",
    "sub": "eu precisei me conhecer"
   },
   {
-   "t": 46.6,
-   "d": 9.2,
+   "t": 42.63,
+   "d": 8.53,
    "type": "news",
    "img": "sprint",
    "kicker": "EU RENDO MAIS DE MANHÃ",
    "title": "Acordo cedo, treino, trabalho e durmo cedo"
   },
   {
-   "t": 55.9,
+   "t": 51.43,
    "d": 4.8,
    "type": "lower",
    "title": "Funciona pra mim",
    "sub": "pra você pode ser diferente"
   },
   {
-   "t": 64.5,
+   "t": 60.03,
    "d": 2.1,
    "type": "full",
    "big": "CRIE A SUA",
    "small": "rotina"
   },
   {
-   "t": 66.6,
+   "t": 62.13,
    "d": 3.03,
    "type": "profile"
   }

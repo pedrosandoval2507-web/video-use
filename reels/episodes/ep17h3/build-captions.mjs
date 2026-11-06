@@ -11,7 +11,7 @@ const MAX_WORDS = 4, MAX_CHARS = 22, GAP_BREAK_MS = 700;
 // Word indices (from words.tsv, 0-based) that get the red emphasis.
 // Force a phrase break after these word indices (keeps the hook readable).
 const FORCE_BREAK_AFTER = new Set([]);
-const EMPHASIS = new Set([1, 6, 27, 29, 32, 42, 62, 86, 87, 89, 94, 104, 113, 117, 122, 140, 152, 168, 180, 212, 222, 236, 240]);
+const EMPHASIS = new Set([1, 6, 27, 29, 32, 42, 62, 86, 87, 89, 94, 104, 117, 122, 140, 152, 168, 180, 212, 222, 236, 240]);
 
 const words = readFileSync(join(HERE, "words.tsv"), "utf8").trim().split("\n").map((l, i) => {
   const [s, e, text] = l.split("\t");
@@ -34,7 +34,7 @@ for (const w of words) {
 }
 if (cur.length) phrases.push(cur);
 
-const TOTAL = 73.8;
+const TOTAL = 69.33;
 const esc = (t) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;");
 const clean = (t) => t.replace(/[.,;]$/, "");
 

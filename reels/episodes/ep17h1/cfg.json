@@ -1,7 +1,7 @@
 {
- "dur": 73.67,
+ "dur": 69.2,
  "music_at": 4.13,
- "cap_end": 70.66,
+ "cap_end": 66.19,
  "emphasis": [
   3,
   15,
@@ -15,7 +15,6 @@
   89,
   94,
   104,
-  113,
   117,
   122,
   140,
@@ -28,6 +27,6 @@
   240
  ],
  "force_break": [],
- "zooms": "  { at: 0, dur: 3.93, from: 1.0, to: 1.1, push: true },\n  { at: 8.93, dur: 1.0, to: 1.06 },\n  { at: 23.53, dur: 1.6, to: 1.08 },\n  { at: 35.93, dur: 1.5, to: 1.1 },\n  { at: 45.63, dur: 1.0, to: 1.06 },\n  { at: 51.63, dur: 1.4, to: 1.08 },\n  { at: 69.23, dur: 1.4, to: 1.1 },",
+ "zooms": "  { at: 0, dur: 3.93, from: 1.0, to: 1.1, push: true },\n  { at: 8.93, dur: 1.0, to: 1.06 },\n  { at: 23.53, dur: 1.6, to: 1.08 },\n  { at: 31.99, dur: 1.5, to: 1.1 },\n  { at: 41.66, dur: 1.0, to: 1.06 },\n  { at: 47.68, dur: 1.4, to: 1.08 },\n  { at: 64.76, dur: 1.4, to: 1.1 },",
  "g_file": "g.js"
 }

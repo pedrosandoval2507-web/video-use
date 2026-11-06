@@ -1,5 +1,5 @@
 {
- "capEnd": 70.66,
+ "capEnd": 66.19,
  "capTop": 1150,
  "lowerTop": 1570,
  "punch": [
@@ -32,27 +32,27 @@
    1
   ],
   [
-   36.23,
+   32.32,
    1.1
   ],
   [
-   38.43,
+   34.82,
    1
   ],
   [
-   52.53,
+   48.59,
    1.08
   ],
   [
-   53.93,
+   50.47,
    1
   ],
   [
-   69.23,
+   64.76,
    1.1
   ],
   [
-   70.63,
+   66.16,
    1
   ]
  ],
@@ -102,51 +102,51 @@
    "small": "não é o principal"
   },
   {
-   "t": 29.33,
-   "d": 9.0,
+   "t": 29.34,
+   "d": 5.38,
    "type": "news",
    "img": "phone_walk",
    "kicker": "SE EU NÃO DURMO E NÃO TREINO",
    "title": "A cabeça não funciona o resto do dia"
   },
   {
-   "t": 42.23,
+   "t": 38.26,
    "d": 3.9,
    "type": "full",
    "big": "SEM EFICIÊNCIA",
    "small": "trabalhando, mas sem render"
   },
   {
-   "t": 46.23,
+   "t": 42.26,
    "d": 4.4,
    "type": "lower",
    "title": "Antes das prioridades",
    "sub": "eu precisei me conhecer"
   },
   {
-   "t": 50.63,
-   "d": 9.2,
+   "t": 46.66,
+   "d": 8.53,
    "type": "news",
    "img": "sprint",
    "kicker": "EU RENDO MAIS DE MANHÃ",
    "title": "Acordo cedo, treino, trabalho e durmo cedo"
   },
   {
-   "t": 59.93,
+   "t": 55.46,
    "d": 4.8,
    "type": "lower",
    "title": "Funciona pra mim",
    "sub": "pra você pode ser diferente"
   },
   {
-   "t": 68.53,
+   "t": 64.06,
    "d": 2.1,
    "type": "full",
    "big": "CRIE A SUA",
    "small": "rotina"
   },
   {
-   "t": 70.63,
+   "t": 66.16,
    "d": 3.03,
    "type": "profile"
   }

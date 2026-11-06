@@ -17,15 +17,15 @@ const G = [
     </div>`,
     [pop("#s1", 2.7), pop("#s2", 3.1), pop("#s3", 3.6)]],
   ["b_estr", 25.10, 3.9, fbox("e0", `<span>trabalho</span> <span class="serif big">não</span> <span>é o principal</span>`), [rise("#e0", 0.3, 0.3)], true],
-  ["b_cab", 29.20, 9.0, `
+  ["b_cab", 29.21, 5.38, `
     ${tile("c_sono", "clock", "", "dormir bem", 40, 330)}
     ${tile("c_tr", "dumbbell", "", "treinar", 828, 330)}`,
-    [pop("#c_sono", 2.4), pop("#c_tr", 5.8)]],
-  ["b_func", 38.30, 3.8, fbox("f0", `<span>a cabeça não</span> <span class="markbig small">funciona</span>`), [rise("#f0", 0.6, 0.3)], true],
-  ["b_efic", 42.10, 3.9, fbox("x0", `<span>trabalhando, mas sem</span> <span class="serif big">eficiência</span>`), [rise("#x0", 1.5, 0.3)], true],
-  ["b_conh_k", 46.10, 4.4, kicker("ck", "ANTES DAS PRIORIDADES"), [rise("#ck", 0.0, 0.3)], true],
-  ["b_conh", 48.90, 1.6, fbox("c0", `<span>se</span> <span class="serif big">conhece</span>`), [rise("#c0", 0.0, 0.25)], true],
-  ["b_manha", 50.50, 9.2, `
+    [pop("#c_sono", 1.2), pop("#c_tr", 2.0)]],
+  ["b_func", 34.69, 3.44, fbox("f0", `<span>a cabeça não</span> <span class="markbig small">funciona</span>`), [rise("#f0", 0.6, 0.3)], true],
+  ["b_efic", 38.13, 3.9, fbox("x0", `<span>trabalhando, mas sem</span> <span class="serif big">eficiência</span>`), [rise("#x0", 1.5, 0.3)], true],
+  ["b_conh_k", 42.13, 4.4, kicker("ck", "ANTES DAS PRIORIDADES"), [rise("#ck", 0.0, 0.3)], true],
+  ["b_conh", 44.93, 1.6, fbox("c0", `<span>se</span> <span class="serif big">conhece</span>`), [rise("#c0", 0.0, 0.25)], true],
+  ["b_manha", 46.53, 8.77, `
     <div class="stack" style="left:30px;top:340px">
       <div class="spill" id="r0"><span class="num">☀</span>rendo mais de manhã</div>
       <div class="spill" id="r1"><span class="num">01</span>acordo cedo</div>
@@ -33,9 +33,9 @@ const G = [
       <div class="spill" id="r3"><span class="num">03</span>trabalho</div>
       <div class="spill" id="r4"><span class="num">04</span>durmo cedo</div>
     </div>`,
-    [pop("#r0", 1.4), pop("#r1", 3.3), pop("#r2", 4.8), pop("#r3", 5.6), pop("#r4", 6.2)]],
-  ["b_vc", 59.80, 4.8, fbox("v0", `<span>pra você pode ser</span> <span class="markbig small">diferente</span>`), [rise("#v0", 2.9, 0.3)], true],
-  ["b_dica_k", 64.60, 5.9, kicker("dk", "A DICA"), [rise("#dk", 0.0, 0.3)], true],
-  ["b_crie", 69.10, 1.4, fbox("d0", `<span>crie a</span> <span class="serif big">sua</span> <span>rotina</span>`), [rise("#d0", 0.0, 0.25)], true],
-  ["cta", 70.50, 3.03, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
+    [pop("#r0", 1.1), pop("#r1", 3.3), pop("#r2", 4.9), pop("#r3", 5.1), pop("#r4", 5.7)]],
+  ["b_vc", 55.33, 4.8, fbox("v0", `<span>pra você pode ser</span> <span class="markbig small">diferente</span>`), [rise("#v0", 2.9, 0.3)], true],
+  ["b_dica_k", 60.13, 5.9, kicker("dk", "A DICA"), [rise("#dk", 0.0, 0.3)], true],
+  ["b_crie", 64.63, 1.4, fbox("d0", `<span>crie a</span> <span class="serif big">sua</span> <span>rotina</span>`), [rise("#d0", 0.0, 0.25)], true],
+  ["cta", 66.03, 3.03, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
 ];

@@ -6,7 +6,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
-const W = 1080, H = 1920, DUR = 73.67;
+const W = 1080, H = 1920, DUR = 69.2;
 const ORIGIN = "50% 40%";   // zoom around the face, so it stays in place instead of drifting up
 const EASE_IN = 0.3, EASE_OUT = 0.3;
 
@@ -15,10 +15,10 @@ const ZOOMS = [
   { at: 0, dur: 3.93, from: 1.0, to: 1.1, push: true },
   { at: 8.93, dur: 1.0, to: 1.06 },
   { at: 23.53, dur: 1.6, to: 1.08 },
-  { at: 35.93, dur: 1.5, to: 1.1 },
-  { at: 45.63, dur: 1.0, to: 1.06 },
-  { at: 51.63, dur: 1.4, to: 1.08 },
-  { at: 69.23, dur: 1.4, to: 1.1 },
+  { at: 31.99, dur: 1.5, to: 1.1 },
+  { at: 41.66, dur: 1.0, to: 1.06 },
+  { at: 47.68, dur: 1.4, to: 1.08 },
+  { at: 64.76, dur: 1.4, to: 1.1 },
 ];
 
 function zoomTimeline() {
