@@ -3,8 +3,7 @@
  "shots": [
   {
    "t": 0,
-   "img": "friends",
-   "label": "conversando com um amigo"
+   "text": "conversando com um <b>amigo</b>"
   },
   {
    "t": 2.2,
