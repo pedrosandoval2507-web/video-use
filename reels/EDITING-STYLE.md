@@ -90,3 +90,10 @@ When the creator sends videos "for the 3 variations", deliver all three for each
 - **Photos:** the proxy blocks Wikimedia. Import `commons.wikimedia.org/wiki/Special:FilePath/<File>?width=1600` through Tella `import_from_url`, download the screenshot, then crop it with Pillow.
 - **SFX:** synthesized files in `assets/sfx/`, because Tella's catalog isn't downloadable. Keep the hook quiet: riser 0.15, heartbeat 0.2, impact 0.25.
 - **Delivery:** each file is compressed under 30 MB (`reels/entregas/`, ignored by git) and sent in chat.
+
+## Cutting rules (creator, Nov 2026)
+
+- **No silence at all.** Cut every gap, even inside a sentence. For noisy rooms, raise the silence threshold (`EDL_SIL_OFFSET` in make-edl.py) and check the cut by transcribing it again.
+- **Repeated line: keep the LAST take.** If a sentence (or something very close to it) is said twice or more, the earlier takes are mistakes. Drop them and keep only the final one, including half-started false starts ("e o arrepen…").
+- **Hooks:** when several hooks are recorded for one body, deliver every hook × every variation, grouped by hook (hook 1: V1–V4, hook 2: V1–V4, …).
+- **Photos:** no stock photos of elderly people.
