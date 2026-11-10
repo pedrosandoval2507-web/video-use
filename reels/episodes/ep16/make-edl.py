@@ -64,7 +64,11 @@ for seg in segs:
                 keep.append((start, run / 100 + KEEP)); start = i / 100 - KEEP
             run = None
         i += 1
-    keep.append((start, e))
+    # a silence that runs to the end of the segment is cut too (the transcript can stretch the last word over it)
+    if run is not None and (int(e * 100) - run) / 100 > MAX_SIL:
+        keep.append((start, run / 100 + KEEP))
+    else:
+        keep.append((start, e))
 keep = [(round(s * 30) / 30, round(e * 30) / 30) for s, e in keep if e - s > 0.1]
 
 def edited(t):
