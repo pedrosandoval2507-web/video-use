@@ -11,7 +11,7 @@ const PERFIL = "data:image/jpeg;base64," + readFileSync(join(HERE, "../../assets
 const PHOTO = (n) => "data:image/jpeg;base64," + readFileSync(join(HERE, `../../assets/photos/${n}.jpg`)).toString("base64");
 // A real photo card on the graphics layer (behind the cut-out, so it never covers the speaker).
 const pcardImg = (id, n, x, y, w = 330) => `<div class="side" id="${id}" style="left:${x}px;top:${y}px;width:${w}px;background:none;padding:0;box-shadow:none;border:0"><img src="${PHOTO(n)}" style="width:${w}px;border-radius:26px;border:7px solid #fff;box-shadow:0 14px 40px rgba(0,0,0,0.35);display:block" /></div>`;
-const W = 1080, H = 1920, DUR = 69.2;
+const W = 1080, H = 1920, DUR = 43.47;
 
 // ---- minimalist line icons (viewBox 0 0 100 100) ----
 const S = `fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"`;
@@ -48,7 +48,7 @@ const svg = (name, size, color = "#141414") =>
 // The busy ceiling makes dark text unreadable, so every phrase sits on a white box: short labels at the top
 // (12.4-16%, mostly above the hair), tiles and side words beside the head (x 20-320 / 760-1060, y 380-760),
 // titles, cards and the CTA over the chest (y 985-1200), above the cut-out and clear of the captions (~1250+).
-const FB = 1010;   // wide standing shot: title boxes sit on the chest
+const FB = 1430;   // close framing: title boxes go below the captions so they never cover the chin or mouth
 const tile = (id, icon, num, label, x, y, size = 120, color) => `
   <div class="tile" id="${id}" style="left:${x}px;top:${y}px">
     <div class="tbox" style="width:${size + 56}px;height:${size + 56}px">${svg(icon, size, color)}</div>
@@ -62,45 +62,30 @@ const slam = (sel, t, rot = 0) => `tl.fromTo("${sel}", { opacity: 0, scale: 1.6,
 const strike = (sel, t) => `tl.fromTo("${sel}", { "--s": 0 }, { "--s": 1, duration: 0.35, ease: "power2.out" }, ${t});`;
 
 const G = [
-  ["hook_k", 0.1, 3.93, kicker("hk", "PRIORIDADES"), [rise("#hk", 0.0, 0.3)], true],
-  ["hook_t", 2.8, 1.23, fbox("h0", `<span>por isso eu</span> <span class="markbig" id="hh1">rendo mais</span>`), [rise("#h0", 0.0, 0.25), slam("#hh1", 0.65, -3)], true],
-  // Body (times relative to the body's start; the composer shifts them by the hook length).
-  ["b_247", 4.03, 5.4, `
-    <div class="side" id="b1" style="left:10px;top:330px;width:340px"><div class="sans">trabalhar</div><div class="serif huge" style="font-size:96px">24/7</div></div>
-    ${tile("b_clk", "clock", "", "nunca parar", 790, 330, 120, "#ff3b30")}`,
-    [rise("#b1", 2.9, 0.35), pop("#b_clk", 4.4)]],
-  ["b_muito", 9.43, 5.2, fbox("m0", `<span>trabalhar</span> <span class="serif big">muito</span> <span>✓</span>`), [rise("#m0", 0.8, 0.3)], true],
-  ["b_prior_k", 14.63, 5.9, kicker("pk", "ANTES DISSO"), [rise("#pk", 0.0, 0.3)], true],
-  ["b_prior", 17.33, 3.2, fbox("p0", `<span>defina suas</span> <span class="markbig small">prioridades</span>`), [rise("#p0", 0.0, 0.3)], true],
-  ["b_3", 20.83, 4.4, `
+  ["hook_k", 0.1, 5.6, kicker("hk", "EMPREENDEDORISMO"), [rise("#hk", 0.0, 0.3)], true],
+  ["hook_t", 3.2, 2.4, fbox("h0", `<span>é</span> <span class="markbig" id="h1">chata</span> <span>e funciona</span>`), [rise("#h0", 0.0, 0.25), slam("#h1", 0.15, -3)], true],
+  ["busca", 6.2, 6.0, `
     <div class="stack" style="left:30px;top:340px">
-      <div class="spill" id="s1"><span class="num">01</span>sono</div>
-      <div class="spill" id="s2"><span class="num">02</span>treino</div>
-      <div class="spill" id="s3"><span class="num">03</span>trabalho</div>
+      <div class="spill" id="s1"><span class="num">01</span>estratégia nova</div>
+      <div class="spill" id="s2"><span class="num">02</span>ferramenta nova</div>
+      <div class="spill" id="s3"><span class="num">03</span>curso novo</div>
     </div>`,
-    [pop("#s1", 2.7), pop("#s2", 3.1), pop("#s3", 3.6)]],
-  ["b_estr", 25.23, 3.9, fbox("e0", `<span>trabalho</span> <span class="serif big">não</span> <span>é o principal</span>`), [rise("#e0", 0.3, 0.3)], true],
-  ["b_cab", 29.34, 5.38, `
-    ${tile("c_sono", "clock", "", "dormir bem", 40, 330)}
-    ${tile("c_tr", "dumbbell", "", "treinar", 828, 330)}`,
-    [pop("#c_sono", 1.2), pop("#c_tr", 2.0)]],
-  ["b_func", 34.82, 3.44, fbox("f0", `<span>a cabeça não</span> <span class="markbig small">funciona</span>`), [rise("#f0", 0.6, 0.3)], true],
-  ["b_efic", 38.26, 3.9, fbox("x0", `<span>trabalhando, mas sem</span> <span class="serif big">eficiência</span>`), [rise("#x0", 1.5, 0.3)], true],
-  ["b_conh_k", 42.26, 4.4, kicker("ck", "ANTES DAS PRIORIDADES"), [rise("#ck", 0.0, 0.3)], true],
-  ["b_conh", 45.06, 1.6, fbox("c0", `<span>se</span> <span class="serif big">conhece</span>`), [rise("#c0", 0.0, 0.25)], true],
-  ["b_manha", 46.66, 8.77, `
+    [pop("#s1", 1.0), pop("#s2", 2.5), pop("#s3", 3.5)]],
+  ["olha_k", 16.4, 2.6, kicker("ok", "OLHANDO PRA TRÁS"), [rise("#ok", 0.0, 0.3)], true],
+  ["genial", 19.1, 1.45, fbox("g0", `<span>não foi algo</span> <span class="serif big">genial</span>`), [rise("#g0", 0.0, 0.25)], true],
+  ["basico", 20.6, 1.85, fbox("b0", `<span>foi o</span> <span class="markbig small">básico</span> <span>bem feito</span>`), [rise("#b0", 0.9, 0.25)], true],
+  ["exemplos", 22.47, 4.9, `
     <div class="stack" style="left:30px;top:340px">
-      <div class="spill" id="r0"><span class="num">☀</span>rendo mais de manhã</div>
-      <div class="spill" id="r1"><span class="num">01</span>acordo cedo</div>
-      <div class="spill" id="r2"><span class="num">02</span>treino</div>
-      <div class="spill" id="r3"><span class="num">03</span>trabalho</div>
-      <div class="spill" id="r4"><span class="num">04</span>durmo cedo</div>
+      <div class="spill" id="e1"><span class="num">01</span>responder rápido</div>
+      <div class="spill" id="e2"><span class="num">02</span>entregar no prazo</div>
+      <div class="spill" id="e3"><span class="num">03</span>cuidar do produto</div>
     </div>`,
-    [pop("#r0", 1.1), pop("#r1", 3.3), pop("#r2", 4.9), pop("#r3", 5.1), pop("#r4", 5.7)]],
-  ["b_vc", 55.46, 4.8, fbox("v0", `<span>pra você pode ser</span> <span class="markbig small">diferente</span>`), [rise("#v0", 2.9, 0.3)], true],
-  ["b_dica_k", 60.26, 5.9, kicker("dk", "A DICA"), [rise("#dk", 0.0, 0.3)], true],
-  ["b_crie", 64.76, 1.4, fbox("d0", `<span>crie a</span> <span class="serif big">sua</span> <span>rotina</span>`), [rise("#d0", 0.0, 0.25)], true],
-  ["cta", 66.16, 3.03, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
+    [pop("#e1", 1.4), pop("#e2", 2.7), pop("#e3", 3.4)]],
+  ["chato", 27.43, 4.4, fbox("c0", `<span>o básico é</span> <span class="serif big">chato</span>`), [rise("#c0", 2.2, 0.3)], true],
+  ["ninguem", 31.93, 2.9, fbox("n0", `<span>quase</span> <span class="markbig small">ninguém</span> <span>faz direito</span>`), [rise("#n0", 1.5, 0.3)], true],
+  ["perg_k", 34.9, 5.5, kicker("pk", "ANTES DA PRÓXIMA IDEIA"), [rise("#pk", 0.0, 0.3)], true],
+  ["perg", 38.0, 2.4, fbox("p0", `<span>o básico tá</span> <span class="serif big">bem feito</span><span>?</span>`), [rise("#p0", 0.0, 0.3)], true],
+  ["cta", 40.42, 3.05, `<div class="pcard" id="pc"><img src="${PERFIL}" /><div class="ctasub">me segue 👆</div></div>`, [pop("#pc", 0.05)], true],
 ];
 
 const CSS = `

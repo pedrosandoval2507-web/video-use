@@ -1,0 +1,152 @@
+{
+ "videoTop": -380,
+ "shots": [
+  {
+   "t": 0,
+   "text": "você não precisa de mais <b>tempo</b>"
+  },
+  {
+   "t": 1.9,
+   "text": "precisa de menos <i>distração</i>"
+  },
+  {
+   "t": 3.8,
+   "text": "o brasileiro passa"
+  },
+  {
+   "t": 5.9,
+   "text": "<b>9 horas</b> por dia",
+   "full": true
+  },
+  {
+   "t": 7.3,
+   "img": "social_apps",
+   "label": "na internet"
+  },
+  {
+   "t": 8.2,
+   "text": "mais do que a maioria <i>trabalha</i>"
+  },
+  {
+   "t": 11.1,
+   "text": "e a gente diz que não tem <b>tempo</b>"
+  },
+  {
+   "t": 12.8,
+   "img": "sprint",
+   "label": "treinar"
+  },
+  {
+   "t": 13.4,
+   "img": "reading",
+   "label": "estudar"
+  },
+  {
+   "t": 14.3,
+   "img": "phone_desk",
+   "label": "começar um projeto"
+  },
+  {
+   "t": 15.8,
+   "text": "mas na <i>verdade</i>"
+  },
+  {
+   "t": 17.2,
+   "text": "não sabemos usar o <b>tempo</b>"
+  },
+  {
+   "t": 19.97,
+   "text": "faz o <i>exercício</i>"
+  },
+  {
+   "t": 21.2,
+   "img": "phone_walk",
+   "label": "abre o celular"
+  },
+  {
+   "t": 23.0,
+   "text": "quanto tempo de <b>tela</b>?"
+  },
+  {
+   "t": 25.4,
+   "text": "você vai se <i>assustar</i>",
+   "full": true
+  },
+  {
+   "t": 27.4,
+   "text": "assim como <b>eu</b>"
+  },
+  {
+   "t": 28.9,
+   "text": "também me <i>assustei</i>"
+  },
+  {
+   "t": 30.27,
+   "text": "adaptar a <i>rotina</i>"
+  },
+  {
+   "t": 32.0,
+   "img": "phone_desk",
+   "label": "pegar menos no celular"
+  },
+  {
+   "t": 34.75,
+   "text": "celular longe de <b>manhã</b>"
+  },
+  {
+   "t": 37.2,
+   "img": "sprint",
+   "label": "é quando eu rendo mais"
+  },
+  {
+   "t": 39.77,
+   "text": "não precisa se <i>bloquear</i>"
+  },
+  {
+   "t": 41.4,
+   "img": "social_apps",
+   "label": "não vou mais usar internet"
+  },
+  {
+   "t": 43.39,
+   "text": "só precisa <b>decidir</b>"
+  },
+  {
+   "t": 45.2,
+   "text": "quando ela <i>entra</i>"
+  },
+  {
+   "t": 47.5,
+   "text": "e <i>como</i> ela entra"
+  },
+  {
+   "t": 49.3,
+   "img": "reading",
+   "label": "aprendizagem"
+  },
+  {
+   "t": 50.6,
+   "img": "phone_walk",
+   "label": "ou distração"
+  },
+  {
+   "t": 51.74,
+   "text": "vai lá ver seu <b>tempo de tela</b>"
+  },
+  {
+   "t": 53.9,
+   "img": "phone_desk",
+   "label": "e comenta aqui"
+  },
+  {
+   "t": 55.6,
+   "text": "<i>comenta</i> quanto deu"
+  },
+  {
+   "t": 57.38,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  }
+ ]
+}

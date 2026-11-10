@@ -1,0 +1,142 @@
+{
+ "capTop": 1150,
+ "lowerTop": 1570,
+ "profTop": 1220,
+ "capEnd": 57.38,
+ "punch": [
+  [
+   0,
+   1
+  ],
+  [
+   2.96,
+   1.12
+  ],
+  [
+   3.8,
+   1
+  ],
+  [
+   5.92,
+   1.1
+  ],
+  [
+   8.2,
+   1
+  ],
+  [
+   26.9,
+   1.12
+  ],
+  [
+   27.4,
+   1
+  ],
+  [
+   39.81,
+   1.1
+  ],
+  [
+   41.3,
+   1
+  ]
+ ],
+ "items": [
+  {
+   "t": 0.1,
+   "d": 3.3,
+   "type": "news",
+   "kicker": "VOCÊ NÃO PRECISA DE MAIS TEMPO",
+   "title": "Precisa de menos distração"
+  },
+  {
+   "t": 3.8,
+   "d": 4.3,
+   "type": "stat",
+   "value": 9,
+   "suffix": "h por dia",
+   "label": "o brasileiro na internet",
+   "src": "Digital 2024 (DataReportal)",
+   "count": 0.6
+  },
+  {
+   "t": 8.2,
+   "d": 2.7,
+   "type": "full",
+   "big": "MAIS QUE O TRABALHO",
+   "small": "pra maioria das pessoas"
+  },
+  {
+   "t": 11.1,
+   "d": 4.6,
+   "type": "news",
+   "img": "sprint",
+   "kicker": "E A GENTE DIZ QUE NÃO TEM TEMPO",
+   "title": "Pra treinar, estudar, começar um projeto"
+  },
+  {
+   "t": 15.8,
+   "d": 4.1,
+   "type": "full",
+   "big": "O PROBLEMA",
+   "small": "é como a gente usa o tempo"
+  },
+  {
+   "t": 19.97,
+   "d": 7.4,
+   "type": "news",
+   "img": "phone_walk",
+   "kicker": "FAZ O EXERCÍCIO",
+   "title": "Abre o celular e vê seu tempo de tela"
+  },
+  {
+   "t": 27.4,
+   "d": 2.9,
+   "type": "full",
+   "big": "ME ASSUSTEI",
+   "small": "e você vai se assustar também"
+  },
+  {
+   "t": 30.27,
+   "d": 4.4,
+   "type": "lower",
+   "title": "Adapte a rotina",
+   "sub": "pegue menos no celular"
+  },
+  {
+   "t": 34.75,
+   "d": 5.0,
+   "type": "news",
+   "img": "phone_desk",
+   "kicker": "EU, POR EXEMPLO",
+   "title": "Celular longe nas primeiras horas do dia"
+  },
+  {
+   "t": 39.77,
+   "d": 3.6,
+   "type": "lower",
+   "title": "Não precisa se bloquear",
+   "sub": "nem largar a internet"
+  },
+  {
+   "t": 43.39,
+   "d": 8.3,
+   "type": "news",
+   "img": "reading",
+   "kicker": "DECIDA",
+   "title": "Quando e como a internet entra no seu dia"
+  },
+  {
+   "t": 51.74,
+   "d": 5.6,
+   "type": "full",
+   "big": "TEMPO DE TELA",
+   "small": "comenta aqui quanto deu"
+  },
+  {
+   "t": 57.38,
+   "d": 2.82,
+   "type": "profile"
+  }
+ ]
+}

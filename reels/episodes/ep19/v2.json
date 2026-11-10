@@ -1,0 +1,123 @@
+{
+ "videoTop": -380,
+ "shots": [
+  {
+   "t": 0,
+   "text": "a coisa mais <b>subestimada</b>"
+  },
+  {
+   "t": 2.2,
+   "text": "no <i>empreendedorismo</i>"
+  },
+  {
+   "t": 3.3,
+   "text": "é <b>chata</b>",
+   "full": true
+  },
+  {
+   "t": 4.0,
+   "text": "e é por isso que <i>funciona</i>"
+  },
+  {
+   "t": 6.2,
+   "text": "a gente vive procurando"
+  },
+  {
+   "t": 7.2,
+   "img": "phone_desk",
+   "label": "estratégia nova"
+  },
+  {
+   "t": 8.6,
+   "img": "social_apps",
+   "label": "ferramenta nova"
+  },
+  {
+   "t": 9.7,
+   "img": "reading",
+   "label": "um curso novo"
+  },
+  {
+   "t": 12.37,
+   "text": "mas na <i>verdade</i>"
+  },
+  {
+   "t": 14.5,
+   "img": "handshake_office",
+   "label": "quando algo funciona"
+  },
+  {
+   "t": 16.4,
+   "text": "a gente olha pra <b>trás</b>"
+  },
+  {
+   "t": 18.4,
+   "text": "a mudança de <i>chave</i>"
+  },
+  {
+   "t": 19.1,
+   "text": "não foi <b>genial</b>"
+  },
+  {
+   "t": 20.6,
+   "text": "foi o <b>básico</b> bem feito",
+   "full": true
+  },
+  {
+   "t": 22.47,
+   "text": "por <i>exemplo</i>"
+  },
+  {
+   "t": 23.1,
+   "img": "phone_walk",
+   "label": "responder cliente rápido"
+  },
+  {
+   "t": 24.4,
+   "img": "contract",
+   "label": "entregar no prazo"
+  },
+  {
+   "t": 25.86,
+   "img": "phone_desk",
+   "label": "cuidar do seu produto"
+  },
+  {
+   "t": 27.43,
+   "text": "o básico pode ser <i>chato</i>"
+  },
+  {
+   "t": 30.1,
+   "text": "mas é o que <b>funciona</b>"
+  },
+  {
+   "t": 31.93,
+   "text": "por isso quase <b>ninguém</b> faz",
+   "full": true
+  },
+  {
+   "t": 34.9,
+   "text": "antes da próxima <i>ideia</i>"
+  },
+  {
+   "t": 37.16,
+   "text": "<i>mirabolante</i>"
+  },
+  {
+   "t": 37.97,
+   "text": "o básico tá <b>bem feito</b>?"
+  },
+  {
+   "t": 40.42,
+   "img": "perfil_header",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  },
+  {
+   "t": 42.0,
+   "img": "perfil_grid",
+   "label": "@_pedromsandoval",
+   "pos": "50% 20%"
+  }
+ ]
+}
