@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """QA for the "keep only the last take" rule: transcribes the finished cut again, in short pieces split at
-pauses (whisper tends to merge a repeated phrase into one), and flags any phrase of 2+ words that is said
+pauses (whisper tends to merge a repeated phrase into one), and flags any phrase of 3+ words that is said
 twice within a few seconds. Run it on every source.mp4 before rendering.
 Usage: check-repeats.py <source.mp4>"""
 import json, os, re, subprocess, sys, tempfile
@@ -29,7 +29,7 @@ for n, (s, e) in enumerate(zip(cuts, cuts[1:])):
 words = [x for x in words if x[1]]
 print(" ".join(w for _, w in words))
 hits = []
-for n in (4, 3, 2):
+for n in (5, 4, 3):   # 3+ words: two-word phrases ("a gente") repeat naturally
     for i in range(len(words) - n):
         g = [w for _, w in words[i:i + n]]
         for j in range(i + 1, min(len(words) - n + 1, i + 16)):
