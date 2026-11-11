@@ -97,3 +97,4 @@ When the creator sends videos "for the 3 variations", deliver all three for each
 - **Repeated line: keep the LAST take.** If a sentence (or something very close to it) is said twice or more, the earlier takes are mistakes. Drop them and keep only the final one, including half-started false starts ("e o arrepen…").
 - **Hooks:** when several hooks are recorded for one body, deliver every hook × every variation, grouped by hook (hook 1: V1–V4, hook 2: V1–V4, …).
 - **Photos:** no stock photos of elderly people.
+- **Before every render:** run `scripts/check-repeats.py <ep>/source.mp4`. It re-transcribes the cut in short pieces and flags any phrase said twice within a few seconds. Whisper can merge two takes into one line, as it did with "mas na verdade" on ep19.
