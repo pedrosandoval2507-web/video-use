@@ -518,8 +518,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <div class="view" id="v-gerando">
   <section>
     <div class="wrap gen">
-      <div class="logo"><img src="LOGO_DOT" alt="Dot"><div class="ring"></div></div>
-      <h2>Criando seus cortes da <span class="hl-c">Dot</span></h2>
+      <div class="logo"><img id="genLogo" src="LOGO_DOT" alt=""><div class="ring"></div></div>
+      <h2>Criando seus vídeos da <span class="hl-c" id="genName">Dot</span></h2>
       <p class="lead" style="margin-top:10px">Isso leva só alguns segundos…</p>
       <div class="bar"><i id="genBar"></i></div>
       <div class="small" id="genPct">0%</div>
@@ -535,16 +535,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="progress" style="max-width:520px"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
       <div class="res-head">
         <div class="who">
-          <div class="logo"><img src="LOGO_DOT" alt=""></div>
-          <div><h2 style="font-size:28px">Seus vídeos estão prontos! 🎉</h2><p class="small" id="resSub">Dot · 3 vídeos com IA + 30 cortes, ordenados pelo potencial de venda</p></div>
+          <div class="logo"><img id="resLogo" src="LOGO_DOT" alt=""></div>
+          <div><h2 style="font-size:28px">Seus vídeos estão prontos! 🎉</h2><p class="small" id="resSub"></p></div>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <a href="#ranking" class="btn btn-primary">+ Outro produto</a>
         </div>
       </div>
-      <div class="sec-title" style="margin-top:8px"><div><h2>🤖 Vídeos POV com IA</h2><p class="small" style="margin-top:6px">Roteiro, narração com voz de IA e edição gerados automaticamente a partir da embalagem do produto</p></div></div>
-      <div class="clips" id="iaClips"></div>
-      <div class="sec-title"><div><h2>✂️ Cortes do vídeo original</h2><p class="small" style="margin-top:6px">30 cortes ordenados pela força de venda</p></div></div>
       <div class="legend">
         <span class="score s1" style="position:static">🔥 90–99% Muito forte</span>
         <span class="score s2" style="position:static">⚡ 80–89% Forte</span>
@@ -659,6 +656,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 const LOGOS=/*LOGOS*/{};
 const CLIPS=/*CLIPS*/[];
 const IA=/*IA*/[];
+const GUDAY=/*GUDAY*/[];
 /*INLINE*/
 
 const PRODUCTS=[
@@ -700,7 +698,17 @@ const TESTIS=[
   {n:'Juliana P.',c:'Salvador · BA',t:'O ranking me ajudou a escolher produto. Fui na Dot porque tava em 1º e acertei.',e:'R$ 520 no 1º mês',col:'#c084fc'},
   {n:'Pedro H.',c:'Goiânia · GO',t:'Faço faculdade e posto no intervalo. Renda extra de verdade sem aparecer em vídeo.',e:'R$ 470 no 1º mês',col:'#4ff3ee'},
 ];
-const state={user:null,plan:null,cat:'Todos',fmt:'Todos',edits:{},current:null};
+const state={user:null,plan:null,cat:'Todos',fmt:'Todos',edits:{},current:null,product:'dot'};
+const IACAP=' 👀 Dot, a 1ª bala energética do Brasil: 80 mg de cafeína e zero açúcar. Clica no carrinho laranja 🛒 #tiktokshop #dot #balaenergetica #energia';
+const VIDS=(()=>{
+  const dot=[...CLIPS.map(c=>({...c})),...IA.map(v=>({...v,format:'IA',why:'Vídeo POV com narração por IA + embalagem real, gancho e CTA de urgência.',caption:v.title+IACAP}))].sort((a,b)=>b.score-a.score);
+  const gd=GUDAY.map(v=>({...v})).sort((a,b)=>b.score-a.score);
+  [dot,gd].forEach(l=>l.forEach((c,i)=>c.n=i+1));
+  return {dot,guday:gd};
+})();
+const LIST=()=>VIDS[state.product]||VIDS.dot;
+const PINFO={dot:{name:'Dot',desc:'cortes do Shark Tank + vídeos POV com IA',steps:['Buscando vídeos da Dot na internet','Transcrevendo e encontrando os melhores ganchos','Gerando 30 cortes automáticos','Criando 3 vídeos POV com IA (roteiro + voz)','Aplicando formatos: tela partida, chamada de venda, dados…','Calculando a força de venda de cada vídeo']},
+  guday:{name:'Guday',desc:'vídeos com IA a partir das fotos do produto',steps:['Buscando fotos da Guday na internet','Pesquisando o produto: creatina em gummies','Escrevendo 10 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: dopamina, POV, slideshow, comparação…','Calculando a força de venda de cada vídeo']}};
 
 /* ---------- ranking ---------- */
 function logoImg(id,name){return `<div class="logo"><img src="${LOGOS[id]}" alt="${name}"></div>`}
@@ -712,7 +720,7 @@ function rowHTML(p,i){
     <div><div class="pname">${p.name}</div><div class="pcat">${p.cat} · ${p.sub}</div></div>
     <div class="metric"><b>${p.sales}</b><span>vendas/mês</span></div>
     <div class="metric"><b class="up">${p.grow}</b><span>comissão ${p.com}</span></div>
-    <button class="btn ${p.id==='dot'?'btn-primary':'btn-ghost'}" onclick="afiliar('${p.id}')">Afiliar</button>
+    <button class="btn ${p.id==='dot'||p.id==='guday'?'btn-primary':'btn-ghost'}" onclick="afiliar('${p.id}')">Afiliar</button>
   </div>`;
 }
 function otherHTML(o){
@@ -738,18 +746,20 @@ function testiHTML(t){return `<div class="card testi"><div class="stars">★★�
 document.getElementById('homeTesti').innerHTML=TESTIS.slice(0,3).map(testiHTML).join('');
 document.getElementById('rankTesti').innerHTML=TESTIS.map(testiHTML).join('');
 
-function exHTML(c){return `<div class="ex" onclick="openClip(${c.n})"><video src="${c.file}" poster="${c.thumb}" muted loop playsinline preload="none"></video>
+function exHTML(c){return `<div class="ex" onclick="state.product='dot';openClip(${c.n})"><video src="${c.file}" poster="${c.thumb}" muted loop playsinline preload="none"></video>
   <span class="score ${scls(c.score)} tag">${sicon(c.score)} ${c.score}% forte</span></div>`}
 function setupExamples(){
-  const ex=CLIPS.slice(0,3);
+  const ex=VIDS.dot.slice(0,3);
   ['homeEx','rankEx'].forEach(id=>{document.getElementById(id).innerHTML=ex.map(exHTML).join('')});
   document.querySelectorAll('.ex video').forEach(v=>{const p=v.parentElement;p.onmouseenter=()=>v.play().catch(()=>{});p.onmouseleave=()=>v.pause()});
-  const hv=document.getElementById('heroVid'); if(CLIPS[0]){hv.src=CLIPS[0].file;hv.poster=CLIPS[0].thumb}
+  const hv=document.getElementById('heroVid'); const h0=VIDS.dot.find(x=>x.format!=='IA')||VIDS.dot[0];if(h0){hv.src=h0.file;hv.poster=h0.thumb}
 }
 
 function afiliar(id){
   const p=PRODUCTS.find(x=>x.id===id);
-  if(id!=='dot'){toast(`${p.name}: disponível em breve. No MVP, teste com a Dot ⚡`);return}
+  if(!VIDS[id]||!VIDS[id].length){toast(`${p.name}: disponível em breve. No MVP, teste com a Dot ou a Guday ⚡`);return}
+  state.product=id;state.fmt='Todos';
+  document.getElementById('genLogo').src=LOGOS[id];document.getElementById('genName').textContent=p.name;
   go('gerando');
 }
 
@@ -763,6 +773,7 @@ function render(){
   document.getElementById('nav').classList.remove('open');
   window.scrollTo(0,0);
   if(r==='gerando') runGen();
+  if(r==='videos') renderClips();
 }
 window.addEventListener('hashchange',render);
 
@@ -798,8 +809,7 @@ document.querySelectorAll('.plan').forEach(pl=>pl.onclick=()=>{
 let genTimer=null;
 function runGen(){
   clearInterval(genTimer);
-  const steps=['Buscando vídeos da Dot na internet','Transcrevendo e encontrando os melhores ganchos','Gerando 30 cortes automáticos',
-'Criando 3 vídeos POV com IA (roteiro + voz)','Aplicando formatos: tela partida, chamada de venda, dados…','Calculando a força de venda de cada corte'];
+  const steps=PINFO[state.product].steps;
   const log=document.getElementById('genLog'),bar=document.getElementById('genBar'),pct=document.getElementById('genPct');
   log.innerHTML=steps.map(s=>`<div><i></i>${s}</div>`).join('');
   let p=0;const rows=[...log.children];
@@ -818,42 +828,38 @@ const sicon=s=>s>=90?'🔥':s>=80?'⚡':'👍';
 const fmtDur=d=>`0:${String(Math.round(d)).padStart(2,'0')}`.replace(/^0:(\d{3,})/,(m,x)=>`${Math.floor(x/60)}:${String(x%60).padStart(2,'0')}`);
 function durTxt(d){d=Math.round(d);return `${Math.floor(d/60)}:${String(d%60).padStart(2,'0')}`}
 function renderClips(){
-  const fmts=['Todos',...new Set(CLIPS.map(c=>c.format))];
+  const L=LIST(),P=PINFO[state.product];
+  document.getElementById('resLogo').src=LOGOS[state.product];
+  document.getElementById('resSub').textContent=`${P.name} · ${L.length} vídeos (${P.desc}), ordenados pelo potencial de venda`;
+  const fmts=['Todos',...new Set(L.map(c=>c.format))];
   document.getElementById('fmtChips').innerHTML=fmts.map(x=>`<button class="chip ${x===state.fmt?'on':''}" data-f="${x}">${x}</button>`).join('');
   document.querySelectorAll('#fmtChips .chip').forEach(ch=>ch.onclick=()=>{state.fmt=ch.dataset.f;renderClips()});
-  document.getElementById('clips').innerHTML=CLIPS.filter(c=>state.fmt==='Todos'||c.format===state.fmt).map(c=>{
-    const ed=state.edits[c.n];const hasEd=ed&&Object.keys(ed).length;
+  document.getElementById('clips').innerHTML=L.filter(c=>state.fmt==='Todos'||c.format===state.fmt).map(c=>{
+    const ed=state.edits[state.product+c.n];const hasEd=ed&&Object.keys(ed).length;
     return `<div class="clip" id="clip-${c.n}">
       <div class="thumb" onclick="openClip(${c.n})"><img src="${c.thumb}" loading="lazy" alt="">
         <span class="score ${scls(c.score)}">${sicon(c.score)} ${c.score}% forte</span>
-        <span class="fmt">${c.format}</span>${hasEd?'<span class="edited">✏️ editado</span>':''}
+        <span class="fmt">${c.format==='IA'?'🤖 IA · POV':c.format}</span>${hasEd?'<span class="edited">✏️ editado</span>':''}
         <div class="play">▶</div><span class="rankn">#${c.n}</span><span class="dur">${durTxt(c.dur)}</span></div>
       <div class="info"><div class="t">Vídeo ${c.n} · ${c.title}</div><div class="s">${c.why}</div>
         <div class="acts"><button onclick="openClip(${c.n})">▶ Assistir</button><button onclick="copyCap(${c.n})">📋 Legenda</button></div></div></div>`}).join('');
 }
 function copyCap(n){
-  const c=CLIPS.find(x=>x.n===n);
+  const c=LIST().find(x=>x.n===n);
   navigator.clipboard?.writeText(c.caption).then(()=>toast('Legenda copiada ✅'),()=>toast(c.caption));
 }
 
 /* ---------- player + edits ---------- */
 const mvid=document.getElementById('mvid'),movt=document.getElementById('movt');
-function openClip(n){openItem(CLIPS.find(x=>x.n===n))}
-function iaItem(i){const v=IA[i];return {...v,n:'IA'+(i+1),format:'Vídeo com IA (POV)',why:'Narração por IA + imagens reais da embalagem, com gancho e CTA de urgência.',caption:v.title+' 👀 Dot, a 1ª bala energética do Brasil: 80 mg de cafeína e zero açúcar. Clica no carrinho laranja 🛒 #tiktokshop #dot #balaenergetica #energia'}}
-function openIA(i){openItem(iaItem(i))}
-function renderIA(){document.getElementById('iaClips').innerHTML=IA.map((v,i)=>`<div class="clip">
-  <div class="thumb" onclick="openIA(${i})"><img src="${v.thumb}" alt=""><span class="score ${scls(v.score)}">${sicon(v.score)} ${v.score}% forte</span><span class="fmt">IA · POV</span>
-  <div class="play">▶</div><span class="dur">${durTxt(v.dur)}</span></div>
-  <div class="info"><div class="t">IA ${i+1} · ${v.title}</div><div class="s">Voz de IA + gancho + CTA de urgência</div>
-  <div class="acts"><button onclick="openIA(${i})">▶ Assistir</button><button onclick="navigator.clipboard?.writeText(iaItem(${i}).caption).then(()=>toast('Legenda copiada ✅'))">📋 Legenda</button></div></div></div>`).join('')}
+function openClip(n){openItem(LIST().find(x=>x.n===n))}
 function openItem(c){
-  if(!c)return;const n=c.n;state.current=n;
-  const ed=state.edits[n]||{};
+  if(!c)return;const n=c.n;state.current=state.product+n;
+  const ed=state.edits[state.current]||{};
   mvid.src=c.file;mvid.poster=c.thumb;
   mvid.muted=!!ed.mute;mvid.playbackRate=ed.speed||1;
   mvid.onloadedmetadata=()=>{mvid.currentTime=ed.start||0;mvid.playbackRate=ed.speed||1;mvid.play().catch(()=>{})};
   const ms=document.getElementById('mscore');ms.className='score '+scls(c.score);ms.textContent=`${sicon(c.score)} ${c.score}% forte`;
-  document.getElementById('mtitle').textContent=(String(n).startsWith('IA')?`${n} · `:`Vídeo ${n} · `)+c.title;
+  document.getElementById('mtitle').textContent=`Vídeo ${n} · `+c.title;
   document.getElementById('mdesc').innerHTML=`<b>Formato:</b> ${c.format} · ${durTxt(c.dur)}<br>${c.why}<br><br><b>Legenda:</b> ${c.caption}`;
   
   document.getElementById('mcap').onclick=()=>navigator.clipboard?.writeText(c.caption).then(()=>toast('Legenda copiada ✅'),()=>toast(c.caption));
@@ -895,17 +901,17 @@ function handle(q){
   const l=q.toLowerCase();
   let m=l.match(/v[ií]deo\s*(\d+|um|dois|tr[eê]s|quatro|cinco|seis|sete|oito|nove|dez)/)||l.match(/corte\s*(\d+)/)||l.match(/#(\d+)/);
   let n=m?(numWords[m[1]]||parseInt(m[1])):null;
-  const clip=n?CLIPS.find(c=>c.n===n):null;
+  const clip=n?LIST().find(c=>c.n===n):null;
   if(/melhor|mais fort|top\s*\d|quais/.test(l)&&!n){
     const k=parseInt((l.match(/(\d+)/)||[])[1])||5;
-    return `Os ${k} cortes com mais chance de venda:<br>`+CLIPS.slice(0,k).map(c=>`• <a onclick="openClip(${c.n})">Vídeo ${c.n}</a>: ${c.title} (${sicon(c.score)} ${c.score}%)`).join('<br>');
+    return `Os ${k} vídeos com mais chance de venda:<br>`+LIST().slice(0,k).map(c=>`• <a onclick="openClip(${c.n})">Vídeo ${c.n}</a>: ${c.title} (${sicon(c.score)} ${c.score}%)`).join('<br>');
   }
   if(/gere|gera|cria|novo corte|mais cortes/.test(l)&&!n){
     return '🎬 Pedido de novos cortes recebido! No MVP, a nova leva é produzida pela nossa equipe e aparece aqui em até 24h. Quer que eu priorize algum formato (tela partida, chamada de venda, dados)?';
   }
-  if(n&&!clip) return `Não achei o vídeo ${n}. Essa leva tem ${CLIPS.length} cortes (1 a ${CLIPS.length}).`;
+  if(n&&!clip) return `Não achei o vídeo ${n}. Essa leva tem ${LIST().length} vídeos (1 a ${LIST().length}).`;
   if(!clip) return 'Me diz qual vídeo você quer editar, por exemplo: <i>"no vídeo 1, corta no segundo 5"</i> ou <i>"vídeo 2, adicione o texto PROMOÇÃO"</i>.';
-  const ed=state.edits[n]=state.edits[n]||{};const done=[];
+  const key=state.product+n;const ed=state.edits[key]=state.edits[key]||{};const done=[];
   const txt=q.match(/["“'”‘’]([^"“”'‘’]+)["”'’“‘]/)||l.match(/(?:texto|escrit[oa]|escreve|escreva|frase)\s*:?\s*(.+)$/);
   if(txt){ed.text=(txt[1]).trim().toUpperCase();
     ed.pos=/embaixo|baixo|rodap/.test(l)?'bot':/meio|centro/.test(l)?'mid':'top';
@@ -922,7 +928,7 @@ function handle(q){
   else if(/mais r[aá]pido|acelera/.test(l)){ed.speed=1.25;done.push('acelerei pra <b>1.25x</b>')}
   else if(/mais devagar|lento/.test(l)){ed.speed=0.85;done.push('deixei mais lento (<b>0.85x</b>)')}
   if(/sem som|mudo|tira o som|silencia/.test(l)){ed.mute=true;done.push('tirei o som')}
-  if(/volta|desfaz|original|reset/.test(l)){state.edits[n]={};renderClips();return `↩ Voltei o vídeo ${n} pro original. <a onclick="openClip(${n})">Ver vídeo ${n}</a>`}
+  if(/volta|desfaz|original|reset/.test(l)){state.edits[key]={};renderClips();return `↩ Voltei o vídeo ${n} pro original. <a onclick="openClip(${n})">Ver vídeo ${n}</a>`}
   if(!done.length){
     if(/legenda/.test(l)) return `O vídeo ${n} já vem com legenda automática ✅. Quer mudar a cor ou o tamanho? No MVP, ajustes de legenda são feitos pela equipe em até 24h.`;
     if(/m[uú]sica/.test(l)) return `🎵 Pedido anotado: música no vídeo ${n}. No MVP, nossa equipe aplica em até 24h.`;
@@ -932,13 +938,13 @@ function handle(q){
   setTimeout(()=>{const el=document.getElementById('clip-'+n);if(el){el.classList.add('hi');setTimeout(()=>el.classList.remove('hi'),2500)}},50);
   return `✅ Pronto! No vídeo ${n}, ${done.join(', ')}. <a onclick="openClip(${n})">Ver vídeo ${n} ▶</a>`;
 }
-addMsg('Oi! 👋 Sou o editor da Tikfy. Os cortes estão ordenados do mais forte pro mais fraco. Me peça ajustes, por exemplo: <i>"no vídeo 1, corta no segundo 5"</i> ou <i>"vídeo 2, adicione o texto ÚLTIMAS UNIDADES embaixo"</i>.','bot');
+addMsg('Oi! 👋 Sou o editor da Tikfy. Os vídeos estão ordenados do mais forte pro mais fraco. Me peça ajustes, por exemplo: <i>"no vídeo 1, corta no segundo 5"</i> ou <i>"vídeo 2, adicione o texto ÚLTIMAS UNIDADES embaixo"</i>.','bot');
 
 /* ---------- toast ---------- */
 let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
 
 
-renderRank();setupExamples();renderIA();renderClips();render();
+renderRank();setupExamples();renderClips();render();
 </script>
 </body>
 </html>
