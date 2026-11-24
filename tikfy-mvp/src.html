@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tikfy · Renda extra com TikTok Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --bg2:#0d0d0f; --card:#16161a; --card2:#1e1e24; --line:#2a2a31;
+  --txt:#fff; --muted:#a1a1aa; --cyan:#4ff3ee; --red:#ff4d6d; --cyan-d:#25F4EE; --red-d:#FE2C55;
+  --r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* ---------- logo ---------- */
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px;letter-spacing:-.5px}
+.brand-mark{position:relative;width:34px;height:34px}
+.brand-mark span{position:absolute;inset:0;border-radius:10px;display:grid;place-items:center;font-size:20px;font-weight:900}
+.brand-mark .c{background:var(--cyan-d);transform:translate(-2px,-2px)}
+.brand-mark .r{background:var(--red-d);transform:translate(2px,2px)}
+.brand-mark .w{background:#000;color:#fff;border:2px solid #fff}
+.glitch{text-shadow:-2px -1px 0 var(--cyan-d),2px 1px 0 var(--red-d)}
+
+/* ---------- nav ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+nav.links{display:flex;gap:26px;font-size:14px;color:var(--muted);font-weight:500}
+nav.links a:hover,nav.links a.on{color:#fff}
+.hdr-actions{display:flex;gap:10px;align-items:center}
+.menu-btn{display:none;background:none;color:#fff;font-size:24px}
+@media(max-width:860px){
+  nav.links{display:none;position:absolute;top:68px;left:0;right:0;background:#000;flex-direction:column;padding:16px 20px;gap:16px;border-bottom:1px solid var(--line)}
+  nav.links.open{display:flex}
+  .menu-btn{display:block}
+  .hdr-actions .btn-ghost{display:none}
+}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;transition:.15s;white-space:nowrap}
+.btn-primary{background:var(--red-d);color:#fff}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-cyan{background:var(--cyan-d);color:#000}
+.btn-cyan:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:#555}
+.btn-block{width:100%}
+.btn-sm{padding:8px 14px;font-size:13px}
+
+/* ---------- views ---------- */
+.view{display:none;animation:fade .35s ease}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+section{padding:72px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--cyan);background:rgba(37,244,238,.08);border:1px solid rgba(37,244,238,.25);padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(36px,6vw,64px);line-height:1.04;font-weight:900;letter-spacing:-2px}
+h2{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.1}
+h3{font-size:18px;font-weight:700}
+.lead{color:var(--muted);font-size:18px;line-height:1.6}
+.hl-c{color:var(--cyan)} .hl-r{color:var(--red)}
+.center{text-align:center}
+.small{font-size:13px;color:var(--muted)}
+.sec-title{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin:56px 0 20px}
+.sec-title h2{font-size:clamp(22px,3vw,30px)}
+
+/* hero */
+.hero{padding:84px 0 60px;position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.22;z-index:-1}
+.hero:before{background:var(--cyan-d);top:-200px;left:-160px}
+.hero:after{background:var(--red-d);bottom:-260px;right:-160px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero .lead{margin:22px 0 30px;max-width:520px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap}
+.stats b{display:block;font-size:26px;font-weight:900}
+.stats span{color:var(--muted);font-size:13px}
+.phone{width:280px;height:560px;margin:0 auto;border-radius:40px;border:8px solid #1c1c22;background:#0a0a0a;position:relative;overflow:hidden;box-shadow:-14px -10px 0 -2px rgba(37,244,238,.35),14px 10px 0 -2px rgba(254,44,85,.35)}
+.phone video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.phone-ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.6))}
+.phone .side{position:absolute;right:10px;bottom:120px;display:flex;flex-direction:column;gap:16px;align-items:center;font-size:11px;font-weight:700;text-shadow:0 1px 4px #000}
+.phone .side i{font-style:normal;font-size:22px;display:block;text-align:center}
+.shop-tag{display:inline-flex;gap:6px;align-items:center;background:rgba(255,140,0,.92);padding:6px 10px;border-radius:8px;font-size:12px;font-weight:800;margin-bottom:8px;width:max-content}
+.phone .meta{font-size:12px;color:#eee;text-shadow:0 1px 4px #000}
+
+/* cards / steps */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:860px){.grid3,.grid4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.step-n{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-weight:900;margin-bottom:16px;background:var(--card2);color:var(--cyan)}
+.card p{color:var(--muted);line-height:1.6;margin-top:8px;font-size:15px}
+
+/* ---------- flows ---------- */
+.flow{min-height:calc(100vh - 68px);display:flex;align-items:flex-start;justify-content:center;padding:48px 20px}
+.panel{position:relative;width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:40px}
+@media(max-width:520px){.panel{padding:28px 20px}}
+.panel.sm{max-width:520px}
+.panel.lg{max-width:1040px}
+.skip{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;background:var(--card2);color:#fff;font-size:18px;display:grid;place-items:center;border:1px solid var(--line)}
+.skip:hover{background:var(--red-d)}
+.skip-tip{position:absolute;top:22px;right:62px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+.progress{display:flex;gap:6px;margin-bottom:26px}
+.progress i{flex:1;height:4px;border-radius:4px;background:var(--line)}
+.progress i.on{background:linear-gradient(90deg,var(--cyan-d),var(--red-d))}
+.panel h2{margin-bottom:6px}
+.panel .sub{color:var(--muted);margin-bottom:26px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#d4d4d8}
+.field input,.field select{width:100%;background:#000;border:1px solid var(--line);color:#fff;padding:13px 14px;border-radius:12px;font:inherit;font-size:15px;outline:none}
+.field input:focus,.field select:focus{border-color:var(--cyan-d)}
+.field input.err{border-color:var(--red-d)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.row2{grid-template-columns:1fr}}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:6px 0 20px}
+.check input{margin-top:3px;accent-color:var(--red-d)}
+
+/* plans */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+@media(max-width:860px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;position:relative;transition:.15s;cursor:pointer}
+.plan:hover{border-color:#444}
+.plan.sel{border-color:var(--cyan-d);box-shadow:0 0 0 4px rgba(37,244,238,.12)}
+.plan.pop{border-color:var(--red-d)}
+.plan .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--red-d);font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.plan .name{font-weight:800;font-size:18px}
+.plan .price{font-size:42px;font-weight:900;margin:14px 0 2px;letter-spacing:-1px}
+.plan .price small{font-size:15px;color:var(--muted);font-weight:500}
+.plan .vids{color:var(--cyan);font-weight:700;margin-bottom:18px}
+.plan ul{list-style:none;display:grid;gap:10px;margin-bottom:24px;flex:1}
+.plan li{font-size:14px;color:#d4d4d8;display:flex;gap:8px}
+.plan li:before{content:"✓";color:var(--cyan);font-weight:900}
+.plan li.no{color:#666}
+.plan li.no:before{content:"–";color:#555}
+.guarantee{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:22px;font-size:13px;color:var(--muted)}
+
+/* ranking */
+.rank-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--muted)}
+.chip.on{background:#fff;color:#000;border-color:#fff}
+.rank{display:grid;gap:10px}
+.ritem{display:grid;grid-template-columns:56px 64px 1fr auto auto auto;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 16px;transition:.15s}
+.ritem:hover{border-color:#3a3a44;background:#1a1a1f}
+.ritem.top{border-color:rgba(254,44,85,.5);background:linear-gradient(90deg,rgba(254,44,85,.10),var(--card) 40%)}
+.pos{font-size:26px;font-weight:900;text-align:center;color:#555}
+.pos.p1{color:#ffd54a}.pos.p2{color:#d9d9d9}.pos.p3{color:#e0a36a}
+.logo{width:64px;height:64px;border-radius:14px;overflow:hidden;background:#222;flex:none}
+.logo img{width:100%;height:100%;display:block}
+.mono{width:100%;height:100%;display:grid;place-items:center;text-align:center;font-weight:900;line-height:1;padding:6px;letter-spacing:-.3px}
+.pname{font-weight:800;font-size:17px}
+.pcat{font-size:13px;color:var(--muted);margin-top:3px}
+.metric{text-align:right;min-width:96px}
+.metric b{display:block;font-size:15px}
+.metric span{font-size:12px;color:var(--muted)}
+.up{color:#3ddc97}
+.ritem .btn{padding:10px 20px;font-size:14px}
+.empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
+@media(max-width:860px){
+  .ritem{grid-template-columns:34px 52px 1fr auto;gap:12px}
+  .ritem .metric{display:none}
+  .ritem .logo{width:52px;height:52px}
+  .pos{font-size:20px}
+}
+.others{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:1000px){.others{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.others{grid-template-columns:repeat(2,1fr)}}
+.oitem{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:12px}
+.oitem .top{display:flex;gap:12px;align-items:center}
+.oitem .logo{width:48px;height:48px;border-radius:12px}
+.oitem .pname{font-size:15px}
+.oitem .pcat{font-size:12px}
+.oitem .btn{width:100%}
+
+/* examples / testimonials */
+.examples{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.examples{grid-template-columns:repeat(3,1fr);gap:10px}}
+.ex{position:relative;border-radius:16px;overflow:hidden;background:#111;aspect-ratio:9/16;border:1px solid var(--line);cursor:pointer}
+.ex video,.ex img{width:100%;height:100%;object-fit:cover;display:block}
+.ex .tag{position:absolute;left:8px;top:8px}
+.testis{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.testis{grid-template-columns:1fr}}
+.testi .stars{color:#ffd54a;letter-spacing:2px;font-size:16px}
+.testi p{color:#e4e4e7;margin:12px 0 16px;line-height:1.55;font-size:15px}
+.testi .who{display:flex;gap:10px;align-items:center}
+.testi .av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#000}
+.testi .who b{display:block;font-size:14px}
+.testi .who span{font-size:12px;color:var(--muted)}
+.earn{color:#3ddc97;font-weight:800}
+.proof-bar{display:flex;gap:28px;flex-wrap:wrap;justify-content:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px}
+.proof-bar div{text-align:center}
+.proof-bar b{font-size:24px;font-weight:900;display:block}
+.proof-bar span{font-size:12px;color:var(--muted)}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;background:#fff;color:#000;padding:13px 20px;border-radius:12px;font-weight:600;font-size:14px;z-index:300;transition:.25s;max-width:90vw;text-align:center;pointer-events:none}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* generating */
+.gen{max-width:560px;margin:0 auto;text-align:center;padding:30px 0}
+.gen .logo{width:110px;height:110px;margin:0 auto 26px;border-radius:26px;position:relative;overflow:visible}
+.gen .logo img{border-radius:26px}
+.ring{position:absolute;inset:-10px;border-radius:34px;border:3px solid transparent;border-top-color:var(--cyan-d);border-right-color:var(--red-d);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bar{height:8px;border-radius:8px;background:var(--card2);overflow:hidden;margin:26px 0 10px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan-d),var(--red-d));transition:width .4s}
+.steps-log{text-align:left;margin-top:26px;display:grid;gap:10px}
+.steps-log div{display:flex;gap:12px;align-items:center;color:#555;font-size:15px;transition:.2s}
+.steps-log div i{font-style:normal;width:22px;height:22px;border-radius:50%;border:2px solid #333;display:grid;place-items:center;font-size:12px;flex:none}
+.steps-log div.doing{color:#fff}
+.steps-log div.doing i{border-color:var(--cyan-d);border-top-color:transparent;animation:spin .8s linear infinite}
+.steps-log div.done{color:var(--muted)}
+.steps-log div.done i{background:var(--cyan-d);border-color:var(--cyan-d);color:#000;animation:none}
+
+/* results */
+.res-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:20px}
+.res-head .who{display:flex;gap:14px;align-items:center}
+.res-head .who .logo{width:56px;height:56px}
+.legend{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px;font-size:13px;color:var(--muted)}
+.clips{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:1000px){.clips{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.clips{grid-template-columns:repeat(2,1fr);gap:10px}}
+.clip{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.clip.hi{border-color:rgba(37,244,238,.6);box-shadow:0 0 0 3px rgba(37,244,238,.15)}
+.thumb{aspect-ratio:9/16;position:relative;cursor:pointer;background:#111;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center;font-size:18px;backdrop-filter:blur(4px)}
+.thumb .dur{position:absolute;bottom:8px;right:8px;font-size:11px;font-weight:700;background:rgba(0,0,0,.7);padding:3px 7px;border-radius:6px}
+.thumb .rankn{position:absolute;bottom:8px;left:8px;font-size:11px;font-weight:800;background:rgba(0,0,0,.7);padding:3px 7px;border-radius:6px}
+.score{position:absolute;top:8px;left:8px;font-size:11px;font-weight:900;padding:4px 8px;border-radius:999px;display:flex;gap:4px;align-items:center;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.score.s1{background:var(--cyan-d);color:#000}
+.score.s2{background:#ffd54a;color:#000}
+.score.s3{background:#fff;color:#000}
+.fmt{position:absolute;top:8px;right:8px;font-size:10px;font-weight:800;padding:4px 7px;border-radius:6px;text-transform:uppercase;letter-spacing:.4px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.2)}
+.edited{position:absolute;top:36px;right:8px;font-size:10px;font-weight:800;padding:3px 7px;border-radius:6px;background:var(--red-d)}
+.clip .info{padding:12px;display:flex;flex-direction:column;flex:1}
+.clip .info .t{font-size:13px;font-weight:700;line-height:1.35}
+.clip .info .s{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+.clip .info .acts{display:flex;gap:6px;margin-top:auto;padding-top:10px}
+.clip .info .acts button,.clip .info .acts a{flex:1;padding:8px;border-radius:8px;background:var(--card2);color:#fff;font-size:12px;font-weight:600;text-align:center}
+.clip .info .acts button:hover,.clip .info .acts a:hover{background:#2a2a32}
+.fmt-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+
+/* chatbot */
+.chat{margin-top:36px;background:var(--bg2);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.chat-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(37,244,238,.08),rgba(254,44,85,.08))}
+.chat-head .bot{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--cyan-d),var(--red-d));display:grid;place-items:center;font-size:18px}
+.chat-head b{display:block}
+.chat-head span{font-size:12px;color:var(--muted)}
+.chat-body{height:340px;overflow-y:auto;padding:18px 20px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:80%;padding:11px 14px;border-radius:14px;font-size:14px;line-height:1.5}
+.msg.bot{background:var(--card2);align-self:flex-start;border-bottom-left-radius:4px}
+.msg.me{background:var(--red-d);align-self:flex-end;border-bottom-right-radius:4px}
+.msg a{color:var(--cyan);text-decoration:underline;cursor:pointer}
+.typing{display:inline-flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:#888;animation:bl 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes bl{0%,100%{opacity:.3}50%{opacity:1}}
+.chat-sugs{display:flex;gap:8px;flex-wrap:wrap;padding:0 20px 12px}
+.chat-sugs button{font-size:12px;padding:7px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:#d4d4d8}
+.chat-sugs button:hover{border-color:var(--cyan-d);color:#fff}
+.chat-in{display:flex;gap:10px;padding:14px 20px;border-top:1px solid var(--line)}
+.chat-in input{flex:1;background:#000;border:1px solid var(--line);color:#fff;padding:13px 16px;border-radius:999px;font:inherit;font-size:15px;outline:none}
+.chat-in input:focus{border-color:var(--cyan-d)}
+
+/* modal player */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.on{display:flex}
+.mbox{display:flex;gap:24px;align-items:center;max-height:92vh}
+@media(max-width:760px){.mbox{flex-direction:column;gap:12px}}
+.stage{position:relative;height:min(82vh,760px);aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000}
+@media(max-width:760px){.stage{height:auto;width:min(86vw,360px)}}
+.stage video{width:100%;height:100%;display:block;object-fit:cover}
+.ovtext{position:absolute;left:6%;right:6%;text-align:center;font-weight:900;font-size:clamp(16px,2.6vh,24px);line-height:1.15;padding:8px 12px;border-radius:10px;pointer-events:none;text-transform:uppercase}
+.ovtext.top{top:23%}.ovtext.mid{top:44%}.ovtext.bot{bottom:20%}
+.mside{width:300px;max-width:86vw}
+.mside h3{margin:8px 0}
+.mside .small{line-height:1.5}
+.mclose{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:#222;color:#fff;font-size:20px}
+.cta-band{background:linear-gradient(120deg,rgba(37,244,238,.15),rgba(254,44,85,.15));border:1px solid var(--line);border-radius:24px;padding:48px;text-align:center}
+@media(max-width:520px){.cta-band{padding:32px 20px}}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";color:var(--cyan);font-size:20px}
+details[open] summary:after{content:"–"}
+details p{color:var(--muted);margin-top:12px;line-height:1.6}
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.team{grid-template-columns:repeat(2,1fr)}}
+.avatar{width:72px;height:72px;border-radius:50%;margin-bottom:14px;background:linear-gradient(135deg,var(--cyan-d),var(--red-d));display:grid;place-items:center;font-weight:900;font-size:24px;color:#000}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.mvp-flag{position:fixed;left:14px;bottom:14px;z-index:60;background:#ffd54a;color:#000;font-size:11px;font-weight:800;padding:5px 10px;border-radius:999px;letter-spacing:.5px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#home" class="brand">
+      <div class="brand-mark"><span class="c"></span><span class="r"></span><span class="w">T</span></div>
+      <span class="glitch">Tikfy</span>
+    </a>
+    <nav class="links" id="nav">
+      <a href="#home" data-r="home">Início</a>
+      <a href="#como-funciona" data-r="como-funciona">Como funciona</a>
+      <a href="#ranking" data-r="ranking">Ranking</a>
+      <a href="#planos" data-r="planos">Planos</a>
+      <a href="#sobre" data-r="sobre">Sobre nós</a>
+      <a href="#faq" data-r="faq">Dúvidas</a>
+    </nav>
+    <div class="hdr-actions">
+      <a href="#cadastro" class="btn btn-ghost" id="hdrLogin">Entrar</a>
+      <a href="#cadastro" class="btn btn-primary">Começar</a>
+      <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<div class="view" id="v-home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">🔥 A nova era do digital é o TikTok Shop</span>
+        <h1 style="margin-top:20px">Renda extra no <span class="hl-c">TikTok Shop</span> sem precisar <span class="hl-r">gravar nada</span>.</h1>
+        <p class="lead">Escolha um produto que já está vendendo muito, afilie-se no TikTok e receba dezenas de cortes prontos pra postar. A gente cria o conteúdo, você posta e ganha comissão.</p>
+        <div class="hero-ctas">
+          <a href="#cadastro" class="btn btn-primary">Criar minha conta →</a>
+          <a href="#ranking" class="btn btn-ghost">Ver produtos em alta</a>
+        </div>
+        <div class="stats">
+          <div><b class="hl-c">+30</b><span>marcas em alta</span></div>
+          <div><b>30 cortes</b><span>por produto, em minutos</span></div>
+          <div><b class="hl-r">0</b><span>horas editando</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="phone">
+          <video id="heroVid" muted loop playsinline autoplay preload="metadata"></video>
+          <div class="phone-ov">
+            <div class="side"><div><i>❤</i>48,2K</div><div><i>💬</i>1.203</div><div><i>↗</i>3.4K</div></div>
+            <span class="shop-tag">🛒 Dot · Bala energética</span>
+            <div class="meta">@seuperfil · #tiktokshop #dot</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:36px">
+        <h2>Como funciona em <span class="hl-c">3 passos</span></h2>
+        <p class="lead" style="margin-top:10px">Do cadastro ao primeiro vídeo postado no mesmo dia.</p>
+      </div>
+      <div class="grid3">
+        <div class="card"><div class="step-n">1</div><h3>Escolha um produto em alta</h3><p>Veja o ranking dos produtos que mais vendem no TikTok Shop Brasil e escolha o que combina com você.</p></div>
+        <div class="card"><div class="step-n" style="color:var(--red)">2</div><h3>Afilie-se no TikTok</h3><p>A afiliação é feita direto no TikTok Shop. Você só conta pra gente o seu @ e qual produto escolheu.</p></div>
+        <div class="card"><div class="step-n">3</div><h3>Receba os cortes prontos</h3><p>Cortes com gancho, legenda e formatos diferentes, ranqueados pelo potencial de venda. É só postar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="rank-head"><div><h2>Top 3 da semana</h2><p class="small" style="margin-top:6px">Os produtos que mais vendem no TikTok Shop agora</p></div><a href="#ranking" class="btn btn-ghost">Ver top 10 →</a></div>
+      <div class="rank" id="homeTop"></div>
+      <div class="sec-title"><div><h2>Cortes que a Tikfy gerou</h2><p class="small" style="margin-top:6px">Exemplos reais gerados pra Dot, prontos pra postar</p></div></div>
+      <div class="examples" id="homeEx"></div>
+      <div class="sec-title"><div><h2>Quem usa, recomenda</h2><p class="small" style="margin-top:6px">Exemplos ilustrativos do protótipo: não são clientes reais</p></div></div>
+      <div class="testis" id="homeTesti"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap"><div class="cta-band">
+      <h2>Pronto pra sua <span class="hl-r">primeira comissão</span>?</h2>
+      <p class="lead" style="margin:12px auto 24px;max-width:560px">Planos a partir de R$ 50/mês. Cancele quando quiser.</p>
+      <a href="#cadastro" class="btn btn-primary">Começar agora</a>
+    </div></div>
+  </section>
+</div>
+
+<!-- ================= CADASTRO ================= -->
+<div class="view" id="v-cadastro">
+  <div class="flow">
+    <div class="panel sm">
+      <span class="skip-tip">pular (MVP)</span>
+      <button class="skip" title="Pular etapa (MVP)" onclick="go('planos')">✕</button>
+      <div class="progress"><i class="on"></i><i></i><i></i><i></i></div>
+      <h2>Crie sua conta</h2>
+      <p class="sub">Leva menos de 1 minuto.</p>
+      <form id="fSignup" novalidate>
+        <div class="field"><label>Nome completo</label><input name="nome" placeholder="Ex.: Ana Souza" required></div>
+        <div class="row2">
+          <div class="field"><label>CPF</label><input name="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" required></div>
+          <div class="field"><label>Data de nascimento</label><input name="nasc" type="date" required></div>
+        </div>
+        <div class="field"><label>E-mail</label><input name="email" type="email" placeholder="voce@email.com" required></div>
+        <div class="row2">
+          <div class="field"><label>Telefone (WhatsApp)</label><input name="tel" placeholder="(11) 90000-0000" inputmode="numeric" maxlength="15" required></div>
+          <div class="field"><label>@ do TikTok</label><input name="tiktok" placeholder="@seuperfil" required></div>
+        </div>
+        <div class="field"><label>Você já vende no TikTok Shop?</label>
+          <select name="nivel"><option>Nunca vendi nada, quero começar</option><option>Já vendo, quero vender mais</option></select>
+        </div>
+        <div class="field"><label>Senha</label><input name="senha" type="password" placeholder="Mínimo 8 caracteres" minlength="8" required></div>
+        <label class="check"><input type="checkbox" required id="terms"> Li e aceito os Termos de Uso e a Política de Privacidade (LGPD).</label>
+        <button class="btn btn-primary btn-block" type="submit">Criar conta e escolher plano →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PLANOS ================= -->
+<div class="view" id="v-planos">
+  <div class="flow">
+    <div class="panel lg">
+      <span class="skip-tip">pular (MVP)</span>
+      <button class="skip" title="Pular etapa (MVP)" onclick="go('ranking')">✕</button>
+      <div class="progress"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+      <h2 id="plansTitle">Escolha seu plano</h2>
+      <p class="sub">Quanto mais vídeos você posta, mais chances de vender. Cancele quando quiser.</p>
+      <div class="plans">
+        <div class="plan" data-plan="Start">
+          <div class="name">Start</div>
+          <div class="price">R$ 50<small>/mês</small></div>
+          <div class="vids">10 vídeos por mês</div>
+          <ul>
+            <li>1 produto afiliado</li>
+            <li>Cortes automáticos + vídeos com IA</li>
+            <li>Legenda e hashtags prontas</li>
+            <li>Ranking de produtos em alta</li>
+            <li class="no">Editor por chat</li>
+            <li class="no">Suporte prioritário</li>
+          </ul>
+          <button class="btn btn-ghost btn-block">Escolher Start</button>
+        </div>
+        <div class="plan pop" data-plan="Pro">
+          <span class="badge">⭐ MAIS ESCOLHIDO</span>
+          <div class="name">Pro</div>
+          <div class="price">R$ 100<small>/mês</small></div>
+          <div class="vids">20 vídeos por mês</div>
+          <ul>
+            <li>Até 3 produtos afiliados</li>
+            <li>Cortes automáticos + vídeos com IA</li>
+            <li>Legenda e hashtags prontas</li>
+            <li>Ranking de produtos em alta</li>
+            <li>Editor por chat</li>
+            <li class="no">Suporte prioritário</li>
+          </ul>
+          <button class="btn btn-primary btn-block">Escolher Pro</button>
+        </div>
+        <div class="plan" data-plan="Escala">
+          <div class="name">Escala</div>
+          <div class="price">R$ 150<small>/mês</small></div>
+          <div class="vids">40 vídeos por mês</div>
+          <ul>
+            <li>Produtos ilimitados</li>
+            <li>Cortes automáticos + vídeos com IA</li>
+            <li>Legenda e hashtags prontas</li>
+            <li>Ranking de produtos em alta</li>
+            <li>Editor por chat</li>
+            <li>Suporte prioritário no WhatsApp</li>
+          </ul>
+          <button class="btn btn-cyan btn-block">Escolher Escala</button>
+        </div>
+      </div>
+      <div class="guarantee"><span>🔒 Pagamento seguro</span><span>↩ 7 dias de garantia</span><span>✕ Cancele quando quiser</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RANKING ================= -->
+<div class="view" id="v-ranking">
+  <section style="padding-top:44px">
+    <div class="wrap">
+      <div class="progress" style="max-width:520px"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+      <div class="rank-head">
+        <div>
+          <span class="eyebrow">📈 Atualizado hoje</span>
+          <h2 style="margin-top:14px" id="rankTitle">Top 10 produtos mais vendidos</h2>
+          <p class="small" style="margin-top:6px">TikTok Shop Brasil · escolha um produto e clique em <b style="color:#fff">Afiliar</b></p>
+        </div>
+        <div class="filters" id="catChips">
+          <button class="chip on" data-cat="Todos">Todos</button><button class="chip" data-cat="Suplementos">💪 Suplementos</button><button class="chip" data-cat="Beleza">💄 Beleza</button><button class="chip" data-cat="Alimentos">🍫 Alimentos</button>
+        </div>
+      </div>
+      <div class="rank" id="rankList"></div>
+
+      <div class="sec-title"><div><h2 id="othersTitle">Outras opções</h2><p class="small" style="margin-top:6px">Marcas que também estão vendendo bem no TikTok Shop</p></div></div>
+      <div class="others" id="otherList"></div>
+
+      <div class="sec-title"><div><h2>Exemplos de cortes gerados</h2><p class="small" style="margin-top:6px">É isso que você recebe ao se afiliar · toque pra assistir</p></div></div>
+      <div class="examples" id="rankEx"></div>
+
+      <div class="sec-title"><div><h2>Quem usa, recomenda ⭐</h2><p class="small" style="margin-top:6px">Exemplos ilustrativos do protótipo: não são clientes reais</p></div></div>
+      <div class="proof-bar">
+        <div><b>4,9 ★</b><span>avaliação média</span></div>
+        <div><b class="hl-c">+2.300</b><span>afiliados ativos</span></div>
+        <div><b class="hl-r">+68 mil</b><span>cortes gerados</span></div>
+        <div><b class="up">R$ 1,2 mi</b><span>em vendas geradas</span></div>
+      </div>
+      <div class="testis" id="rankTesti"></div>
+      <p class="small" style="margin-top:18px">* Números e depoimentos ilustrativos, criados para o protótipo do MVP (não são clientes reais).</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= GERANDO ================= -->
+<div class="view" id="v-gerando">
+  <section>
+    <div class="wrap gen">
+      <div class="logo"><img src="LOGO_DOT" alt="Dot"><div class="ring"></div></div>
+      <h2>Criando seus cortes da <span class="hl-c">Dot</span></h2>
+      <p class="lead" style="margin-top:10px">Isso leva só alguns segundos…</p>
+      <div class="bar"><i id="genBar"></i></div>
+      <div class="small" id="genPct">0%</div>
+      <div class="steps-log" id="genLog"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= RESULTADOS ================= -->
+<div class="view" id="v-videos">
+  <section style="padding-top:44px">
+    <div class="wrap">
+      <div class="progress" style="max-width:520px"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      <div class="res-head">
+        <div class="who">
+          <div class="logo"><img src="LOGO_DOT" alt=""></div>
+          <div><h2 style="font-size:28px">Seus 30 cortes estão prontos! 🎉</h2><p class="small" id="resSub">Dot · primeira leva · ordenados pelo potencial de venda</p></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="#ranking" class="btn btn-primary">+ Outro produto</a>
+        </div>
+      </div>
+      <div class="legend">
+        <span class="score s1" style="position:static">🔥 90–99% Muito forte</span>
+        <span class="score s2" style="position:static">⚡ 80–89% Forte</span>
+        <span class="score s3" style="position:static">👍 70–79% Bom</span>
+        <span>· Força = chance de vender, pelo gancho, ritmo e chamada pra compra.</span>
+      </div>
+      <div class="fmt-filters" id="fmtChips"></div>
+      <div class="clips" id="clips"></div>
+
+      <div class="chat" id="chat">
+        <div class="chat-head"><div class="bot">✨</div><div><b>Editor Tikfy</b><span>Peça ajustes nos seus cortes em português, tipo "no vídeo 1, corta no segundo 5"</span></div></div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-sugs" id="chatSugs"></div>
+        <form class="chat-in" id="chatForm"><input id="chatInput" placeholder="Ex.: no vídeo 2, adicione o texto 'CORRE QUE TÁ ACABANDO'" autocomplete="off"><button class="btn btn-primary">Enviar</button></form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<div class="view" id="v-como-funciona">
+  <section>
+    <div class="wrap">
+      <div class="center" style="margin-bottom:40px"><span class="eyebrow">Passo a passo</span><h2 style="margin-top:14px">Do zero à primeira venda</h2></div>
+      <div class="grid4">
+        <div class="card"><div class="step-n">1</div><h3>Crie sua conta</h3><p>Nome, CPF, e-mail, telefone e seu @ do TikTok.</p></div>
+        <div class="card"><div class="step-n" style="color:var(--red)">2</div><h3>Escolha o plano</h3><p>10, 20 ou 40 vídeos por mês, conforme o seu ritmo.</p></div>
+        <div class="card"><div class="step-n">3</div><h3>Afilie-se a um produto</h3><p>Escolha no ranking e faça a afiliação dentro do TikTok Shop.</p></div>
+        <div class="card"><div class="step-n" style="color:var(--red)">4</div><h3>Poste e ganhe</h3><p>Receba os cortes, ajuste pelo chat se quiser, poste e ganhe comissão por venda.</p></div>
+      </div>
+      <div class="grid3" style="margin-top:40px">
+        <div class="card"><h3>✂️ Cortes com gancho</h3><p>A IA encontra os momentos mais chamativos de vídeos do produto e corta já começando pelo gancho.</p></div>
+        <div class="card"><h3>🎬 Vários formatos</h3><p>Corte direto, tela partida com vídeo satisfatório, chamada de venda, dados do produto e mais.</p></div>
+        <div class="card"><h3>🔥 Ranking de força</h3><p>Cada corte ganha uma nota de 0 a 100% de potencial de venda. Poste os mais fortes primeiro.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SOBRE ================= -->
+<div class="view" id="v-sobre">
+  <section>
+    <div class="wrap">
+      <div style="max-width:720px">
+        <span class="eyebrow">Sobre nós</span>
+        <h2 style="margin-top:14px">A gente quer que qualquer pessoa consiga ter uma <span class="hl-c">renda extra</span> no digital.</h2>
+        <p class="lead" style="margin-top:18px">O digital tem suas eras: dropshipping, coprodução, afiliados… e agora o <b style="color:#fff">TikTok Shop</b>. O problema é sempre o mesmo: produzir conteúdo todo dia dá trabalho, e a maioria desiste antes da primeira venda.</p>
+        <p class="lead" style="margin-top:14px">A Tikfy nasceu pra resolver isso. A gente mostra o que está vendendo e entrega o conteúdo pronto. Você só posta.</p>
+      </div>
+      <div class="grid3" style="margin-top:40px">
+        <div class="card"><h3 class="hl-c">Missão</h3><p>Facilitar a renda extra pra quem está começando no digital, sem precisar gravar, editar ou aparecer.</p></div>
+        <div class="card"><h3 class="hl-r">Visão</h3><p>Ser a principal plataforma de conteúdo para afiliados do TikTok Shop no Brasil.</p></div>
+        <div class="card"><h3>Valores</h3><p>Simplicidade, resultado de verdade e transparência com quem confia na gente.</p></div>
+      </div>
+      <h2 style="margin:56px 0 20px;font-size:28px">O time</h2>
+      <div class="team">
+        <div class="card"><div class="avatar">P</div><h3>Pedro</h3><p>Cofundador</p></div>
+        <div class="card"><div class="avatar">?</div><h3>Nome</h3><p>Cofundador(a)</p></div>
+        <div class="card"><div class="avatar">?</div><h3>Nome</h3><p>Cofundador(a)</p></div>
+        <div class="card"><div class="avatar">?</div><h3>Nome</h3><p>Cofundador(a)</p></div>
+      </div>
+      <p class="small" style="margin-top:14px">Projeto do Ciclo Prático · LINK</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= FAQ ================= -->
+<div class="view" id="v-faq">
+  <section>
+    <div class="wrap" style="max-width:780px">
+      <div class="center" style="margin-bottom:36px"><span class="eyebrow">Dúvidas frequentes</span><h2 style="margin-top:14px">Perguntas frequentes</h2></div>
+      <details open><summary>Preciso aparecer nos vídeos?</summary><p>Não. Os vídeos são cortes e conteúdos gerados com IA. Você só posta no seu perfil.</p></details>
+      <details><summary>Como funciona a afiliação?</summary><p>A afiliação é feita direto no TikTok Shop, pelo seu perfil. Na Tikfy você só informa o seu @ e o produto escolhido.</p></details>
+      <details><summary>O que é a "força" de cada corte?</summary><p>É uma nota de potencial de venda, calculada pelo gancho dos primeiros segundos, ritmo do corte e chamada pra compra. Comece postando os mais fortes.</p></details>
+      <details><summary>Posso pedir ajustes nos cortes?</summary><p>Sim. Pelo Editor Tikfy (chat) você pede: cortar num segundo, adicionar texto, mudar velocidade, tirar som e mais.</p></details>
+      <details><summary>Quanto eu posso ganhar?</summary><p>Depende do produto, da comissão da marca e de quantos vídeos você posta. Não prometemos valores fixos.</p></details>
+      <details><summary>Posso cancelar quando quiser?</summary><p>Sim. Sem fidelidade e com 7 dias de garantia.</p></details>
+    </div>
+  </section>
+</div>
+</main>
+
+<!-- modal player -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <button class="mclose" onclick="closeModal()">✕</button>
+  <div class="mbox">
+    <div class="stage"><video id="mvid" playsinline controls></video><div class="ovtext" id="movt" style="display:none"></div></div>
+    <div class="mside">
+      <span class="score s1" id="mscore" style="position:static;display:inline-flex"></span>
+      <h3 id="mtitle"></h3>
+      <p class="small" id="mdesc"></p>
+      <p class="small" id="medits" style="margin-top:10px;color:var(--cyan)"></p>
+      <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+        <a class="btn btn-primary btn-sm" id="mdl" target="_blank" rel="noopener">⬇ Abrir vídeo</a>
+        <button class="btn btn-ghost btn-sm" id="mcap">📋 Copiar legenda</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="brand" style="font-size:18px"><div class="brand-mark" style="width:26px;height:26px"><span class="c"></span><span class="r"></span><span class="w" style="font-size:14px">T</span></div>Tikfy</div>
+    <div>© 2026 Tikfy · Protótipo acadêmico (MVP). Não afiliado ao TikTok.</div>
+  </div>
+</footer>
+
+<div class="mvp-flag">MVP · PROTÓTIPO</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const LOGOS=/*LOGOS*/{};
+const CLIPS=/*CLIPS*/[];
+
+const PRODUCTS=[
+  {id:'dot',name:'Dot',cat:'Suplementos',sub:'Bala energética',sales:'52,4 mil',grow:'+38%',com:'20%'},
+  {id:'guday',name:'Guday',cat:'Suplementos',sub:'Bem-estar',sales:'47,1 mil',grow:'+31%',com:'18%'},
+  {id:'aura',name:'Aura Beauty',cat:'Beleza',sub:'Skincare',sales:'41,8 mil',grow:'+27%',com:'22%'},
+  {id:'dux',name:'DUX Nutrition Lab',cat:'Suplementos',sub:'Fitness',sales:'36,2 mil',grow:'+22%',com:'15%'},
+  {id:'gummy',name:'Gummy Hair',cat:'Beleza',sub:'Cabelo',sales:'33,9 mil',grow:'+19%',com:'20%'},
+  {id:'sainttropez',name:'Saint Tropez',cat:'Beleza',sub:'Autobronzeador',sales:'29,5 mil',grow:'+17%',com:'18%'},
+  {id:'saintgermain',name:'Saint Germain',cat:'Beleza',sub:'Perfumaria',sales:'26,7 mil',grow:'+15%',com:'16%'},
+  {id:'jacklinks',name:"Jack Link's",cat:'Alimentos',sub:'Snacks de carne',sales:'22,3 mil',grow:'+12%',com:'12%'},
+  {id:'maismu',name:'+Mu',cat:'Alimentos',sub:'Proteico',sales:'19,8 mil',grow:'+10%',com:'15%'},
+  {id:'bold',name:'Bold',cat:'Alimentos',sub:'Barras de proteína',sales:'17,4 mil',grow:'+9%',com:'14%'},
+];
+/* outras opções: logos desenhados (monogramas) */
+const OTHERS=[
+  {name:'Growth Supplements',cat:'Suplementos',sub:'Whey e creatina',bg:'#0b0b0b',fg:'#fff',txt:'growth',fs:14},
+  {name:'Dark Lab',cat:'Suplementos',sub:'Pré-treino',bg:'#111',fg:'#e11d2e',txt:'DARK<br>LAB',fs:14},
+  {name:'Max Titanium',cat:'Suplementos',sub:'Whey e pré-treino',bg:'#c8102e',fg:'#fff',txt:'MAX',fs:18},
+  {name:'Integralmédica',cat:'Suplementos',sub:'Proteínas',bg:'#e30613',fg:'#fff',txt:'IM',fs:22},
+  {name:'Black Skull',cat:'Suplementos',sub:'Fitness',bg:'#000',fg:'#d4af37',txt:'BLACK<br>SKULL',fs:12},
+  {name:'Essential Nutrition',cat:'Suplementos',sub:'Colágeno e vitaminas',bg:'#f2ede4',fg:'#2b2b2b',txt:'essential',fs:12},
+  {name:'Wepink',cat:'Beleza',sub:'Body splash',bg:'#ff4fa3',fg:'#fff',txt:'WEPINK',fs:13},
+  {name:'Boca Rosa Beauty',cat:'Beleza',sub:'Maquiagem',bg:'#f6c9d0',fg:'#7a1f3d',txt:'BOCA<br>ROSA',fs:13},
+  {name:'Sallve',cat:'Beleza',sub:'Skincare',bg:'#ffd84d',fg:'#111',txt:'sallve',fs:15},
+  {name:'Principia',cat:'Beleza',sub:'Skincare',bg:'#fff',fg:'#111',txt:'principia',fs:12},
+  {name:'Océane',cat:'Beleza',sub:'Maquiagem e skincare',bg:'#1b1b1b',fg:'#fff',txt:'océane',fs:14},
+  {name:'Nutrata',cat:'Alimentos',sub:'Barras e pasta de amendoim',bg:'#ffcc00',fg:'#3a2400',txt:'nutrata',fs:13},
+  {name:'Supino',cat:'Alimentos',sub:'Barras e chocolates',bg:'#3b1f14',fg:'#ffb547',txt:'SUPINO',fs:13},
+  {name:'Belive',cat:'Alimentos',sub:'Snacks proteicos',bg:'#7ac143',fg:'#fff',txt:'belive',fs:15},
+  {name:'Barebells',cat:'Alimentos',sub:'Barras de proteína',bg:'#111',fg:'#fff',txt:'BARE<br>BELLS',fs:12},
+  {name:'Dr. Peanut',cat:'Alimentos',sub:'Pasta de amendoim',bg:'#d4282f',fg:'#fff',txt:'Dr.<br>Peanut',fs:13},
+];
+const TESTIS=[
+  {n:'Camila R.',c:'Campinas · SP',t:'Nunca tinha vendido nada online. Postei os 5 cortes mais fortes da Dot e em 2 semanas fiz minhas primeiras vendas.',e:'R$ 640 no 1º mês',col:'#25F4EE'},
+  {n:'Lucas M.',c:'Recife · PE',t:'O que me travava era editar. Agora eu só escolho o corte com 95%+ e posto. O de tela partida é o que mais viraliza.',e:'R$ 1.380 no 2º mês',col:'#FE2C55'},
+  {n:'Bianca S.',c:'Belo Horizonte · MG',t:'Uso o chat pra colocar texto de promoção nos vídeos. Muito prático, parece que eu tenho um editor.',e:'R$ 910 no 1º mês',col:'#ffd54a'},
+  {n:'Rafael T.',c:'Curitiba · PR',t:'Já vendia como afiliado, mas postava 1 vídeo por dia. Com a Tikfy passei pra 4 e as vendas acompanharam.',e:'3x mais vendas',col:'#3ddc97'},
+  {n:'Juliana P.',c:'Salvador · BA',t:'O ranking me ajudou a escolher produto. Fui na Dot porque tava em 1º e acertei.',e:'R$ 520 no 1º mês',col:'#c084fc'},
+  {n:'Pedro H.',c:'Goiânia · GO',t:'Faço faculdade e posto no intervalo. Renda extra de verdade sem aparecer em vídeo.',e:'R$ 470 no 1º mês',col:'#4ff3ee'},
+];
+const state={user:null,plan:null,cat:'Todos',fmt:'Todos',edits:{},current:null};
+
+/* ---------- ranking ---------- */
+function logoImg(id,name){return `<div class="logo"><img src="${LOGOS[id]}" alt="${name}"></div>`}
+function rowHTML(p,i){
+  const n=PRODUCTS.indexOf(p)+1;
+  return `<div class="ritem ${n===1?'top':''}">
+    <div class="pos ${n<=3?'p'+n:''}">${n}</div>
+    ${logoImg(p.id,p.name)}
+    <div><div class="pname">${p.name}</div><div class="pcat">${p.cat} · ${p.sub}</div></div>
+    <div class="metric"><b>${p.sales}</b><span>vendas/mês</span></div>
+    <div class="metric"><b class="up">${p.grow}</b><span>comissão ${p.com}</span></div>
+    <button class="btn ${p.id==='dot'?'btn-primary':'btn-ghost'}" onclick="afiliar('${p.id}')">Afiliar</button>
+  </div>`;
+}
+function otherHTML(o){
+  return `<div class="oitem"><div class="top"><div class="logo"><div class="mono" style="background:${o.bg};color:${o.fg};font-size:${o.fs-3}px">${o.txt}</div></div>
+    <div><div class="pname">${o.name}</div><div class="pcat">${o.sub}</div></div></div>
+    <button class="btn btn-ghost btn-sm" onclick="toast('${o.name.replace(/'/g,"\\'")}: disponível em breve. No MVP, teste com a Dot ⚡')">Afiliar</button></div>`;
+}
+function renderRank(){
+  const c=state.cat;
+  const top=PRODUCTS.filter(p=>c==='Todos'||p.cat===c);
+  const oth=OTHERS.filter(o=>c==='Todos'||o.cat===c);
+  document.getElementById('rankTitle').textContent=c==='Todos'?'Top 10 produtos mais vendidos':`${c}: mais vendidos`;
+  document.getElementById('rankList').innerHTML=top.map(rowHTML).join('')||'<div class="empty">Nenhum produto no top 10 dessa categoria.</div>';
+  document.getElementById('othersTitle').textContent=c==='Todos'?'Outras opções':`Outras opções em ${c}`;
+  document.getElementById('otherList').innerHTML=oth.map(otherHTML).join('');
+  document.querySelectorAll('#catChips .chip').forEach(x=>x.classList.toggle('on',x.dataset.cat===c));
+}
+document.querySelectorAll('#catChips .chip').forEach(ch=>ch.onclick=()=>{state.cat=ch.dataset.cat;renderRank()});
+document.getElementById('homeTop').innerHTML=PRODUCTS.slice(0,3).map(rowHTML).join('');
+
+function testiHTML(t){return `<div class="card testi"><div class="stars">★★★★★</div><p>“${t.t}”</p>
+  <div class="who"><div class="av" style="background:${t.col}">${t.n[0]}</div><div><b>${t.n}</b><span>${t.c} · <span class="earn">${t.e}</span></span></div></div></div>`}
+document.getElementById('homeTesti').innerHTML=TESTIS.slice(0,3).map(testiHTML).join('');
+document.getElementById('rankTesti').innerHTML=TESTIS.map(testiHTML).join('');
+
+function exHTML(c){return `<div class="ex" onclick="openClip(${c.n})"><video src="${c.file}" poster="${c.thumb}" muted loop playsinline preload="none"></video>
+  <span class="score ${scls(c.score)} tag">${sicon(c.score)} ${c.score}% forte</span></div>`}
+function setupExamples(){
+  const ex=CLIPS.slice(0,3);
+  ['homeEx','rankEx'].forEach(id=>{document.getElementById(id).innerHTML=ex.map(exHTML).join('')});
+  document.querySelectorAll('.ex video').forEach(v=>{const p=v.parentElement;p.onmouseenter=()=>v.play().catch(()=>{});p.onmouseleave=()=>v.pause()});
+  const hv=document.getElementById('heroVid'); if(CLIPS[0]){hv.src=CLIPS[0].file;hv.poster=CLIPS[0].thumb}
+}
+
+function afiliar(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(id!=='dot'){toast(`${p.name}: disponível em breve. No MVP, teste com a Dot ⚡`);return}
+  go('gerando');
+}
+
+/* ---------- router ---------- */
+function go(r){location.hash='#'+r}
+function render(){
+  const r=(location.hash.replace(/^#\/?/,'')||'home').split('?')[0];
+  const id='v-'+(document.getElementById('v-'+r)?r:'home');
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));
+  document.querySelectorAll('nav.links a').forEach(a=>a.classList.toggle('on',a.dataset.r===r));
+  document.getElementById('nav').classList.remove('open');
+  window.scrollTo(0,0);
+  if(r==='gerando') runGen();
+}
+window.addEventListener('hashchange',render);
+
+/* ---------- signup ---------- */
+const f=document.getElementById('fSignup');
+f.cpf.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);e.target.value=v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2')});
+f.tel.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);e.target.value=v.replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2')});
+f.tiktok.addEventListener('blur',e=>{let v=e.target.value.trim();if(v&&!v.startsWith('@'))e.target.value='@'+v});
+f.addEventListener('submit',e=>{
+  e.preventDefault();let ok=true;
+  f.querySelectorAll('input[required]').forEach(i=>{
+    let bad=i.type==='checkbox'?!i.checked:!i.value.trim();
+    if(i.name==='cpf'&&i.value.replace(/\D/g,'').length!==11)bad=true;
+    if(i.name==='email'&&!/^\S+@\S+\.\S+$/.test(i.value))bad=true;
+    if(i.name==='senha'&&i.value.length<8)bad=true;
+    i.classList.toggle('err',bad);if(bad)ok=false;
+  });
+  if(!ok){toast('Confira os campos destacados');return}
+  state.user={nome:f.nome.value.split(' ')[0],tiktok:f.tiktok.value};
+  document.getElementById('plansTitle').textContent=`${state.user.nome}, escolha seu plano`;
+  document.getElementById('hdrLogin').textContent=state.user.tiktok;
+  toast('Conta criada! ✅');go('planos');
+});
+
+/* ---------- plans ---------- */
+document.querySelectorAll('.plan').forEach(pl=>pl.onclick=()=>{
+  document.querySelectorAll('.plan').forEach(x=>x.classList.remove('sel'));pl.classList.add('sel');
+  state.plan=pl.dataset.plan;toast(`Plano ${state.plan} selecionado ✅`);
+  setTimeout(()=>go('ranking'),700);
+});
+
+/* ---------- generating ---------- */
+let genTimer=null;
+function runGen(){
+  clearInterval(genTimer);
+  const steps=['Buscando vídeos da Dot na internet','Transcrevendo e encontrando os melhores ganchos','Gerando 30 cortes automáticos','Aplicando formatos: tela partida, chamada de venda, dados…','Calculando a força de venda de cada corte'];
+  const log=document.getElementById('genLog'),bar=document.getElementById('genBar'),pct=document.getElementById('genPct');
+  log.innerHTML=steps.map(s=>`<div><i></i>${s}</div>`).join('');
+  let p=0;const rows=[...log.children];
+  genTimer=setInterval(()=>{
+    p=Math.min(100,p+1+Math.random()*2.2);
+    bar.style.width=p+'%';pct.textContent=Math.floor(p)+'%';
+    const cur=Math.min(steps.length-1,Math.floor(p/(100/steps.length)));
+    rows.forEach((r,i)=>{r.className=i<cur?'done':i===cur?'doing':'';r.querySelector('i').textContent=i<cur?'✓':''});
+    if(p>=100){clearInterval(genTimer);rows.forEach(r=>{r.className='done';r.querySelector('i').textContent='✓'});setTimeout(()=>go('videos'),600)}
+  },90);
+}
+
+/* ---------- results ---------- */
+const scls=s=>s>=90?'s1':s>=80?'s2':'s3';
+const sicon=s=>s>=90?'🔥':s>=80?'⚡':'👍';
+const fmtDur=d=>`0:${String(Math.round(d)).padStart(2,'0')}`.replace(/^0:(\d{3,})/,(m,x)=>`${Math.floor(x/60)}:${String(x%60).padStart(2,'0')}`);
+function durTxt(d){d=Math.round(d);return `${Math.floor(d/60)}:${String(d%60).padStart(2,'0')}`}
+function renderClips(){
+  const fmts=['Todos',...new Set(CLIPS.map(c=>c.format))];
+  document.getElementById('fmtChips').innerHTML=fmts.map(x=>`<button class="chip ${x===state.fmt?'on':''}" data-f="${x}">${x}</button>`).join('');
+  document.querySelectorAll('#fmtChips .chip').forEach(ch=>ch.onclick=()=>{state.fmt=ch.dataset.f;renderClips()});
+  document.getElementById('clips').innerHTML=CLIPS.filter(c=>state.fmt==='Todos'||c.format===state.fmt).map(c=>{
+    const ed=state.edits[c.n];const hasEd=ed&&Object.keys(ed).length;
+    return `<div class="clip" id="clip-${c.n}">
+      <div class="thumb" onclick="openClip(${c.n})"><img src="${c.thumb}" loading="lazy" alt="">
+        <span class="score ${scls(c.score)}">${sicon(c.score)} ${c.score}% forte</span>
+        <span class="fmt">${c.format}</span>${hasEd?'<span class="edited">✏️ editado</span>':''}
+        <div class="play">▶</div><span class="rankn">#${c.n}</span><span class="dur">${durTxt(c.dur)}</span></div>
+      <div class="info"><div class="t">Vídeo ${c.n} · ${c.title}</div><div class="s">${c.why}</div>
+        <div class="acts"><a href="${c.file}" target="_blank" rel="noopener">⬇ Abrir</a><button onclick="copyCap(${c.n})">📋 Legenda</button></div></div></div>`}).join('');
+}
+function copyCap(n){
+  const c=CLIPS.find(x=>x.n===n);
+  navigator.clipboard?.writeText(c.caption).then(()=>toast('Legenda copiada ✅'),()=>toast(c.caption));
+}
+
+/* ---------- player + edits ---------- */
+const mvid=document.getElementById('mvid'),movt=document.getElementById('movt');
+function openClip(n){
+  const c=CLIPS.find(x=>x.n===n);if(!c)return;state.current=n;
+  const ed=state.edits[n]||{};
+  mvid.src=c.file;mvid.poster=c.thumb;
+  mvid.muted=!!ed.mute;mvid.playbackRate=ed.speed||1;
+  mvid.onloadedmetadata=()=>{mvid.currentTime=ed.start||0;mvid.playbackRate=ed.speed||1;mvid.play().catch(()=>{})};
+  const ms=document.getElementById('mscore');ms.className='score '+scls(c.score);ms.textContent=`${sicon(c.score)} ${c.score}% forte`;
+  document.getElementById('mtitle').textContent=`Vídeo ${c.n} · ${c.title}`;
+  document.getElementById('mdesc').innerHTML=`<b>Formato:</b> ${c.format} · ${durTxt(c.dur)}<br>${c.why}<br><br><b>Legenda:</b> ${c.caption}`;
+  document.getElementById('mdl').href=c.file;
+  document.getElementById('mcap').onclick=()=>copyCap(n);
+  applyOverlay(ed);
+  document.getElementById('medits').textContent=editsTxt(ed);
+  document.getElementById('modal').classList.add('on');
+}
+function applyOverlay(ed){
+  if(ed.text){movt.style.display='block';movt.textContent=ed.text;movt.className='ovtext '+(ed.pos||'top');
+    movt.style.color=ed.color==='preto'?'#000':'#fff';movt.style.background=ed.bg||'var(--red-d)';}
+  else movt.style.display='none';
+}
+mvid.addEventListener('timeupdate',()=>{
+  const ed=state.edits[state.current]||{};
+  if(ed.end&&mvid.currentTime>=ed.end){mvid.currentTime=ed.start||0}
+  if(ed.start&&mvid.currentTime<ed.start-0.3){mvid.currentTime=ed.start}
+});
+function closeModal(){document.getElementById('modal').classList.remove('on');mvid.pause()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+function editsTxt(ed){
+  const p=[];if(ed.start)p.push(`começa em ${ed.start}s`);if(ed.end)p.push(`termina em ${ed.end}s`);
+  if(ed.text)p.push(`texto "${ed.text}"`);if(ed.speed&&ed.speed!==1)p.push(`velocidade ${ed.speed}x`);if(ed.mute)p.push('sem som');
+  return p.length?'✏️ Edições: '+p.join(' · '):'';
+}
+
+/* ---------- chatbot ---------- */
+const chatBody=document.getElementById('chatBody');
+function addMsg(html,who){const d=document.createElement('div');d.className='msg '+who;d.innerHTML=html;chatBody.appendChild(d);chatBody.scrollTop=chatBody.scrollHeight;return d}
+function botSay(html){const t=addMsg('<span class="typing"><i></i><i></i><i></i></span>','bot');setTimeout(()=>{t.innerHTML=html;chatBody.scrollTop=chatBody.scrollHeight},700+Math.random()*500)}
+const SUGS=['No vídeo 1, corta no segundo 5','No vídeo 2, adicione o texto "CORRE QUE TÁ ACABANDO"','Vídeo 3 mais rápido, 1.5x','Vídeo 4 termina no segundo 12','Quais são os 5 melhores?','Gere um corte com legenda'];
+document.getElementById('chatSugs').innerHTML=SUGS.map(s=>`<button type="button">${s}</button>`).join('');
+document.querySelectorAll('#chatSugs button').forEach(b=>b.onclick=()=>{document.getElementById('chatInput').value=b.textContent;document.getElementById('chatForm').requestSubmit()});
+document.getElementById('chatForm').addEventListener('submit',e=>{
+  e.preventDefault();const inp=document.getElementById('chatInput');const q=inp.value.trim();if(!q)return;inp.value='';
+  addMsg(q.replace(/</g,'&lt;'),'me');botSay(handle(q));
+});
+const numWords={um:1,uma:1,dois:2,duas:2,'três':3,tres:3,quatro:4,cinco:5,seis:6,sete:7,oito:8,nove:9,dez:10};
+function handle(q){
+  const l=q.toLowerCase();
+  let m=l.match(/v[ií]deo\s*(\d+|um|dois|tr[eê]s|quatro|cinco|seis|sete|oito|nove|dez)/)||l.match(/corte\s*(\d+)/)||l.match(/#(\d+)/);
+  let n=m?(numWords[m[1]]||parseInt(m[1])):null;
+  const clip=n?CLIPS.find(c=>c.n===n):null;
+  if(/melhor|mais fort|top\s*\d|quais/.test(l)&&!n){
+    const k=parseInt((l.match(/(\d+)/)||[])[1])||5;
+    return `Os ${k} cortes com mais chance de venda:<br>`+CLIPS.slice(0,k).map(c=>`• <a onclick="openClip(${c.n})">Vídeo ${c.n}</a>: ${c.title} (${sicon(c.score)} ${c.score}%)`).join('<br>');
+  }
+  if(/gere|gera|cria|novo corte|mais cortes/.test(l)&&!n){
+    return '🎬 Pedido de novos cortes recebido! No MVP, a nova leva é produzida pela nossa equipe e aparece aqui em até 24h. Quer que eu priorize algum formato (tela partida, chamada de venda, dados)?';
+  }
+  if(n&&!clip) return `Não achei o vídeo ${n}. Essa leva tem ${CLIPS.length} cortes (1 a ${CLIPS.length}).`;
+  if(!clip) return 'Me diz qual vídeo você quer editar, por exemplo: <i>"no vídeo 1, corta no segundo 5"</i> ou <i>"vídeo 2, adicione o texto PROMOÇÃO"</i>.';
+  const ed=state.edits[n]=state.edits[n]||{};const done=[];
+  const txt=q.match(/["“'”‘’]([^"“”'‘’]+)["”'’“‘]/)||l.match(/(?:texto|escrit[oa]|escreve|escreva|frase)\s*:?\s*(.+)$/);
+  if(txt){ed.text=(txt[1]).trim().toUpperCase();
+    ed.pos=/embaixo|baixo|rodap/.test(l)?'bot':/meio|centro/.test(l)?'mid':'top';
+    ed.bg=/azul|ciano/.test(l)?'var(--cyan-d)':/amarel/.test(l)?'#ffd54a':/pret/.test(l)?'#000':'var(--red-d)';
+    ed.color=/azul|ciano|amarel/.test(l)?'preto':'branco';
+    done.push(`adicionei o texto <b>"${ed.text}"</b> ${ed.pos==='bot'?'embaixo':ed.pos==='mid'?'no meio':'em cima'}`)}
+  else if(/tir[ae]\s+(o\s+)?texto|remov[ae]\s+(o\s+)?texto/.test(l)){delete ed.text;done.push('removi o texto')}
+  const sec=l.match(/(?:segundo|seg|s)\s*(\d+(?:[.,]\d+)?)/)||l.match(/(\d+(?:[.,]\d+)?)\s*(?:s\b|seg|segundos?)/);
+  if(sec&&!txt){const v=parseFloat(sec[1].replace(',','.'));
+    if(/termin|acab|at[eé]|fim|final/.test(l)){ed.end=v;done.push(`agora o corte termina no segundo <b>${v}</b>`)}
+    else {ed.start=v;done.push(`agora o corte começa no segundo <b>${v}</b>`)}}
+  const sp=l.match(/(\d(?:[.,]\d+)?)\s*x/);
+  if(sp){ed.speed=parseFloat(sp[1].replace(',','.'));done.push(`velocidade em <b>${ed.speed}x</b>`)}
+  else if(/mais r[aá]pido|acelera/.test(l)){ed.speed=1.25;done.push('acelerei pra <b>1.25x</b>')}
+  else if(/mais devagar|lento/.test(l)){ed.speed=0.85;done.push('deixei mais lento (<b>0.85x</b>)')}
+  if(/sem som|mudo|tira o som|silencia/.test(l)){ed.mute=true;done.push('tirei o som')}
+  if(/volta|desfaz|original|reset/.test(l)){state.edits[n]={};renderClips();return `↩ Voltei o vídeo ${n} pro original. <a onclick="openClip(${n})">Ver vídeo ${n}</a>`}
+  if(!done.length){
+    if(/legenda/.test(l)) return `O vídeo ${n} já vem com legenda automática ✅. Quer mudar a cor ou o tamanho? No MVP, ajustes de legenda são feitos pela equipe em até 24h.`;
+    if(/m[uú]sica/.test(l)) return `🎵 Pedido anotado: música no vídeo ${n}. No MVP, nossa equipe aplica em até 24h.`;
+    return `📝 Anotei o pedido pro vídeo ${n}: "${q.replace(/</g,'&lt;')}". No MVP, esse tipo de ajuste é feito pela equipe em até 24h. Ajustes na hora: cortar no segundo X, terminar no segundo X, adicionar texto, velocidade e tirar o som.`;
+  }
+  renderClips();
+  setTimeout(()=>{const el=document.getElementById('clip-'+n);if(el){el.classList.add('hi');setTimeout(()=>el.classList.remove('hi'),2500)}},50);
+  return `✅ Pronto! No vídeo ${n}, ${done.join(', ')}. <a onclick="openClip(${n})">Ver vídeo ${n} ▶</a>`;
+}
+addMsg('Oi! 👋 Sou o editor da Tikfy. Os cortes estão ordenados do mais forte pro mais fraco. Me peça ajustes, por exemplo: <i>"no vídeo 1, corta no segundo 5"</i> ou <i>"vídeo 2, adicione o texto ÚLTIMAS UNIDADES embaixo"</i>.','bot');
+
+/* ---------- toast ---------- */
+let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
+
+
+renderRank();setupExamples();renderClips();render();
+</script>
+</body>
+</html>
