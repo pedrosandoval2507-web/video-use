@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tikfy · Renda extra com TikTok Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --bg2:#0d0d0f; --card:#16161a; --card2:#1e1e24; --line:#2a2a31;
+  --txt:#fff; --muted:#a1a1aa; --cyan:#4ff3ee; --red:#ff4d6d; --cyan-d:#25F4EE; --red-d:#FE2C55;
+  --r:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);color:var(--txt);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+
+/* ---------- logo ---------- */
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:22px;letter-spacing:-.5px}
+.brand-mark{position:relative;width:34px;height:34px}
+.brand-mark span{position:absolute;inset:0;border-radius:10px;display:grid;place-items:center;font-size:20px;font-weight:900}
+.brand-mark .c{background:var(--cyan-d);transform:translate(-2px,-2px)}
+.brand-mark .r{background:var(--red-d);transform:translate(2px,2px)}
+.brand-mark .w{background:#000;color:#fff;border:2px solid #fff}
+.glitch{text-shadow:-2px -1px 0 var(--cyan-d),2px 1px 0 var(--red-d)}
+
+/* ---------- nav ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+nav.links{display:flex;gap:26px;font-size:14px;color:var(--muted);font-weight:500}
+nav.links a:hover,nav.links a.on{color:#fff}
+.hdr-actions{display:flex;gap:10px;align-items:center}
+.menu-btn{display:none;background:none;color:#fff;font-size:24px}
+@media(max-width:860px){
+  nav.links{display:none;position:absolute;top:68px;left:0;right:0;background:#000;flex-direction:column;padding:16px 20px;gap:16px;border-bottom:1px solid var(--line)}
+  nav.links.open{display:flex}
+  .menu-btn{display:block}
+  .hdr-actions .btn-ghost{display:none}
+}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;transition:.15s}
+.btn-primary{background:var(--red-d);color:#fff}
+.btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-cyan{background:var(--cyan-d);color:#000}
+.btn-cyan:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
+.btn-ghost:hover{border-color:#555}
+.btn-block{width:100%}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+
+/* ---------- views ---------- */
+.view{display:none;animation:fade .35s ease}
+.view.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+section{padding:72px 0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--cyan);background:rgba(37,244,238,.08);border:1px solid rgba(37,244,238,.25);padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(36px,6vw,64px);line-height:1.04;font-weight:900;letter-spacing:-2px}
+h2{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.1}
+h3{font-size:18px;font-weight:700}
+.lead{color:var(--muted);font-size:18px;line-height:1.6}
+.hl-c{color:var(--cyan)} .hl-r{color:var(--red)}
+.center{text-align:center}
+
+/* hero */
+.hero{padding:84px 0 60px;position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(120px);opacity:.22;z-index:-1}
+.hero:before{background:var(--cyan-d);top:-200px;left:-160px}
+.hero:after{background:var(--red-d);bottom:-260px;right:-160px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero .lead{margin:22px 0 30px;max-width:520px}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap}
+.stats b{display:block;font-size:26px;font-weight:900}
+.stats span{color:var(--muted);font-size:13px}
+.phone{width:280px;height:560px;margin:0 auto;border-radius:40px;border:8px solid #1c1c22;background:#0a0a0a;position:relative;overflow:hidden;box-shadow:-14px -10px 0 -2px rgba(37,244,238,.35),14px 10px 0 -2px rgba(254,44,85,.35)}
+.phone-screen{position:absolute;inset:0;background:linear-gradient(180deg,#0b2a3a 0%,#1a0b16 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
+.phone-screen .prod{position:absolute;top:120px;left:50%;transform:translateX(-50%);width:130px;height:130px;border-radius:24px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.6)}
+.phone-screen .prod img{width:100%;height:100%}
+.phone .cap{font-weight:800;font-size:17px;line-height:1.25;margin-bottom:10px}
+.phone .cap em{font-style:normal;color:var(--red)}
+.phone .meta{font-size:12px;color:#ddd}
+.phone .side{position:absolute;right:12px;bottom:110px;display:flex;flex-direction:column;gap:16px;align-items:center;font-size:11px;font-weight:700}
+.phone .side i{font-style:normal;font-size:24px;display:block;text-align:center}
+.shop-tag{display:inline-flex;gap:6px;align-items:center;background:rgba(255,255,255,.14);padding:6px 10px;border-radius:8px;font-size:12px;font-weight:700;margin-bottom:10px;width:max-content}
+
+/* cards / steps */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:860px){.grid3,.grid4{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.step-n{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-weight:900;margin-bottom:16px;background:var(--card2);color:var(--cyan)}
+.card p{color:var(--muted);line-height:1.6;margin-top:8px;font-size:15px}
+
+/* ---------- modal-ish pages (signup, plans) ---------- */
+.flow{min-height:calc(100vh - 68px);display:flex;align-items:flex-start;justify-content:center;padding:48px 20px}
+.panel{position:relative;width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:40px}
+.panel.sm{max-width:520px}
+.panel.lg{max-width:1040px}
+.skip{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;background:var(--card2);color:#fff;font-size:18px;display:grid;place-items:center;border:1px solid var(--line)}
+.skip:hover{background:var(--red-d)}
+.skip-tip{position:absolute;top:22px;right:62px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+.progress{display:flex;gap:6px;margin-bottom:26px}
+.progress i{flex:1;height:4px;border-radius:4px;background:var(--line)}
+.progress i.on{background:linear-gradient(90deg,var(--cyan-d),var(--red-d))}
+.panel h2{margin-bottom:6px}
+.panel .sub{color:var(--muted);margin-bottom:26px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#d4d4d8}
+.field input,.field select{width:100%;background:#000;border:1px solid var(--line);color:#fff;padding:13px 14px;border-radius:12px;font:inherit;font-size:15px;outline:none}
+.field input:focus,.field select:focus{border-color:var(--cyan-d)}
+.field input.err{border-color:var(--red-d)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.row2{grid-template-columns:1fr}}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:6px 0 20px}
+.check input{margin-top:3px;accent-color:var(--red-d)}
+.small{font-size:13px;color:var(--muted)}
+
+/* plans */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
+@media(max-width:860px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;position:relative;transition:.15s;cursor:pointer}
+.plan:hover{border-color:#444}
+.plan.sel{border-color:var(--cyan-d);box-shadow:0 0 0 4px rgba(37,244,238,.12)}
+.plan.pop{border-color:var(--red-d)}
+.plan .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--red-d);font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.plan .name{font-weight:800;font-size:18px}
+.plan .price{font-size:42px;font-weight:900;margin:14px 0 2px;letter-spacing:-1px}
+.plan .price small{font-size:15px;color:var(--muted);font-weight:500}
+.plan .vids{color:var(--cyan);font-weight:700;margin-bottom:18px}
+.plan ul{list-style:none;display:grid;gap:10px;margin-bottom:24px;flex:1}
+.plan li{font-size:14px;color:#d4d4d8;display:flex;gap:8px}
+.plan li:before{content:"✓";color:var(--cyan);font-weight:900}
+.plan li.no{color:#666}
+.plan li.no:before{content:"–";color:#555}
+.guarantee{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:22px;font-size:13px;color:var(--muted)}
+
+/* ranking */
+.rank-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--muted)}
+.chip.on{background:#fff;color:#000;border-color:#fff}
+.rank{display:grid;gap:10px}
+.ritem{display:grid;grid-template-columns:56px 64px 1fr auto auto auto;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 16px;transition:.15s}
+.ritem:hover{border-color:#3a3a44;background:#1a1a1f}
+.ritem.top{border-color:rgba(254,44,85,.5);background:linear-gradient(90deg,rgba(254,44,85,.10),var(--card) 40%)}
+.pos{font-size:26px;font-weight:900;text-align:center;color:#555}
+.ritem:nth-child(1) .pos{color:#ffd54a}.ritem:nth-child(2) .pos{color:#d9d9d9}.ritem:nth-child(3) .pos{color:#e0a36a}
+.logo{width:64px;height:64px;border-radius:14px;overflow:hidden;background:#222}
+.logo img{width:100%;height:100%;display:block}
+.pname{font-weight:800;font-size:17px}
+.pcat{font-size:13px;color:var(--muted);margin-top:3px}
+.metric{text-align:right;min-width:96px}
+.metric b{display:block;font-size:15px}
+.metric span{font-size:12px;color:var(--muted)}
+.up{color:#3ddc97}
+.ritem .btn{padding:10px 20px;font-size:14px}
+@media(max-width:860px){
+  .ritem{grid-template-columns:34px 52px 1fr auto;gap:12px}
+  .ritem .metric{display:none}
+  .logo{width:52px;height:52px}
+  .pos{font-size:20px}
+}
+
+/* toast */
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,30px);opacity:0;background:#fff;color:#000;padding:13px 20px;border-radius:12px;font-weight:600;font-size:14px;z-index:200;transition:.25s;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* generating */
+.gen{max-width:560px;margin:0 auto;text-align:center;padding:30px 0}
+.gen .logo{width:110px;height:110px;margin:0 auto 26px;border-radius:26px;position:relative;overflow:visible}
+.gen .logo img{border-radius:26px}
+.ring{position:absolute;inset:-10px;border-radius:34px;border:3px solid transparent;border-top-color:var(--cyan-d);border-right-color:var(--red-d);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bar{height:8px;border-radius:8px;background:var(--card2);overflow:hidden;margin:26px 0 10px}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan-d),var(--red-d));transition:width .4s}
+.steps-log{text-align:left;margin-top:26px;display:grid;gap:10px}
+.steps-log div{display:flex;gap:12px;align-items:center;color:#555;font-size:15px;transition:.2s}
+.steps-log div i{font-style:normal;width:22px;height:22px;border-radius:50%;border:2px solid #333;display:grid;place-items:center;font-size:12px;flex:none}
+.steps-log div.doing{color:#fff}
+.steps-log div.doing i{border-color:var(--cyan-d);border-top-color:transparent;animation:spin .8s linear infinite}
+.steps-log div.done{color:var(--muted)}
+.steps-log div.done i{background:var(--cyan-d);border-color:var(--cyan-d);color:#000;animation:none}
+
+/* results */
+.res-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+.res-head .who{display:flex;gap:14px;align-items:center}
+.res-head .who .logo{width:56px;height:56px}
+.clips{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:1000px){.clips{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.clips{grid-template-columns:repeat(2,1fr)}}
+.clip{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.thumb{aspect-ratio:9/16;position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:12px}
+.thumb .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,.5);display:grid;place-items:center;font-size:18px;backdrop-filter:blur(4px)}
+.thumb .dur{position:absolute;top:10px;right:10px;font-size:11px;font-weight:700;background:rgba(0,0,0,.6);padding:3px 7px;border-radius:6px}
+.thumb .kind{position:absolute;top:10px;left:10px;font-size:10px;font-weight:800;padding:3px 7px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px}
+.kind.corte{background:var(--cyan-d);color:#000}.kind.ia{background:var(--red-d);color:#fff}
+.thumb .hook{font-weight:800;font-size:14px;line-height:1.25;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.thumb .hook em{font-style:normal;color:var(--red)}
+.clip .info{padding:12px}
+.clip .info .t{font-size:13px;font-weight:700}
+.clip .info .s{font-size:12px;color:var(--muted);margin-top:4px}
+.clip .info .acts{display:flex;gap:6px;margin-top:10px}
+.clip .info .acts button{flex:1;padding:8px;border-radius:8px;background:var(--card2);color:#fff;font-size:12px;font-weight:600}
+.clip .info .acts button:hover{background:#2a2a32}
+.notice{background:rgba(37,244,238,.07);border:1px dashed rgba(37,244,238,.35);color:#cffffd;padding:12px 16px;border-radius:12px;font-size:13px;margin-bottom:20px}
+
+/* about / faq */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.team{grid-template-columns:repeat(2,1fr)}}
+.avatar{width:72px;height:72px;border-radius:50%;margin-bottom:14px;background:linear-gradient(135deg,var(--cyan-d),var(--red-d));display:grid;place-items:center;font-weight:900;font-size:24px;color:#000}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between}
+summary:after{content:"+";color:var(--cyan);font-size:20px}
+details[open] summary:after{content:"–"}
+details p{color:var(--muted);margin-top:12px;line-height:1.6}
+.cta-band{background:linear-gradient(120deg,rgba(37,244,238,.15),rgba(254,44,85,.15));border:1px solid var(--line);border-radius:24px;padding:48px;text-align:center}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.mvp-flag{position:fixed;left:14px;bottom:14px;z-index:60;background:#ffd54a;color:#000;font-size:11px;font-weight:800;padding:5px 10px;border-radius:999px;letter-spacing:.5px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#/" class="brand">
+      <div class="brand-mark"><span class="c"></span><span class="r"></span><span class="w">T</span></div>
+      <span class="glitch">Tikfy</span>
+    </a>
+    <nav class="links" id="nav">
+      <a href="#/" data-r="home">Início</a>
+      <a href="#/como-funciona" data-r="como-funciona">Como funciona</a>
+      <a href="#/ranking" data-r="ranking">Ranking</a>
+      <a href="#/planos" data-r="planos">Planos</a>
+      <a href="#/sobre" data-r="sobre">Sobre nós</a>
+      <a href="#/faq" data-r="faq">Dúvidas</a>
+    </nav>
+    <div class="hdr-actions">
+      <a href="#/cadastro" class="btn btn-ghost" id="hdrLogin">Entrar</a>
+      <a href="#/cadastro" class="btn btn-primary" id="hdrCta">Começar</a>
+      <button class="menu-btn" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ================= HOME ================= -->
+<div class="view" id="v-home">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">🔥 A nova era do digital é o TikTok Shop</span>
+        <h1 style="margin-top:20px">Renda extra no <span class="hl-c">TikTok Shop</span> sem precisar <span class="hl-r">gravar nada</span>.</h1>
+        <p class="lead">Escolha um produto que já está vendendo muito, afilie-se no TikTok e receba vídeos prontos pra postar. A gente cria o conteúdo, você posta e ganha comissão.</p>
+        <div class="hero-ctas">
+          <a href="#/cadastro" class="btn btn-primary">Criar minha conta grátis →</a>
+          <a href="#/ranking" class="btn btn-ghost">Ver produtos em alta</a>
+        </div>
+        <div class="stats">
+          <div><b class="hl-c">+10</b><span>marcas em alta</span></div>
+          <div><b>até 40</b><span>vídeos por mês</span></div>
+          <div><b class="hl-r">0</b><span>horas editando</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="prod"><img src="logos/dot.png" alt=""></div>
+            <div class="side"><div><i>❤</i>48,2K</div><div><i>💬</i>1.203</div><div><i>↗</i>3.4K</div></div>
+            <span class="shop-tag">🛒 Dot Energy · R$ 29,90</span>
+            <div class="cap">Eu troquei o café por <em>ISSO</em> e minha tarde mudou 😳</div>
+            <div class="meta">@seuperfil · #tiktokshop #dotenergy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:36px">
+        <h2>Como funciona em <span class="hl-c">3 passos</span></h2>
+        <p class="lead" style="margin-top:10px">Do cadastro ao primeiro vídeo postado no mesmo dia.</p>
+      </div>
+      <div class="grid3">
+        <div class="card"><div class="step-n">1</div><h3>Escolha um produto em alta</h3><p>Veja o ranking dos produtos que mais vendem no TikTok Shop Brasil e escolha o que combina com você.</p></div>
+        <div class="card"><div class="step-n" style="color:var(--red)">2</div><h3>Afilie-se no TikTok</h3><p>A afiliação é feita direto no TikTok Shop. Você só conta pra gente o seu @ e qual produto escolheu.</p></div>
+        <div class="card"><div class="step-n">3</div><h3>Receba os vídeos prontos</h3><p>Geramos cortes e vídeos com IA, com gancho, legenda e hashtags. É só postar e acompanhar as vendas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="rank-head"><div><h2>Top 3 da semana</h2><p class="small" style="margin-top:6px">Os produtos que mais vendem no TikTok Shop agora</p></div><a href="#/ranking" class="btn btn-ghost">Ver top 10 →</a></div>
+      <div class="rank" id="homeTop"></div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap"><div class="cta-band">
+      <h2>Pronto pra sua <span class="hl-r">primeira comissão</span>?</h2>
+      <p class="lead" style="margin:12px auto 24px;max-width:560px">Planos a partir de R$ 50/mês. Cancele quando quiser.</p>
+      <a href="#/cadastro" class="btn btn-primary">Começar agora</a>
+    </div></div>
+  </section>
+</div>
+
+<!-- ================= CADASTRO ================= -->
+<div class="view" id="v-cadastro">
+  <div class="flow">
+    <div class="panel sm">
+      <span class="skip-tip">pular (MVP)</span>
+      <button class="skip" title="Pular etapa (MVP)" onclick="go('planos')">✕</button>
+      <div class="progress"><i class="on"></i><i></i><i></i><i></i></div>
+      <h2>Crie sua conta</h2>
+      <p class="sub">Leva menos de 1 minuto.</p>
+      <form id="fSignup" novalidate>
+        <div class="field"><label>Nome completo</label><input name="nome" placeholder="Ex.: Ana Souza" required></div>
+        <div class="row2">
+          <div class="field"><label>CPF</label><input name="cpf" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" required></div>
+          <div class="field"><label>Data de nascimento</label><input name="nasc" type="date" required></div>
+        </div>
+        <div class="field"><label>E-mail</label><input name="email" type="email" placeholder="voce@email.com" required></div>
+        <div class="row2">
+          <div class="field"><label>Telefone (WhatsApp)</label><input name="tel" placeholder="(11) 90000-0000" inputmode="numeric" maxlength="15" required></div>
+          <div class="field"><label>@ do TikTok</label><input name="tiktok" placeholder="@seuperfil" required></div>
+        </div>
+        <div class="field"><label>Você já vende no TikTok Shop?</label>
+          <select name="nivel"><option>Nunca vendi nada, quero começar</option><option>Já vendo, quero vender mais</option></select>
+        </div>
+        <div class="field"><label>Senha</label><input name="senha" type="password" placeholder="Mínimo 8 caracteres" minlength="8" required></div>
+        <label class="check"><input type="checkbox" required id="terms"> Li e aceito os Termos de Uso e a Política de Privacidade (LGPD).</label>
+        <button class="btn btn-primary btn-block" type="submit">Criar conta e escolher plano →</button>
+        <p class="small center" style="margin-top:14px">Já tem conta? <a href="#/cadastro" class="hl-c">Entrar</a></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ================= PLANOS ================= -->
+<div class="view" id="v-planos">
+  <div class="flow">
+    <div class="panel lg">
+      <span class="skip-tip">pular (MVP)</span>
+      <button class="skip" title="Pular etapa (MVP)" onclick="go('ranking')">✕</button>
+      <div class="progress"><i class="on"></i><i class="on"></i><i></i><i></i></div>
+      <h2 id="plansTitle">Escolha seu plano</h2>
+      <p class="sub">Quanto mais vídeos você posta, mais chances de vender. Cancele quando quiser.</p>
+      <div class="plans">
+        <div class="plan" data-plan="Start">
+          <div class="name">Start</div>
+          <div class="price">R$ 50<small>/mês</small></div>
+          <div class="vids">10 vídeos por mês</div>
+          <ul>
+            <li>1 produto afiliado</li>
+            <li>Cortes automáticos + vídeos com IA</li>
+            <li>Legenda e hashtags prontas</li>
+            <li>Ranking de produtos em alta</li>
+            <li class="no">Calendário de postagem</li>
+            <li class="no">Suporte prioritário</li>
+          </ul>
+          <button class="btn btn-ghost btn-block">Escolher Start</button>
+        </div>
+        <div class="plan pop" data-plan="Pro">
+          <span class="badge">⭐ MAIS ESCOLHIDO</span>
+          <div class="name">Pro</div>
+          <div class="price">R$ 100<small>/mês</small></div>
+          <div class="vids">20 vídeos por mês</div>
+          <ul>
+            <li>Até 3 produtos afiliados</li>
+            <li>Cortes automáticos + vídeos com IA</li>
+            <li>Legenda e hashtags prontas</li>
+            <li>Ranking de produtos em alta</li>
+            <li>Calendário de postagem</li>
+            <li class="no">Suporte prioritário</li>
+          </ul>
+          <button class="btn btn-primary btn-block">Escolher Pro</button>
+        </div>
+        <div class="plan" data-plan="Escala">
+          <div class="name">Escala</div>
+          <div class="price">R$ 150<small>/mês</small></div>
+          <div class="vids">40 vídeos por mês</div>
+          <ul>
+            <li>Produtos ilimitados</li>
+            <li>Cortes automáticos + vídeos com IA</li>
+            <li>Legenda e hashtags prontas</li>
+            <li>Ranking de produtos em alta</li>
+            <li>Calendário de postagem</li>
+            <li>Suporte prioritário no WhatsApp</li>
+          </ul>
+          <button class="btn btn-cyan btn-block">Escolher Escala</button>
+        </div>
+      </div>
+      <div class="guarantee"><span>🔒 Pagamento seguro</span><span>↩ 7 dias de garantia</span><span>✕ Cancele quando quiser</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= RANKING ================= -->
+<div class="view" id="v-ranking">
+  <section style="padding-top:44px">
+    <div class="wrap">
+      <div class="progress" id="rankProgress" style="max-width:520px"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+      <div class="rank-head">
+        <div>
+          <span class="eyebrow">📈 Atualizado hoje</span>
+          <h2 style="margin-top:14px">Top 10 produtos mais vendidos</h2>
+          <p class="small" style="margin-top:6px">TikTok Shop Brasil · escolha um produto e clique em <b style="color:#fff">Afiliar</b></p>
+        </div>
+        <div class="filters">
+          <button class="chip on">Todos</button><button class="chip">Suplementos</button><button class="chip">Beleza</button><button class="chip">Alimentos</button>
+        </div>
+      </div>
+      <div class="rank" id="rankList"></div>
+      <p class="small" style="margin-top:18px">* Números ilustrativos (protótipo do MVP).</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= GERANDO ================= -->
+<div class="view" id="v-gerando">
+  <section>
+    <div class="wrap gen">
+      <div class="logo"><img src="logos/dot.png" alt="Dot"><div class="ring"></div></div>
+      <h2>Criando seus vídeos da <span class="hl-c">Dot Energy</span></h2>
+      <p class="lead" style="margin-top:10px">Isso leva só alguns segundos…</p>
+      <div class="bar"><i id="genBar"></i></div>
+      <div class="small" id="genPct">0%</div>
+      <div class="steps-log" id="genLog"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= RESULTADOS ================= -->
+<div class="view" id="v-videos">
+  <section style="padding-top:44px">
+    <div class="wrap">
+      <div class="progress" style="max-width:520px"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+      <div class="res-head">
+        <div class="who">
+          <div class="logo"><img src="logos/dot.png" alt=""></div>
+          <div><h2 style="font-size:28px">Seus vídeos estão prontos! 🎉</h2><p class="small" id="resSub">Dot Energy · 10 vídeos gerados</p></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-ghost" onclick="toast('No MVP, os vídeos serão entregues pelo Drive/WhatsApp 📲')">⬇ Baixar todos</button>
+          <a href="#/ranking" class="btn btn-primary">+ Outro produto</a>
+        </div>
+      </div>
+      <div class="notice">🧪 <b>Protótipo:</b> as miniaturas abaixo são provisórias. Os cortes reais vão sair do vídeo da Dot que vai ser enviado.</div>
+      <div class="clips" id="clips"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<div class="view" id="v-como-funciona">
+  <section>
+    <div class="wrap">
+      <div class="center" style="margin-bottom:40px"><span class="eyebrow">Passo a passo</span><h2 style="margin-top:14px">Do zero à primeira venda</h2></div>
+      <div class="grid4">
+        <div class="card"><div class="step-n">1</div><h3>Crie sua conta</h3><p>Nome, CPF, e-mail, telefone e seu @ do TikTok.</p></div>
+        <div class="card"><div class="step-n" style="color:var(--red)">2</div><h3>Escolha o plano</h3><p>10, 20 ou 40 vídeos por mês, conforme o seu ritmo.</p></div>
+        <div class="card"><div class="step-n">3</div><h3>Afilie-se a um produto</h3><p>Escolha no ranking e faça a afiliação dentro do TikTok Shop.</p></div>
+        <div class="card"><div class="step-n" style="color:var(--red)">4</div><h3>Poste e ganhe</h3><p>Receba os vídeos prontos, poste no seu perfil e ganhe comissão por venda.</p></div>
+      </div>
+      <div class="grid3" style="margin-top:40px">
+        <div class="card"><h3>✂️ Cortes automáticos</h3><p>Pegamos os melhores momentos de vídeos que já viralizaram e transformamos em cortes curtos com gancho forte.</p></div>
+        <div class="card"><h3>🤖 Vídeos com IA</h3><p>Roteiros, narração e cenas criados por inteligência artificial, pensados pra vender o produto.</p></div>
+        <div class="card"><h3>📝 Legenda pronta</h3><p>Cada vídeo vem com legenda, hashtags e sugestão de horário de postagem.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SOBRE ================= -->
+<div class="view" id="v-sobre">
+  <section>
+    <div class="wrap">
+      <div style="max-width:720px">
+        <span class="eyebrow">Sobre nós</span>
+        <h2 style="margin-top:14px">A gente quer que qualquer pessoa consiga ter uma <span class="hl-c">renda extra</span> no digital.</h2>
+        <p class="lead" style="margin-top:18px">O digital tem suas eras: dropshipping, coprodução, afiliados… e agora o <b style="color:#fff">TikTok Shop</b>. O problema é sempre o mesmo: produzir conteúdo todo dia dá trabalho, e a maioria desiste antes da primeira venda.</p>
+        <p class="lead" style="margin-top:14px">A Tikfy nasceu pra resolver isso. A gente mostra o que está vendendo e entrega o conteúdo pronto. Você só posta.</p>
+      </div>
+      <div class="grid3" style="margin-top:40px">
+        <div class="card"><h3 class="hl-c">Missão</h3><p>Facilitar a renda extra pra quem está começando no digital, sem precisar gravar, editar ou aparecer.</p></div>
+        <div class="card"><h3 class="hl-r">Visão</h3><p>Ser a principal plataforma de conteúdo para afiliados do TikTok Shop no Brasil.</p></div>
+        <div class="card"><h3>Valores</h3><p>Simplicidade, resultado de verdade e transparência com quem confia na gente.</p></div>
+      </div>
+      <h2 style="margin:56px 0 20px;font-size:28px">O time</h2>
+      <div class="team">
+        <div class="card"><div class="avatar">P</div><h3>Pedro</h3><p>Cofundador</p></div>
+        <div class="card"><div class="avatar">?</div><h3>Nome</h3><p>Cofundador(a)</p></div>
+        <div class="card"><div class="avatar">?</div><h3>Nome</h3><p>Cofundador(a)</p></div>
+        <div class="card"><div class="avatar">?</div><h3>Nome</h3><p>Cofundador(a)</p></div>
+      </div>
+      <p class="small" style="margin-top:14px">Projeto do Ciclo Prático · LINK</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================= FAQ ================= -->
+<div class="view" id="v-faq">
+  <section>
+    <div class="wrap" style="max-width:780px">
+      <div class="center" style="margin-bottom:36px"><span class="eyebrow">Dúvidas frequentes</span><h2 style="margin-top:14px">Perguntas frequentes</h2></div>
+      <details open><summary>Preciso aparecer nos vídeos?</summary><p>Não. Os vídeos são cortes e conteúdos gerados com IA. Você só posta no seu perfil.</p></details>
+      <details><summary>Como funciona a afiliação?</summary><p>A afiliação é feita direto no TikTok Shop, pelo seu perfil. Na Tikfy você só informa o seu @ e o produto escolhido.</p></details>
+      <details><summary>Quanto eu posso ganhar?</summary><p>Depende do produto, da comissão da marca e de quantos vídeos você posta. Quanto mais conteúdo, mais chances de vender. Não prometemos valores fixos.</p></details>
+      <details><summary>Preciso ter muitos seguidores?</summary><p>Não. No TikTok, vídeos de contas pequenas também podem viralizar. O que importa é postar com frequência.</p></details>
+      <details><summary>Posso cancelar quando quiser?</summary><p>Sim. Sem fidelidade e com 7 dias de garantia.</p></details>
+      <details><summary>Como recebo os vídeos?</summary><p>Eles ficam disponíveis no seu painel pra baixar, com legenda e hashtags prontas.</p></details>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="brand" style="font-size:18px"><div class="brand-mark" style="width:26px;height:26px"><span class="c"></span><span class="r"></span><span class="w" style="font-size:14px">T</span></div>Tikfy</div>
+    <div>© 2026 Tikfy · Protótipo acadêmico (MVP). Não afiliado ao TikTok.</div>
+  </div>
+</footer>
+
+<div class="mvp-flag">MVP · PROTÓTIPO</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const PRODUCTS=[
+  {id:'dot',name:'Dot Energy',cat:'Energético · Suplementos',sales:'52,4 mil',grow:'+38%',com:'20%'},
+  {id:'guday',name:'Guday',cat:'Suplementos · Bem-estar',sales:'47,1 mil',grow:'+31%',com:'18%'},
+  {id:'aura',name:'Aura Beauty',cat:'Beleza · Skincare',sales:'41,8 mil',grow:'+27%',com:'22%'},
+  {id:'dux',name:'DUX Nutrition Lab',cat:'Suplementos · Fitness',sales:'36,2 mil',grow:'+22%',com:'15%'},
+  {id:'gummy',name:'Gummy Hair',cat:'Beleza · Cabelo',sales:'33,9 mil',grow:'+19%',com:'20%'},
+  {id:'sainttropez',name:'Saint Tropez',cat:'Beleza · Autobronzeador',sales:'29,5 mil',grow:'+17%',com:'18%'},
+  {id:'saintgermain',name:'Saint Germain',cat:'Perfumaria',sales:'26,7 mil',grow:'+15%',com:'16%'},
+  {id:'jacklinks',name:"Jack Link's",cat:'Alimentos · Snacks',sales:'22,3 mil',grow:'+12%',com:'12%'},
+  {id:'maismu',name:'+Mu',cat:'Alimentos · Proteico',sales:'19,8 mil',grow:'+10%',com:'15%'},
+  {id:'bold',name:'Bold',cat:'Alimentos · Barras de proteína',sales:'17,4 mil',grow:'+9%',com:'14%'},
+];
+const state={user:null,plan:null};
+const VIDS={Start:10,Pro:20,Escala:40};
+
+function rowHTML(p,i){
+  return `<div class="ritem ${i===0?'top':''}">
+    <div class="pos">${i+1}</div>
+    <div class="logo"><img src="logos/${p.id}.png" alt="${p.name}"></div>
+    <div><div class="pname">${p.name}</div><div class="pcat">${p.cat}</div></div>
+    <div class="metric"><b>${p.sales}</b><span>vendas/mês</span></div>
+    <div class="metric"><b class="up">${p.grow}</b><span>comissão ${p.com}</span></div>
+    <button class="btn ${p.id==='dot'?'btn-primary':'btn-ghost'}" onclick="afiliar('${p.id}')">Afiliar</button>
+  </div>`;
+}
+document.getElementById('rankList').innerHTML=PRODUCTS.map(rowHTML).join('');
+document.getElementById('homeTop').innerHTML=PRODUCTS.slice(0,3).map(rowHTML).join('');
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');toast('Filtros disponíveis na versão completa')});
+
+function afiliar(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  if(id!=='dot'){toast(`${p.name}: disponível em breve. No MVP, teste com a Dot Energy ⚡`);return}
+  go('gerando');
+}
+
+/* ---- router ---- */
+function go(r){location.hash='#/'+r}
+function render(){
+  const r=(location.hash.replace(/^#\/?/,'')||'home').split('?')[0];
+  const id='v-'+(document.getElementById('v-'+r)?r:'home');
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));
+  document.querySelectorAll('nav.links a').forEach(a=>a.classList.toggle('on',a.dataset.r===r));
+  document.getElementById('nav').classList.remove('open');
+  window.scrollTo(0,0);
+  if(r==='gerando') runGen();
+}
+window.addEventListener('hashchange',render);
+
+/* ---- signup ---- */
+const f=document.getElementById('fSignup');
+f.cpf.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);e.target.value=v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2')});
+f.tel.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);e.target.value=v.replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2')});
+f.tiktok.addEventListener('blur',e=>{let v=e.target.value.trim();if(v&&!v.startsWith('@'))e.target.value='@'+v});
+f.addEventListener('submit',e=>{
+  e.preventDefault();let ok=true;
+  f.querySelectorAll('input[required]').forEach(i=>{
+    let bad=i.type==='checkbox'?!i.checked:!i.value.trim();
+    if(i.name==='cpf'&&i.value.replace(/\D/g,'').length!==11)bad=true;
+    if(i.name==='email'&&!/^\S+@\S+\.\S+$/.test(i.value))bad=true;
+    if(i.name==='senha'&&i.value.length<8)bad=true;
+    i.classList.toggle('err',bad);if(bad)ok=false;
+  });
+  if(!ok){toast('Confira os campos destacados');return}
+  state.user={nome:f.nome.value.split(' ')[0],tiktok:f.tiktok.value};
+  document.getElementById('plansTitle').textContent=`${state.user.nome}, escolha seu plano`;
+  document.getElementById('hdrLogin').textContent=state.user.tiktok;
+  toast('Conta criada! ✅');go('planos');
+});
+
+/* ---- plans ---- */
+document.querySelectorAll('.plan').forEach(pl=>pl.onclick=()=>{
+  document.querySelectorAll('.plan').forEach(x=>x.classList.remove('sel'));pl.classList.add('sel');
+  state.plan=pl.dataset.plan;toast(`Plano ${state.plan} selecionado · ${VIDS[state.plan]} vídeos/mês`);
+  setTimeout(()=>go('ranking'),700);
+});
+
+/* ---- generating ---- */
+let genTimer=null;
+function runGen(){
+  clearInterval(genTimer);
+  const steps=['Buscando vídeos da Dot Energy na internet','Analisando os momentos com mais engajamento','Gerando cortes automáticos','Criando vídeos com inteligência artificial','Escrevendo legendas, ganchos e hashtags'];
+  const log=document.getElementById('genLog'),bar=document.getElementById('genBar'),pct=document.getElementById('genPct');
+  log.innerHTML=steps.map(s=>`<div><i></i>${s}</div>`).join('');
+  let p=0;const rows=[...log.children];
+  genTimer=setInterval(()=>{
+    p=Math.min(100,p+1+Math.random()*2.2);
+    bar.style.width=p+'%';pct.textContent=Math.floor(p)+'%';
+    const cur=Math.min(steps.length-1,Math.floor(p/(100/steps.length)));
+    rows.forEach((r,i)=>{r.className=i<cur?'done':i===cur?'doing':'';r.querySelector('i').textContent=i<cur?'✓':''});
+    if(p>=100){clearInterval(genTimer);rows.forEach(r=>{r.className='done';r.querySelector('i').textContent='✓'});setTimeout(()=>{buildClips();go('videos')},600)}
+  },90);
+}
+
+/* ---- results ---- */
+const HOOKS=[
+  ['Eu troquei o café por <em>ISSO</em> 😳','corte','0:18'],
+  ['Ninguém te conta isso sobre <em>energético</em>','ia','0:24'],
+  ['Testei por <em>7 dias</em> e olha no que deu','corte','0:31'],
+  ['O energético que <em>não dá</em> crash','ia','0:15'],
+  ['POV: são 15h e você <em>não aguenta mais</em>','corte','0:12'],
+  ['3 motivos pra largar o <em>café</em>','ia','0:27'],
+  ['Reagindo ao <em>Dot</em> pela primeira vez','corte','0:22'],
+  ['Quanto custa <em>1 dose</em> de energia?','ia','0:19'],
+  ['Minha rotina de <em>treino</em> mudou','corte','0:29'],
+  ['Por que todo mundo tá <em>comprando</em> isso?','ia','0:16'],
+];
+const BG=['#0b3b5a,#12091a','#3a0d1c,#0b0b12','#0d2b2a,#160a12','#1f1033,#06222b','#3b1020,#0a1c2a'];
+function buildClips(){
+  const n=VIDS[state.plan]||10;
+  document.getElementById('resSub').textContent=`Dot Energy · ${n} vídeos gerados${state.plan?' · plano '+state.plan:''}`;
+  let h='';
+  for(let i=0;i<n;i++){
+    const [hook,kind,dur]=HOOKS[i%HOOKS.length];
+    h+=`<div class="clip">
+      <div class="thumb" style="background:linear-gradient(180deg,${BG[i%BG.length]})">
+        <span class="kind ${kind}">${kind==='ia'?'IA':'Corte'}</span><span class="dur">${dur}</span>
+        <div class="play">▶</div><div class="hook">${hook}</div>
+      </div>
+      <div class="info"><div class="t">Vídeo ${String(i+1).padStart(2,'0')}</div><div class="s">#tiktokshop #dotenergy #energia</div>
+        <div class="acts"><button onclick="toast('Download disponível quando os vídeos reais forem gerados')">⬇ Baixar</button><button onclick="copyCap(${i})">📋 Legenda</button></div>
+      </div></div>`;
+  }
+  document.getElementById('clips').innerHTML=h;
+}
+function copyCap(i){
+  const t=HOOKS[i%HOOKS.length][0].replace(/<[^>]+>/g,'')+' 🛒 Link no carrinho! #tiktokshop #dotenergy #energia';
+  navigator.clipboard?.writeText(t).then(()=>toast('Legenda copiada ✅'),()=>toast(t));
+}
+
+/* ---- toast ---- */
+let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
+
+if(!location.hash)location.hash='#/';
+buildClips();render();
+</script>
+</body>
+</html>
