@@ -25,5 +25,16 @@
   "file": "ia/ia3.mp4",
   "thumb": "ia/ia3.jpg",
   "script": "POV: são três da tarde, você tá morrendo de sono e ainda tem prova. Aí você abre a Dot, coloca uma bala na boca, e pronto. Oitenta miligramas de cafeína, a mesma energia de um energético, só que numa bala de menta, com zero açúcar. A caixinha vem com cinco doses e cabe em qualquer bolso. Clica no carrinho laranja antes que o desconto acabe!"
+ },
+ {
+  "id": "ia4",
+  "title": "Por que o café demora e a Dot não",
+  "score": 96,
+  "dur": 28.3,
+  "format": "Explicativo animado",
+  "file": "ia/ia4.mp4",
+  "thumb": "ia/ia4.jpg",
+  "script": "",
+  "why": "Explica o mecanismo (absorção pela boca) com cenas animadas: prende até o final e educa antes de vender."
  }
 ]

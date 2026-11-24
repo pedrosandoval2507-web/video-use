@@ -701,7 +701,7 @@ const TESTIS=[
 const state={user:null,plan:null,cat:'Todos',fmt:'Todos',edits:{},current:null,product:'dot'};
 const IACAP=' 👀 Dot, a 1ª bala energética do Brasil: 80 mg de cafeína e zero açúcar. Clica no carrinho laranja 🛒 #tiktokshop #dot #balaenergetica #energia';
 const VIDS=(()=>{
-  const dot=[...CLIPS.map(c=>({...c})),...IA.map(v=>({...v,format:'IA',why:'Vídeo POV com narração por IA + embalagem real, gancho e CTA de urgência.',caption:v.title+IACAP}))].sort((a,b)=>b.score-a.score);
+  const dot=[...CLIPS.map(c=>({...c})),...IA.map(v=>({...v,format:v.format||'IA',why:v.why||'Vídeo POV com narração por IA + embalagem real, gancho e CTA de urgência.',caption:v.title+IACAP}))].sort((a,b)=>b.score-a.score);
   const gd=GUDAY.map(v=>({...v})).sort((a,b)=>b.score-a.score);
   [dot,gd].forEach(l=>l.forEach((c,i)=>c.n=i+1));
   return {dot,guday:gd};
