@@ -635,7 +635,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <p class="small" id="mdesc"></p>
       <p class="small" id="medits" style="margin-top:10px;color:var(--cyan)"></p>
       <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
-        <a class="btn btn-primary btn-sm" id="mdl" target="_blank" rel="noopener">⬇ Abrir vídeo</a>
+        
         <button class="btn btn-ghost btn-sm" id="mcap">📋 Copiar legenda</button>
       </div>
     </div>
@@ -655,6 +655,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <script>
 const LOGOS=/*LOGOS*/{};
 const CLIPS=/*CLIPS*/[];
+/*INLINE*/
 
 const PRODUCTS=[
   {id:'dot',name:'Dot',cat:'Suplementos',sub:'Bala energética',sales:'52,4 mil',grow:'+38%',com:'20%'},
@@ -823,7 +824,7 @@ function renderClips(){
         <span class="fmt">${c.format}</span>${hasEd?'<span class="edited">✏️ editado</span>':''}
         <div class="play">▶</div><span class="rankn">#${c.n}</span><span class="dur">${durTxt(c.dur)}</span></div>
       <div class="info"><div class="t">Vídeo ${c.n} · ${c.title}</div><div class="s">${c.why}</div>
-        <div class="acts"><a href="${c.file}" target="_blank" rel="noopener">⬇ Abrir</a><button onclick="copyCap(${c.n})">📋 Legenda</button></div></div></div>`}).join('');
+        <div class="acts"><button onclick="openClip(${c.n})">▶ Assistir</button><button onclick="copyCap(${c.n})">📋 Legenda</button></div></div></div>`}).join('');
 }
 function copyCap(n){
   const c=CLIPS.find(x=>x.n===n);
@@ -841,7 +842,7 @@ function openClip(n){
   const ms=document.getElementById('mscore');ms.className='score '+scls(c.score);ms.textContent=`${sicon(c.score)} ${c.score}% forte`;
   document.getElementById('mtitle').textContent=`Vídeo ${c.n} · ${c.title}`;
   document.getElementById('mdesc').innerHTML=`<b>Formato:</b> ${c.format} · ${durTxt(c.dur)}<br>${c.why}<br><br><b>Legenda:</b> ${c.caption}`;
-  document.getElementById('mdl').href=c.file;
+  
   document.getElementById('mcap').onclick=()=>copyCap(n);
   applyOverlay(ed);
   document.getElementById('medits').textContent=editsTxt(ed);
