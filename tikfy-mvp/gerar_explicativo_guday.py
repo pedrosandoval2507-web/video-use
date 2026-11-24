@@ -32,7 +32,7 @@ def datauri(n):
 
 def main():
     text = " ".join(s for _, s in SENT)
-    v = {"id": "stop_guday", "text": text}
+    v = {"id": "stop_guday", "text": text, "ls": 0.7, "sil": 0.04}
     wav = tts(v); ws, dur = words(wav); ws = align(text, ws); dur = round(dur + 0.5, 2)
     # scene starts = first word of each sentence
     idx = 0; scenes = []

@@ -42,7 +42,7 @@ def ts(x): x=max(0,x); return f"{int(x//3600)}:{int(x%3600//60):02d}:{x%60:05.2f
 
 def tts(v):
     wav = f"{W}/{v['id']}.wav"
-    subprocess.run(["python3","-m","piper","-m","/home/user/piper/pt_BR-faber-medium.onnx","--length-scale","0.86","--sentence-silence","0.12","-f",wav],input=v["text"],text=True,check=True,capture_output=True)
+    subprocess.run(["python3","-m","piper","-m","/home/user/piper/pt_BR-faber-medium.onnx","--length-scale",str(v.get("ls",0.86)),"--sentence-silence",str(v.get("sil",0.12)),"-f",wav],input=v["text"],text=True,check=True,capture_output=True)
     return wav
 
 def words(wav):
