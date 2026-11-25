@@ -14,7 +14,7 @@ norm = lambda w: re.sub(r"[^\wà-ú]", "", w.lower())
 def spec(brand, v):
     out = f"{D}/specs/{v['id']}.json"
     if os.path.exists(out) and "--force" not in sys.argv: return json.load(open(out))
-    vv = dict(v, ls=0.7, sil=0.04)
+    vv = dict(v, ls=v.get("ls",0.7), sil=v.get("sil",0.04))
     wav = tts(vv); ws, dur = words(wav); ws = align(v["text"], ws); dur = round(dur + 0.45, 2)
     subprocess.run(["cp", wav, f"{D}/audio/{v['id']}.wav"])
     subprocess.run(["ffmpeg","-v","error","-y","-i",wav,"-af","loudnorm=I=-15:TP=-1.5","-ac","1","-ar","22050","-b:a","24k",f"{D}/audio/{v['id']}.mp3"])
@@ -74,4 +74,7 @@ if __name__ == "__main__":
             s = spec(k, v); print("ok", v["id"], s["dur"], flush=True)
             meta.append({"id":v["id"],"brand":k,"score":v["score"],"format":FMTNAME[v["fmt"]],"title":v["title"],"dur":s["dur"],"why":WHY[v["fmt"]],
                          "caption":f"{v['title']} ✨ {br['name']}: clica no carrinho laranja 🛒 #tiktokshop #{k} #achadinhos"})
-    if not only: json.dump(meta, open(f"{D}/meta.json","w"), ensure_ascii=False, indent=1)
+    if not only:
+        for x in meta:
+            if x["id"]=="gummy21": x["format"]="História com personagens"; x["why"]="Storytelling com personagem: prende até o fim e gera identificação antes do CTA."
+        json.dump(meta, open(f"{D}/meta.json","w"), ensure_ascii=False, indent=1)

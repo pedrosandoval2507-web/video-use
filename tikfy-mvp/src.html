@@ -743,7 +743,7 @@ const GUDAY=/*GUDAY*/[];
 const BOLD=/*BOLD*/[];
 const FAN=/*FAN*/[],MAISMU=/*MAISMU*/[];
 const SPECS=/*SPECS*/{},BIMG=/*BIMG*/{},BAUD=/*BAUD*/{},BMETA=/*BMETA*/[];
-const PMAP={gummy:'gummy',aura:'aura',saintgermain:'sg',jacklinks:'jack',dux:'dux'};
+const PMAP={gummy:'gummy',aura:'aura',saintgermain:'sg',jacklinks:'jack',dux:'dux',maismu:'mu'};
 /*INLINE*/
 
 const PRODUCTS=[
@@ -795,7 +795,7 @@ const VIDS=(()=>{
   const fa=FAN.map(v=>({...v})).sort((a,b)=>b.score-a.score),mm=MAISMU.map(v=>({...v})).sort((a,b)=>b.score-a.score);
   [fa,mm].forEach(l=>l.forEach((c,i)=>c.n=i+1));
   const out={dot,guday:gd,bold:bd,fan:fa,maismu:mm};
-  for(const [pid,bk] of Object.entries(PMAP)){const l=BMETA.filter(m=>m.brand===bk).map(m=>({...m,spec:m.id})).sort((a,b)=>b.score-a.score);l.forEach((c,i)=>c.n=i+1);if(l.length)out[pid]=l}
+  for(const [pid,bk] of Object.entries(PMAP)){const l=[...(out[pid]||[]),...BMETA.filter(m=>m.brand===bk).map(m=>({...m,spec:m.id}))].sort((a,b)=>b.score-a.score);l.forEach((c,i)=>c.n=i+1);if(l.length)out[pid]=l}
   return out;
 })();
 const LIST=()=>VIDS[state.product]||VIDS.dot;

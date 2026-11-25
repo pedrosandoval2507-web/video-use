@@ -361,3 +361,55 @@ for k, br in B.items():
         v["id"] = f"{k}{i+1:02d}"
         if v["fmt"] == "STORY":
             v["text"] = " ".join(v["sents"])
+
+# ---- história com personagens (Gummy Hair) ----
+B["gummy"]["videos"].append(dict(fmt="STORY", score=99, title="A história da Maria",
+ scenes=[("m_intro",""),("m_frizz",""),("m_escola",""),("m_espelho",""),("m_tentou",""),("m_amiga",""),("m_produto",""),("badges","2|GOMINHAS;+10|VITAMINAS;0|GLÚTEN"),("m_calendario",""),("m_transforma",""),("m_escola2",""),("m_feliz",""),("m_cta","")],
+ sents=["Essa é a Maria.",
+  "A Maria sempre teve o cabelo ressecado, sem brilho e cheio de frizz.",
+  "Todo dia na escola era a mesma coisa: os colegas cochichavam e davam risada quando ela passava.",
+  "Ela chegava em casa, se olhava no espelho e chorava.",
+  "Tentou de tudo: máscara, chapinha, receita da internet, e nada mudava.",
+  "Até que um dia a melhor amiga dela, a Júlia, perguntou: Maria, você já cuida do cabelo de dentro pra fora?",
+  "E mostrou a Gummy Hair, a gominha de vitaminas pra cabelo, pele e unhas.",
+  "São duas gominhas por dia, com sabor de bala, biotina e mais de dez vitaminas e minerais.",
+  "A Maria começou a tomar todo dia, sem falhar.",
+  "As semanas foram passando e, com constância e cuidado, o cabelo dela foi ganhando mais brilho e mais vida.",
+  "Na escola, quem antes ria agora queria saber o segredo.",
+  "E a Maria só respondia: Gummy Hair.",
+  "Quer começar a sua história? Se o carrinho laranja ainda tá aqui embaixo, é porque ainda tem. Clica e garante a sua."]))
+v=B["gummy"]["videos"][-1]; v["ls"]=0.86; v["sil"]=0.25; v["id"]="gummy21"; v["text"]=" ".join(v["sents"])
+
+# ---- +Mu (vídeos com fotos; os cortes de podcast são feitos à parte) ----
+B["mu"] = dict(name="+Mu", tag="+MU · PROTEÍNA GOSTOSA", color="#1e88e5", videos=[
+ dict(fmt="SLIDE", score=97, hook="A CESTA DE PROTEÍNA\\NMAIS LINDA QUE EXISTE", title="A cesta de proteína mais linda",
+  imgs=["cesta_top","cesta_cappuccino","cesta_max","cesta_exquenta","cesta_whey","cesta_mix"],
+  text="Dinheiro não compra felicidade, mas compra uma cesta cheia de +Mu. Whey, cappuccino proteico, Wheyfer Max e pré-treino Exquenta. Tudo com a vaquinha de óculos. Clica no carrinho laranja e monta a sua!"),
+ dict(fmt="POV", score=95, hook="POV: SEU CHOCOLATE\\NTEM PROTEÍNA", title="POV: chocolate com proteína",
+  imgs=["chocolate","barras","display_wheyfer","caixa_pacoca"],
+  text="POV: você come chocolate e ainda bate proteína. É o Wheyfer da +Mu, um wafer crocante coberto de chocolate e com proteína. Sabor de doce de verdade. Clica no carrinho laranja agora, porque esse desconto é por pouco tempo!"),
+ dict(fmt="DOPA", score=94, hook="O WAFER PROTEICO\\NMAIS CROCANTE", title="O wafer proteico mais crocante", bg="tunnel",
+  imgs=["chocolate","display_wheyfer","barras","caixa_pacoca"],
+  text="Esse é o wafer proteico mais crocante que você vai provar. Wheyfer da +Mu, com cobertura de chocolate e recheio que derrete. Até no sabor paçoca. Corre no carrinho laranja, que essa promoção acaba rápido!"),
+ dict(fmt="DADOS", score=93, hook="3 MOTIVOS PRA\\NTROCAR PRA +MU", title="3 motivos pra trocar pra +Mu",
+  imgs=["protein_pacote","cesta_whey","cesta_cappuccino","barras"],
+  cards=[("Um:","SABOR DE\\NVERDADE"),("Dois:","POTE AMIGÁVEL\\NDE 450 G"),("Três:","WHEY, SNACKS\\NE PRÉ-TREINO")],
+  text="Três motivos pra trocar pra +Mu. Um: sabor de verdade, nada de gosto de remédio. Dois: um pote amigável de quatrocentos e cinquenta gramas. Três: tem whey, snacks e pré-treino na mesma marca. Clica no carrinho laranja e garante o seu!"),
+ dict(fmt="SLIDE", score=92, hook="TEM +MU PRA\\NTODO MOMENTO", title="Tem +Mu pra todo momento",
+  imgs=["protein_pacote","cesta_cappuccino","barras","cesta_exquenta","gondola_wheyfer"],
+  labels={"protein_pacote":"WHEY PROTEIN","cesta_cappuccino":"CAPPUCCINO PROTEICO","barras":"WHEYFER","cesta_exquenta":"PRÉ-TREINO EXQUENTA"},
+  text="Tem +Mu pra todo momento. Whey pro pós-treino. Cappuccino proteico pro café. Wheyfer pro lanche. E o pré-treino Exquenta pra dar aquele gás. Clica no carrinho laranja e escolhe o seu!"),
+ dict(fmt="COMPARA", score=91, hook="DOCE COMUM OU\\NWHEYFER?", title="Doce comum ou Wheyfer?", cmp="@doce",
+  imgs=["chocolate","barras","display_wheyfer","gondola_wheyfer"],
+  text="Doce comum ou Wheyfer? Olha a diferença. O doce comum é só açúcar. O Wheyfer da +Mu é crocante, coberto de chocolate e ainda tem proteína. Clica no carrinho laranja e faz a troca!"),
+ dict(fmt="POV", score=90, hook="POV: SEU CAFÉ DA\\NMANHÃ VIROU PROTEÍNA", title="POV: café com proteína",
+  imgs=["cesta_cappuccino","cesta_max","cesta_mix","cesta_top"],
+  text="POV: seu café da manhã virou proteína. Cappuccino proteico da +Mu, cremoso, fácil de preparar e com gostinho de cafeteria. Clica no carrinho laranja e aproveita enquanto tem estoque!"),
+ dict(fmt="DOPA", score=88, hook="ACHEI NA GÔNDOLA\\NE NÃO RESISTI", title="Achei na gôndola", bg="life",
+  imgs=["gondola_wheyfer","prateleira","gondola2","display_wheyfer"],
+  text="Achei na gôndola e não resisti. A +Mu tá chegando em cada vez mais lojas, com Wheyfer, whey e snacks proteicos. Agora também no TikTok Shop. Clica no carrinho laranja e garante o seu!"),
+ dict(fmt="STORY", score=94, title="Por que proteína não precisa ter gosto ruim",
+  scenes=[("pergunta","PROTEÍNA COM GOSTO RUIM?"),("motivo","DÁ PRA TER SABOR"),("badges","450g|POTE;🐮|MUKA;☕|CAPPUCCINO"),("produto","protein_pacote"),("badges","WHEY|PROTEIN;WAFER|PROTEICO"),("cta","cesta_top")],
+  sents=["Você acha que proteína tem que ter gosto ruim?","Não precisa.","Dá pra cuidar do treino comendo coisa gostosa.","A +Mu nasceu pra isso, com a vaquinha de óculos, a Muka.","Tem whey protein, wafer proteico e muito mais.",STORY_CTA]),
+])
+for i,v in enumerate(B["mu"]["videos"]): v["id"]=f"mu_p{i+1:02d}"; v["text"]=v.get("text") or " ".join(v["sents"])

@@ -106,5 +106,5 @@ function render(o,S,t,IM){
     const b=((t-S.ctaT)%0.6)/0.6;o.arrow.style.top=(1120+40*b)+'px'}
 }
 function preload(IM){return Promise.all(Object.values(IM).map(src=>SZ[src]?0:new Promise(r=>{const i=new Image();i.onload=()=>{SZ[src]={w:i.naturalWidth,h:i.naturalHeight};r()};i.onerror=r;i.src=src})))}
-return {mount,render,preload,SZ};
+window.TPx={tunnel,life,mandel};return {mount,render,preload,SZ};
 })();

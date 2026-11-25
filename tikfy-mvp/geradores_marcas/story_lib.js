@@ -140,3 +140,49 @@ var STORY={
    return bg(th[0],th[1],t)+B.map((b,i)=>{const x=n<=3?360+(i-(n-1)/2)*230:200+(i%2)*320,y=n<=3?640:520+Math.floor(i/2)*300;return t>i*.45?badge(x,y,t-i*.45,b[0],b[1],cols[i%4]):''}).join('')},
  cta:(t,img,th,br)=>bg(th[0],th[1],t)+card(br+'/'+img,360,520,400,440,t)+cart(360,960,t)+`<path d="M330 1150 L390 1150 L360 1195Z" fill="#fff" opacity="${.5+.5*Math.sin(t*8)}"/>`,
 };
+
+/* ===== Personagens (história) ===== */
+function girl(x,y,s,o){o=o||{};const h=o.hair==null?0:o.hair,mood=o.mood||'neutral',shirt=o.shirt||'#7C5CFF',hc=o.hc||'#5d3a1a',t=o.t||0;
+ let g=`<g transform="translate(${x},${y}) scale(${s})" filter="url(#sh)">`;
+ // cabelo de trás
+ if(h<0.5){const pts=[];for(let i=0;i<=26;i++){const a=Math.PI*(0.95+1.1*i/26),r=118+(i%2?28:-4)+Math.sin(i*3.1+t*2)*5;pts.push(`${Math.cos(a)*r*1.05},${-20+Math.sin(a)*r}`)}
+   g+=`<polygon points="${pts.join(' ')} 110,40 95,95 -95,95 -110,40" fill="#8a6a4a"/>`;
+   for(let i=0;i<9;i++){const a=Math.PI*(1+i/8),r=150;g+=`<path d="M${Math.cos(a)*r*.8} ${-20+Math.sin(a)*r*.8} q${-10+rnd(i)*20} ${-18} ${-4+rnd(i+3)*12} ${-34}" stroke="#a88a62" stroke-width="5" fill="none"/>`}}
+ else{const L=90+h*170;g+=`<path d="M-108 -40 Q-130 ${L*.5} -100 ${L} L100 ${L} Q130 ${L*.5} 108 -40 Q0 -150 -108 -40Z" fill="${hc}"/>`;
+   g+=`<path d="M-70 -60 Q-95 ${L*.4} -78 ${L-20}" stroke="#a0683a" stroke-width="10" fill="none" opacity="${.3+.5*h}"/><path d="M60 -70 Q90 ${L*.35} 72 ${L-30}" stroke="#c78a50" stroke-width="8" fill="none" opacity="${.3+.5*h}"/>`}
+ // corpo
+ g+=`<path d="M-120 330 Q-115 150 0 150 Q115 150 120 330Z" fill="${shirt}"/><rect x="-22" y="110" width="44" height="50" fill="#f1c19a"/>`;
+ // rosto
+ g+=`<ellipse cx="0" cy="20" rx="92" ry="105" fill="#f6cba5"/>`;
+ // franja
+ if(h<0.5) g+=`<path d="M-95 -10 Q-80 -110 0 -105 Q80 -110 95 -10 Q60 -60 30 -40 Q0 -75 -30 -40 Q-60 -65 -95 -10Z" fill="#8a6a4a"/><path d="M-60 -70 l-8 -22 M-20 -85 l4 -24 M30 -82 l10 -22 M70 -60 l16 -16" stroke="#a88a62" stroke-width="5"/>`;
+ else g+=`<path d="M-95 0 Q-90 -110 0 -108 Q95 -110 95 0 Q50 -70 -10 -60 Q-60 -55 -95 0Z" fill="${hc}"/><path d="M-40 -80 Q0 -98 40 -86" stroke="#d9a06a" stroke-width="7" fill="none" opacity="${h}"/>`;
+ // olhos / boca
+ const blink=(Math.floor(t*1.3)%4===0&&(t*1.3%1)<.12);
+ if(mood==='happy'){g+=`<path d="M-48 15 q14 -14 28 0 M20 15 q14 -14 28 0" stroke="#3b2414" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M-35 55 Q0 92 35 55" stroke="#c2410c" stroke-width="8" fill="#fff" stroke-linecap="round"/><circle cx="-60" cy="50" r="13" fill="#ff8fa3" opacity=".6"/><circle cx="60" cy="50" r="13" fill="#ff8fa3" opacity=".6"/>`}
+ else{g+=blink?`<path d="M-48 12 h28 M20 12 h28" stroke="#3b2414" stroke-width="6"/>`:`<ellipse cx="-34" cy="12" rx="9" ry="12" fill="#3b2414"/><ellipse cx="34" cy="12" rx="9" ry="12" fill="#3b2414"/>`;
+  if(mood==='sad'||mood==='cry') g+=`<path d="M-50 -14 l26 8 M50 -14 l-26 8" stroke="#3b2414" stroke-width="5"/><path d="M-26 70 Q0 52 26 70" stroke="#7c2d12" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+  else g+=`<path d="M-22 62 Q0 72 22 62" stroke="#7c2d12" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+  if(mood==='cry') for(const sx of [-34,34]){const o2=(t*1.6+(sx>0?.5:0))%1;g+=`<path d="M${sx} ${30+o2*70} q-8 14 0 22 q8 -8 0 -22Z" fill="#7dd3fc" opacity="${1-o2*.6}"/>`}}
+ return g+`</g>`}
+function kid(x,y,s,shirt,hc,laugh,t){const b=laugh?Math.abs(Math.sin(t*9))*8:0;return `<g transform="translate(${x},${y-b}) scale(${s})" filter="url(#sh)">
+ <path d="M-100 300 Q-95 140 0 140 Q95 140 100 300Z" fill="${shirt}"/><ellipse cx="0" cy="20" rx="80" ry="92" fill="#e8b48c"/>
+ <path d="M-82 0 Q-80 -95 0 -92 Q80 -95 82 0 Q40 -50 0 -45 Q-40 -50 -82 0Z" fill="${hc}"/>
+ ${laugh?`<path d="M-40 8 q12 -12 24 0 M16 8 q12 -12 24 0" stroke="#2b1a0e" stroke-width="6" fill="none"/><path d="M-30 45 Q0 85 30 45Z" fill="#7c2d12"/>`:`<circle cx="-28" cy="10" r="9" fill="#2b1a0e"/><circle cx="28" cy="10" r="9" fill="#2b1a0e"/><path d="M-20 52 Q0 64 20 52" stroke="#7c2d12" stroke-width="6" fill="none"/>`}</g>`}
+function room(c1,c2){return `<rect width="720" height="1280" fill="${c1}"/><rect y="900" width="720" height="380" fill="${c2}"/><defs><filter id="sh"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-opacity=".35"/></filter><filter id="bl"><feGaussianBlur stdDeviation="8"/></filter></defs>`}
+function nameTag(t,txt,y){const k=pop(t,.4);return `<g transform="translate(360,${y}) scale(${k})" filter="url(#sh)"><rect x="-170" y="-46" width="340" height="92" rx="46" fill="#fff"/><text y="18" text-anchor="middle" font-family="Inter" font-weight="900" font-size="50" fill="#111">${txt}</text></g>`}
+function speech(x,y,t,txt,w){const k=pop(t,.4),L=wrap2(txt);w=w||420;return `<g transform="translate(${x},${y}) scale(${k})" filter="url(#sh)"><rect x="${-w/2}" y="-${L.length>1?80:50}" width="${w}" height="${L.length>1?160:100}" rx="30" fill="#fff"/><path d="M-30 ${L.length>1?78:48} L-60 ${L.length>1?130:100} L10 ${L.length>1?78:48}Z" fill="#fff"/>${L.map((l,i)=>`<text y="${(L.length>1?-10:14)+i*58}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="40" fill="#111">${l}</text>`).join('')}</g>`}
+Object.assign(STORY,{
+ m_intro:(t)=>bg('#f472b6','#5b1033',t)+girl(360,640,1.25,{hair:0,mood:'neutral',t})+nameTag(t-.2,'MARIA',1040),
+ m_frizz:(t)=>bg('#a16207','#2a1a05',t)+`<g transform="translate(360,700) scale(${1.9+0.1*Math.min(1,t)}) translate(-360,-640)">${girl(360,640,1,{hair:0,mood:'sad',t})}</g>`+(t>.5?`<g transform="translate(560,330) scale(${pop(t-.5)})" filter="url(#sh)"><rect x="-140" y="-40" width="280" height="80" rx="40" fill="#111"/><text y="14" text-anchor="middle" font-family="Inter" font-weight="900" font-size="34" fill="#fff">SEM BRILHO</text></g>`:''),
+ m_escola:(t)=>room('#cfe8f5','#9a6b45')+`<rect x="60" y="120" width="600" height="300" rx="12" fill="#1f4d3a"/><text x="360" y="290" text-anchor="middle" font-family="Inter" font-weight="900" font-size="54" fill="#e8f5e9" opacity=".9">2 + 2 = 4</text>`+kid(150,760,.85,'#ef4444','#2b1a0e',true,t)+kid(570,760,.85,'#22c55e','#f4c542',true,t)+girl(360,820,.95,{hair:0,mood:'sad',t,shirt:'#7C5CFF'})+[0,1].map(i=>`<text x="${i?600:120}" y="${560-Math.abs(Math.sin(t*6+i))*20}" text-anchor="middle" font-family="Inter" font-weight="900" font-size="54" fill="#111">HAHA</text>`).join(''),
+ m_espelho:(t)=>room('#3b2f4a','#241a30')+`<g filter="url(#sh)"><ellipse cx="360" cy="560" rx="250" ry="330" fill="#cbd5e1"/><ellipse cx="360" cy="560" rx="225" ry="305" fill="#e0f2fe"/></g><clipPath id="mir"><ellipse cx="360" cy="560" rx="225" ry="305"/></clipPath><g clip-path="url(#mir)">${girl(360,560,1.05,{hair:0,mood:'cry',t})}</g>`,
+ m_tentou:(t)=>bg('#475569','#0f172a',t)+[['🧴','MÁSCARA'],['🔥','CHAPINHA'],['📱','RECEITA DA INTERNET']].map((it,i)=>{const tt=t-i*.5;if(tt<0)return'';const k=pop(tt);const y=380+i*280;return `<g transform="translate(360,${y}) scale(${k})" filter="url(#sh)"><rect x="-260" y="-90" width="520" height="180" rx="30" fill="#fff"/><text x="-170" y="30" text-anchor="middle" font-size="90">${it[0]}</text><text x="60" y="18" text-anchor="middle" font-family="Inter" font-weight="900" font-size="${it[1].length>12?30:40}" fill="#111">${it[1]}</text>${tt>.35?`<path d="M-240 -70 L240 70 M240 -70 L-240 70" stroke="#ef4444" stroke-width="14" stroke-linecap="round" opacity=".9"/>`:''}</g>`}).join(''),
+ m_amiga:(t)=>room('#fde68a','#d97706')+girl(220,760,.9,{hair:0,mood:'neutral',t})+girl(520,760,.9,{hair:1,mood:'happy',t,shirt:'#2DD4FF',hc:'#1f1209'})+nameTag(t-.3,'JÚLIA',1130).replace('translate(360,','translate(520,')+speech(470,330,t-.2,'JÁ CUIDA DO CABELO DE DENTRO PRA FORA?',560),
+ m_produto:(t,img,th,br)=>bg('#ff4fa3','#3a0a22',t)+sparkles(360,650,320,t)+card('gummy/rosa_pote',360,640,460,520,t,t<.4?-6:0),
+ m_calendario:(t)=>bg('#f472b6','#5b1033',t)+calendar(360,640,t*1.3,[]),
+ m_transforma:(t)=>{const h=t<1.2?0:Math.min(1,.5+(t-1.2)/4);return bg('#ec4899','#4a0d2a',t,'#ffd1e8')+girl(360,660,1.25,{hair:h,mood:h>.7?'happy':'neutral',t,hc:'#3d2410'})+sparkles(360,560,260,t)+`<g transform="translate(360,1120)" filter="url(#sh)"><rect x="-230" y="-40" width="460" height="80" rx="40" fill="#fff"/><text y="14" text-anchor="middle" font-family="Inter" font-weight="900" font-size="34" fill="#111">SEMANA ${Math.min(8,1+Math.floor(t/0.8))}</text></g>`},
+ m_escola2:(t)=>room('#cfe8f5','#9a6b45')+`<rect x="60" y="120" width="600" height="300" rx="12" fill="#1f4d3a"/>`+kid(150,760,.85,'#ef4444','#2b1a0e',false,t)+kid(570,760,.85,'#22c55e','#f4c542',false,t)+girl(360,800,1,{hair:1,mood:'happy',t,hc:'#3d2410'})+speech(360,500,t-.2,'QUAL É O SEU SEGREDO?',480)+[0,1,2].map(i=>{const o=(t*.8+i*.33)%1;return `<text x="${200+i*160}" y="${700-o*200}" font-size="54" opacity="${1-o}">💖</text>`}).join(''),
+ m_feliz:(t)=>bg('#f472b6','#5b1033',t,'#ffe4f1')+sparkles(360,600,300,t)+girl(260,700,1,{hair:1,mood:'happy',t,hc:'#3d2410'})+card('gummy/rosa_pote',520,820,200,240,t-.3,8)+speech(380,280,t-.2,'GUMMY HAIR! 💖',420),
+ m_cta:(t,img,th,br)=>bg('#ff4fa3','#3a0a22',t)+card('gummy/kit_tutti',360,520,420,330,t)+cart(360,960,t)+`<path d="M330 1150 L390 1150 L360 1195Z" fill="#fff" opacity="${.5+.5*Math.sin(t*8)}"/>`,
+});
