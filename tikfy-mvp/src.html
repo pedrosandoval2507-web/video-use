@@ -102,7 +102,7 @@ h3{font-size:18px;font-weight:700}
 .panel{position:relative;width:100%;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:40px}
 @media(max-width:520px){.panel{padding:28px 20px}}
 .panel.sm{max-width:520px}
-.panel.lg{max-width:1040px}
+.panel.lg{max-width:1180px}
 .skip{position:absolute;top:16px;right:16px;width:38px;height:38px;border-radius:50%;background:var(--card2);color:#fff;font-size:18px;display:grid;place-items:center;border:1px solid var(--line)}
 .skip:hover{background:var(--red-d)}
 .skip-tip{position:absolute;top:22px;right:62px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
@@ -122,8 +122,15 @@ h3{font-size:18px;font-weight:700}
 .check input{margin-top:3px;accent-color:var(--red-d)}
 
 /* plans */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:10px}
-@media(max-width:860px){.plans{grid-template-columns:1fr}}
+.plans{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:10px}
+@media(max-width:1100px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.plans{grid-template-columns:1fr}}
+.plan.biz{background:linear-gradient(160deg,#1C1C2B,#14141F);border-color:#3a3a55}
+.plan.biz .price{font-size:30px;line-height:1.2}
+.plan .price{white-space:nowrap;font-size:34px!important}
+.plan.biz .price{font-size:30px!important}
+.plan{padding:24px!important;min-width:0}
+.bizform{max-width:560px}
 .plan{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;position:relative;transition:.15s;cursor:pointer}
 .plan:hover{border-color:#444}
 .plan.sel{border-color:var(--cyan-d);box-shadow:0 0 0 4px rgba(45,212,255,.12)}
@@ -416,7 +423,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   <section style="padding-top:0">
     <div class="wrap"><div class="cta-band">
       <h2>Pronto pra sua <span class="hl-r">primeira comissão</span>?</h2>
-      <p class="lead" style="margin:12px auto 24px;max-width:560px">Planos a partir de R$ 50/mês. Cancele quando quiser.</p>
+      <p class="lead" style="margin:12px auto 24px;max-width:560px">Planos a partir de R$ 79,90/mês. Cancele quando quiser.</p>
       <a href="#cadastro" class="btn btn-primary">Começar agora</a>
     </div></div>
   </section>
@@ -461,7 +468,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="plans">
         <div class="plan" data-plan="Start">
           <div class="name">Start</div>
-          <div class="price">R$ 50<small>/mês</small></div>
+          <div class="price">R$ 79,90<small>/mês</small></div>
           <div class="vids">10 vídeos por mês</div>
           <ul>
             <li>1 produto afiliado</li>
@@ -476,7 +483,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div class="plan pop" data-plan="Pro">
           <span class="badge">⭐ MAIS ESCOLHIDO</span>
           <div class="name">Pro</div>
-          <div class="price">R$ 100<small>/mês</small></div>
+          <div class="price">R$ 159,90<small>/mês</small></div>
           <div class="vids">20 vídeos por mês</div>
           <ul>
             <li>Até 3 produtos afiliados</li>
@@ -490,7 +497,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         </div>
         <div class="plan" data-plan="Escala">
           <div class="name">Escala</div>
-          <div class="price">R$ 150<small>/mês</small></div>
+          <div class="price">R$ 210,90<small>/mês</small></div>
           <div class="vids">40 vídeos por mês</div>
           <ul>
             <li>Produtos ilimitados</li>
@@ -502,6 +509,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           </ul>
           <button class="btn btn-cyan btn-block">Escolher Escala</button>
         </div>
+        <div class="plan biz" data-plan="Business">
+          <div class="name">Business</div>
+          <div class="price">Sob consulta</div>
+          <div class="vids">Para empresas e agências</div>
+          <ul>
+            <li>Volume de vídeos personalizado</li>
+            <li>Múltiplos perfis e marcas</li>
+            <li>Gestor de conta dedicado</li>
+            <li>Relatórios de desempenho</li>
+            <li>Integração com a sua equipe</li>
+            <li>Contrato e faturamento empresarial</li>
+          </ul>
+          <button class="btn btn-ghost btn-block">Fale com um especialista</button>
+        </div>
       </div>
       <div class="guarantee"><span>🔒 Pagamento seguro</span><span>↩ 7 dias de garantia</span><span>✕ Cancele quando quiser</span></div>
     </div>
@@ -509,6 +530,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </div>
 
 
+
+<!-- ================= BUSINESS ================= -->
+<div class="view" id="v-business">
+  <div class="flow">
+    <div class="panel bizform">
+      <h2>Tikfy Business</h2>
+      <p class="sub">Soluções sob medida para empresas, marcas e agências. Preencha o formulário e nossa equipe comercial entrará em contato em até 1 dia útil para entender as suas necessidades.</p>
+      <form id="fBiz" novalidate>
+        <div class="field"><label>Nome completo</label><input name="nome" required></div>
+        <div class="row2">
+          <div class="field"><label>E-mail corporativo</label><input name="email" type="email" required></div>
+          <div class="field"><label>Telefone</label><input name="tel" inputmode="numeric" maxlength="15" required></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Empresa</label><input name="empresa" required></div>
+          <div class="field"><label>CNPJ (opcional)</label><input name="cnpj" inputmode="numeric" maxlength="18"></div>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Cargo</label><input name="cargo"></div>
+          <div class="field"><label>Volume estimado</label><select name="vol"><option>Até 100 vídeos/mês</option><option>100 a 500 vídeos/mês</option><option>Mais de 500 vídeos/mês</option></select></div>
+        </div>
+        <div class="field"><label>Conte um pouco sobre as suas necessidades</label><textarea name="msg" rows="4" style="width:100%;background:#0A0A12;border:1px solid var(--line);color:#F5F5FA;padding:13px 14px;border-radius:12px;font:inherit;font-size:15px;outline:none;resize:vertical"></textarea></div>
+        <button class="btn btn-primary btn-block" type="submit">Solicitar contato</button>
+        <p class="small center" style="margin-top:12px">Protótipo: nenhum dado é enviado. <a href="#planos" class="hl-c">← Voltar aos planos</a></p>
+      </form>
+    </div>
+  </div>
+</div>
 <!-- ================= CHECKOUT ================= -->
 <div class="view" id="v-checkout">
   <div class="flow">
@@ -549,7 +598,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div class="line"><span>Vídeos por mês</span><b id="sumVids">20</b></div>
         <div class="line"><span>Cobrança</span><b>Mensal</b></div>
         <div class="line"><span>Conta</span><b id="sumUser">—</b></div>
-        <div class="tot"><span>Total</span><span id="sumTot">R$ 100,00</span></div>
+        <div class="tot"><span>Total</span><span id="sumTot">R$ 159,90</span></div>
         <p class="small" style="margin-top:14px">Renovação automática todo mês. Cancele a qualquer momento.</p>
         <a href="#planos" class="btn btn-ghost btn-sm btn-block" style="margin-top:14px">← Trocar plano</a>
       </div>
@@ -903,17 +952,26 @@ f.addEventListener('submit',e=>{
 /* ---------- plans ---------- */
 document.querySelectorAll('.plan').forEach(pl=>pl.onclick=()=>{
   document.querySelectorAll('.plan').forEach(x=>x.classList.remove('sel'));pl.classList.add('sel');
+  if(pl.dataset.plan==='Business'){go('business');return}
   if(!state.user){toast('Crie sua conta pra assinar 🙂');go('cadastro');return}
   state.plan=pl.dataset.plan;openCheckout();
 });
 
 
+
+const fb=document.getElementById('fBiz');
+fb.tel.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);e.target.value=v.replace(/^(\d{2})(\d)/,'($1) $2').replace(/(\d{5})(\d)/,'$1-$2')});
+fb.cnpj.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,14);e.target.value=v.replace(/^(\d{2})(\d)/,'$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3').replace(/\.(\d{3})(\d)/,'.$1/$2').replace(/(\d{4})(\d)/,'$1-$2')});
+fb.addEventListener('submit',e=>{e.preventDefault();let ok=true;fb.querySelectorAll('[required]').forEach(i=>{const bad=!i.value.trim()||(i.type==='email'&&!/^\S+@\S+\.\S+$/.test(i.value));i.classList.toggle('err',bad);if(bad)ok=false});
+  if(!ok){toast('Preencha os campos obrigatórios');return}
+  fb.closest('.panel').innerHTML='<h2>Solicitação recebida ✅</h2><p class="sub" style="margin-top:8px">Obrigado pelo interesse na Tikfy Business. Um especialista entrará em contato em até 1 dia útil.</p><a href="#home" class="btn btn-primary">Voltar ao início</a>'});
+
 /* ---------- checkout ---------- */
-const PRICES={Start:50,Pro:100,Escala:150},VIDSN={Start:10,Pro:20,Escala:40};
+const PRICES={Start:79.90,Pro:159.90,Escala:210.90},VIDSN={Start:10,Pro:20,Escala:40};
 function openCheckout(){const p=state.plan||'Pro';
   document.getElementById('sumPlan').textContent=p;document.getElementById('sumVids').textContent=VIDSN[p];
   document.getElementById('sumUser').textContent=state.user?state.user.tiktok:'—';
-  const tot=`R$ ${PRICES[p]},00`;document.getElementById('sumTot').textContent=tot;document.getElementById('payBtn').textContent=`Pagar ${tot}`;
+  const tot='R$ '+PRICES[p].toFixed(2).replace('.',',');document.getElementById('sumTot').textContent=tot;document.getElementById('payBtn').textContent=`Pagar ${tot}`;
   const sel=document.querySelector('#fPay [name=parc]');sel.innerHTML=[1,2,3].map(n=>`<option>${n}x de R$ ${(PRICES[p]/n).toFixed(2).replace('.',',')} sem juros</option>`).join('');
   if(state.user&&state.user.cpf) document.querySelector('#fPay [name=cpf]').value=state.user.cpf;
   go('checkout')}
