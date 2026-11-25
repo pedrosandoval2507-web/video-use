@@ -469,7 +469,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div class="plan" data-plan="Start">
           <div class="name">Start</div>
           <div class="price">R$ 79,90<small>/mês</small></div>
-          <div class="vids">10 vídeos por mês</div>
+          <div class="vids">100 vídeos por mês</div>
           <ul>
             <li>1 produto afiliado</li>
             <li>Cortes automáticos + vídeos com IA</li>
@@ -484,7 +484,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <span class="badge">⭐ MAIS ESCOLHIDO</span>
           <div class="name">Pro</div>
           <div class="price">R$ 159,90<small>/mês</small></div>
-          <div class="vids">20 vídeos por mês</div>
+          <div class="vids">300 vídeos por mês</div>
           <ul>
             <li>Até 3 produtos afiliados</li>
             <li>Cortes automáticos + vídeos com IA</li>
@@ -498,7 +498,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div class="plan" data-plan="Escala">
           <div class="name">Escala</div>
           <div class="price">R$ 210,90<small>/mês</small></div>
-          <div class="vids">40 vídeos por mês</div>
+          <div class="vids">500 vídeos por mês</div>
           <ul>
             <li>Produtos ilimitados</li>
             <li>Cortes automáticos + vídeos com IA</li>
@@ -698,7 +698,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="center" style="margin-bottom:40px"><span class="eyebrow">Passo a passo</span><h2 style="margin-top:14px">Do zero à primeira venda</h2></div>
       <div class="grid4">
         <div class="card"><div class="step-n">1</div><h3>Crie sua conta</h3><p>Nome, CPF, e-mail, telefone e seu @ do TikTok.</p></div>
-        <div class="card"><div class="step-n" style="color:var(--red)">2</div><h3>Escolha o plano</h3><p>10, 20 ou 40 vídeos por mês, conforme o seu ritmo.</p></div>
+        <div class="card"><div class="step-n" style="color:var(--red)">2</div><h3>Escolha o plano</h3><p>100, 300 ou 500 vídeos por mês, conforme o seu ritmo.</p></div>
         <div class="card"><div class="step-n">3</div><h3>Afilie-se a um produto</h3><p>Escolha no ranking e faça a afiliação dentro do TikTok Shop.</p></div>
         <div class="card"><div class="step-n" style="color:var(--red)">4</div><h3>Poste e ganhe</h3><p>Receba os cortes, ajuste pelo chat se quiser, poste e ganhe comissão por venda.</p></div>
       </div>
@@ -967,7 +967,7 @@ fb.addEventListener('submit',e=>{e.preventDefault();let ok=true;fb.querySelector
   fb.closest('.panel').innerHTML='<h2>Solicitação recebida ✅</h2><p class="sub" style="margin-top:8px">Obrigado pelo interesse na Tikfy Business. Um especialista entrará em contato em até 1 dia útil.</p><a href="#home" class="btn btn-primary">Voltar ao início</a>'});
 
 /* ---------- checkout ---------- */
-const PRICES={Start:79.90,Pro:159.90,Escala:210.90},VIDSN={Start:10,Pro:20,Escala:40};
+const PRICES={Start:79.90,Pro:159.90,Escala:210.90},VIDSN={Start:100,Pro:300,Escala:500};
 function openCheckout(){const p=state.plan||'Pro';
   document.getElementById('sumPlan').textContent=p;document.getElementById('sumVids').textContent=VIDSN[p];
   document.getElementById('sumUser').textContent=state.user?state.user.tiktok:'—';
