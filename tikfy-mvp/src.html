@@ -270,6 +270,10 @@ h3{font-size:18px;font-weight:700}
 .clip .info .s{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
 .clip .info .acts{display:flex;gap:6px;margin-top:auto;padding-top:10px}
 .clip .info .acts button,.clip .info .acts a{flex:1;padding:8px;border-radius:8px;background:var(--card2);color:#fff;font-size:12px;font-weight:600;text-align:center}
+.clip .info .acts button.dl{background:var(--accent);color:#1a0b06;font-weight:800}
+.dlbox{position:fixed;inset:0;background:rgba(10,10,18,.9);z-index:260;display:none;align-items:center;justify-content:center}.dlbox.on{display:flex}
+.dlcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:26px;width:min(92vw,380px);text-align:center}
+.dlcard .bar{margin:16px 0}
 .clip .info .acts button:hover,.clip .info .acts a:hover{background:#2a2a32}
 .fmt-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 
@@ -566,7 +570,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <p class="small" style="margin-top:6px">TikTok Shop Brasil · escolha um produto e clique em <b style="color:#fff">Afiliar</b></p>
         </div>
         <div class="filters" id="catChips">
-          <button class="chip on" data-cat="Todos">Todos</button><button class="chip" data-cat="Suplementos">💪 Suplementos</button><button class="chip" data-cat="Beleza">💄 Beleza</button><button class="chip" data-cat="Alimentos">🍫 Alimentos</button><button class="chip" data-cat="Acessórios">⌚ Acessórios</button>
+          <button class="chip on" data-cat="Todos">Todos</button><button class="chip" data-cat="Suplementos">💪 Suplementos</button><button class="chip" data-cat="Beleza">💄 Beleza</button><button class="chip" data-cat="Alimentos">🍫 Alimentos</button><button class="chip" data-cat="Acessórios">⌚ Acessórios</button><button class="chip" data-cat="Casa">🏠 Casa</button>
         </div>
       </div>
       <div class="lockbar" id="lockBar"><div><b>🔒 Você está vendo a vitrine</b><br><span>Crie sua conta e escolha um plano pra se afiliar e receber os vídeos prontos.</span></div><a href="#cadastro" class="btn btn-buy btn-sm">Criar conta e assinar</a></div>
@@ -616,7 +620,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <div><h2 style="font-size:28px">Seus vídeos estão prontos! 🎉</h2><p class="small" id="resSub"></p></div>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a href="#ranking" class="btn btn-primary">+ Outro produto</a>
+          <button class="btn btn-buy" onclick="dlAll()">⬇ Baixar todos</button><a href="#ranking" class="btn btn-primary">+ Outro produto</a>
         </div>
       </div>
       <div class="legend">
@@ -713,7 +717,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <p class="small" id="medits" style="margin-top:10px;color:var(--cyan)"></p>
       <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
         
-        <button class="btn btn-ghost btn-sm" id="mcap">📋 Copiar legenda</button>
+        <button class="btn btn-buy btn-sm" id="mdl2">⬇ Baixar vídeo</button><button class="btn btn-ghost btn-sm" id="mcap">📋 Copiar legenda</button>
       </div>
     </div>
   </div>
@@ -728,6 +732,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <div class="mvp-flag">MVP · PROTÓTIPO</div>
 <div class="toast" id="toast"></div>
+<div class="dlbox" id="dlbox"><div class="dlcard"><h3 id="dlTitle">Preparando seu vídeo…</h3><p class="small" id="dlSub" style="margin-top:6px">Gravando em alta qualidade</p><div class="bar"><i id="dlBar"></i></div><div id="dlBtns" style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap"></div></div></div>
 
 <script>
 const LOGOS=/*LOGOS*/{};
@@ -736,6 +741,7 @@ const CLIPS=/*CLIPS*/[];
 const IA=/*IA*/[];
 const GUDAY=/*GUDAY*/[];
 const BOLD=/*BOLD*/[];
+const FAN=/*FAN*/[],MAISMU=/*MAISMU*/[];
 const SPECS=/*SPECS*/{},BIMG=/*BIMG*/{},BAUD=/*BAUD*/{},BMETA=/*BMETA*/[];
 const PMAP={gummy:'gummy',aura:'aura',saintgermain:'sg',jacklinks:'jack',dux:'dux'};
 /*INLINE*/
@@ -746,7 +752,7 @@ const PRODUCTS=[
   {id:'aura',name:'Aura Beauty',cat:'Beleza',sub:'Skincare',sales:'41,8 mil',grow:'+27%',com:'22%'},
   {id:'dux',name:'DUX Nutrition Lab',cat:'Suplementos',sub:'Fitness',sales:'36,2 mil',grow:'+22%',com:'15%'},
   {id:'gummy',name:'Gummy Hair',cat:'Beleza',sub:'Cabelo',sales:'33,9 mil',grow:'+19%',com:'20%'},
-  {id:'sainttropez',name:'Saint Tropez',cat:'Beleza',sub:'Autobronzeador',sales:'29,5 mil',grow:'+17%',com:'18%'},
+  {id:'fan',name:'Ventilador de Teto LED',cat:'Casa',sub:'Ventila e ilumina · bocal E27',sales:'29,5 mil',grow:'+41%',com:'18%'},
   {id:'saintgermain',name:'Saint Germain',cat:'Acessórios',sub:'Relógios',sales:'26,7 mil',grow:'+15%',com:'16%'},
   {id:'jacklinks',name:"Jack Link's",cat:'Alimentos',sub:'Snacks de carne',sales:'22,3 mil',grow:'+12%',com:'12%'},
   {id:'maismu',name:'+Mu',cat:'Alimentos',sub:'Proteico',sales:'19,8 mil',grow:'+10%',com:'15%'},
@@ -786,12 +792,16 @@ const VIDS=(()=>{
   const gd=GUDAY.map(v=>({...v})).sort((a,b)=>b.score-a.score);
   const bd=BOLD.map(v=>({...v})).sort((a,b)=>b.score-a.score);
   [dot,gd,bd].forEach(l=>l.forEach((c,i)=>c.n=i+1));
-  const out={dot,guday:gd,bold:bd};
+  const fa=FAN.map(v=>({...v})).sort((a,b)=>b.score-a.score),mm=MAISMU.map(v=>({...v})).sort((a,b)=>b.score-a.score);
+  [fa,mm].forEach(l=>l.forEach((c,i)=>c.n=i+1));
+  const out={dot,guday:gd,bold:bd,fan:fa,maismu:mm};
   for(const [pid,bk] of Object.entries(PMAP)){const l=BMETA.filter(m=>m.brand===bk).map(m=>({...m,spec:m.id})).sort((a,b)=>b.score-a.score);l.forEach((c,i)=>c.n=i+1);if(l.length)out[pid]=l}
   return out;
 })();
 const LIST=()=>VIDS[state.product]||VIDS.dot;
 const PINFO={dot:{name:'Dot',desc:'cortes do Shark Tank + vídeos POV com IA',steps:['Buscando vídeos da Dot na internet','Transcrevendo e encontrando os melhores ganchos','Gerando 30 cortes automáticos','Criando 3 vídeos POV com IA (roteiro + voz)','Aplicando formatos: tela partida, chamada de venda, dados…','Calculando a força de venda de cada vídeo']},
+  fan:{name:'Ventilador de Teto LED',desc:'trechos de avaliações reais + fotos, com roteiro e narração originais',steps:['Buscando vídeos e fotos do ventilador','Recortando só o produto (sem interface, sem rostos)','Escrevendo 20 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: cortes, dopamina, antes e depois…','Calculando a força de venda de cada vídeo']},
+  maismu:{name:'+Mu',desc:'cortes do podcast com os fundadores + vídeos da marca',steps:['Buscando podcasts e vídeos da +Mu','Transcrevendo 1h37 de podcast','Encontrando os trechos que mais vendem','Gerando legendas e ganchos','Montando cortes e vídeos com fotos','Calculando a força de venda de cada vídeo']},
   bold:{name:'Bold',desc:'trechos reais do produto + fotos, com roteiro e narração originais',steps:['Buscando vídeos e fotos da Bold na internet','Selecionando trechos sem rosto e sem texto na tela','Escrevendo 20 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: cortes narrados, dopamina, slideshow, explicativo…','Calculando a força de venda de cada vídeo']},
   ...Object.fromEntries(Object.entries({gummy:'Gummy Hair',aura:'Aura Beauty',saintgermain:'Saint Germain',jacklinks:"Jack Link's",dux:'DUX'}).map(([k,n])=>[k,{name:n,desc:'vídeos gerados com IA a partir das fotos do produto',steps:[`Buscando fotos da ${n} na internet`,'Recortando só o produto (sem rostos)','Escrevendo 20 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: slideshow, POV, dopamina, explicativo…','Calculando a força de venda de cada vídeo']}])),
   guday:{name:'Guday',desc:'vídeos com IA a partir das fotos do produto',steps:['Buscando fotos da Guday na internet','Pesquisando o produto: creatina em gummies','Escrevendo 10 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: dopamina, POV, slideshow, comparação…','Calculando a força de venda de cada vídeo']}};
@@ -970,7 +980,7 @@ function renderClips(){
         <span class="fmt">${c.format==='IA'?'🤖 IA · POV':c.format}</span>${hasEd?'<span class="edited">✏️ editado</span>':''}
         <div class="play">▶</div><span class="rankn">#${c.n}</span><span class="dur">${durTxt(c.dur)}</span></div>
       <div class="info"><div class="t">Vídeo ${c.n} · ${c.title}</div><div class="s">${c.why}</div>
-        <div class="acts"><button onclick="openClip(${c.n})">▶ Assistir</button><button onclick="copyCap(${c.n})">📋 Legenda</button></div></div></div>`}).join('');
+        <div class="acts"><button onclick="openClip(${c.n})">▶ Assistir</button><button class="dl" onclick="dlVideo(${c.n})">⬇ Baixar</button><button onclick="copyCap(${c.n})">📋</button></div></div></div>`}).join('');
 }
 function copyCap(n){
   const c=LIST().find(x=>x.n===n);
@@ -1001,7 +1011,7 @@ function openItem(c){
   document.getElementById('mtitle').textContent=`Vídeo ${n} · `+c.title;
   document.getElementById('mdesc').innerHTML=`<b>Formato:</b> ${c.format} · ${durTxt(c.dur)}<br>${c.why}<br><br><b>Legenda:</b> ${c.caption}`;
   
-  document.getElementById('mcap').onclick=()=>navigator.clipboard?.writeText(c.caption).then(()=>toast('Legenda copiada ✅'),()=>toast(c.caption));
+  document.getElementById('mdl2').onclick=()=>dlVideo(c.n);document.getElementById('mcap').onclick=()=>navigator.clipboard?.writeText(c.caption).then(()=>toast('Legenda copiada ✅'),()=>toast(c.caption));
   applyOverlay(ed);
   document.getElementById('medits').textContent=editsTxt(ed);
   document.getElementById('modal').classList.add('on');
@@ -1078,6 +1088,84 @@ function handle(q){
   return `✅ Pronto! No vídeo ${n}, ${done.join(', ')}. <a onclick="openClip(${n})">Ver vídeo ${n} ▶</a>`;
 }
 addMsg('Oi! 👋 Sou o editor da Tikfy. Os vídeos estão ordenados do mais forte pro mais fraco. Me peça ajustes, por exemplo: <i>"no vídeo 1, corta no segundo 5"</i> ou <i>"vídeo 2, adicione o texto ÚLTIMAS UNIDADES embaixo"</i>.','bot');
+
+
+/* ---------- download (grava o vídeo no próprio aparelho) ---------- */
+const CV=(()=>{
+ const rr=(c,x,y,w,h,r)=>{c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath()};
+ const IMC={};function img(src){if(!IMC[src]){const i=new Image();i.src=src;IMC[src]=i}return IMC[src]}
+ const font=(w,s)=>`${w} ${s}px Inter, system-ui, sans-serif`;
+ function box(c,lines,cx,top,fs,fg,bgc,pad=14,scale=1){c.save();c.font=font(900,fs);const lh=fs*1.15,W=Math.max(...lines.map(l=>c.measureText(l).width))+pad*2+8,H=lines.length*lh+pad*1.4;
+   c.translate(cx,top+H/2);c.scale(scale,scale);c.fillStyle=bgc;rr(c,-W/2,-H/2,W,H,6);c.fill();c.fillStyle=fg;c.textAlign='center';c.textBaseline='middle';lines.forEach((l,i)=>c.fillText(l,0,-H/2+pad*.7+lh*(i+.5)));c.restore()}
+ const L=s=>String(s).split('\\N');
+ function blurBg(c,im,dopa){const t=document.createElement('canvas');t.width=24;t.height=43;const k=t.getContext('2d');const s=Math.max(24/im.naturalWidth,43/im.naturalHeight);k.drawImage(im,(24-im.naturalWidth*s)/2,(43-im.naturalHeight*s)/2,im.naturalWidth*s,im.naturalHeight*s);
+   c.save();c.imageSmoothingEnabled=true;c.drawImage(t,-40,-40,800,dopa?800:1360);c.fillStyle='rgba(0,0,0,.52)';c.fillRect(0,0,720,1280);c.restore()}
+ function contain(c,im,cx,cy,bw,bh,z){const k=Math.min(bw/im.naturalWidth,bh/im.naturalHeight)*z,w=im.naturalWidth*k,h=im.naturalHeight*k;c.drawImage(im,cx-w/2,cy-h/2,w,h)}
+ function caption(c,S,t,y){let gi=-1;for(let i=0;i<S.groups.length;i++) if(t>=S.groups[i].s) gi=i;if(gi<0||t>S.groups[gi].e) return;
+   const g=S.groups[gi],W=S.words;c.save();c.font=font(900,56);c.textBaseline='middle';const parts=g.w.map((i,j)=>({t:W[i][2].replace(/[.,!?;:]/g,'').toUpperCase(),on:t>=W[i][0]&&((j===g.w.length-1)||t<W[g.w[j+1]][0])}));
+   const sp=c.measureText(' ').width,tot=parts.reduce((a,p)=>a+c.measureText(p.t).width,0)+sp*(parts.length-1);let x=360-tot/2;const sc=1.12-0.12*Math.min(1,(t-g.s)/0.09);
+   c.translate(360,y);c.scale(sc,sc);c.translate(-360,-y);c.lineJoin='round';c.lineWidth=10;c.strokeStyle='#000';
+   for(const p of parts){c.strokeText(p.t,x,y);c.fillStyle=p.on?'#FFD54A':'#fff';c.fillText(p.t,x,y);x+=c.measureText(p.t).width+sp}c.restore()}
+ function storyCap(c,S,t){let gi=-1;for(let i=0;i<S.groups.length;i++) if(t>=S.groups[i].s) gi=i;if(gi<0||t>S.groups[gi].e) return;const g=S.groups[gi],W=S.words;
+   c.save();c.font=font(900,56);c.textBaseline='middle';const ps=g.w.map((i,j)=>({t:W[i][2].replace(/[.,!?;:]/g,''),vis:t>=W[i][0],on:(j===g.w.length-1)||t<W[g.w[j+1]][0]}));
+   const sp=c.measureText(' ').width,tot=ps.reduce((a,p)=>a+c.measureText(p.t).width,0)+sp*(ps.length-1);let x=360-tot/2;
+   for(const p of ps){if(p.vis){c.fillStyle=p.on?'#fff':'rgba(255,255,255,.55)';c.fillText(p.t,x,165)}x+=c.measureText(p.t).width+sp}c.restore()}
+ let svgImg=null,svgBusy=false;
+ function drawSvg(c,str){if(!svgBusy){svgBusy=true;const u=URL.createObjectURL(new Blob([`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="1280" viewBox="0 0 720 1280">${str}</svg>`],{type:'image/svg+xml'}));const i=new Image();i.onload=()=>{svgImg=i;svgBusy=false;setTimeout(()=>URL.revokeObjectURL(u),2000)};i.onerror=()=>{svgBusy=false};i.src=u}
+   if(svgImg) c.drawImage(svgImg,0,0)}
+ const dcv=document.createElement('canvas');dcv.width=360;dcv.height=320;
+ function draw(c,S,t,IM){c.fillStyle='#000';c.fillRect(0,0,720,1280);const dopa=S.fmt==='DOPA';
+  if(S.fmt==='STORY'){window.IMG=IM;let cur=S.scenes[0];for(const s of S.scenes) if(t>=s.t0) cur=s;const lt=t-cur.t0,fr=Math.floor(t*12),jx=(rnd(fr)-.5)*5,jy=(rnd(fr+7)-.5)*5,jr=(rnd(fr+13)-.5)*.6;
+    drawSvg(c,`<g transform="translate(${jx},${jy}) rotate(${jr} 360 640)">${STORY[cur.kind](lt,cur.arg,{gummy:['#ff4fa3','#3a0a22'],aura:['#c9935a','#2a1608'],sg:['#4a4a58','#0b0b10'],jack:['#c62828','#2a0606'],dux:['#37474f','#05090b']}[S.brand]||['#1e3a8a','#081233'],S.brand)}</g>`);storyCap(c,S,t);return}
+  let seg=S.tl[0],k=0;for(let i=0;i<S.tl.length;i++) if(t>=S.tl[i].t0){seg=S.tl[i];k=i}
+  const p=Math.min(1,Math.max(0,(t-seg.t0)/Math.max(.01,seg.t1-seg.t0))),z=k%2?1.06-0.06*p:1+0.06*p;
+  if(seg.img==='@cmp'){c.fillStyle='#14141f';c.fillRect(0,0,720,1280);c.fillStyle='#2b2b33';c.fillRect(0,0,720,640);
+    const first=S.tl.find(x=>x.img!=='@cmp');const im=img(IM[S.brand+'/'+first.img]);if(im.complete&&im.naturalWidth)contain(c,im,360,960,600,520,z);
+    box(c,['COMUM'],120,560,42,'#fff','#FF4D6D');box(c,[S.brandName||'ESTE'],160,1180,42,'#111','#2DD4FF')}
+  else{const im=img(IM[S.brand+'/'+seg.img]);if(im.complete&&im.naturalWidth){blurBg(c,im,dopa);contain(c,im,360,dopa?320:667,666,dopa?585:866,z)}
+    if(dopa){const f={tunnel:TPx.tunnel,life:TPx.life,mandel:TPx.mandel}[S.bg]||TPx.tunnel;f(dcv,t);c.drawImage(dcv,0,640,720,640)}}
+  const pre=t<S.ctaT;
+  if(pre&&S.hook){const sc=t<.16?1+0.07*t/.16:1.07-0.07*Math.min(1,(t-.16)/.14);box(c,L(S.hook),360,dopa?60:130,42,S.hookCol[0],S.hookCol[1],14,sc)}
+  const cd=(S.cards||[]).find(x=>t>=x.t0&&t<x.t1),lb=(S.labels||[]).find(x=>t>=x.t0&&t<x.t1);
+  if(cd&&pre){const q=Math.min(1,(t-cd.t0)/.24);box(c,L(cd.txt),360,dopa?470:385,42,'#111','#2DD4FF',18,.7+.34*q-(q>=1?.04:0))}
+  else if(lb&&pre) box(c,L(lb.txt),360,dopa?480:395,40,'#fff','#7B3FE4');
+  caption(c,S,t,dopa?640:1010);
+  if(!dopa){c.save();c.font=font(900,24);const w=c.measureText(S.tag).width+20;c.fillStyle='#303030';c.fillRect(40,1090,w,36);c.fillStyle='#fff';c.textBaseline='middle';c.fillText(S.tag,50,1108);c.restore()}
+  if(!pre){const q=Math.min(1,(t-S.ctaT)/.35);box(c,['ESTOQUE ACABANDO!','CLIQUE NO CARRINHO'],360,dopa?300:220,40,'#fff','#FF4D6D',18,q<.57?1+.08*q/.57:1.08-.08*(q-.57)/.43);
+    const b=((t-S.ctaT)%0.6)/0.6;c.fillStyle='#FF4D6D';c.beginPath();c.moveTo(40,1120+40*b);c.lineTo(100,1120+40*b);c.lineTo(70,1165+40*b);c.fill()}
+ }
+ return {draw};
+})();
+function pickMime(){const m=['video/mp4;codecs=avc1.42E01E,mp4a.40.2','video/mp4','video/webm;codecs=vp9,opus','video/webm'];return m.find(x=>window.MediaRecorder&&MediaRecorder.isTypeSupported(x))||''}
+const dlEl=id=>document.getElementById(id);
+function dlShow(on){dlEl('dlbox').classList.toggle('on',on)}
+function fileName(c,ext){return `tikfy-${state.product}-${String(c.n).padStart(2,'0')}.${ext}`}
+async function getBlob(c,onp){
+  if(c.file&&!c.spec){const r=await fetch(c.file);onp(1);return await r.blob()}
+  const S=Object.assign({},SPECS[c.spec],{brandName:(PINFO[state.product]||{}).name?.toUpperCase()});
+  await TP.preload(BIMG);await document.fonts?.ready;
+  const cv=document.createElement('canvas');cv.width=720;cv.height=1280;const ctx=cv.getContext('2d');
+  const au=new Audio(BAUD[c.spec]);const ac=new (window.AudioContext||window.webkitAudioContext)();const src=ac.createMediaElementSource(au);const dst=ac.createMediaStreamDestination();src.connect(dst);
+  const stream=new MediaStream([...cv.captureStream(30).getVideoTracks(),...dst.stream.getAudioTracks()]);
+  const mime=pickMime();const rec=new MediaRecorder(stream,mime?{mimeType:mime,videoBitsPerSecond:3500000}:{});const chunks=[];rec.ondataavailable=e=>e.data.size&&chunks.push(e.data);
+  CV.draw(ctx,S,0,BIMG);await new Promise(r=>setTimeout(r,250));
+  return await new Promise(res=>{rec.onstop=()=>{ac.close();res(new Blob(chunks,{type:rec.mimeType||mime||'video/webm'}))};rec.start(250);au.play();
+    const loop=()=>{const t=au.currentTime;CV.draw(ctx,S,t,BIMG);onp(Math.min(1,t/S.dur));if(au.ended||t>=S.dur){setTimeout(()=>rec.stop(),200)}else requestAnimationFrame(loop)};loop()})}
+function saveBlob(blob,name){const f=new File([blob],name,{type:blob.type});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:name}).catch(()=>{});return}
+  const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000)}
+let dlBusy=false;
+async function dlVideo(n,auto){if(dlBusy)return;const c=LIST().find(x=>x.n===n);if(!c)return;dlBusy=true;
+  if(typeof closeModal==='function'&&!auto) {}
+  dlShow(true);dlEl('dlTitle').textContent=`Preparando o vídeo ${n}…`;dlEl('dlSub').textContent=c.spec?'Gravando em alta qualidade (leva o tempo do vídeo)':'Preparando arquivo';dlEl('dlBtns').innerHTML='';dlEl('dlBar').style.width='0%';
+  try{const blob=await getBlob(c,p=>dlEl('dlBar').style.width=(p*100)+'%');const ext=/mp4/.test(blob.type)?'mp4':'webm';const name=fileName(c,ext);
+    dlEl('dlTitle').textContent='Vídeo pronto ✅';dlEl('dlSub').textContent=name;
+    dlEl('dlBtns').innerHTML='<button class="btn btn-buy" id="dlSave">⬇ Salvar vídeo</button><button class="btn btn-ghost" id="dlClose">Fechar</button>';
+    dlEl('dlSave').onclick=()=>saveBlob(blob,name);dlEl('dlClose').onclick=()=>dlShow(false);
+    if(auto){saveBlob(blob,name);await new Promise(r=>setTimeout(r,600))}
+  }catch(e){dlEl('dlTitle').textContent='Não foi possível gerar o arquivo';dlEl('dlSub').textContent='Seu navegador não permitiu a gravação. Tente pelo Chrome ou Safari atualizado.';dlEl('dlBtns').innerHTML='<button class="btn btn-ghost" onclick="dlShow(false)">Fechar</button>'}
+  dlBusy=false}
+async function dlAll(){const L=LIST().filter(c=>state.fmt==='Todos'||c.format===state.fmt);toast(`Baixando ${L.length} vídeos, um por vez…`);for(const c of L){await dlVideo(c.n,true)}dlShow(false);toast('Todos os vídeos foram gerados ✅')}
 
 /* ---------- toast ---------- */
 let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}

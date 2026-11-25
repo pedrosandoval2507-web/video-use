@@ -14,7 +14,7 @@ if INL:
     for c in clips:
         c['v']=base64.b64encode(open(f'/home/user/dot-src/lite/{c["n"]:02d}.mp4','rb').read()).decode()
         c['thumb']='data:image/jpeg;base64,'+base64.b64encode(open(f'{D}/clips/{c["n"]:02d}.jpg','rb').read()).decode()
-    s=s.replace('/*INLINE*/',"for(const c of [...CLIPS,...IA,...GUDAY,...BOLD]){if(c.v){try{const b=atob(c.v),a=new Uint8Array(b.length);for(let i=0;i<b.length;i++)a[i]=b.charCodeAt(i);c.file=URL.createObjectURL(new Blob([a],{type:'video/mp4'}))}catch(e){}delete c.v}}")
+    s=s.replace('/*INLINE*/',"for(const c of [...CLIPS,...IA,...GUDAY,...BOLD,...FAN,...MAISMU]){if(c.v){try{const b=atob(c.v),a=new Uint8Array(b.length);for(let i=0;i<b.length;i++)a[i]=b.charCodeAt(i);c.file=URL.createObjectURL(new Blob([a],{type:'video/mp4'}))}catch(e){}delete c.v}}")
 ia=json.load(open(f'{D}/ia/ia.json')) if os.path.exists(f'{D}/ia/ia.json') else []
 if INL:
     for v in ia:
@@ -33,6 +33,13 @@ if INL:
         v['v']=base64.b64encode(open(f'/home/user/bold/lite/{v["id"]}.mp4','rb').read()).decode()
         v['thumb']='data:image/jpeg;base64,'+base64.b64encode(open(f'{D}/bold/{v["id"]}.jpg','rb').read()).decode()
 s=s.replace('/*BOLD*/[]',json.dumps(bd,ensure_ascii=False))
+for KEY,folder,jn,lite in [('FAN','fan','fan.json','/home/user/fan/lite'),('MAISMU','maismu','maismu.json','/home/user/mu/lite')]:
+    L2=json.load(open(f'{D}/{folder}/{jn}')) if os.path.exists(f'{D}/{folder}/{jn}') else []
+    if INL:
+        for v in L2:
+            v['v']=base64.b64encode(open(f'{lite}/{v["id"]}.mp4','rb').read()).decode()
+            v['thumb']='data:image/jpeg;base64,'+base64.b64encode(open(f'{D}/{folder}/{v["id"]}.jpg','rb').read()).decode()
+    s=s.replace('/*'+KEY+'*/[]',json.dumps(L2,ensure_ascii=False))
 # ---- marcas com player embutido (fotos + narração) ----
 BR='/home/user/brands'
 meta=json.load(open(f'{BR}/meta.json')) if os.path.exists(f'{BR}/meta.json') else []
