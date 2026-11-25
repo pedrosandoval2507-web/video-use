@@ -80,3 +80,5 @@ reels/episodes/*/node_modules/
 reels/episodes/*/package.json
 reels/episodes/*/qa/
 reels/episodes/*/tella_dl/
+stories/out/
+stories/episodes/*/voice.*
