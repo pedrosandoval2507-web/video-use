@@ -157,7 +157,7 @@ const inputs = ["-i", silent];
 const parts = [];
 let n = 1;
 if (existsSync(voice)) { inputs.push("-i", voice); parts.push(`[${n}:a]volume=1.0,adelay=0|0[v]`); n++; }
-if (existsSync(music)) { inputs.push("-stream_loop", "-1", "-i", music); parts.push(`[${n}:a]volume=${spec.musicVol ?? 0.13},atrim=0:${tl.end},afade=t=out:st=${(tl.end - 1.5).toFixed(2)}:d=1.5[m]`); n++; }
+if (existsSync(music)) { inputs.push("-stream_loop", "-1", "-i", music); parts.push(`[${n}:a]volume=${spec.musicVol ?? 0.2},atrim=0:${tl.end},afade=t=out:st=${(tl.end - 1.5).toFixed(2)}:d=1.5[m]`); n++; }
 const cuts = tl.scenes.slice(1).map((s) => s.t0);
 if (existsSync(woosh) && cuts.length) {
   inputs.push("-i", woosh);

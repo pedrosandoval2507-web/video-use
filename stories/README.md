@@ -21,7 +21,16 @@ woosh nas trocas de cena e trilha animada por baixo da narração.
 Cada cena: `bg` (cenário), `char` (personagem: pose walk/run/stand/scared/cheer/point/phone/think/shrug),
 `props` (ícones animados), `stat` (card de dado), `label`, `step` (badge), `say` (narração; `*palavra*` = vermelho).
 
-## Pipeline
+## Pipeline grátis (padrão)
+```bash
+pip install edge-tts numpy
+python3 stories/engine/free_audio.py sfx            # trilha animada + woosh sintetizados (sem direitos autorais)
+python3 stories/engine/free_audio.py ep01 ep02 ...  # voz neural Microsoft pt-BR-AntonioNeural + timestamps
+node stories/engine/render.mjs ep01                 # -> stories/out/ep01.mp4
+```
+Requer o host `speech.platform.bing.com` liberado na rede do ambiente. Outra voz: `EDGE_VOICE=pt-BR-FranciscaNeural`.
+
+## Pipeline ElevenLabs (opcional)
 ```bash
 # 1) chave: ELEVENLABS_API_KEY no ambiente ou no .env da raiz
 node stories/engine/tts.mjs voices                 # escolher voz pt-BR -> ELEVEN_VOICE_ID
