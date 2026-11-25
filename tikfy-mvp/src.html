@@ -661,6 +661,7 @@ const LOGOS=/*LOGOS*/{};
 const CLIPS=/*CLIPS*/[];
 const IA=/*IA*/[];
 const GUDAY=/*GUDAY*/[];
+const BOLD=/*BOLD*/[];
 /*INLINE*/
 
 const PRODUCTS=[
@@ -707,11 +708,13 @@ const IACAP=' 👀 Dot, a 1ª bala energética do Brasil: 80 mg de cafeína e ze
 const VIDS=(()=>{
   const dot=[...CLIPS.map(c=>({...c})),...IA.map(v=>({...v,format:v.format||'IA',why:v.why||'Vídeo POV com narração por IA + embalagem real, gancho e CTA de urgência.',caption:v.title+IACAP}))].sort((a,b)=>b.score-a.score);
   const gd=GUDAY.map(v=>({...v})).sort((a,b)=>b.score-a.score);
-  [dot,gd].forEach(l=>l.forEach((c,i)=>c.n=i+1));
-  return {dot,guday:gd};
+  const bd=BOLD.map(v=>({...v})).sort((a,b)=>b.score-a.score);
+  [dot,gd,bd].forEach(l=>l.forEach((c,i)=>c.n=i+1));
+  return {dot,guday:gd,bold:bd};
 })();
 const LIST=()=>VIDS[state.product]||VIDS.dot;
 const PINFO={dot:{name:'Dot',desc:'cortes do Shark Tank + vídeos POV com IA',steps:['Buscando vídeos da Dot na internet','Transcrevendo e encontrando os melhores ganchos','Gerando 30 cortes automáticos','Criando 3 vídeos POV com IA (roteiro + voz)','Aplicando formatos: tela partida, chamada de venda, dados…','Calculando a força de venda de cada vídeo']},
+  bold:{name:'Bold',desc:'trechos reais do produto + fotos, com roteiro e narração originais',steps:['Buscando vídeos e fotos da Bold na internet','Selecionando trechos sem rosto e sem texto na tela','Escrevendo 20 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: cortes narrados, dopamina, slideshow, explicativo…','Calculando a força de venda de cada vídeo']},
   guday:{name:'Guday',desc:'vídeos com IA a partir das fotos do produto',steps:['Buscando fotos da Guday na internet','Pesquisando o produto: creatina em gummies','Escrevendo 10 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: dopamina, POV, slideshow, comparação…','Calculando a força de venda de cada vídeo']}};
 
 /* ---------- ranking ---------- */
