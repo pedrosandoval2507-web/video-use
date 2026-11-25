@@ -378,7 +378,7 @@ B["gummy"]["videos"].append(dict(fmt="STORY", score=99, title="A história da Ma
   "Na escola, quem antes ria agora queria saber o segredo.",
   "E a Maria só respondia: Gummy Hair.",
   "Quer começar a sua história? Se o carrinho laranja ainda tá aqui embaixo, é porque ainda tem. Clica e garante a sua."]))
-v=B["gummy"]["videos"][-1]; v["ls"]=0.86; v["sil"]=0.25; v["id"]="gummy21"; v["text"]=" ".join(v["sents"])
+v=B["gummy"]["videos"][-1]; v["id"]="gummy21"; v["text"]=" ".join(v["sents"])
 
 # ---- +Mu (vídeos com fotos; os cortes de podcast são feitos à parte) ----
 B["mu"] = dict(name="+Mu", tag="+MU · PROTEÍNA GOSTOSA", color="#1e88e5", videos=[
