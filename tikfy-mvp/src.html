@@ -1209,19 +1209,21 @@ async function getBlob(c,onp){
   CV.draw(ctx,S,0,BIMG);await new Promise(r=>setTimeout(r,250));
   return await new Promise(res=>{rec.onstop=()=>{ac.close();res(new Blob(chunks,{type:rec.mimeType||mime||'video/webm'}))};rec.start(250);au.play();
     const loop=()=>{const t=au.currentTime;CV.draw(ctx,S,t,BIMG);onp(Math.min(1,t/S.dur));if(au.ended||t>=S.dur){setTimeout(()=>rec.stop(),200)}else requestAnimationFrame(loop)};loop()})}
-function saveBlob(blob,name){const f=new File([blob],name,{type:blob.type});
-  if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:name}).catch(()=>{});return}
-  const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000)}
+function downloadBlob(blob,name){const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;a.rel='noopener';a.style.display='none';document.body.appendChild(a);a.click();setTimeout(()=>{a.remove();URL.revokeObjectURL(u)},120000)}
+function shareBlob(blob,name){const f=new File([blob],name,{type:blob.type||'video/mp4'});if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:name}).catch(e=>{if(e&&e.name!=='AbortError')downloadBlob(blob,name)})}else downloadBlob(blob,name)}
+function saveBlob(blob,name){downloadBlob(blob,name)}
 let dlBusy=false;
 async function dlVideo(n,auto){if(dlBusy)return;const c=LIST().find(x=>x.n===n);if(!c)return;dlBusy=true;
   if(typeof closeModal==='function'&&!auto) {}
   dlShow(true);dlEl('dlTitle').textContent=`Preparando o vídeo ${n}…`;dlEl('dlSub').textContent=c.spec?'Gravando em alta qualidade (leva o tempo do vídeo)':'Preparando arquivo';dlEl('dlBtns').innerHTML='';dlEl('dlBar').style.width='0%';
   try{const blob=await getBlob(c,p=>dlEl('dlBar').style.width=(p*100)+'%');const ext=/mp4/.test(blob.type)?'mp4':'webm';const name=fileName(c,ext);
     dlEl('dlTitle').textContent='Vídeo pronto ✅';dlEl('dlSub').textContent=name;
-    dlEl('dlBtns').innerHTML='<button class="btn btn-buy" id="dlSave">⬇ Salvar vídeo</button><button class="btn btn-ghost" id="dlClose">Fechar</button>';
-    dlEl('dlSave').onclick=()=>saveBlob(blob,name);dlEl('dlClose').onclick=()=>dlShow(false);
-    if(auto){saveBlob(blob,name);await new Promise(r=>setTimeout(r,600))}
-  }catch(e){dlEl('dlTitle').textContent='Não foi possível gerar o arquivo';dlEl('dlSub').textContent='Seu navegador não permitiu a gravação. Tente pelo Chrome ou Safari atualizado.';dlEl('dlBtns').innerHTML='<button class="btn btn-ghost" onclick="dlShow(false)">Fechar</button>'}
+    const canSh=!!(navigator.canShare&&navigator.canShare({files:[new File([blob],name,{type:blob.type||'video/mp4'})]}));
+    dlEl('dlBtns').innerHTML='<button class="btn btn-buy" id="dlSave">⬇ Baixar de novo</button>'+(canSh?'<button class="btn btn-ghost" id="dlShare">📤 Salvar na galeria</button>':'')+'<button class="btn btn-ghost" id="dlClose">Fechar</button>';
+    dlEl('dlSave').onclick=()=>downloadBlob(blob,name);if(canSh)dlEl('dlShare').onclick=()=>shareBlob(blob,name);dlEl('dlClose').onclick=()=>dlShow(false);
+    dlEl('dlTitle').textContent='Download iniciado ✅';dlEl('dlSub').textContent=name+' · confira na pasta Downloads';
+    downloadBlob(blob,name);if(auto)await new Promise(r=>setTimeout(r,900))
+  }catch(e){console.error(e);dlEl('dlTitle').textContent='Não foi possível gerar o arquivo';dlEl('dlSub').textContent='Erro: '+(e&&e.message||e)+'. Tente de novo ou use outro navegador.';dlEl('dlBtns').innerHTML='<button class="btn btn-ghost" onclick="dlShow(false)">Fechar</button>'}
   dlBusy=false}
 async function dlAll(){const L=LIST().filter(c=>state.fmt==='Todos'||c.format===state.fmt);toast(`Baixando ${L.length} vídeos, um por vez…`);for(const c of L){await dlVideo(c.n,true)}dlShow(false);toast('Todos os vídeos foram gerados ✅')}
 
