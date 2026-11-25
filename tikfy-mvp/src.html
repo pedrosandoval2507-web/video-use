@@ -305,6 +305,9 @@ h3{font-size:18px;font-weight:700}
 .stage video{width:100%;height:100%;display:block;object-fit:cover}
 .ovtext{position:absolute;left:6%;right:6%;text-align:center;font-weight:900;font-size:clamp(16px,2.6vh,24px);line-height:1.15;padding:8px 12px;border-radius:10px;pointer-events:none;text-transform:uppercase}
 .ovtext.top{top:23%}.ovtext.mid{top:44%}.ovtext.bot{bottom:20%}
+.mplay{position:absolute;inset:0;display:none;cursor:pointer;overflow:hidden}
+.mbar{position:absolute;left:0;right:0;bottom:0;height:5px;background:rgba(255,255,255,.2);display:none}.mbar i{display:block;height:100%;width:0;background:var(--accent)}
+.mpause{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;font-size:28px;pointer-events:none}
 .mside{width:300px;max-width:86vw}
 .mside h3{margin:8px 0}
 .mside .small{line-height:1.5}
@@ -702,7 +705,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
   <button class="mclose" onclick="closeModal()">✕</button>
   <div class="mbox">
-    <div class="stage"><video id="mvid" playsinline controls></video><div class="ovtext" id="movt" style="display:none"></div></div>
+    <div class="stage"><video id="mvid" playsinline controls></video><div id="mplay" class="mplay"></div><div class="mbar" id="mbar"><i id="mprog"></i></div><div class="mpause" id="mpause">▶</div><div class="ovtext" id="movt" style="display:none"></div></div>
     <div class="mside">
       <span class="score s1" id="mscore" style="position:static;display:inline-flex"></span>
       <h3 id="mtitle"></h3>
@@ -728,10 +731,13 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
 <script>
 const LOGOS=/*LOGOS*/{};
+/*TPLIB*/
 const CLIPS=/*CLIPS*/[];
 const IA=/*IA*/[];
 const GUDAY=/*GUDAY*/[];
 const BOLD=/*BOLD*/[];
+const SPECS=/*SPECS*/{},BIMG=/*BIMG*/{},BAUD=/*BAUD*/{},BMETA=/*BMETA*/[];
+const PMAP={gummy:'gummy',aura:'aura',saintgermain:'sg',jacklinks:'jack',dux:'dux'};
 /*INLINE*/
 
 const PRODUCTS=[
@@ -780,11 +786,14 @@ const VIDS=(()=>{
   const gd=GUDAY.map(v=>({...v})).sort((a,b)=>b.score-a.score);
   const bd=BOLD.map(v=>({...v})).sort((a,b)=>b.score-a.score);
   [dot,gd,bd].forEach(l=>l.forEach((c,i)=>c.n=i+1));
-  return {dot,guday:gd,bold:bd};
+  const out={dot,guday:gd,bold:bd};
+  for(const [pid,bk] of Object.entries(PMAP)){const l=BMETA.filter(m=>m.brand===bk).map(m=>({...m,spec:m.id})).sort((a,b)=>b.score-a.score);l.forEach((c,i)=>c.n=i+1);if(l.length)out[pid]=l}
+  return out;
 })();
 const LIST=()=>VIDS[state.product]||VIDS.dot;
 const PINFO={dot:{name:'Dot',desc:'cortes do Shark Tank + vídeos POV com IA',steps:['Buscando vídeos da Dot na internet','Transcrevendo e encontrando os melhores ganchos','Gerando 30 cortes automáticos','Criando 3 vídeos POV com IA (roteiro + voz)','Aplicando formatos: tela partida, chamada de venda, dados…','Calculando a força de venda de cada vídeo']},
   bold:{name:'Bold',desc:'trechos reais do produto + fotos, com roteiro e narração originais',steps:['Buscando vídeos e fotos da Bold na internet','Selecionando trechos sem rosto e sem texto na tela','Escrevendo 20 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: cortes narrados, dopamina, slideshow, explicativo…','Calculando a força de venda de cada vídeo']},
+  ...Object.fromEntries(Object.entries({gummy:'Gummy Hair',aura:'Aura Beauty',saintgermain:'Saint Germain',jacklinks:"Jack Link's",dux:'DUX'}).map(([k,n])=>[k,{name:n,desc:'vídeos gerados com IA a partir das fotos do produto',steps:[`Buscando fotos da ${n} na internet`,'Recortando só o produto (sem rostos)','Escrevendo 20 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: slideshow, POV, dopamina, explicativo…','Calculando a força de venda de cada vídeo']}])),
   guday:{name:'Guday',desc:'vídeos com IA a partir das fotos do produto',steps:['Buscando fotos da Guday na internet','Pesquisando o produto: creatina em gummies','Escrevendo 10 roteiros com ganchos fortes','Gerando narração com voz de IA','Montando formatos: dopamina, POV, slideshow, comparação…','Calculando a força de venda de cada vídeo']}};
 
 /* ---------- ranking ---------- */
@@ -971,12 +980,23 @@ function copyCap(n){
 /* ---------- player + edits ---------- */
 const mvid=document.getElementById('mvid'),movt=document.getElementById('movt');
 function openClip(n){openItem(LIST().find(x=>x.n===n))}
+const mplay=document.getElementById('mplay');let TPO=null,PA=null,PS=null,PRAF=0;
+function stopPlayer(){cancelAnimationFrame(PRAF);if(PA){PA.pause();PA=null}}
+function startPlayer(c,ed){stopPlayer();mvid.pause();mvid.style.display='none';mplay.style.display='block';document.getElementById('mbar').style.display='block';
+  if(!TPO){TPO=TP.mount(mplay)}PS=Object.assign({},SPECS[c.spec],{brandName:(PINFO[state.product]||{}).name?.toUpperCase()});
+  const sc=mplay.clientWidth/720;TPO.st.style.transform=`scale(${sc})`;
+  PA=new Audio(BAUD[c.spec]);PA.muted=!!ed.mute;PA.playbackRate=ed.speed||1;PA.currentTime=ed.start||0;PA.play().catch(()=>{});
+  const loop=()=>{const e=state.edits[state.current]||{};let t=PA.currentTime;if(PA.ended||(e.end&&t>=e.end)||t>=PS.dur-0.02){PA.currentTime=e.start||0;PA.play().catch(()=>{});t=PA.currentTime}
+    TP.render(TPO,PS,t,BIMG);document.getElementById('mprog').style.width=(100*t/PS.dur)+'%';document.getElementById('mpause').style.display=PA.paused?'flex':'none';PRAF=requestAnimationFrame(loop)};loop()}
+mplay.onclick=()=>{if(!PA)return;if(PA.paused)PA.play().catch(()=>{});else PA.pause()};
 function openItem(c){
   if(!c)return;const n=c.n;state.current=state.product+n;
   const ed=state.edits[state.current]||{};
+  if(c.spec){document.getElementById('modal').classList.add('on');startPlayer(c,ed)}
+  else{stopPlayer();mplay.style.display='none';document.getElementById('mbar').style.display='none';document.getElementById('mpause').style.display='none';mvid.style.display='block';
   mvid.src=c.file;mvid.poster=c.thumb;
   mvid.muted=!!ed.mute;mvid.playbackRate=ed.speed||1;
-  mvid.onloadedmetadata=()=>{mvid.currentTime=ed.start||0;mvid.playbackRate=ed.speed||1;mvid.play().catch(()=>{})};
+  mvid.onloadedmetadata=()=>{mvid.currentTime=ed.start||0;mvid.playbackRate=ed.speed||1;mvid.play().catch(()=>{})};}
   const ms=document.getElementById('mscore');ms.className='score '+scls(c.score);ms.textContent=`${sicon(c.score)} ${c.score}% forte`;
   document.getElementById('mtitle').textContent=`Vídeo ${n} · `+c.title;
   document.getElementById('mdesc').innerHTML=`<b>Formato:</b> ${c.format} · ${durTxt(c.dur)}<br>${c.why}<br><br><b>Legenda:</b> ${c.caption}`;
@@ -996,7 +1016,7 @@ mvid.addEventListener('timeupdate',()=>{
   if(ed.end&&mvid.currentTime>=ed.end){mvid.currentTime=ed.start||0}
   if(ed.start&&mvid.currentTime<ed.start-0.3){mvid.currentTime=ed.start}
 });
-function closeModal(){document.getElementById('modal').classList.remove('on');mvid.pause()}
+function closeModal(){document.getElementById('modal').classList.remove('on');mvid.pause();stopPlayer()}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 function editsTxt(ed){
   const p=[];if(ed.start)p.push(`começa em ${ed.start}s`);if(ed.end)p.push(`termina em ${ed.end}s`);
@@ -1063,7 +1083,7 @@ addMsg('Oi! 👋 Sou o editor da Tikfy. Os vídeos estão ordenados do mais fort
 let tt;function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
 
 
-renderRank();setupExamples();renderClips();render();
+renderRank();setupExamples();renderClips();render();TP.preload(BIMG);
 </script>
 </body>
 </html>

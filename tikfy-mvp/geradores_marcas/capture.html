@@ -1,0 +1,8 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#000}</style>
+<script src="story_lib.js"></script><script src="player.js"></script></head><body><div id="host"></div>
+<script>
+let O=null,S=null,IM={};
+async function setup(spec,imgs){S=spec;IM=imgs;await TP.preload(imgs);
+  O=TP.mount(document.getElementById('host'));TP.render(O,S,0,IM);await new Promise(r=>setTimeout(r,150));TP.render(O,S,0,IM);return true}
+function frame(t){TP.render(O,S,t,IM)}
+</script></body></html>

@@ -33,5 +33,20 @@ if INL:
         v['v']=base64.b64encode(open(f'/home/user/bold/lite/{v["id"]}.mp4','rb').read()).decode()
         v['thumb']='data:image/jpeg;base64,'+base64.b64encode(open(f'{D}/bold/{v["id"]}.jpg','rb').read()).decode()
 s=s.replace('/*BOLD*/[]',json.dumps(bd,ensure_ascii=False))
+# ---- marcas com player embutido (fotos + narração) ----
+BR='/home/user/brands'
+meta=json.load(open(f'{BR}/meta.json')) if os.path.exists(f'{BR}/meta.json') else []
+specs={};baud={};bimg={}
+for m in meta:
+    sp=json.load(open(f'{BR}/specs/{m["id"]}.json')); specs[m['id']]=sp
+    baud[m['id']]='data:audio/mpeg;base64,'+base64.b64encode(open(f'{BR}/audio/{m["id"]}.mp3','rb').read()).decode()
+    th=f'{BR}/out/{m["id"]}.jpg'
+    m['thumb']='data:image/jpeg;base64,'+base64.b64encode(open(th,'rb').read()).decode() if os.path.exists(th) else ''
+for b in sorted({m['brand'] for m in meta}):
+    for f in sorted(os.listdir(f'{BR}/img/{b}')):
+        im=Image.open(f'{BR}/img/{b}/{f}').convert('RGB'); im.thumbnail((520,520)); bb=io.BytesIO(); im.save(bb,'JPEG',quality=80)
+        bimg[b+'/'+f[:-4]]='data:image/jpeg;base64,'+base64.b64encode(bb.getvalue()).decode()
+s=s.replace('/*SPECS*/{}',json.dumps(specs,ensure_ascii=False)).replace('/*BIMG*/{}',json.dumps(bimg)).replace('/*BAUD*/{}',json.dumps(baud)).replace('/*BMETA*/[]',json.dumps(meta,ensure_ascii=False))
+s=s.replace('/*TPLIB*/',open(f'{BR}/story_lib.js').read()+'\n'+open(f'{BR}/player.js').read())
 s=s.replace('/*LOGOS*/{}',json.dumps(L)).replace('/*CLIPS*/[]',json.dumps(clips,ensure_ascii=False)).replace('LOGO_DOT',L['dot'])
 open(f'{D}/'+('tikfy-mvp-completo.html' if INL else 'index.html'),'w').write(s); print('index.html',len(s)//1024,'KB',len(clips),'cortes')
