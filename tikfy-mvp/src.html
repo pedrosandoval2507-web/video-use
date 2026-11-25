@@ -160,6 +160,9 @@ h3{font-size:18px;font-weight:700}
 .metric span{font-size:12px;color:var(--muted)}
 .up{color:#3ddc97}
 .ritem .btn{padding:10px 20px;font-size:14px}
+.btn-lock{background:#1e1e24;color:#a1a1aa;border:1px dashed #3a3a44}.btn-lock:hover{color:#fff;border-color:#FE2C55}
+.lockbar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:linear-gradient(90deg,rgba(254,44,85,.14),rgba(37,244,238,.10));border:1px solid rgba(254,44,85,.4);border-radius:16px;padding:14px 18px;margin-bottom:18px}
+.lockbar b{font-size:16px}.lockbar span{font-size:13px;color:#d4d4d8}
 .empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
 @media(max-width:860px){
   .ritem{grid-template-columns:34px 52px 1fr auto;gap:12px}
@@ -493,6 +496,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <button class="chip on" data-cat="Todos">Todos</button><button class="chip" data-cat="Suplementos">💪 Suplementos</button><button class="chip" data-cat="Beleza">💄 Beleza</button><button class="chip" data-cat="Alimentos">🍫 Alimentos</button>
         </div>
       </div>
+      <div class="lockbar" id="lockBar"><div><b>🔒 Você está vendo a vitrine</b><br><span>Crie sua conta e escolha um plano pra se afiliar e receber os vídeos prontos.</span></div><a href="#cadastro" class="btn btn-primary btn-sm">Criar conta e assinar</a></div>
       <div class="rank" id="rankList"></div>
 
       <div class="sec-title"><div><h2 id="othersTitle">Outras opções</h2><p class="small" style="margin-top:6px">Marcas que também estão vendendo bem no TikTok Shop</p></div></div>
@@ -720,13 +724,13 @@ function rowHTML(p,i){
     <div><div class="pname">${p.name}</div><div class="pcat">${p.cat} · ${p.sub}</div></div>
     <div class="metric"><b>${p.sales}</b><span>vendas/mês</span></div>
     <div class="metric"><b class="up">${p.grow}</b><span>comissão ${p.com}</span></div>
-    <button class="btn ${p.id==='dot'||p.id==='guday'?'btn-primary':'btn-ghost'}" onclick="afiliar('${p.id}')">Afiliar</button>
+    ${state.sub?`<button class="btn ${VIDS[p.id]&&VIDS[p.id].length?'btn-primary':'btn-ghost'}" onclick="afiliar('${p.id}')">Afiliar</button>`:`<button class="btn btn-lock" onclick="needSub()">🔒 Afiliar</button>`}
   </div>`;
 }
 function otherHTML(o){
   return `<div class="oitem"><div class="top"><div class="logo"><div class="mono" style="background:${o.bg};color:${o.fg};font-size:${o.fs-3}px">${o.txt}</div></div>
     <div><div class="pname">${o.name}</div><div class="pcat">${o.sub}</div></div></div>
-    <button class="btn btn-ghost btn-sm" onclick="toast('${o.name.replace(/'/g,"\\'")}: disponível em breve. No MVP, teste com a Dot ⚡')">Afiliar</button></div>`;
+    ${state.sub?`<button class="btn btn-ghost btn-sm" onclick="toast('${o.name.replace(/'/g,"\\'")}: disponível em breve ⚡')">Afiliar</button>`:`<button class="btn btn-lock btn-sm" onclick="needSub()">🔒 Afiliar</button>`}</div>`;
 }
 function renderRank(){
   const c=state.cat;
@@ -755,7 +759,10 @@ function setupExamples(){
   const hv=document.getElementById('heroVid'); const h0=VIDS.dot.find(x=>x.format!=='IA')||VIDS.dot[0];if(h0){hv.src=h0.file;hv.poster=h0.thumb}
 }
 
+function needSub(){toast(state.user?'Escolha um plano pra liberar a afiliação 🔒':'Crie sua conta e escolha um plano pra se afiliar 🔒');setTimeout(()=>go(state.user?'planos':'cadastro'),900)}
+function refreshLock(){document.getElementById('lockBar').style.display=state.sub?'none':'flex';renderRank();document.getElementById('homeTop').innerHTML=PRODUCTS.slice(0,3).map(rowHTML).join('')}
 function afiliar(id){
+  if(!state.sub){needSub();return}
   const p=PRODUCTS.find(x=>x.id===id);
   if(!VIDS[id]||!VIDS[id].length){toast(`${p.name}: disponível em breve. No MVP, teste com a Dot ou a Guday ⚡`);return}
   state.product=id;state.fmt='Todos';
@@ -772,6 +779,7 @@ function render(){
   document.querySelectorAll('nav.links a').forEach(a=>a.classList.toggle('on',a.dataset.r===r));
   document.getElementById('nav').classList.remove('open');
   window.scrollTo(0,0);
+  if((r==='gerando'||r==='videos')&&!state.sub){needSub();return}
   if(r==='gerando') runGen();
   if(r==='videos') renderClips();
 }
@@ -801,7 +809,7 @@ f.addEventListener('submit',e=>{
 /* ---------- plans ---------- */
 document.querySelectorAll('.plan').forEach(pl=>pl.onclick=()=>{
   document.querySelectorAll('.plan').forEach(x=>x.classList.remove('sel'));pl.classList.add('sel');
-  state.plan=pl.dataset.plan;toast(`Plano ${state.plan} selecionado ✅`);
+  state.plan=pl.dataset.plan;state.sub=true;refreshLock();document.getElementById('hdrLogin').textContent=(state.user?state.user.tiktok:'Minha conta')+' · '+state.plan;toast(`Plano ${state.plan} ativado ✅ Afiliação liberada!`);
   setTimeout(()=>go('ranking'),700);
 });
 
