@@ -8,8 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#000; --bg2:#0d0d0f; --card:#16161a; --card2:#1e1e24; --line:#2a2a31;
-  --txt:#fff; --muted:#a1a1aa; --cyan:#4ff3ee; --red:#ff4d6d; --cyan-d:#25F4EE; --red-d:#FE2C55;
+  --bg:#0A0A12; --bg2:#0F0F1A; --card:#14141F; --card2:#1C1C2B; --line:#262638;
+  --txt:#F5F5FA; --muted:#9CA3AF; --cyan:#2DD4FF; --red:#9B85FF; --cyan-d:#2DD4FF; --red-d:#7C5CFF; --accent:#FF7A59;
   --r:16px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -28,14 +28,14 @@ button{font:inherit;cursor:pointer;border:0}
 .glitch{text-shadow:-2px -1px 0 var(--cyan-d),2px 1px 0 var(--red-d)}
 
 /* ---------- nav ---------- */
-header{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:50;background:rgba(10,10,18,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
 nav.links{display:flex;gap:26px;font-size:14px;color:var(--muted);font-weight:500}
 nav.links a:hover,nav.links a.on{color:#fff}
 .hdr-actions{display:flex;gap:10px;align-items:center}
 .menu-btn{display:none;background:none;color:#fff;font-size:24px}
 @media(max-width:860px){
-  nav.links{display:none;position:absolute;top:68px;left:0;right:0;background:#000;flex-direction:column;padding:16px 20px;gap:16px;border-bottom:1px solid var(--line)}
+  nav.links{display:none;position:absolute;top:68px;left:0;right:0;background:#0A0A12;flex-direction:column;padding:16px 20px;gap:16px;border-bottom:1px solid var(--line)}
   nav.links.open{display:flex}
   .menu-btn{display:block}
   .hdr-actions .btn-ghost{display:none}
@@ -45,6 +45,7 @@ nav.links a:hover,nav.links a.on{color:#fff}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;transition:.15s;white-space:nowrap}
 .btn-primary{background:var(--red-d);color:#fff}
 .btn-primary:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn-buy{background:var(--accent);color:#1a0b06}.btn-buy:hover{filter:brightness(1.06);transform:translateY(-1px)}
 .btn-cyan{background:var(--cyan-d);color:#000}
 .btn-cyan:hover{filter:brightness(1.05);transform:translateY(-1px)}
 .btn-ghost{background:transparent;color:#fff;border:1px solid var(--line)}
@@ -57,7 +58,7 @@ nav.links a:hover,nav.links a.on{color:#fff}
 .view.on{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 section{padding:72px 0}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--cyan);background:rgba(37,244,238,.08);border:1px solid rgba(37,244,238,.25);padding:6px 12px;border-radius:999px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--cyan);background:rgba(45,212,255,.08);border:1px solid rgba(45,212,255,.25);padding:6px 12px;border-radius:999px}
 h1{font-size:clamp(36px,6vw,64px);line-height:1.04;font-weight:900;letter-spacing:-2px}
 h2{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.1}
 h3{font-size:18px;font-weight:700}
@@ -80,7 +81,7 @@ h3{font-size:18px;font-weight:700}
 .stats{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap}
 .stats b{display:block;font-size:26px;font-weight:900}
 .stats span{color:var(--muted);font-size:13px}
-.phone{width:280px;height:560px;margin:0 auto;border-radius:40px;border:8px solid #1c1c22;background:#0a0a0a;position:relative;overflow:hidden;box-shadow:-14px -10px 0 -2px rgba(37,244,238,.35),14px 10px 0 -2px rgba(254,44,85,.35)}
+.phone{width:280px;height:560px;margin:0 auto;border-radius:40px;border:8px solid #1c1c22;background:#0a0a0a;position:relative;overflow:hidden;box-shadow:-14px -10px 0 -2px rgba(45,212,255,.35),14px 10px 0 -2px rgba(124,92,255,.35)}
 .phone video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .phone-ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.6))}
 .phone .side{position:absolute;right:10px;bottom:120px;display:flex;flex-direction:column;gap:16px;align-items:center;font-size:11px;font-weight:700;text-shadow:0 1px 4px #000}
@@ -112,7 +113,7 @@ h3{font-size:18px;font-weight:700}
 .panel .sub{color:var(--muted);margin-bottom:26px}
 .field{margin-bottom:16px}
 .field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#d4d4d8}
-.field input,.field select{width:100%;background:#000;border:1px solid var(--line);color:#fff;padding:13px 14px;border-radius:12px;font:inherit;font-size:15px;outline:none}
+.field input,.field select{width:100%;background:#0A0A12;border:1px solid var(--line);color:#F5F5FA;padding:13px 14px;border-radius:12px;font:inherit;font-size:15px;outline:none}
 .field input:focus,.field select:focus{border-color:var(--cyan-d)}
 .field input.err{border-color:var(--red-d)}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -125,9 +126,9 @@ h3{font-size:18px;font-weight:700}
 @media(max-width:860px){.plans{grid-template-columns:1fr}}
 .plan{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;position:relative;transition:.15s;cursor:pointer}
 .plan:hover{border-color:#444}
-.plan.sel{border-color:var(--cyan-d);box-shadow:0 0 0 4px rgba(37,244,238,.12)}
-.plan.pop{border-color:var(--red-d)}
-.plan .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--red-d);font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.plan.sel{border-color:var(--cyan-d);box-shadow:0 0 0 4px rgba(45,212,255,.12)}
+.plan.pop{border-color:var(--accent)}
+.plan .badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--accent);color:#1a0b06;font-size:12px;font-weight:800;padding:5px 12px;border-radius:999px;white-space:nowrap}
 .plan .name{font-weight:800;font-size:18px}
 .plan .price{font-size:42px;font-weight:900;margin:14px 0 2px;letter-spacing:-1px}
 .plan .price small{font-size:15px;color:var(--muted);font-weight:500}
@@ -146,8 +147,8 @@ h3{font-size:18px;font-weight:700}
 .chip.on{background:#fff;color:#000;border-color:#fff}
 .rank{display:grid;gap:10px}
 .ritem{display:grid;grid-template-columns:56px 64px 1fr auto auto auto;gap:18px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 16px;transition:.15s}
-.ritem:hover{border-color:#3a3a44;background:#1a1a1f}
-.ritem.top{border-color:rgba(254,44,85,.5);background:linear-gradient(90deg,rgba(254,44,85,.10),var(--card) 40%)}
+.ritem:hover{border-color:#34344A;background:#1a1a1f}
+.ritem.top{border-color:rgba(124,92,255,.5);background:linear-gradient(90deg,rgba(124,92,255,.10),var(--card) 40%)}
 .pos{font-size:26px;font-weight:900;text-align:center;color:#555}
 .pos.p1{color:#ffd54a}.pos.p2{color:#d9d9d9}.pos.p3{color:#e0a36a}
 .logo{width:64px;height:64px;border-radius:14px;overflow:hidden;background:#222;flex:none}
@@ -160,9 +161,32 @@ h3{font-size:18px;font-weight:700}
 .metric span{font-size:12px;color:var(--muted)}
 .up{color:#3ddc97}
 .ritem .btn{padding:10px 20px;font-size:14px}
-.btn-lock{background:#1e1e24;color:#a1a1aa;border:1px dashed #3a3a44}.btn-lock:hover{color:#fff;border-color:#FE2C55}
-.lockbar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:linear-gradient(90deg,rgba(254,44,85,.14),rgba(37,244,238,.10));border:1px solid rgba(254,44,85,.4);border-radius:16px;padding:14px 18px;margin-bottom:18px}
+.btn-lock{background:#1C1C2B;color:#9CA3AF;border:1px dashed #34344A}.btn-lock:hover{color:#fff;border-color:#7C5CFF}
+.lockbar{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:linear-gradient(90deg,rgba(124,92,255,.14),rgba(45,212,255,.10));border:1px solid rgba(124,92,255,.4);border-radius:16px;padding:14px 18px;margin-bottom:18px}
 .lockbar b{font-size:16px}.lockbar span{font-size:13px;color:#d4d4d8}
+
+/* checkout */
+.co{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;max-width:1000px;width:100%}
+@media(max-width:860px){.co{grid-template-columns:1fr}}
+.paytabs{display:flex;gap:8px;margin-bottom:18px}
+.paytabs button{flex:1;padding:12px;border-radius:12px;background:var(--card);border:1px solid var(--line);color:var(--muted);font-weight:700}
+.paytabs button.on{border-color:var(--red-d);color:#fff;background:rgba(124,92,255,.12)}
+.cc{position:relative;height:190px;border-radius:18px;padding:20px;margin-bottom:18px;background:linear-gradient(135deg,#7C5CFF,#2DD4FF);color:#fff;box-shadow:0 18px 40px rgba(0,0,0,.4);overflow:hidden}
+.cc .chip{width:44px;height:32px;border-radius:7px;background:linear-gradient(135deg,#ffe29a,#c9a24a);margin-bottom:22px;padding:0;border:0}
+.cc .num{font:700 22px/1 ui-monospace,Menlo,monospace;letter-spacing:2px}
+.cc .row{display:flex;justify-content:space-between;margin-top:18px;font-size:12px;text-transform:uppercase;opacity:.9}
+.cc .brandc{position:absolute;right:18px;top:16px;font-weight:900;font-size:18px}
+.sumbox{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;height:max-content}
+.sumbox .line{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px;color:var(--muted)}
+.sumbox .line b{color:#F5F5FA}
+.sumbox .tot{display:flex;justify-content:space-between;padding-top:14px;font-size:20px;font-weight:900}
+.secure{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted);margin-top:14px}
+.testnote{background:rgba(255,122,89,.1);border:1px dashed rgba(255,122,89,.5);color:#ffd2c5;font-size:12px;border-radius:10px;padding:10px 12px;margin-bottom:16px}
+.pix{text-align:center;padding:10px}
+.pix .qr{width:200px;height:200px;margin:10px auto;background:#fff;border-radius:12px;padding:12px}
+.paying{position:fixed;inset:0;background:rgba(10,10,18,.9);z-index:250;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px;font-weight:800}
+.paying.on{display:flex}
+.paying .sp{width:64px;height:64px;border-radius:50%;border:5px solid var(--card2);border-top-color:var(--accent);animation:spin .8s linear infinite}
 .empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
 @media(max-width:860px){
   .ritem{grid-template-columns:34px 52px 1fr auto;gap:12px}
@@ -229,7 +253,7 @@ h3{font-size:18px;font-weight:700}
 @media(max-width:1000px){.clips{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:620px){.clips{grid-template-columns:repeat(2,1fr);gap:10px}}
 .clip{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.clip.hi{border-color:rgba(37,244,238,.6);box-shadow:0 0 0 3px rgba(37,244,238,.15)}
+.clip.hi{border-color:rgba(45,212,255,.6);box-shadow:0 0 0 3px rgba(45,212,255,.15)}
 .thumb{aspect-ratio:9/16;position:relative;cursor:pointer;background:#111;overflow:hidden}
 .thumb img{width:100%;height:100%;object-fit:cover;display:block}
 .thumb .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:rgba(0,0,0,.55);display:grid;place-items:center;font-size:18px;backdrop-filter:blur(4px)}
@@ -251,7 +275,7 @@ h3{font-size:18px;font-weight:700}
 
 /* chatbot */
 .chat{margin-top:36px;background:var(--bg2);border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.chat-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(37,244,238,.08),rgba(254,44,85,.08))}
+.chat-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(45,212,255,.08),rgba(124,92,255,.08))}
 .chat-head .bot{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--cyan-d),var(--red-d));display:grid;place-items:center;font-size:18px}
 .chat-head b{display:block}
 .chat-head span{font-size:12px;color:var(--muted)}
@@ -268,7 +292,7 @@ h3{font-size:18px;font-weight:700}
 .chat-sugs button{font-size:12px;padding:7px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:#d4d4d8}
 .chat-sugs button:hover{border-color:var(--cyan-d);color:#fff}
 .chat-in{display:flex;gap:10px;padding:14px 20px;border-top:1px solid var(--line)}
-.chat-in input{flex:1;background:#000;border:1px solid var(--line);color:#fff;padding:13px 16px;border-radius:999px;font:inherit;font-size:15px;outline:none}
+.chat-in input{flex:1;background:#0A0A12;border:1px solid var(--line);color:#F5F5FA;padding:13px 16px;border-radius:999px;font:inherit;font-size:15px;outline:none}
 .chat-in input:focus{border-color:var(--cyan-d)}
 
 /* modal player */
@@ -285,7 +309,7 @@ h3{font-size:18px;font-weight:700}
 .mside h3{margin:8px 0}
 .mside .small{line-height:1.5}
 .mclose{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;background:#222;color:#fff;font-size:20px}
-.cta-band{background:linear-gradient(120deg,rgba(37,244,238,.15),rgba(254,44,85,.15));border:1px solid var(--line);border-radius:24px;padding:48px;text-align:center}
+.cta-band{background:linear-gradient(120deg,rgba(45,212,255,.15),rgba(124,92,255,.15));border:1px solid var(--line);border-radius:24px;padding:48px;text-align:center}
 @media(max-width:520px){.cta-band{padding:32px 20px}}
 details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:10px}
 summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:10px}
@@ -395,8 +419,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <div class="view" id="v-cadastro">
   <div class="flow">
     <div class="panel sm">
-      <span class="skip-tip">pular (MVP)</span>
-      <button class="skip" title="Pular etapa (MVP)" onclick="go('planos')">✕</button>
       <div class="progress"><i class="on"></i><i></i><i></i><i></i></div>
       <h2>Crie sua conta</h2>
       <p class="sub">Leva menos de 1 minuto.</p>
@@ -426,8 +448,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 <div class="view" id="v-planos">
   <div class="flow">
     <div class="panel lg">
-      <span class="skip-tip">pular (MVP)</span>
-      <button class="skip" title="Pular etapa (MVP)" onclick="go('ranking')">✕</button>
       <div class="progress"><i class="on"></i><i class="on"></i><i></i><i></i></div>
       <h2 id="plansTitle">Escolha seu plano</h2>
       <p class="sub">Quanto mais vídeos você posta, mais chances de vender. Cancele quando quiser.</p>
@@ -459,7 +479,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
             <li>Editor por chat</li>
             <li class="no">Suporte prioritário</li>
           </ul>
-          <button class="btn btn-primary btn-block">Escolher Pro</button>
+          <button class="btn btn-buy btn-block">Escolher Pro</button>
         </div>
         <div class="plan" data-plan="Escala">
           <div class="name">Escala</div>
@@ -481,6 +501,56 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </div>
 </div>
 
+
+<!-- ================= CHECKOUT ================= -->
+<div class="view" id="v-checkout">
+  <div class="flow">
+    <div class="co">
+      <div class="panel" style="padding:32px">
+        <div class="progress"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+        <h2>Pagamento</h2>
+        <p class="sub">Escolha como quer pagar a assinatura.</p>
+        <div class="testnote">🧪 Protótipo: pagamento <b>simulado</b>. Nada é cobrado e nenhum dado sai deste aparelho. Use o cartão de teste <b>4242 4242 4242 4242</b>; não digite dados reais.</div>
+        <div class="paytabs"><button class="on" data-pay="card" type="button">💳 Cartão de crédito</button><button data-pay="pix" type="button">⚡ Pix</button></div>
+        <form id="fPay" novalidate>
+          <div id="payCard">
+            <div class="cc"><div class="brandc" id="ccBrand">VISA</div><div class="chip"></div><div class="num" id="ccNum">•••• •••• •••• ••••</div>
+              <div class="row"><span id="ccName">NOME NO CARTÃO</span><span id="ccExp">MM/AA</span></div></div>
+            <div class="field"><label>Número do cartão</label><input name="num" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" autocomplete="off"></div>
+            <div class="field"><label>Nome impresso no cartão</label><input name="nome" placeholder="Como está no cartão" autocomplete="off"></div>
+            <div class="row2">
+              <div class="field"><label>Validade</label><input name="exp" inputmode="numeric" maxlength="5" placeholder="MM/AA" autocomplete="off"></div>
+              <div class="field"><label>CVV</label><input name="cvv" inputmode="numeric" maxlength="4" placeholder="123" autocomplete="off"></div>
+            </div>
+            <div class="row2">
+              <div class="field"><label>CPF do titular</label><input name="cpf" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" autocomplete="off"></div>
+              <div class="field"><label>Parcelas</label><select name="parc"><option>1x sem juros</option></select></div>
+            </div>
+          </div>
+          <div id="payPix" class="pix" style="display:none">
+            <p class="small">Escaneie o QR Code ou copie o código Pix (simulado).</p>
+            <div class="qr" id="qr"></div>
+            <button class="btn btn-ghost btn-sm" type="button" onclick="toast('Código Pix copiado (simulado) ✅')">📋 Copiar código Pix</button>
+          </div>
+          <button class="btn btn-buy btn-block" type="submit" style="margin-top:8px" id="payBtn">Pagar</button>
+          <div class="secure">🔒 Ambiente de teste · cancele quando quiser · 7 dias de garantia</div>
+        </form>
+      </div>
+      <div class="sumbox">
+        <h3>Resumo do pedido</h3>
+        <div class="line"><span>Plano</span><b id="sumPlan">Pro</b></div>
+        <div class="line"><span>Vídeos por mês</span><b id="sumVids">20</b></div>
+        <div class="line"><span>Cobrança</span><b>Mensal</b></div>
+        <div class="line"><span>Conta</span><b id="sumUser">—</b></div>
+        <div class="tot"><span>Total</span><span id="sumTot">R$ 100,00</span></div>
+        <p class="small" style="margin-top:14px">Renovação automática todo mês. Cancele a qualquer momento.</p>
+        <a href="#planos" class="btn btn-ghost btn-sm btn-block" style="margin-top:14px">← Trocar plano</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="paying" id="paying"><div class="sp"></div><div id="payingTxt">Processando pagamento…</div></div>
+
 <!-- ================= RANKING ================= -->
 <div class="view" id="v-ranking">
   <section style="padding-top:44px">
@@ -493,10 +563,10 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <p class="small" style="margin-top:6px">TikTok Shop Brasil · escolha um produto e clique em <b style="color:#fff">Afiliar</b></p>
         </div>
         <div class="filters" id="catChips">
-          <button class="chip on" data-cat="Todos">Todos</button><button class="chip" data-cat="Suplementos">💪 Suplementos</button><button class="chip" data-cat="Beleza">💄 Beleza</button><button class="chip" data-cat="Alimentos">🍫 Alimentos</button>
+          <button class="chip on" data-cat="Todos">Todos</button><button class="chip" data-cat="Suplementos">💪 Suplementos</button><button class="chip" data-cat="Beleza">💄 Beleza</button><button class="chip" data-cat="Alimentos">🍫 Alimentos</button><button class="chip" data-cat="Acessórios">⌚ Acessórios</button>
         </div>
       </div>
-      <div class="lockbar" id="lockBar"><div><b>🔒 Você está vendo a vitrine</b><br><span>Crie sua conta e escolha um plano pra se afiliar e receber os vídeos prontos.</span></div><a href="#cadastro" class="btn btn-primary btn-sm">Criar conta e assinar</a></div>
+      <div class="lockbar" id="lockBar"><div><b>🔒 Você está vendo a vitrine</b><br><span>Crie sua conta e escolha um plano pra se afiliar e receber os vídeos prontos.</span></div><a href="#cadastro" class="btn btn-buy btn-sm">Criar conta e assinar</a></div>
       <div class="rank" id="rankList"></div>
 
       <div class="sec-title"><div><h2 id="othersTitle">Outras opções</h2><p class="small" style="margin-top:6px">Marcas que também estão vendendo bem no TikTok Shop</p></div></div>
@@ -671,7 +741,7 @@ const PRODUCTS=[
   {id:'dux',name:'DUX Nutrition Lab',cat:'Suplementos',sub:'Fitness',sales:'36,2 mil',grow:'+22%',com:'15%'},
   {id:'gummy',name:'Gummy Hair',cat:'Beleza',sub:'Cabelo',sales:'33,9 mil',grow:'+19%',com:'20%'},
   {id:'sainttropez',name:'Saint Tropez',cat:'Beleza',sub:'Autobronzeador',sales:'29,5 mil',grow:'+17%',com:'18%'},
-  {id:'saintgermain',name:'Saint Germain',cat:'Beleza',sub:'Perfumaria',sales:'26,7 mil',grow:'+15%',com:'16%'},
+  {id:'saintgermain',name:'Saint Germain',cat:'Acessórios',sub:'Relógios',sales:'26,7 mil',grow:'+15%',com:'16%'},
   {id:'jacklinks',name:"Jack Link's",cat:'Alimentos',sub:'Snacks de carne',sales:'22,3 mil',grow:'+12%',com:'12%'},
   {id:'maismu',name:'+Mu',cat:'Alimentos',sub:'Proteico',sales:'19,8 mil',grow:'+10%',com:'15%'},
   {id:'bold',name:'Bold',cat:'Alimentos',sub:'Barras de proteína',sales:'17,4 mil',grow:'+9%',com:'14%'},
@@ -696,8 +766,8 @@ const OTHERS=[
   {name:'Dr. Peanut',cat:'Alimentos',sub:'Pasta de amendoim',bg:'#d4282f',fg:'#fff',txt:'Dr.<br>Peanut',fs:13},
 ];
 const TESTIS=[
-  {n:'Camila R.',c:'Campinas · SP',t:'Nunca tinha vendido nada online. Postei os 5 cortes mais fortes da Dot e em 2 semanas fiz minhas primeiras vendas.',e:'R$ 640 no 1º mês',col:'#25F4EE'},
-  {n:'Lucas M.',c:'Recife · PE',t:'O que me travava era editar. Agora eu só escolho o corte com 95%+ e posto. O de tela partida é o que mais viraliza.',e:'R$ 1.380 no 2º mês',col:'#FE2C55'},
+  {n:'Camila R.',c:'Campinas · SP',t:'Nunca tinha vendido nada online. Postei os 5 cortes mais fortes da Dot e em 2 semanas fiz minhas primeiras vendas.',e:'R$ 640 no 1º mês',col:'#2DD4FF'},
+  {n:'Lucas M.',c:'Recife · PE',t:'O que me travava era editar. Agora eu só escolho o corte com 95%+ e posto. O de tela partida é o que mais viraliza.',e:'R$ 1.380 no 2º mês',col:'#7C5CFF'},
   {n:'Bianca S.',c:'Belo Horizonte · MG',t:'Uso o chat pra colocar texto de promoção nos vídeos. Muito prático, parece que eu tenho um editor.',e:'R$ 910 no 1º mês',col:'#ffd54a'},
   {n:'Rafael T.',c:'Curitiba · PR',t:'Já vendia como afiliado, mas postava 1 vídeo por dia. Com a Tikfy passei pra 4 e as vendas acompanharam.',e:'3x mais vendas',col:'#3ddc97'},
   {n:'Juliana P.',c:'Salvador · BA',t:'O ranking me ajudou a escolher produto. Fui na Dot porque tava em 1º e acertei.',e:'R$ 520 no 1º mês',col:'#c084fc'},
@@ -762,7 +832,7 @@ function setupExamples(){
   const hv=document.getElementById('heroVid'); const h0=VIDS.dot.find(x=>x.format!=='IA')||VIDS.dot[0];if(h0){hv.src=h0.file;hv.poster=h0.thumb}
 }
 
-function needSub(){toast(state.user?'Escolha um plano pra liberar a afiliação 🔒':'Crie sua conta e escolha um plano pra se afiliar 🔒');setTimeout(()=>go(state.user?'planos':'cadastro'),900)}
+function needSub(){toast(state.user?'Escolha um plano e conclua o pagamento pra liberar 🔒':'Crie sua conta e assine um plano pra se afiliar 🔒');setTimeout(()=>go(state.user?'planos':'cadastro'),900)}
 function refreshLock(){document.getElementById('lockBar').style.display=state.sub?'none':'flex';renderRank();document.getElementById('homeTop').innerHTML=PRODUCTS.slice(0,3).map(rowHTML).join('')}
 function afiliar(id){
   if(!state.sub){needSub();return}
@@ -783,6 +853,8 @@ function render(){
   document.getElementById('nav').classList.remove('open');
   window.scrollTo(0,0);
   if((r==='gerando'||r==='videos')&&!state.sub){needSub();return}
+  if(r==='checkout'&&!state.user){toast('Crie sua conta primeiro 🙂');go('cadastro');return}
+  if(r==='checkout'&&!state.plan){go('planos');return}
   if(r==='gerando') runGen();
   if(r==='videos') renderClips();
 }
@@ -803,7 +875,7 @@ f.addEventListener('submit',e=>{
     i.classList.toggle('err',bad);if(bad)ok=false;
   });
   if(!ok){toast('Confira os campos destacados');return}
-  state.user={nome:f.nome.value.split(' ')[0],tiktok:f.tiktok.value};
+  state.user={nome:f.nome.value.split(' ')[0],tiktok:f.tiktok.value,cpf:f.cpf.value};
   document.getElementById('plansTitle').textContent=`${state.user.nome}, escolha seu plano`;
   document.getElementById('hdrLogin').textContent=state.user.tiktok;
   toast('Conta criada! ✅');go('planos');
@@ -812,9 +884,45 @@ f.addEventListener('submit',e=>{
 /* ---------- plans ---------- */
 document.querySelectorAll('.plan').forEach(pl=>pl.onclick=()=>{
   document.querySelectorAll('.plan').forEach(x=>x.classList.remove('sel'));pl.classList.add('sel');
-  state.plan=pl.dataset.plan;state.sub=true;refreshLock();document.getElementById('hdrLogin').textContent=(state.user?state.user.tiktok:'Minha conta')+' · '+state.plan;toast(`Plano ${state.plan} ativado ✅ Afiliação liberada!`);
-  setTimeout(()=>go('ranking'),700);
+  if(!state.user){toast('Crie sua conta pra assinar 🙂');go('cadastro');return}
+  state.plan=pl.dataset.plan;openCheckout();
 });
+
+
+/* ---------- checkout ---------- */
+const PRICES={Start:50,Pro:100,Escala:150},VIDSN={Start:10,Pro:20,Escala:40};
+function openCheckout(){const p=state.plan||'Pro';
+  document.getElementById('sumPlan').textContent=p;document.getElementById('sumVids').textContent=VIDSN[p];
+  document.getElementById('sumUser').textContent=state.user?state.user.tiktok:'—';
+  const tot=`R$ ${PRICES[p]},00`;document.getElementById('sumTot').textContent=tot;document.getElementById('payBtn').textContent=`Pagar ${tot}`;
+  const sel=document.querySelector('#fPay [name=parc]');sel.innerHTML=[1,2,3].map(n=>`<option>${n}x de R$ ${(PRICES[p]/n).toFixed(2).replace('.',',')} sem juros</option>`).join('');
+  if(state.user&&state.user.cpf) document.querySelector('#fPay [name=cpf]').value=state.user.cpf;
+  go('checkout')}
+let payMode='card';
+document.querySelectorAll('.paytabs button').forEach(b=>b.onclick=()=>{payMode=b.dataset.pay;document.querySelectorAll('.paytabs button').forEach(x=>x.classList.toggle('on',x===b));
+  document.getElementById('payCard').style.display=payMode==='card'?'block':'none';document.getElementById('payPix').style.display=payMode==='pix'?'block':'none';
+  if(payMode==='pix'){const q=document.getElementById('qr');let h='<svg viewBox="0 0 25 25" width="176" height="176" shape-rendering="crispEdges">';for(let y=0;y<25;y++)for(let x=0;x<25;x++){const f=(x<7&&y<7)||(x>17&&y<7)||(x<7&&y>17);const on=f?((x%6===0||y%6===0||(x>1&&x<5&&y>1&&y<5)||(x>19&&x<23&&y>1&&y<5)||(x>1&&x<5&&y>19&&y<23))&&!(x===6&&y>6)&&!(y===6&&x>6)):Math.sin(x*12.9+y*78.2)*43758%1>.5;if(on)h+=`<rect x="${x}" y="${y}" width="1" height="1"/>`}q.innerHTML=h+'</svg>'}});
+const fp=document.getElementById('fPay');
+const luhn=n=>{let s=0,a=false;for(let i=n.length-1;i>=0;i--){let d=+n[i];if(a){d*=2;if(d>9)d-=9}s+=d;a=!a}return n.length>=13&&s%10===0};
+fp.num.addEventListener('input',e=>{const v=e.target.value.replace(/\D/g,'').slice(0,16);e.target.value=v.replace(/(\d{4})(?=\d)/g,'$1 ');
+  document.getElementById('ccNum').textContent=(v+'•'.repeat(16-v.length)).replace(/(.{4})(?=.)/g,'$1 ');
+  document.getElementById('ccBrand').textContent=/^4/.test(v)?'VISA':/^(5[1-5]|2[2-7])/.test(v)?'MASTERCARD':/^3[47]/.test(v)?'AMEX':/^(636368|438935|504175|451416|636297|5067|4576|4011|506699)/.test(v)?'ELO':'CARTÃO'});
+fp.nome.addEventListener('input',e=>document.getElementById('ccName').textContent=e.target.value.toUpperCase()||'NOME NO CARTÃO');
+fp.exp.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,4);if(v.length>2)v=v.slice(0,2)+'/'+v.slice(2);e.target.value=v;document.getElementById('ccExp').textContent=v||'MM/AA'});
+fp.cvv.addEventListener('input',e=>e.target.value=e.target.value.replace(/\D/g,'').slice(0,4));
+fp.cpf.addEventListener('input',e=>{let v=e.target.value.replace(/\D/g,'').slice(0,11);e.target.value=v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})(\d{1,2})$/,'$1-$2')});
+fp.addEventListener('submit',e=>{e.preventDefault();
+  if(payMode==='card'){let ok=true;const bad=(el,c)=>{el.classList.toggle('err',c);if(c)ok=false};
+    const n=fp.num.value.replace(/\D/g,'');bad(fp.num,!luhn(n));bad(fp.nome,fp.nome.value.trim().length<3);
+    const m=fp.exp.value.match(/^(\d{2})\/(\d{2})$/);bad(fp.exp,!m||+m[1]<1||+m[1]>12||(2000+ +m[2])*12+ +m[1]<new Date().getFullYear()*12+new Date().getMonth()+1);
+    bad(fp.cvv,fp.cvv.value.length<3);bad(fp.cpf,fp.cpf.value.replace(/\D/g,'').length!==11);
+    if(!ok){toast('Confira os dados do cartão (teste: 4242 4242 4242 4242)');return}}
+  const pg=document.getElementById('paying');pg.classList.add('on');document.getElementById('payingTxt').textContent='Processando pagamento…';
+  setTimeout(()=>{document.getElementById('payingTxt').textContent='Pagamento aprovado ✅';},1600);
+  setTimeout(()=>{pg.classList.remove('on');state.sub=true;refreshLock();
+    document.getElementById('hdrLogin').textContent=(state.user?state.user.tiktok:'Minha conta')+' · '+state.plan;
+    fp.reset();document.getElementById('ccNum').textContent='•••• •••• •••• ••••';
+    toast(`Assinatura ${state.plan} ativa ✅ Afiliação liberada!`);go('ranking')},2600)});
 
 /* ---------- generating ---------- */
 let genTimer=null;
