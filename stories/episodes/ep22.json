@@ -1,0 +1,168 @@
+{
+ "slug": "se-a-gasolina-acabasse",
+ "title": [
+  "Se a gasolina",
+  "acabasse"
+ ],
+ "caption": "Se a gasolina acabasse no Brasil, o mercado esvaziava em dias. ⛽ Em 2018 isso quase aconteceu. #gasolina #brasil #curiosidades",
+ "scenes": [
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "Se a *gasolina* e o *diesel* acabassem no Brasil, o país parava em poucos dias.",
+   "props": [
+    {
+     "k": "gas_pump",
+     "x": 540,
+     "y": 920,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "street_top",
+   "cam": "push",
+   "say": "Quase tudo que você come chega de *caminhão*.",
+   "step": {
+    "n": "1",
+    "t": "Caminhões"
+   },
+   "props": [
+    {
+     "k": "truck",
+     "x": 540,
+     "y": 900,
+     "s": 1.0,
+     "a": "drive",
+     "r": 90,
+     "to": [
+      540,
+      1500
+     ]
+    }
+   ]
+  },
+  {
+   "bg": "store",
+   "cam": "shake",
+   "say": "Sem diesel: mercado *vazio* em poucos dias.",
+   "step": {
+    "n": "2",
+    "t": "Mercado\nvazio"
+   },
+   "char": {
+    "pose": "scared",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "hospital",
+   "cam": "push",
+   "say": "Remédio deixa de chegar na *farmácia* e no hospital.",
+   "step": {
+    "n": "3",
+    "t": "Remédios"
+   },
+   "props": [
+    {
+     "k": "pill",
+     "x": 540,
+     "y": 880,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "E o ônibus para. Muita gente não *consegue* *trabalhar*.",
+   "props": [
+    {
+     "k": "car",
+     "x": 540,
+     "y": 1000,
+     "s": 1.1,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 700,
+     "y": 900,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.6
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Não é teoria. Em *2018*, a greve dos caminhoneiros parou o país por uns *dez* *dias*.",
+   "step": {
+    "n": "*",
+    "t": "Já\naconteceu"
+   },
+   "stat": {
+    "value": "10 dias",
+    "y": 860,
+    "top": "greve dos caminhoneiros",
+    "sub": "maio de 2018",
+    "size": 160
+   }
+  },
+  {
+   "bg": "store",
+   "cam": "push",
+   "say": "Posto sem combustível, prateleira vazia e *aula* cancelada.",
+   "props": [
+    {
+     "k": "gas_pump",
+     "x": 540,
+     "y": 900,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "kitchen",
+   "cam": "push",
+   "say": "A lição: tenha sempre comida e *água* pra pelo menos uma semana em casa.",
+   "props": [
+    {
+     "k": "can",
+     "x": 400,
+     "y": 1130,
+     "s": 1.0,
+     "a": "pop"
+    },
+    {
+     "k": "bottle",
+     "x": 650,
+     "y": 1110,
+     "s": 0.9,
+     "a": "pop",
+     "d": 0.3
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Você lembra da greve de 2018? Comenta.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,153 @@
+{
+ "slug": "picada-de-cobra",
+ "title": [
+  "Se uma cobra",
+  "te picar"
+ ],
+ "caption": "Se uma cobra te picar, NUNCA faça o que aparece nos filmes. 🐍 #cobra #primeirossocorros #seguranca #curiosidades",
+ "scenes": [
+  {
+   "bg": "forest_night",
+   "cam": "push",
+   "say": "Se uma *cobra* te picar, o que você viu nos filmes pode te matar.",
+   "props": [
+    {
+     "k": "snake",
+     "x": 540,
+     "y": 1400,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "O Brasil tem quase *30* *mil* acidentes com cobra por ano.",
+   "stat": {
+    "value": "~30 mil",
+    "y": 860,
+    "top": "acidentes com cobras por ano",
+    "sub": "no Brasil",
+    "src": "Ministério da Saúde",
+    "size": 150
+   }
+  },
+  {
+   "bg": "dark",
+   "cam": "push",
+   "say": "Primeiro: *não* *chupa* o veneno. Não funciona e ainda infecciona.",
+   "step": {
+    "n": "1",
+    "t": "Não chupe"
+   },
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Segundo: *não* *amarra* o braço ou a perna. O garrote pode piorar a lesão.",
+   "step": {
+    "n": "2",
+    "t": "Sem\ngarrote"
+   },
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Terceiro: deita, fica *calmo* e mantém a área picada parada.",
+   "step": {
+    "n": "3",
+    "t": "Fique\nparado"
+   },
+   "char": {
+    "pose": "stand",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "hospital",
+   "cam": "push",
+   "say": "Quarto: vai pro *hospital* o mais rápido possível. Só o soro resolve.",
+   "step": {
+    "n": "4",
+    "t": "Hospital"
+   },
+   "props": [
+    {
+     "k": "pill",
+     "x": 540,
+     "y": 900,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "forest_night",
+   "cam": "push",
+   "say": "Se der, tira uma *foto* da cobra de longe. Ajuda o médico a escolher o soro.",
+   "step": {
+    "n": "*",
+    "t": "Dica"
+   },
+   "props": [
+    {
+     "k": "phone",
+     "x": 540,
+     "y": 880,
+     "s": 1.1,
+     "a": "pop",
+     "label": "FOTO"
+    }
+   ]
+  },
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "O soro do Brasil é feito pelo Instituto *Butantan*. E é de graça no SUS.",
+   "props": [
+    {
+     "k": "shield",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Salva esse vídeo. Um dia ele pode salvar alguém.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

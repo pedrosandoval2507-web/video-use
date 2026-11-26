@@ -1,0 +1,172 @@
+{
+ "slug": "se-as-abelhas-sumissem",
+ "title": [
+  "E se as abelhas",
+  "sumissem?"
+ ],
+ "caption": "Se as abelhas sumissem, seu prato ficaria muito mais vazio. 🐝 #abelhas #natureza #ciencia #curiosidades",
+ "scenes": [
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Se as *abelhas* sumissem amanhã, o seu prato ficaria bem mais vazio.",
+   "props": [
+    {
+     "k": "bee",
+     "x": 540,
+     "y": 860,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Elas *polinizam* as flores, e é da flor que nasce o fruto.",
+   "step": {
+    "n": "1",
+    "t": "Polinização"
+   },
+   "props": [
+    {
+     "k": "bee",
+     "x": 400,
+     "y": 820,
+     "s": 0.7,
+     "a": "pop"
+    },
+    {
+     "k": "tree",
+     "x": 680,
+     "y": 1150,
+     "s": 1.0,
+     "a": "pop",
+     "d": 0.3
+    }
+   ]
+  },
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "Cerca de *três* *quartos* dos principais cultivos do mundo dependem em parte de polinizadores.",
+   "stat": {
+    "value": "~75%",
+    "y": 860,
+    "top": "dos principais cultivos",
+    "sub": "dependem de polinizadores",
+    "src": "FAO",
+    "color": "#2FB57A",
+    "size": 170
+   }
+  },
+  {
+   "bg": "store",
+   "cam": "shake",
+   "say": "Sem abelhas: *café*, maçã, melancia e *chocolate* ficariam raros e caros.",
+   "step": {
+    "n": "2",
+    "t": "Comida\ncara"
+   },
+   "props": [
+    {
+     "k": "coffee",
+     "x": 380,
+     "y": 900,
+     "s": 0.9,
+     "a": "pop"
+    },
+    {
+     "k": "cart",
+     "x": 700,
+     "y": 900,
+     "s": 0.9,
+     "a": "pop",
+     "d": 0.3
+    }
+   ]
+  },
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Arroz, trigo e milho continuam, porque o *vento* poliniza eles.",
+   "props": [
+    {
+     "k": "check",
+     "x": 540,
+     "y": 860,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "kitchen",
+   "cam": "push",
+   "say": "Mas a comida ficaria mais *sem* *graça* e menos nutritiva.",
+   "step": {
+    "n": "3",
+    "t": "Sem\nvariedade"
+   },
+   "char": {
+    "pose": "think",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3,
+    "face": "sad"
+   }
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "E elas estão *sumindo*: veneno de lavoura, desmatamento e doenças.",
+   "step": {
+    "n": "*",
+    "t": "O\nproblema"
+   },
+   "props": [
+    {
+     "k": "warning",
+     "x": 540,
+     "y": 860,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "sunset",
+   "cam": "push",
+   "say": "Quer ajudar? Planta *flor* na varanda e não mata abelha que entrar em casa.",
+   "props": [
+    {
+     "k": "bee",
+     "x": 540,
+     "y": 860,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ],
+   "char": {
+    "pose": "cheer",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Manda pra alguém que tem medo de abelha.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

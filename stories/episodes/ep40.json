@@ -1,0 +1,158 @@
+{
+ "slug": "incendio-em-casa",
+ "title": [
+  "Se sua casa",
+  "pegar fogo"
+ ],
+ "caption": "Se sua casa pegar fogo, você tem poucos minutos. O que fazer? 🔥 O passo 1 salva vidas. #incendio #seguranca #bombeiros",
+ "scenes": [
+  {
+   "bg": "room_night",
+   "cam": "shake",
+   "say": "Se sua casa pegar fogo, você tem *poucos* *minutos* pra sair.",
+   "props": [
+    {
+     "k": "fire",
+     "x": 540,
+     "y": 1300,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "dark",
+   "cam": "push",
+   "say": "E quem mais mata num incêndio não é o fogo. É a *fumaça*.",
+   "props": [
+    {
+     "k": "smoke",
+     "x": 540,
+     "y": 1100,
+     "s": 1.6,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "room_night",
+   "cam": "push",
+   "say": "Primeiro: sai *rastejando*. O ar mais limpo fica perto do chão.",
+   "step": {
+    "n": "1",
+    "t": "Rasteje"
+   },
+   "props": [
+    {
+     "k": "smoke",
+     "x": 540,
+     "y": 700,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ],
+   "char": {
+    "pose": "stand",
+    "x": 540,
+    "y": 1760,
+    "s": 1.0
+   }
+  },
+  {
+   "bg": "room_night",
+   "cam": "push",
+   "say": "Segundo: antes de abrir uma porta, toca nela com as *costas* *da* *mão*.",
+   "step": {
+    "n": "2",
+    "t": "Teste a\nporta"
+   },
+   "props": [
+    {
+     "k": "door",
+     "x": 540,
+     "y": 1000,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Se estiver *quente*, tem fogo do outro lado. Procura outra saída.",
+   "props": [
+    {
+     "k": "thermo",
+     "x": 540,
+     "y": 880,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "elevator",
+   "cam": "push",
+   "say": "Terceiro: *nunca* usa o elevador num incêndio.",
+   "step": {
+    "n": "3",
+    "t": "Escada"
+   },
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_night",
+   "cam": "push",
+   "say": "Quarto: não volta pra buscar *nada*. Nem celular, nem documento.",
+   "step": {
+    "n": "4",
+    "t": "Não\nvolte"
+   },
+   "char": {
+    "pose": "run",
+    "x": 260,
+    "y": 1710,
+    "s": 1.3,
+    "to": 760
+   }
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Já do lado de fora, liga pro *193*. Os bombeiros.",
+   "step": {
+    "n": "*",
+    "t": "Ligue"
+   },
+   "stat": {
+    "value": "193",
+    "y": 860,
+    "top": "bombeiros",
+    "sub": "ligação gratuita",
+    "size": 190
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Salva e manda pra sua família.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

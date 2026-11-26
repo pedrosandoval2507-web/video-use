@@ -1,0 +1,156 @@
+{
+ "slug": "se-o-sol-sumisse",
+ "title": [
+  "E se o sol",
+  "sumisse agora?"
+ ],
+ "caption": "Se o Sol sumisse agora, você só saberia daqui a 8 minutos. ☀️🌑 O resto é assustador. #sol #espaco #ciencia #curiosidades",
+ "scenes": [
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Se o *Sol* sumisse agora, você nem ia perceber.",
+   "props": [
+    {
+     "k": "sun",
+     "x": 540,
+     "y": 760,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "space",
+   "cam": "push",
+   "say": "A luz dele leva *8* *minutos* e 20 segundos pra chegar aqui.",
+   "step": {
+    "n": "1",
+    "t": "8 minutos"
+   },
+   "stat": {
+    "value": "8min 20s",
+    "y": 860,
+    "top": "tempo da luz do Sol",
+    "sub": "até a Terra",
+    "src": "NASA",
+    "size": 150
+   }
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "Então por oito minutos, tudo continuaria *normal*.",
+   "char": {
+    "pose": "walk",
+    "x": 260,
+    "y": 1710,
+    "s": 1.3,
+    "to": 760
+   }
+  },
+  {
+   "bg": "night_field",
+   "cam": "shake",
+   "say": "Depois: *escuridão* total. Só as estrelas no céu.",
+   "step": {
+    "n": "2",
+    "t": "Escuridão"
+   },
+   "char": {
+    "pose": "scared",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   },
+   "dim": 0.4
+  },
+  {
+   "bg": "space",
+   "cam": "push",
+   "say": "A Terra sairia *voando* em linha reta pelo espaço. Nada mais segurando a órbita.",
+   "props": [
+    {
+     "k": "globe",
+     "x": 540,
+     "y": 820,
+     "s": 1.2,
+     "a": "drive",
+     "to": [
+      900,
+      500
+     ]
+    }
+   ]
+  },
+  {
+   "bg": "blue",
+   "cam": "push",
+   "say": "Na primeira semana, a temperatura cairia *abaixo* *de* *zero* no planeta inteiro.",
+   "step": {
+    "n": "3",
+    "t": "O frio"
+   },
+   "props": [
+    {
+     "k": "thermo",
+     "x": 540,
+     "y": 880,
+     "s": 1.4,
+     "a": "pop",
+     "cold": true
+    }
+   ]
+  },
+  {
+   "bg": "desert",
+   "cam": "push",
+   "say": "As plantas parariam a fotossíntese. E sem plantas, a comida *acaba*.",
+   "step": {
+    "n": "4",
+    "t": "Sem\ncomida"
+   },
+   "props": [
+    {
+     "k": "tree",
+     "x": 540,
+     "y": 1000,
+     "s": 1.0,
+     "a": "pop",
+     "wob": 6
+    }
+   ]
+  },
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "A boa notícia: o Sol ainda tem uns *5* *bilhões* *de* *anos* de combustível.",
+   "step": {
+    "n": "*",
+    "t": "Relaxa"
+   },
+   "stat": {
+    "value": "5 bilhões",
+    "y": 860,
+    "top": "de anos de vida",
+    "sub": "para o Sol",
+    "color": "#2FB57A",
+    "size": 140
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Qual parte te deu mais medo? Comenta.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

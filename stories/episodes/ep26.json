@@ -1,0 +1,174 @@
+{
+ "slug": "celular-na-agua",
+ "title": [
+  "Celular caiu",
+  "na água?"
+ ],
+ "caption": "Celular caiu na água? Esquece o arroz. 📱💧 A própria Apple pede pra não fazer. #celular #dicas #iphone #curiosidades",
+ "scenes": [
+  {
+   "bg": "kitchen",
+   "cam": "push",
+   "say": "Seu celular caiu na água. E você corre pro pote de *arroz*.",
+   "props": [
+    {
+     "k": "phone",
+     "x": 540,
+     "y": 880,
+     "s": 1.3,
+     "a": "fall"
+    },
+    {
+     "k": "drop",
+     "x": 720,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.5
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Errado. A própria Apple pede pra *não* *usar* *arroz*.",
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "dark",
+   "cam": "push",
+   "say": "O pó do arroz pode entrar nas entradas e *estragar* o aparelho.",
+   "props": [
+    {
+     "k": "warning",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "room_night",
+   "cam": "push",
+   "say": "Primeiro: *desliga* na hora. Não fica testando se ainda funciona.",
+   "step": {
+    "n": "1",
+    "t": "Desligue"
+   },
+   "props": [
+    {
+     "k": "phone_off",
+     "x": 540,
+     "y": 880,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "dark",
+   "cam": "push",
+   "say": "Segundo: *não* *carrega*. Água mais eletricidade é curto-circuito.",
+   "step": {
+    "n": "2",
+    "t": "Não\ncarregue"
+   },
+   "props": [
+    {
+     "k": "plug",
+     "x": 540,
+     "y": 880,
+     "s": 1.2,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 680,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.6
+    }
+   ]
+  },
+  {
+   "bg": "kitchen",
+   "cam": "push",
+   "say": "Terceiro: bate de leve com a entrada virada *pra* *baixo* pra tirar a água.",
+   "step": {
+    "n": "3",
+    "t": "Entrada\npra baixo"
+   },
+   "props": [
+    {
+     "k": "phone",
+     "x": 540,
+     "y": 880,
+     "s": 1.2,
+     "a": "pop",
+     "r": 180,
+     "wob": 10
+    }
+   ]
+  },
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Quarto: deixa secar num lugar *ventilado* por pelo menos um dia.",
+   "step": {
+    "n": "4",
+    "t": "Ar e\npaciência"
+   },
+   "props": [
+    {
+     "k": "phone",
+     "x": 540,
+     "y": 880,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "E o secador de cabelo? Também *não*. O calor pode danificar a tela e a bateria.",
+   "step": {
+    "n": "*",
+    "t": "E o\nsecador?"
+   },
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Você já usou o arroz? Comenta a verdade.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

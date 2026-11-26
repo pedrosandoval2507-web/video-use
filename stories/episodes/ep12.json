@@ -1,0 +1,208 @@
+{
+ "slug": "ganhar-mega-sena",
+ "title": [
+  "Se você ganhar",
+  "na mega-sena"
+ ],
+ "caption": "Se você ganhasse na Mega-Sena hoje, qual seria o primeiro passo? 🍀 Quase todo mundo erra o passo 1. #megasena #dinheiro #curiosidades",
+ "scenes": [
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "Se você ganhar na *Mega-Sena* hoje, o primeiro passo decide se o dinheiro vai durar.",
+   "props": [
+    {
+     "k": "ball",
+     "x": 360,
+     "y": 880,
+     "s": 0.9,
+     "a": "pop",
+     "label": "07"
+    },
+    {
+     "k": "ball",
+     "x": 540,
+     "y": 820,
+     "s": 0.9,
+     "a": "pop",
+     "d": 0.2,
+     "label": "23",
+     "color": "#E5322D"
+    },
+    {
+     "k": "ball",
+     "x": 720,
+     "y": 880,
+     "s": 0.9,
+     "a": "pop",
+     "d": 0.4,
+     "label": "42",
+     "color": "#5B7FD6"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "A chance de acertar as seis é de uma em *50* *milhões*.",
+   "stat": {
+    "value": "1 em 50 mi",
+    "y": 860,
+    "top": "chance de acertar a sena",
+    "sub": "aposta simples de 6 números",
+    "src": "Caixa",
+    "size": 130
+   }
+  },
+  {
+   "bg": "room_night",
+   "cam": "push",
+   "say": "Primeiro: *não* *conta* *pra* *ninguém*. Nem no grupo da família.",
+   "step": {
+    "n": "1",
+    "t": "Fique\nquieto"
+   },
+   "props": [
+    {
+     "k": "whatsapp",
+     "x": 760,
+     "y": 900,
+     "s": 0.8,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 860,
+     "y": 800,
+     "s": 0.4,
+     "a": "pop",
+     "d": 0.6
+    }
+   ],
+   "char": {
+    "pose": "think",
+    "x": 330,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "city_day",
+   "cam": "shake",
+   "say": "Parente que você nunca viu vai aparecer pedindo *empréstimo*.",
+   "props": [
+    {
+     "k": "people",
+     "x": 540,
+     "y": 1700,
+     "s": 1.6,
+     "a": "pop",
+     "n": 5,
+     "pose": "walk"
+    }
+   ]
+  },
+  {
+   "bg": "office",
+   "cam": "push",
+   "say": "Segundo: antes de gastar, procura um *advogado* e um *planejador* financeiro.",
+   "step": {
+    "n": "2",
+    "t": "Ajuda\nprofissional"
+   },
+   "props": [
+    {
+     "k": "briefcase",
+     "x": 540,
+     "y": 900,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Terceiro: quita todas as *dívidas*. Juros são o maior ralo de dinheiro.",
+   "step": {
+    "n": "3",
+    "t": "Zere as\ndívidas"
+   },
+   "props": [
+    {
+     "k": "card",
+     "x": 540,
+     "y": 880,
+     "s": 1.4,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 680,
+     "y": 780,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.6
+    }
+   ]
+  },
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "Quarto: investe a maior parte. Só os *rendimentos* já dariam um salário alto por mês.",
+   "step": {
+    "n": "4",
+    "t": "Viva de\nrenda"
+   },
+   "props": [
+    {
+     "k": "chart_up",
+     "x": 540,
+     "y": 880,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_day",
+   "cam": "shake",
+   "say": "E o erro clássico: sair *comprando* carro, casa e presente pra todo mundo no primeiro mês.",
+   "step": {
+    "n": "*",
+    "t": "O erro"
+   },
+   "props": [
+    {
+     "k": "car",
+     "x": 540,
+     "y": 1000,
+     "s": 1.2,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 700,
+     "y": 880,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.7
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Qual seria a primeira coisa que você compraria? Comenta.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

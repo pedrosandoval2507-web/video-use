@@ -1,0 +1,167 @@
+{
+ "slug": "mitos-que-voce-acredita",
+ "title": [
+  "Mitos que você",
+  "ainda acredita"
+ ],
+ "caption": "4 mitos que você aprendeu e são MENTIRA. 🤯 O 3 me pegou. #mitos #curiosidades #fatos #vocesabia",
+ "scenes": [
+  {
+   "bg": "classroom",
+   "cam": "push",
+   "say": "Quatro coisas que você aprendeu e são *mentira*.",
+   "char": {
+    "pose": "think",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Primeiro: a gente só usa *10%* do cérebro.",
+   "step": {
+    "n": "1",
+    "t": "10% do\ncérebro"
+   },
+   "props": [
+    {
+     "k": "brain",
+     "x": 540,
+     "y": 860,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Falso. Exames mostram o cérebro *inteiro* trabalhando ao longo do dia.",
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "night_field",
+   "cam": "push",
+   "say": "Segundo: um raio não cai *duas* *vezes* no mesmo lugar.",
+   "step": {
+    "n": "2",
+    "t": "O raio"
+   },
+   "props": [
+    {
+     "k": "lightning",
+     "x": 540,
+     "y": 800,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_night",
+   "cam": "push",
+   "say": "Falso. O Empire State, em Nova York, leva uns *20* *raios* por ano.",
+   "props": [
+    {
+     "k": "lightning",
+     "x": 540,
+     "y": 600,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "blue",
+   "cam": "push",
+   "say": "Terceiro: chiclete engolido fica *sete* *anos* na barriga.",
+   "step": {
+    "n": "3",
+    "t": "Chiclete"
+   },
+   "props": [
+    {
+     "k": "heart",
+     "x": 540,
+     "y": 860,
+     "s": 0.9,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "Falso. Ele sai pelo caminho normal em *poucos* *dias*.",
+   "props": [
+    {
+     "k": "check",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "space",
+   "cam": "push",
+   "say": "Quarto: dá pra ver a *Muralha* *da* *China* do espaço.",
+   "step": {
+    "n": "4",
+    "t": "A muralha"
+   },
+   "props": [
+    {
+     "k": "globe",
+     "x": 540,
+     "y": 820,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "space",
+   "cam": "push",
+   "say": "Falso. Ela é comprida, mas é *estreita* demais. Nem os astronautas conseguem ver a olho nu.",
+   "step": {
+    "n": "*",
+    "t": "Todos\nfalsos"
+   },
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 820,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Qual desses você acreditava? Comenta o número.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

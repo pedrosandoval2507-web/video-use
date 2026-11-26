@@ -1,0 +1,168 @@
+{
+ "slug": "aviao-sem-paraquedas",
+ "title": [
+  "Por que o avião",
+  "não tem paraquedas?"
+ ],
+ "caption": "Por que avião comercial não tem paraquedas pra passageiro? ✈️🪂 O motivo 2 ninguém imagina. #aviao #curiosidades #viagem #fatos",
+ "scenes": [
+  {
+   "bg": "sky",
+   "cam": "push",
+   "say": "Por que o avião não tem *paraquedas* pros passageiros?",
+   "props": [
+    {
+     "k": "plane",
+     "x": 540,
+     "y": 880,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "sky",
+   "cam": "push",
+   "say": "Parece óbvio colocar. Mas não *salvaria* quase ninguém.",
+   "props": [
+    {
+     "k": "parachute",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 700,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.8
+    }
+   ]
+  },
+  {
+   "bg": "blue",
+   "cam": "push",
+   "say": "Primeiro: o avião voa a uns *10* *mil* *metros*. Lá em cima faz uns 50 graus *negativos*.",
+   "step": {
+    "n": "1",
+    "t": "Frio e\naltura"
+   },
+   "props": [
+    {
+     "k": "thermo",
+     "x": 540,
+     "y": 880,
+     "s": 1.3,
+     "a": "pop",
+     "cold": true
+    }
+   ]
+  },
+  {
+   "bg": "dark",
+   "cam": "shake",
+   "say": "E o ar é tão rarefeito que você *desmaia* em segundos sem oxigênio.",
+   "props": [
+    {
+     "k": "brain",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "sky",
+   "cam": "push",
+   "say": "Segundo: a cabine é *pressurizada*. Com o avião voando alto, a porta nem consegue ser aberta.",
+   "step": {
+    "n": "2",
+    "t": "A porta"
+   },
+   "props": [
+    {
+     "k": "door",
+     "x": 540,
+     "y": 880,
+     "s": 1.2,
+     "a": "pop"
+    },
+    {
+     "k": "lock",
+     "x": 700,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.6
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Terceiro: saltar a quase *900* *km/h* exige treino. Passageiro comum se machucaria.",
+   "step": {
+    "n": "3",
+    "t": "Velocidade"
+   },
+   "stat": {
+    "value": "900 km/h",
+    "y": 860,
+    "top": "velocidade de cruzeiro",
+    "sub": "avião comercial",
+    "size": 150
+   }
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "E a maioria dos acidentes acontece na *decolagem* ou no *pouso*. Baixo demais pra abrir paraquedas.",
+   "step": {
+    "n": "*",
+    "t": "O detalhe"
+   },
+   "props": [
+    {
+     "k": "plane",
+     "x": 540,
+     "y": 1050,
+     "s": 1.0,
+     "a": "pop",
+     "r": -12
+    }
+   ]
+  },
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "No fim, o avião segue entre os meios de transporte mais *seguros* que existem.",
+   "props": [
+    {
+     "k": "shield",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Você tem medo de avião? Comenta aí.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,153 @@
+{
+ "slug": "nunca-dormir",
+ "title": [
+  "E se você",
+  "nunca dormisse?"
+ ],
+ "caption": "Um garoto ficou 11 dias sem dormir. O que aconteceu com ele? 😵 #sono #ciencia #curiosidades #fatos",
+ "scenes": [
+  {
+   "bg": "bedroom",
+   "cam": "push",
+   "say": "Em *1964*, um estudante de 17 anos ficou acordado por *11* *dias* seguidos.",
+   "props": [
+    {
+     "k": "calendar",
+     "x": 760,
+     "y": 760,
+     "s": 0.6,
+     "a": "pop",
+     "label": "11"
+    }
+   ],
+   "char": {
+    "pose": "stand",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Foram *264* *horas* sem dormir. Um dos recordes mais famosos da ciência.",
+   "stat": {
+    "value": "264 h",
+    "y": 860,
+    "top": "acordado",
+    "sub": "Randy Gardner, 1964",
+    "size": 170
+   }
+  },
+  {
+   "bg": "office",
+   "cam": "push",
+   "say": "No dia dois, ele já tinha dificuldade pra *focar* *os* *olhos*.",
+   "step": {
+    "n": "1",
+    "t": "Dia 2"
+   },
+   "char": {
+    "pose": "think",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3,
+    "face": "sad"
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "shake",
+   "say": "No dia quatro, começou a *ver* *coisas*. Achou que era um jogador famoso.",
+   "step": {
+    "n": "2",
+    "t": "Dia 4"
+   },
+   "props": [
+    {
+     "k": "brain",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop",
+     "wob": 10
+    }
+   ]
+  },
+  {
+   "bg": "classroom",
+   "cam": "push",
+   "say": "No dia onze, mal conseguia completar uma conta simples de *subtração*.",
+   "step": {
+    "n": "3",
+    "t": "Dia 11"
+   },
+   "char": {
+    "pose": "scared",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "bedroom",
+   "cam": "push",
+   "say": "Quando finalmente dormiu, apagou por umas *14* *horas*.",
+   "step": {
+    "n": "*",
+    "t": "O fim"
+   },
+   "props": [
+    {
+     "k": "bed",
+     "x": 540,
+     "y": 1300,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "hospital",
+   "cam": "push",
+   "say": "Hoje, os cientistas *não* repetem esse tipo de experimento. É perigoso demais.",
+   "props": [
+    {
+     "k": "warning",
+     "x": 540,
+     "y": 860,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "night_field",
+   "cam": "push",
+   "say": "Porque dormir não é perda de tempo. É quando o cérebro faz a *faxina* do dia.",
+   "props": [
+    {
+     "k": "brain",
+     "x": 540,
+     "y": 860,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Qual o máximo que você já ficou sem dormir? Comenta.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

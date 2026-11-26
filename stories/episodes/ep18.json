@@ -1,0 +1,148 @@
+{
+ "slug": "correnteza-praia",
+ "title": [
+  "Se o mar",
+  "te puxar"
+ ],
+ "caption": "Se a correnteza te puxar na praia, NÃO nade pra areia. 🌊 Isso pode salvar sua vida. Manda pra quem vai pra praia. #praia #seguranca #verao",
+ "scenes": [
+  {
+   "bg": "beach",
+   "cam": "shake",
+   "say": "Se o mar começar a te puxar, o seu instinto vai te *matar*.",
+   "char": {
+    "pose": "scared",
+    "x": 540,
+    "y": 1300,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "ocean",
+   "cam": "push",
+   "say": "Isso se chama *corrente* *de* *retorno*. Uma faixa de água que volta pro fundo.",
+   "props": [
+    {
+     "k": "arrow",
+     "x": 540,
+     "y": 900,
+     "s": 1.2,
+     "a": "pop",
+     "dir": -90
+    }
+   ]
+  },
+  {
+   "bg": "ocean",
+   "cam": "push",
+   "say": "Primeiro: *não* *nade* contra ela, de volta pra areia. Nem atleta consegue.",
+   "step": {
+    "n": "1",
+    "t": "Não lute"
+   },
+   "props": [
+    {
+     "k": "arrow",
+     "x": 540,
+     "y": 900,
+     "s": 1.0,
+     "a": "pop",
+     "dir": 90
+    },
+    {
+     "k": "cross",
+     "x": 700,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.6
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Você cansa em minutos, e aí é que vem o *afogamento*.",
+   "props": [
+    {
+     "k": "warning",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "ocean",
+   "cam": "push",
+   "say": "Segundo: nada *de* *lado*, paralelo à praia. A corrente é estreita.",
+   "step": {
+    "n": "2",
+    "t": "Nade de\nlado"
+   },
+   "props": [
+    {
+     "k": "arrow",
+     "x": 540,
+     "y": 900,
+     "s": 1.2,
+     "a": "pop",
+     "dir": 0,
+     "color": "#2FB57A"
+    }
+   ]
+  },
+  {
+   "bg": "beach",
+   "cam": "push",
+   "say": "Saiu da faixa, aí sim você volta pra areia.",
+   "char": {
+    "pose": "walk",
+    "x": 300,
+    "y": 1710,
+    "s": 1.3,
+    "to": 700
+   }
+  },
+  {
+   "bg": "ocean",
+   "cam": "push",
+   "say": "Terceiro: se cansar, *boia* de costas e levanta o braço pedindo ajuda.",
+   "step": {
+    "n": "3",
+    "t": "Boie e\nacene"
+   },
+   "char": {
+    "pose": "cheer",
+    "x": 540,
+    "y": 1150,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "beach",
+   "cam": "push",
+   "say": "Como reconhecer: um trecho mais *escuro*, mais *calmo*, sem onda quebrando. Parece seguro, mas é ali.",
+   "step": {
+    "n": "*",
+    "t": "Como\nver"
+   },
+   "label": "Trecho calmo = perigo"
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Manda pra alguém que vai pra praia nesse verão.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,164 @@
+{
+ "slug": "cachorro-bravo",
+ "title": [
+  "Se um cachorro",
+  "bravo vier"
+ ],
+ "caption": "Um cachorro bravo vem na sua direção. O que você faz? 🐕 Correr é o pior erro. #cachorro #seguranca #curiosidades",
+ "scenes": [
+  {
+   "bg": "city_day",
+   "cam": "shake",
+   "say": "Um cachorro *bravo* vem correndo na sua direção. O que você faz?",
+   "props": [
+    {
+     "k": "dog",
+     "x": 760,
+     "y": 1560,
+     "s": 1.0,
+     "a": "pop",
+     "angry": true,
+     "flip": true
+    }
+   ],
+   "char": {
+    "pose": "scared",
+    "x": 330,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Primeiro: *não* *corre*. Correr ativa o instinto de caça dele.",
+   "step": {
+    "n": "1",
+    "t": "Não corra"
+   },
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "E ele é muito mais *rápido* que você.",
+   "props": [
+    {
+     "k": "dog",
+     "x": 540,
+     "y": 1500,
+     "s": 1.2,
+     "a": "drive",
+     "angry": true,
+     "to": [
+      700,
+      1500
+     ]
+    }
+   ]
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "Segundo: fica *parado*, de lado, com os braços junto do corpo.",
+   "step": {
+    "n": "2",
+    "t": "Fique\nparado"
+   },
+   "char": {
+    "pose": "stand",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "dark",
+   "cam": "push",
+   "say": "Terceiro: não encara nos *olhos*. Pra ele, isso é desafio.",
+   "step": {
+    "n": "3",
+    "t": "Sem\nencarar"
+   },
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 860,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "Quarto: fala *calmo* e firme, e se afasta devagar, de costas.",
+   "step": {
+    "n": "4",
+    "t": "Saia\ndevagar"
+   },
+   "char": {
+    "pose": "walk",
+    "x": 600,
+    "y": 1710,
+    "s": 1.3,
+    "to": 360
+   }
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Se ele atacar, coloca a *mochila* ou a bolsa na frente, e protege o rosto e o pescoço.",
+   "step": {
+    "n": "*",
+    "t": "Se atacar"
+   },
+   "props": [
+    {
+     "k": "warning",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "hospital",
+   "cam": "push",
+   "say": "Mordeu? Lava com *água* *e* *sabão* e vai pro posto de saúde por causa da raiva.",
+   "props": [
+    {
+     "k": "drop",
+     "x": 540,
+     "y": 860,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Salva e manda pra quem anda muito na rua.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

@@ -118,7 +118,7 @@ const BG = {
   },
   city_day(t) {
     return `<defs>${grad("cd", [[0, "#7EC8F2"], [1, "#CDEBFA"]])}</defs><rect width="${W}" height="${H}" fill="url(#cd)"/>
-    <circle cx="200" cy="330" r="80" fill="#FFE38A"/>
+    <circle cx="200" cy="620" r="80" fill="#FFE38A"/>
     <g transform="translate(${(t * 20) % 1300 - 200} 0)"><ellipse cx="300" cy="460" rx="110" ry="34" fill="#fff"/><ellipse cx="360" cy="440" rx="70" ry="40" fill="#fff"/></g>
     ${skyline(t, 1500, "#9BB4CF", false, 7, 1.3)}${skyline(t, 1560, "#6F87A6", false, 2, 1)}
     <rect x="0" y="1560" width="${W}" height="360" fill="#5E6270"/><rect x="0" y="1560" width="${W}" height="14" fill="#8A8E9C"/>`;
@@ -137,7 +137,7 @@ const BG = {
   },
   field_day(t) {
     return `<defs>${grad("fd", [[0, "#6CC3F0"], [1, "#D8F1FF"]])}</defs><rect width="${W}" height="${H}" fill="url(#fd)"/>
-    <circle cx="860" cy="300" r="90" fill="#FFE07A"/>
+    <circle cx="860" cy="620" r="90" fill="#FFE07A"/>
     <g transform="translate(${(t * 25) % 1400 - 300} 0)"><ellipse cx="300" cy="420" rx="120" ry="36" fill="#fff"/><ellipse cx="370" cy="398" rx="76" ry="44" fill="#fff"/></g>
     ${hills(1300, "#7DBB63", 90, 2)}${hills(1420, "#5FA04B", 50, 5, 1.6)}<rect x="0" y="1480" width="${W}" height="440" fill="#4E8C3E"/>`;
   },
@@ -203,7 +203,45 @@ const BG = {
     let trees = "";
     for (let i = 0; i < 10; i++) trees += pine(rnd(i + 2) * W, 1380 + rnd(i) * 160, 1 + rnd(i + 5) * 0.6, "#173A35", "#122E2A");
     return `<defs>${grad("fn", [[0, "#0F1530"], [1, "#24345A"]])}</defs><rect width="${W}" height="${H}" fill="url(#fn)"/>${stars(t, 50, 900, 4)}
-    <circle cx="260" cy="360" r="80" fill="#F6F1D0"/>${hills(1300, "#16283A", 70, 3)}${trees}<rect x="0" y="1520" width="${W}" height="400" fill="#10202A"/>`;
+    <circle cx="220" cy="640" r="70" fill="#F6F1D0"/>${hills(1300, "#16283A", 70, 3)}${trees}<rect x="0" y="1520" width="${W}" height="400" fill="#10202A"/>`;
+  },
+
+  beach(t) {
+    let waves = "";
+    for (let i = 0; i < 4; i++) waves += `<path d="M0 ${1180 + i * 70 + Math.sin(t * 2 + i) * 8} Q270 ${1150 + i * 70} 540 ${1180 + i * 70 + Math.sin(t * 2 + i) * 8} T1080 ${1180 + i * 70}" stroke="#fff" stroke-width="8" fill="none" opacity="0.5"/>`;
+    return `<defs>${grad("bc", [[0, "#5EC4F2"], [1, "#CFF0FF"]])}</defs><rect width="${W}" height="${H}" fill="url(#bc)"/><circle cx="860" cy="640" r="80" fill="#FFE07A"/>
+    <rect x="0" y="1000" width="${W}" height="520" fill="#1F8FD0"/>${waves}<path d="M0 1500 Q540 1440 1080 1500 L1080 1920 L0 1920 Z" fill="#F2D59A"/>`;
+  },
+  ocean(t) {
+    let waves = "";
+    for (let i = 0; i < 8; i++) waves += `<path d="M-50 ${700 + i * 160 + Math.sin(t * 2 + i) * 12} Q270 ${660 + i * 160} 540 ${700 + i * 160 + Math.sin(t * 2 + i) * 12} T1130 ${700 + i * 160}" stroke="#7CC4FF" stroke-width="10" fill="none" opacity="0.45"/>`;
+    return `<defs>${grad("oc", [[0, "#9ADBFF"], [0.3, "#2F7BD8"], [1, "#0D2E6B"]])}</defs><rect width="${W}" height="${H}" fill="url(#oc)"/><rect x="0" y="0" width="${W}" height="560" fill="#BDE8FF"/>${waves}`;
+  },
+  sky(t) {
+    let clouds = "";
+    for (let i = 0; i < 6; i++) { const x = ((rnd(i) * 1400 - t * (80 + i * 30)) % 1500 + 1500) % 1500 - 250, y = 300 + rnd(i + 3) * 1300; clouds += `<g transform="translate(${x.toFixed(0)} ${y.toFixed(0)})"><ellipse rx="160" ry="50" fill="#fff" opacity="0.9"/><ellipse cx="60" cy="-30" rx="90" ry="55" fill="#fff" opacity="0.9"/></g>`; }
+    return `<defs>${grad("sk", [[0, "#3C8DE0"], [1, "#BFE6FF"]])}</defs><rect width="${W}" height="${H}" fill="url(#sk)"/>${clouds}`;
+  },
+  elevator(t) {
+    return `<rect width="${W}" height="${H}" fill="#9AA3B5"/><rect x="80" y="200" width="920" height="1520" fill="#C9CED8"/>${[0, 1, 2].map((i) => `<rect x="${110 + i * 300}" y="230" width="270" height="1460" fill="#D8DCE4"/>`).join("")}
+    <rect x="80" y="1560" width="920" height="160" fill="#6B7080"/><rect x="0" y="1720" width="${W}" height="200" fill="#4A4E5A"/><rect x="460" y="300" width="160" height="70" rx="10" fill="#1D2030"/><text x="540" y="352" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="48" fill="${Math.sin(t * 4) > 0 ? "#E5322D" : "#5A1010"}">--</text>`;
+  },
+  mars(t) {
+    return `<defs>${grad("ms", [[0, "#3A1A1A"], [0.5, "#B3502F"], [1, "#E0864A"]])}</defs><rect width="${W}" height="${H}" fill="url(#ms)"/>${stars(t, 30, 600, 8)}
+    ${hills(1250, "#A8462A", 90, 2)}${hills(1400, "#8E3A22", 60, 6, 1.5)}<rect x="0" y="1500" width="${W}" height="420" fill="#7A311D"/>
+    ${[0, 1, 2, 3].map((i) => `<ellipse cx="${150 + i * 260}" cy="${1600 + (i % 2) * 120}" rx="70" ry="20" fill="#5E2414"/>`).join("")}`;
+  },
+  island(t) {
+    return `<defs>${grad("is", [[0, "#5EC4F2"], [1, "#CFF0FF"]])}</defs><rect width="${W}" height="${H}" fill="url(#is)"/><circle cx="220" cy="640" r="80" fill="#FFE07A"/>
+    <rect x="0" y="1050" width="${W}" height="870" fill="#1F8FD0"/><ellipse cx="540" cy="1480" rx="520" ry="150" fill="#F2D59A"/>
+    <path d="M700 1450 Q690 1200 760 1000" stroke="#7A5236" stroke-width="34" fill="none"/>${[0, 1, 2, 3, 4].map((i) => `<path d="M760 1000 Q${760 + Math.cos(i * 1.3) * 160} ${930 + Math.sin(i * 1.3) * 60} ${760 + Math.cos(i * 1.3) * 260} ${1040 + Math.sin(i * 1.3) * 40}" stroke="#2F9E55" stroke-width="40" fill="none" stroke-linecap="round"/>`).join("")}`;
+  },
+  hospital(t) {
+    return `<rect width="${W}" height="${H}" fill="#E8F1F5"/><rect x="0" y="1350" width="${W}" height="570" fill="#BFD3DD"/><rect x="380" y="380" width="320" height="320" rx="30" fill="#fff"/><rect x="505" y="430" width="70" height="220" fill="${C.red}"/><rect x="430" y="505" width="220" height="70" fill="${C.red}"/>`;
+  },
+  bedroom(t) {
+    return `<defs>${grad("br", [[0, "#1F2350"], [1, "#2F3570"]])}</defs><rect width="${W}" height="${H}" fill="url(#br)"/><rect x="620" y="380" width="300" height="360" rx="10" fill="#141432"/>${stars(t, 8, 700, 3).replace(/cx="(\d+)/g, (m, x) => `cx="${640 + (x % 260)}`)}
+    <rect x="0" y="1450" width="${W}" height="470" fill="#4A3A5A"/><rect x="120" y="1250" width="840" height="260" rx="30" fill="#E6DFD0"/><rect x="120" y="1180" width="220" height="110" rx="30" fill="#fff"/><rect x="300" y="1250" width="660" height="260" rx="30" fill="#5B7FD6"/>`;
   },
   classroom(t) {
     return `<rect width="${W}" height="${H}" fill="#E8D8B8"/><rect x="120" y="380" width="840" height="520" rx="12" fill="#2F5A45"/><rect x="120" y="380" width="840" height="520" rx="12" fill="none" stroke="#8A6A4A" stroke-width="22"/>
@@ -276,6 +314,38 @@ const P = {
   bars: (t, o) => { const v = o.values || [0.3, 0.6, 1]; const cols = o.colors || ["#9AA3B5", "#9AA3B5", C.red]; const k = easeOut(t / 1); return v.map((h, i) => `<rect x="${-150 + i * (300 / v.length)}" y="${120 - 260 * h * k}" width="${300 / v.length - 20}" height="${260 * h * k}" rx="8" fill="${cols[i % cols.length]}"/>`).join("") + `<rect x="-170" y="120" width="340" height="8" fill="#fff"/>`; },
   plug: (t) => `<rect x="-70" y="-60" width="140" height="120" rx="20" fill="#E6DFD0"/><rect x="-40" y="-120" width="18" height="60" fill="#C9CED8"/><rect x="22" y="-120" width="18" height="60" fill="#C9CED8"/><path d="M0 60 Q0 150 120 180" stroke="#E6DFD0" stroke-width="22" fill="none"/>`,
   water_glass: (t) => `<path d="M-80 -120 L80 -120 L60 130 L-60 130 Z" fill="#DCEAF5" opacity="0.6"/><path d="M-70 -20 L70 -20 L60 130 L-60 130 Z" fill="#3AA0FF" opacity="0.8"/>`,
+
+  snake: (t) => { let d = "M-200 60"; for (let i = 0; i <= 8; i++) d += ` Q${-175 + i * 50} ${60 + (i % 2 ? -60 : 60) * Math.cos(t * 4 + i * 0.6)} ${-150 + i * 50} 60`; return `<path d="${d}" stroke="#5FA04B" stroke-width="46" fill="none" stroke-linecap="round"/><ellipse cx="260" cy="50" rx="60" ry="40" fill="#5FA04B"/><circle cx="275" cy="35" r="9" fill="#1D2030"/><path d="M318 55 l40 -6 m-40 6 l40 10" stroke="${C.red}" stroke-width="6"/>`; },
+  plane: (t) => `<g transform="rotate(${Math.sin(t * 1.5) * 3})"><ellipse rx="260" ry="55" fill="#EDEFF4"/><path d="M-60 -10 L60 -10 L-40 -170 L-90 -170 Z" fill="#C9CED8"/><path d="M-60 10 L60 10 L-40 170 L-90 170 Z" fill="#C9CED8"/><path d="M-260 0 L-230 -110 L-190 -110 L-180 -20 Z" fill="${C.red}"/>${[0, 1, 2, 3, 4, 5].map((i) => `<circle cx="${-120 + i * 50}" cy="-12" r="12" fill="#5FC8FF"/>`).join("")}<path d="M220 -20 Q262 0 220 30" fill="#5FC8FF"/></g>`,
+  parachute: (t) => `<g transform="rotate(${Math.sin(t * 2) * 6})"><path d="M-170 -60 Q0 -260 170 -60 Q130 -90 85 -60 Q42 -90 0 -60 Q-42 -90 -85 -60 Q-130 -90 -170 -60 Z" fill="${C.red}"/><path d="M-170 -60 L0 120 M170 -60 L0 120 M-85 -60 L0 120 M85 -60 L0 120 M0 -60 L0 120" stroke="#fff" stroke-width="4"/><circle cy="140" r="28" fill="${C.skin}"/><rect x="-22" y="165" width="44" height="70" rx="14" fill="${C.hoodie}"/></g>`,
+  moon: (t) => `<circle r="150" fill="#E6E2D3"/><circle cx="-50" cy="-40" r="30" fill="#C9C4B2"/><circle cx="60" cy="30" r="40" fill="#C9C4B2"/><circle cx="-10" cy="80" r="18" fill="#C9C4B2"/>`,
+  wave: (t) => `<path d="M-300 120 Q-200 ${-200 + Math.sin(t * 3) * 20} 0 -160 Q160 -130 120 -40 Q60 -100 0 -60 Q120 40 300 120 Z" fill="#2F7BD8"/><path d="M-300 120 Q-200 -120 0 -150" stroke="#fff" stroke-width="16" fill="none" opacity="0.7"/>`,
+  arrow: (t, o) => `<g transform="rotate(${o.dir || 0})"><path d="M-160 -30 L60 -30 L60 -90 L170 0 L60 90 L60 30 L-160 30 Z" fill="${o.color || "#fff"}" transform="translate(${Math.sin(t * 5) * 10} 0)"/></g>`,
+  tree: (t) => `<rect x="-24" y="0" width="48" height="200" fill="#7A5236"/><circle cy="-60" r="130" fill="#2F9E55"/><circle cx="-90" cy="10" r="90" fill="#2F9E55"/><circle cx="90" cy="10" r="90" fill="#268746"/>`,
+  palm: (t) => `<path d="M0 200 Q-20 0 40 -150" stroke="#7A5236" stroke-width="34" fill="none"/>${[0, 1, 2, 3, 4].map((i) => `<path d="M40 -150 Q${40 + Math.cos(i * 1.3) * 150} ${-220 + Math.sin(i * 1.3) * 60} ${40 + Math.cos(i * 1.3) * 250} ${-110 + Math.sin(i * 1.3) * 40}" stroke="#2F9E55" stroke-width="38" fill="none" stroke-linecap="round"/>`).join("")}`,
+  dog: (t, o) => `<g transform="translate(0 ${Math.abs(Math.sin(t * 8)) * -6})"><ellipse rx="150" ry="70" fill="${o.color || "#9A6A42"}"/><circle cx="160" cy="-70" r="70" fill="${o.color || "#9A6A42"}"/><ellipse cx="225" cy="-55" rx="45" ry="30" fill="#7A5236"/><circle cx="262" cy="-62" r="12" fill="#1D2030"/><circle cx="175" cy="-95" r="10" fill="#1D2030"/><path d="M120 -125 L110 -190 L160 -135 Z" fill="#5A3A24"/>${o.angry ? `<path d="M205 -30 l10 18 l10 -18 l10 18 l10 -18" stroke="#fff" stroke-width="6" fill="none"/>` : `<path d="M230 -20 Q240 10 225 30" stroke="${C.red}" stroke-width="16" stroke-linecap="round" fill="none"/>`}<rect x="-120" y="40" width="30" height="90" rx="12" fill="#7A5236"/><rect x="90" y="40" width="30" height="90" rx="12" fill="#7A5236"/><path d="M-150 -10 Q-220 ${-60 + Math.sin(t * 14) * 30} -230 -100" stroke="${o.color || "#9A6A42"}" stroke-width="22" fill="none" stroke-linecap="round"/></g>`,
+  bee: (t) => `<g transform="translate(${Math.sin(t * 3) * 30} ${Math.sin(t * 7) * 15})"><ellipse cx="-30" cy="-90" rx="60" ry="40" fill="#fff" opacity="0.8" transform="rotate(${-20 + Math.sin(t * 40) * 15} -30 -60)"/><ellipse cx="40" cy="-90" rx="60" ry="40" fill="#fff" opacity="0.8" transform="rotate(${20 - Math.sin(t * 40) * 15} 40 -60)"/><ellipse rx="130" ry="85" fill="#F2C230"/><rect x="-60" y="-85" width="36" height="170" fill="#1D2030"/><rect x="20" y="-82" width="36" height="164" fill="#1D2030"/><circle cx="110" cy="-10" r="12" fill="#1D2030"/><path d="M-130 0 L-170 0" stroke="#1D2030" stroke-width="10"/></g>`,
+  mosquito: (t) => `<g transform="translate(${Math.sin(t * 4) * 40} ${Math.sin(t * 9) * 20})"><ellipse cx="-20" cy="-50" rx="70" ry="25" fill="#DCEAF5" opacity="0.8" transform="rotate(${-30 + Math.sin(t * 50) * 20} 0 -20)"/><ellipse cx="20" cy="-50" rx="70" ry="25" fill="#DCEAF5" opacity="0.8" transform="rotate(${30 - Math.sin(t * 50) * 20} 0 -20)"/><ellipse rx="110" ry="26" fill="#3A3A3A"/><circle cx="110" cy="-10" r="30" fill="#3A3A3A"/><path d="M135 0 L230 40" stroke="#3A3A3A" stroke-width="6"/>${[-60, -10, 40].map((x) => `<path d="M${x} 15 L${x - 30} 110 M${x} 15 L${x + 30} 110" stroke="#3A3A3A" stroke-width="5"/>`).join("")}</g>`,
+  fire: (t) => [0, 1, 2].map((i) => `<path d="M${-90 + i * 90} 120 Q${-160 + i * 90} ${-20 - i % 2 * 40} ${-90 + i * 90} ${-160 + Math.sin(t * 10 + i) * 25} Q${-20 + i * 90} ${-20 - i % 2 * 40} ${-90 + i * 90} 120 Z" fill="${["#FF8A3A", "#FFB43A", "#FF6A3A"][i]}"/>`).join("") + `<ellipse cy="120" rx="170" ry="24" fill="#7A3A1A"/>`,
+  lightning: (t) => `<path d="M40 -200 L-80 20 L0 20 L-50 200 L100 -40 L20 -40 L80 -200 Z" fill="#FFE07A" opacity="${Math.sin(t * 15) > -0.3 ? 1 : 0.4}"/>`,
+  burger: (t) => `<path d="M-150 -20 Q-150 -140 0 -140 Q150 -140 150 -20 Z" fill="#E0A04A"/><rect x="-160" y="-20" width="320" height="30" rx="10" fill="#5FA04B"/><rect x="-155" y="10" width="310" height="50" rx="20" fill="#6B3A22"/><rect x="-160" y="60" width="320" height="20" fill="#F2C230"/><rect x="-150" y="80" width="300" height="60" rx="22" fill="#E0A04A"/>${[0, 1, 2, 3].map((i) => `<ellipse cx="${-80 + i * 50}" cy="-100" rx="8" ry="5" fill="#fff"/>`).join("")}`,
+  sugar: (t) => [0, 1, 2].map((i) => `<g transform="translate(${-110 + i * 110} ${i === 1 ? -40 : 30})"><path d="M-50 -30 L0 -55 L50 -30 L50 40 L0 65 L-50 40 Z" fill="#fff" stroke="#DDE3EC" stroke-width="6"/><path d="M-50 -30 L0 -5 L50 -30 M0 -5 L0 65" stroke="#DDE3EC" stroke-width="6" fill="none"/></g>`).join(""),
+  soda: (t) => `<rect x="-70" y="-140" width="140" height="280" rx="24" fill="${C.red}"/><ellipse cy="-140" rx="70" ry="16" fill="#C9CED8"/><path d="M-70 -30 Q0 10 70 -30 L70 0 Q0 40 -70 0 Z" fill="#fff"/>`,
+  coffee: (t) => `<path d="M-90 -60 L90 -60 L70 110 L-70 110 Z" fill="#fff"/><rect x="-90" y="-80" width="180" height="24" rx="8" fill="#7A5236"/><path d="M90 -20 Q150 -20 150 30 Q150 70 80 70" stroke="#fff" stroke-width="20" fill="none"/>${[0, 1].map((i) => `<path d="M${-30 + i * 50} -100 q-20 -40 0 -70 q20 -30 0 -60" stroke="#ccc" stroke-width="8" fill="none" opacity="${0.4 + 0.3 * Math.sin(t * 3 + i)}"/>`).join("")}`,
+  bed: (t) => `<rect x="-220" y="-20" width="440" height="110" rx="20" fill="#5B7FD6"/><rect x="-220" y="-60" width="140" height="70" rx="20" fill="#fff"/><rect x="-240" y="-120" width="30" height="260" rx="10" fill="#7A5236"/><rect x="210" y="-40" width="30" height="180" rx="10" fill="#7A5236"/><text x="140" y="-80" font-family="Oswald" font-weight="700" font-size="70" fill="#fff" opacity="${0.5 + 0.5 * Math.sin(t * 3)}">Z</text>`,
+  gas_pump: (t) => `<rect x="-90" y="-160" width="180" height="300" rx="16" fill="${C.red}"/><rect x="-60" y="-130" width="120" height="80" rx="8" fill="#1D2030"/><text y="-75" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="44" fill="#5FC8FF">0,00</text><rect x="-110" y="140" width="220" height="30" rx="8" fill="#6B7080"/><path d="M90 -40 Q160 -40 160 40 L160 100" stroke="#1D2030" stroke-width="16" fill="none"/><rect x="140" y="90" width="40" height="60" rx="8" fill="#1D2030"/>`,
+  truck: (t) => `<rect x="-220" y="-110" width="300" height="170" rx="12" fill="#EDEFF4"/><path d="M80 -60 L170 -60 L220 0 L220 60 L80 60 Z" fill="${C.red}"/><path d="M100 -45 L160 -45 L195 -5 L100 -5 Z" fill="#BFE2F5"/><circle cx="-150" cy="70" r="38" fill="#1D2030"/><circle cx="-60" cy="70" r="38" fill="#1D2030"/><circle cx="150" cy="70" r="38" fill="#1D2030"/>`,
+  ball: (t, o) => `<circle r="110" fill="${o.color || "#2FB57A"}"/><circle r="70" fill="#fff"/><text y="30" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="84" fill="${C.ink}">${esc(o.label || "7")}</text>`,
+  sos: (t) => `<text y="70" text-anchor="middle" font-family="Oswald" font-weight="700" font-size="240" fill="#fff" stroke="#7A5236" stroke-width="10" opacity="${0.7 + 0.3 * Math.sin(t * 3)}">SOS</text>`,
+  shield: (t) => `<path d="M0 -160 L140 -110 Q140 80 0 160 Q-140 80 -140 -110 Z" fill="#2FB57A"/><path d="M-55 0 L-15 45 L60 -45" fill="none" stroke="#fff" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>`,
+  thermo: (t, o) => `<rect x="-30" y="-180" width="60" height="280" rx="30" fill="#fff"/><circle cy="120" r="60" fill="${o.cold ? "#3AA0FF" : C.red}"/><rect x="-16" y="${o.cold ? 40 : -150}" width="32" height="${o.cold ? 80 : 270}" rx="16" fill="${o.cold ? "#3AA0FF" : C.red}"/>`,
+  door: (t) => `<rect x="-120" y="-220" width="240" height="440" rx="10" fill="#7A5236"/><rect x="-95" y="-190" width="190" height="170" rx="8" fill="#6B4632"/><rect x="-95" y="10" width="190" height="180" rx="8" fill="#6B4632"/><circle cx="85" cy="10" r="16" fill="#F2C230"/>`,
+  whatsapp: (t) => `<circle r="130" fill="#2FB57A"/><path d="M-90 110 L-70 50 Q-110 -40 -40 -95 Q40 -140 100 -60 Q140 20 70 80 Q10 120 -50 95 Z" fill="none" stroke="#fff" stroke-width="16" stroke-linejoin="round"/><path d="M-30 -40 Q-40 0 0 35 Q30 60 50 40" stroke="#fff" stroke-width="18" fill="none" stroke-linecap="round"/>`,
+  qr: (t) => { let s = `<rect x="-140" y="-140" width="280" height="280" rx="16" fill="#fff"/>`; for (let i = 0; i < 10; i++) for (let j = 0; j < 10; j++) if (rnd(i * 10 + j) > 0.5) s += `<rect x="${-115 + i * 23}" y="${-115 + j * 23}" width="21" height="21" fill="${C.ink}"/>`; return s + [[-115, -115], [47, -115], [-115, 47]].map(([x, y]) => `<rect x="${x}" y="${y}" width="68" height="68" fill="#fff" stroke="${C.ink}" stroke-width="14"/>`).join(""); },
+  hole: (t) => `<ellipse rx="220" ry="70" fill="#1D1410"/><ellipse rx="220" ry="70" fill="none" stroke="#5A3A24" stroke-width="16"/><ellipse cy="10" rx="120" ry="30" fill="#FF6A3A" opacity="${0.3 + 0.2 * Math.sin(t * 4)}"/>`,
+  sunflare: (t) => `<circle r="${200 + Math.sin(t * 3) * 10}" fill="#FFB43A"/><circle r="260" fill="#FFB43A" opacity="0.25"/>${[...Array(8)].map((_, i) => `<path d="M0 0 Q${Math.cos(i) * 300} ${Math.sin(i) * 300} ${Math.cos(i + 0.3) * (380 + Math.sin(t * 5 + i) * 40)} ${Math.sin(i + 0.3) * (380 + Math.sin(t * 5 + i) * 40)}" stroke="#FF6A3A" stroke-width="22" fill="none" opacity="0.6" stroke-linecap="round"/>`).join("")}`,
+  planet_mars: (t) => `<circle r="150" fill="#C9572F"/><circle cx="-50" cy="-40" r="28" fill="#A8462A"/><circle cx="55" cy="40" r="38" fill="#A8462A"/><ellipse cx="0" cy="-138" rx="60" ry="14" fill="#fff" opacity="0.8"/>`,
+  people: (t, o) => [...Array(o.n || 5)].map((_, i) => `<g transform="translate(${(i - ((o.n || 5) - 1) / 2) * 90} 0) scale(0.5)">${person(t + i, { x: 0, y: 0, s: 1, pack: false, shirt: ["#1FA39B", "#E5322D", "#F2C230", "#5B7FD6", "#9A6A42"][i % 5], shirtDark: ["#178079", "#B8241F", "#D9A514", "#3F5FB0", "#7A5236"][i % 5], pose: o.pose || "stand" })}</g>`).join(""),
   gun_off: () => "",
 };
 
@@ -306,7 +376,9 @@ function badge(step, lt) {
 function titleBlock(title, t) {
   if (!title) return "";
   const k = easeOut(t / 0.4);
-  return `<g opacity="${k}" transform="translate(0 ${(1 - k) * -30})">${textLines([title[0].toUpperCase()], 540, 330, 86, "#fff")}${title[1] ? textLines([title[1].toUpperCase()], 540, 430, 86, C.red) : ""}</g>`;
+  const fit = (str) => Math.min(86, 86 * 960 / Math.max(1, measure(str.toUpperCase(), 86)));
+  const s0 = fit(title[0]), s1 = title[1] ? fit(title[1]) : 86;
+  return `<g opacity="${k}" transform="translate(0 ${(1 - k) * -30})">${textLines([title[0].toUpperCase()], 540, 330, s0, "#fff")}${title[1] ? textLines([title[1].toUpperCase()], 540, 330 + Math.max(s0, 70) * 1.15, s1, C.red) : ""}</g>`;
 }
 function pillLabel(label, lt, y = 560) {
   if (!label) return "";

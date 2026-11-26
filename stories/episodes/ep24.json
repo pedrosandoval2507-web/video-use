@@ -1,0 +1,147 @@
+{
+ "slug": "perdido-na-floresta",
+ "title": [
+  "Se você se perder",
+  "na floresta"
+ ],
+ "caption": "Perdido na mata? O passo 1 é o mais difícil, e o mais importante. 🌲 #sobrevivencia #trilha #natureza #curiosidades",
+ "scenes": [
+  {
+   "bg": "forest_night",
+   "cam": "shake",
+   "say": "Se você se *perder* numa trilha, a primeira hora decide se te acham rápido.",
+   "char": {
+    "pose": "scared",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "mountains",
+   "cam": "push",
+   "say": "Primeiro: *para*. Não sai andando tentando achar o caminho.",
+   "step": {
+    "n": "1",
+    "t": "Pare"
+   },
+   "char": {
+    "pose": "stand",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "dark",
+   "cam": "push",
+   "say": "Quem anda sem rumo se afasta da área onde a equipe de *resgate* vai procurar.",
+   "props": [
+    {
+     "k": "map",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "mountains",
+   "cam": "push",
+   "say": "Segundo: procura *água*. Seguir um rio costuma levar até alguma casa.",
+   "step": {
+    "n": "2",
+    "t": "Ache\nágua"
+   },
+   "props": [
+    {
+     "k": "drop",
+     "x": 540,
+     "y": 860,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "forest_night",
+   "cam": "push",
+   "say": "Terceiro: faz um *abrigo* antes de escurecer. A noite na mata esfria muito.",
+   "step": {
+    "n": "3",
+    "t": "Abrigo"
+   },
+   "props": [
+    {
+     "k": "cabin",
+     "x": 540,
+     "y": 1450,
+     "s": 0.9,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Quarto: deixa *sinais*. Roupa colorida, pedras em forma de SOS, fumaça.",
+   "step": {
+    "n": "4",
+    "t": "Sinais"
+   },
+   "props": [
+    {
+     "k": "sos",
+     "x": 540,
+     "y": 1300,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "forest_night",
+   "cam": "push",
+   "say": "Três apitos ou três gritos seguidos é o sinal universal de *socorro*.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 860,
+     "s": 0.9,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "E a regra de ouro: antes de qualquer trilha, *avisa* alguém de onde você vai e quando volta.",
+   "step": {
+    "n": "*",
+    "t": "Regra\nde ouro"
+   },
+   "char": {
+    "pose": "phone",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Salva pra sua próxima trilha.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

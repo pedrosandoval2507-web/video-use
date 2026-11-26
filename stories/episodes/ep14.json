@@ -1,0 +1,162 @@
+{
+ "slug": "se-a-lua-sumisse",
+ "title": [
+  "E se a lua",
+  "sumisse hoje?"
+ ],
+ "caption": "E se a Lua sumisse hoje à noite? 🌕 A parte 3 é a mais assustadora. #lua #espaco #ciencia #curiosidades",
+ "scenes": [
+  {
+   "bg": "night_field",
+   "cam": "push",
+   "say": "E se a *Lua* sumisse hoje à noite?",
+   "props": [
+    {
+     "k": "moon",
+     "x": 760,
+     "y": 520,
+     "s": 1.0,
+     "a": "pop",
+     "out": 2.5
+    }
+   ]
+  },
+  {
+   "bg": "forest_night",
+   "cam": "push",
+   "say": "Primeiro: as noites ficariam *muito* *mais* *escuras*. Sem luar nenhum.",
+   "step": {
+    "n": "1",
+    "t": "Escuridão"
+   },
+   "char": {
+    "pose": "scared",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   },
+   "dim": 0.4
+  },
+  {
+   "bg": "night_field",
+   "cam": "push",
+   "say": "Animais que caçam e se orientam pela lua ficariam *perdidos*.",
+   "props": [
+    {
+     "k": "dog",
+     "x": 540,
+     "y": 1500,
+     "s": 1.0,
+     "a": "pop",
+     "color": "#7A7A7A"
+    }
+   ]
+  },
+  {
+   "bg": "beach",
+   "cam": "push",
+   "say": "Segundo: as *marés* ficariam bem mais fracas. A Lua é quem mais puxa o mar.",
+   "step": {
+    "n": "2",
+    "t": "Marés"
+   },
+   "props": [
+    {
+     "k": "wave",
+     "x": 540,
+     "y": 1150,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "ocean",
+   "cam": "push",
+   "say": "Isso mexeria com peixes, corais e com quem *vive* *da* *pesca*.",
+   "props": [
+    {
+     "k": "drop",
+     "x": 540,
+     "y": 860,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "space",
+   "cam": "push",
+   "say": "Terceiro, o mais perigoso: a Lua *estabiliza* a inclinação da Terra.",
+   "step": {
+    "n": "3",
+    "t": "O eixo"
+   },
+   "props": [
+    {
+     "k": "globe",
+     "x": 540,
+     "y": 820,
+     "s": 1.4,
+     "a": "pop",
+     "wob": 12
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "shake",
+   "say": "Sem ela, ao longo de milhares de anos, o eixo poderia *balançar* muito mais. E o clima viraria um caos.",
+   "props": [
+    {
+     "k": "thermo",
+     "x": 400,
+     "y": 880,
+     "s": 1.0,
+     "a": "pop"
+    },
+    {
+     "k": "thermo",
+     "x": 680,
+     "y": 880,
+     "s": 1.0,
+     "a": "pop",
+     "cold": true,
+     "d": 0.3
+    }
+   ]
+  },
+  {
+   "bg": "night_field",
+   "cam": "push",
+   "say": "A Lua parece só enfeite no céu. Mas ela ajuda a manter a Terra *habitável*.",
+   "step": {
+    "n": "*",
+    "t": "A verdade"
+   },
+   "props": [
+    {
+     "k": "moon",
+     "x": 540,
+     "y": 760,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Sabia disso? Comenta, e segue pra parte dois.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

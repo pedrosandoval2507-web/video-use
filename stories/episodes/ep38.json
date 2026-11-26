@@ -1,0 +1,153 @@
+{
+ "slug": "buraco-atraves-da-terra",
+ "title": [
+  "Se você pulasse num buraco",
+  "que atravessa a terra"
+ ],
+ "caption": "Se você pulasse num buraco que atravessa a Terra, chegaria do outro lado em 42 minutos. 🌍🕳️ #ciencia #fisica #curiosidades",
+ "scenes": [
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Se existisse um buraco que *atravessa* a Terra inteira, e você pulasse nele?",
+   "props": [
+    {
+     "k": "hole",
+     "x": 540,
+     "y": 1450,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ],
+   "char": {
+    "pose": "scared",
+    "x": 540,
+    "y": 1400,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "A viagem até o outro lado levaria uns *42* *minutos*.",
+   "step": {
+    "n": "1",
+    "t": "42\nminutos"
+   },
+   "stat": {
+    "value": "42 min",
+    "y": 860,
+    "top": "de um lado ao outro",
+    "sub": "cálculo clássico da física",
+    "size": 170
+   }
+  },
+  {
+   "bg": "space",
+   "cam": "push",
+   "say": "Você cairia cada vez *mais* *rápido* até o centro do planeta.",
+   "step": {
+    "n": "2",
+    "t": "A queda"
+   },
+   "props": [
+    {
+     "k": "globe",
+     "x": 540,
+     "y": 820,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "shake",
+   "say": "Lá no centro, a temperatura passa dos *5* *mil* *graus*. Quente como a superfície do Sol.",
+   "step": {
+    "n": "3",
+    "t": "O centro"
+   },
+   "props": [
+    {
+     "k": "fire",
+     "x": 540,
+     "y": 900,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "space",
+   "cam": "push",
+   "say": "Passando o centro, você começa a *frear*, até parar bem na borda do outro lado.",
+   "props": [
+    {
+     "k": "arrow",
+     "x": 540,
+     "y": 820,
+     "s": 1.2,
+     "a": "pop",
+     "dir": -90
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Se ninguém te segurar, você cai de *volta*. E fica indo e voltando pra sempre.",
+   "step": {
+    "n": "*",
+    "t": "O final"
+   },
+   "props": [
+    {
+     "k": "arrow",
+     "x": 400,
+     "y": 860,
+     "s": 0.8,
+     "a": "pop",
+     "dir": 90
+    },
+    {
+     "k": "arrow",
+     "x": 680,
+     "y": 860,
+     "s": 0.8,
+     "a": "pop",
+     "dir": -90,
+     "d": 0.3
+    }
+   ]
+  },
+  {
+   "bg": "desert",
+   "cam": "push",
+   "say": "O buraco mais fundo já cavado tem uns *12* *quilômetros*. Nem arranhou a crosta.",
+   "props": [
+    {
+     "k": "hole",
+     "x": 540,
+     "y": 1400,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Você pularia? Comenta, e segue pra parte dois.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,164 @@
+{
+ "slug": "30-dias-fast-food",
+ "title": [
+  "30 dias só",
+  "de fast food"
+ ],
+ "caption": "Um homem comeu só fast food por 30 dias. O resultado chocou. 🍔 #fastfood #saude #curiosidades #fatos",
+ "scenes": [
+  {
+   "bg": "store",
+   "cam": "push",
+   "say": "Um homem decidiu comer *só* *fast* *food* por 30 dias.",
+   "props": [
+    {
+     "k": "burger",
+     "x": 540,
+     "y": 880,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Foi o documentário *Super* *Size* *Me*, de 2004.",
+   "props": [
+    {
+     "k": "tv",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "kitchen",
+   "cam": "push",
+   "say": "A regra: três refeições por dia, e aceitar o tamanho *maior* sempre que oferecessem.",
+   "step": {
+    "n": "1",
+    "t": "A regra"
+   },
+   "props": [
+    {
+     "k": "burger",
+     "x": 400,
+     "y": 900,
+     "s": 0.8,
+     "a": "pop"
+    },
+    {
+     "k": "soda",
+     "x": 680,
+     "y": 900,
+     "s": 0.8,
+     "a": "pop",
+     "d": 0.3
+    }
+   ]
+  },
+  {
+   "bg": "room_night",
+   "cam": "push",
+   "say": "Na primeira semana, ele já sentia *enjoo* e cansaço depois de comer.",
+   "step": {
+    "n": "2",
+    "t": "Semana 1"
+   },
+   "char": {
+    "pose": "think",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3,
+    "face": "sad"
+   }
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "No fim do mês, tinha ganhado uns *11* *quilos*.",
+   "step": {
+    "n": "3",
+    "t": "Dia 30"
+   },
+   "stat": {
+    "value": "+11 kg",
+    "y": 860,
+    "top": "em 30 dias",
+    "sub": "Super Size Me, 2004",
+    "size": 170
+   }
+  },
+  {
+   "bg": "hospital",
+   "cam": "push",
+   "say": "E os médicos ficaram preocupados com o *fígado* e o colesterol dele.",
+   "props": [
+    {
+     "k": "warning",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "store",
+   "cam": "push",
+   "say": "Depois do filme, a rede *tirou* o tamanho gigante do cardápio.",
+   "step": {
+    "n": "*",
+    "t": "O que\nmudou"
+   },
+   "props": [
+    {
+     "k": "soda",
+     "x": 540,
+     "y": 880,
+     "s": 1.2,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 680,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.6
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Mas o filme também recebeu *críticas*, e o diretor admitiu depois que bebia muito naquela época.",
+   "props": [
+    {
+     "k": "scale",
+     "x": 540,
+     "y": 900,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Você aguentaria 30 dias? Comenta.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

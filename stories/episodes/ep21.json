@@ -1,0 +1,159 @@
+{
+ "slug": "amazonia-acabasse",
+ "title": [
+  "Se a Amazônia",
+  "acabasse"
+ ],
+ "caption": "Se a Amazônia acabasse, a sua torneira em São Paulo podia secar. 🌳💧 Pouca gente sabe disso. #amazonia #natureza #brasil #curiosidades",
+ "scenes": [
+  {
+   "bg": "forest_night",
+   "cam": "push",
+   "say": "Se a *Amazônia* acabasse, a falta de água chegaria até a sua casa.",
+   "props": [
+    {
+     "k": "tree",
+     "x": 540,
+     "y": 1100,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "Mesmo morando a milhares de quilômetros dela.",
+   "char": {
+    "pose": "think",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "A floresta solta *vapor* de água no ar. Muito vapor.",
+   "step": {
+    "n": "1",
+    "t": "O vapor"
+   },
+   "props": [
+    {
+     "k": "tree",
+     "x": 540,
+     "y": 1150,
+     "s": 1.2,
+     "a": "pop"
+    },
+    {
+     "k": "drop",
+     "x": 400,
+     "y": 700,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.5,
+     "float": true
+    },
+    {
+     "k": "drop",
+     "x": 680,
+     "y": 640,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.8,
+     "float": true
+    }
+   ]
+  },
+  {
+   "bg": "sky",
+   "cam": "push",
+   "say": "Esse vapor vira os *rios* *voadores*: correntes de umidade que viajam pelo céu.",
+   "step": {
+    "n": "2",
+    "t": "Rios\nvoadores"
+   },
+   "props": [
+    {
+     "k": "arrow",
+     "x": 540,
+     "y": 880,
+     "s": 1.3,
+     "a": "pop",
+     "dir": 150
+    }
+   ]
+  },
+  {
+   "bg": "blue",
+   "cam": "push",
+   "say": "Eles ajudam a levar chuva pro *Centro-Oeste* e pro *Sudeste*.",
+   "props": [
+    {
+     "k": "drop",
+     "x": 540,
+     "y": 860,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "desert",
+   "cam": "shake",
+   "say": "Sem floresta: menos chuva, represa mais vazia e *conta* *de* *luz* mais cara.",
+   "step": {
+    "n": "3",
+    "t": "Sem\nchuva"
+   },
+   "props": [
+    {
+     "k": "outlet",
+     "x": 540,
+     "y": 900,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "desert",
+   "cam": "push",
+   "say": "E o agro, que depende da chuva, *perderia* safra.",
+   "props": [
+    {
+     "k": "chart_down",
+     "x": 540,
+     "y": 880,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "forest_night",
+   "cam": "push",
+   "say": "A Amazônia não é só bicho e árvore. É a *caixa* *d'água* do Brasil.",
+   "step": {
+    "n": "*",
+    "t": "A\nverdade"
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Sabia disso? Manda pra quem precisa saber.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,172 @@
+{
+ "slug": "sempre-cansado",
+ "title": [
+  "Por que você",
+  "vive cansado?"
+ ],
+ "caption": "Dorme e acorda cansado? 😴 O motivo 3 é o que mais gente ignora. #sono #saude #produtividade #curiosidades",
+ "scenes": [
+  {
+   "bg": "bedroom",
+   "cam": "push",
+   "say": "Você dorme, acorda, e continua *cansado*? Pode ser um destes motivos.",
+   "props": [
+    {
+     "k": "bed",
+     "x": 540,
+     "y": 1300,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "blue",
+   "cam": "push",
+   "say": "Primeiro: você dorme *menos* do que acha. Adulto precisa de pelo menos *sete* *horas*.",
+   "step": {
+    "n": "1",
+    "t": "Pouco\nsono"
+   },
+   "stat": {
+    "value": "7 horas",
+    "y": 860,
+    "top": "mínimo por noite",
+    "sub": "para adultos",
+    "src": "CDC",
+    "size": 160
+   }
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "E um terço dos adultos não chega nisso.",
+   "props": [
+    {
+     "k": "people",
+     "x": 540,
+     "y": 1100,
+     "s": 2.0,
+     "a": "pop",
+     "n": 3
+    }
+   ]
+  },
+  {
+   "bg": "bedroom",
+   "cam": "push",
+   "say": "Segundo: o *celular* na cama. A tela engana o cérebro de que ainda é dia.",
+   "step": {
+    "n": "2",
+    "t": "Tela à\nnoite"
+   },
+   "props": [
+    {
+     "k": "phone",
+     "x": 540,
+     "y": 880,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ],
+   "dim": 0.3
+  },
+  {
+   "bg": "office",
+   "cam": "push",
+   "say": "Terceiro: *café* depois do almoço. A cafeína ainda está no seu sangue horas depois.",
+   "step": {
+    "n": "3",
+    "t": "Café\ntarde"
+   },
+   "props": [
+    {
+     "k": "coffee",
+     "x": 540,
+     "y": 900,
+     "s": 1.3,
+     "a": "pop"
+    },
+    {
+     "k": "clock",
+     "x": 780,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.5
+    }
+   ]
+  },
+  {
+   "bg": "night_field",
+   "cam": "push",
+   "say": "Quarto: horário *bagunçado*. Dormir à uma no sábado e às dez na segunda confunde o relógio do corpo.",
+   "step": {
+    "n": "4",
+    "t": "Horário\nbagunçado"
+   },
+   "props": [
+    {
+     "k": "clock",
+     "x": 540,
+     "y": 860,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Quinto: pouca luz do *sol* de manhã. É ela que liga o seu despertador interno.",
+   "step": {
+    "n": "5",
+    "t": "Sem sol"
+   },
+   "props": [
+    {
+     "k": "sun",
+     "x": 760,
+     "y": 560,
+     "s": 0.9,
+     "a": "pop"
+    }
+   ],
+   "char": {
+    "pose": "cheer",
+    "x": 400,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "hospital",
+   "cam": "push",
+   "say": "Se nada disso resolver, vale procurar um *médico*. Cansaço constante pode ter outras causas.",
+   "step": {
+    "n": "*",
+    "t": "Importante"
+   },
+   "char": {
+    "pose": "stand",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Qual desses é o seu? Comenta o número.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

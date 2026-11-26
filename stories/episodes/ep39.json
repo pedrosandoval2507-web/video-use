@@ -1,0 +1,179 @@
+{
+ "slug": "ilha-deserta",
+ "title": [
+  "Se você ficasse preso",
+  "numa ilha deserta"
+ ],
+ "caption": "Preso numa ilha deserta: qual a primeira coisa que você faz? 🏝️ Não é procurar comida. #sobrevivencia #ilha #curiosidades",
+ "scenes": [
+  {
+   "bg": "island",
+   "cam": "push",
+   "say": "Se você acordasse preso numa *ilha* *deserta*, qual seria o primeiro passo?",
+   "char": {
+    "pose": "think",
+    "x": 540,
+    "y": 1520,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "island",
+   "cam": "push",
+   "say": "Não é procurar comida. Lembra da regra dos três.",
+   "props": [
+    {
+     "k": "can",
+     "x": 540,
+     "y": 1300,
+     "s": 0.9,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 660,
+     "y": 1200,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.6
+    }
+   ]
+  },
+  {
+   "bg": "beach",
+   "cam": "push",
+   "say": "Primeiro: *água*. Nunca bebe água do mar. O sal desidrata ainda mais.",
+   "step": {
+    "n": "1",
+    "t": "Água"
+   },
+   "props": [
+    {
+     "k": "drop",
+     "x": 540,
+     "y": 860,
+     "s": 1.2,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 680,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.8
+    }
+   ]
+  },
+  {
+   "bg": "island",
+   "cam": "push",
+   "say": "Junta água da chuva, ou a do *coco*.",
+   "props": [
+    {
+     "k": "palm",
+     "x": 540,
+     "y": 1200,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "island",
+   "cam": "push",
+   "say": "Segundo: *sombra* e abrigo. O sol forte derruba mais rápido que a fome.",
+   "step": {
+    "n": "2",
+    "t": "Abrigo"
+   },
+   "props": [
+    {
+     "k": "sun",
+     "x": 760,
+     "y": 500,
+     "s": 0.8,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "night_field",
+   "cam": "push",
+   "say": "Terceiro: *fogo*. Pra ferver água, cozinhar e ser visto de longe.",
+   "step": {
+    "n": "3",
+    "t": "Fogo"
+   },
+   "props": [
+    {
+     "k": "fire",
+     "x": 540,
+     "y": 1300,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "island",
+   "cam": "push",
+   "say": "Quarto: escreve *SOS* bem grande na areia, com pedras ou galhos.",
+   "step": {
+    "n": "4",
+    "t": "SOS"
+   },
+   "props": [
+    {
+     "k": "sos",
+     "x": 540,
+     "y": 1480,
+     "s": 0.9,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "beach",
+   "cam": "push",
+   "say": "E fica perto da *praia*. É de lá que barco e avião vão te ver.",
+   "step": {
+    "n": "*",
+    "t": "Fique\nvisível"
+   },
+   "props": [
+    {
+     "k": "plane",
+     "x": 760,
+     "y": 500,
+     "s": 0.6,
+     "a": "drive",
+     "to": [
+      300,
+      450
+     ]
+    }
+   ],
+   "char": {
+    "pose": "cheer",
+    "x": 540,
+    "y": 1650,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Que objeto você levaria pra ilha? Comenta.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,165 @@
+{
+ "slug": "tempestade-solar",
+ "title": [
+  "Se uma tempestade",
+  "solar chegasse"
+ ],
+ "caption": "Em 1859 o Sol fez telégrafos soltarem faísca. Se acontecesse hoje… ☀️⚡ #sol #espaco #tecnologia #curiosidades",
+ "scenes": [
+  {
+   "bg": "space",
+   "cam": "push",
+   "say": "Em *1859*, uma explosão no Sol fez telégrafos soltarem *faísca*.",
+   "props": [
+    {
+     "k": "sunflare",
+     "x": 540,
+     "y": 820,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Foi o *Evento* *Carrington*, a maior tempestade solar já registrada.",
+   "stat": {
+    "value": "1859",
+    "y": 860,
+    "top": "Evento Carrington",
+    "sub": "a maior tempestade solar registrada",
+    "size": 180
+   }
+  },
+  {
+   "bg": "night_field",
+   "cam": "push",
+   "say": "Teve *aurora* boreal vista até perto do Caribe.",
+   "step": {
+    "n": "1",
+    "t": "Auroras"
+   },
+   "props": [
+    {
+     "k": "sunflare",
+     "x": 540,
+     "y": 500,
+     "s": 0.4,
+     "a": "pop"
+    }
+   ],
+   "char": {
+    "pose": "cheer",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "city_night",
+   "cam": "shake",
+   "say": "Se acontecesse hoje, o problema seria a *rede* *elétrica*.",
+   "step": {
+    "n": "2",
+    "t": "Hoje"
+   },
+   "props": [
+    {
+     "k": "lightning",
+     "x": 540,
+     "y": 820,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_night",
+   "cam": "push",
+   "say": "Em *1989*, uma tempestade bem menor deixou o Quebec, no Canadá, *nove* *horas* sem luz.",
+   "props": [
+    {
+     "k": "plug",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ],
+   "dim": 0.5
+  },
+  {
+   "bg": "space",
+   "cam": "push",
+   "say": "Satélites, *GPS* e internet também poderiam ser afetados.",
+   "step": {
+    "n": "3",
+    "t": "GPS e\nsatélites"
+   },
+   "props": [
+    {
+     "k": "globe",
+     "x": 540,
+     "y": 820,
+     "s": 1.2,
+     "a": "pop"
+    },
+    {
+     "k": "warning",
+     "x": 760,
+     "y": 640,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.5
+    }
+   ]
+  },
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "A boa notícia: hoje existem satélites que *vigiam* o Sol e dão alguns dias de aviso.",
+   "step": {
+    "n": "*",
+    "t": "A boa\nnotícia"
+   },
+   "props": [
+    {
+     "k": "shield",
+     "x": 540,
+     "y": 860,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "O suficiente pras empresas de energia se *protegerem*.",
+   "props": [
+    {
+     "k": "check",
+     "x": 540,
+     "y": 860,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Sabia disso? Comenta, e segue pra mais.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

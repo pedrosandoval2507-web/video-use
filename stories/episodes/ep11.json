@@ -1,0 +1,183 @@
+{
+ "slug": "30-dias-sem-acucar",
+ "title": [
+  "30 dias",
+  "sem açúcar"
+ ],
+ "caption": "O que acontece com seu corpo se você ficar 30 dias SEM AÇÚCAR? 🍬🚫 A primeira semana é a pior. #saude #acucar #desafio #curiosidades",
+ "scenes": [
+  {
+   "bg": "kitchen",
+   "cam": "push",
+   "say": "O que acontece se você ficar *30* *dias* sem açúcar?",
+   "props": [
+    {
+     "k": "sugar",
+     "x": 540,
+     "y": 900,
+     "s": 1.4,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 700,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.8
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Uma única lata de refrigerante tem uns *35* *gramas* de açúcar.",
+   "props": [
+    {
+     "k": "soda",
+     "x": 540,
+     "y": 880,
+     "s": 1.6,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "blue",
+   "cam": "push",
+   "say": "A OMS recomenda o ideal de *25* *gramas* por dia. A lata sozinha já passou.",
+   "stat": {
+    "value": "25 g",
+    "y": 860,
+    "top": "ideal por dia",
+    "sub": "cerca de 6 colheres de chá",
+    "src": "OMS",
+    "size": 170
+   }
+  },
+  {
+   "bg": "office",
+   "cam": "shake",
+   "say": "Dias um a três: vontade de doce o tempo todo. *Irritação* e dor de cabeça.",
+   "step": {
+    "n": "1",
+    "t": "Dias\n1 a 3"
+   },
+   "char": {
+    "pose": "scared",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "dark",
+   "cam": "push",
+   "say": "Seu cérebro estava acostumado com a *recompensa* rápida.",
+   "props": [
+    {
+     "k": "brain",
+     "x": 540,
+     "y": 860,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "field_day",
+   "cam": "push",
+   "say": "Dia sete: a vontade *diminui*. A energia fica mais estável durante o dia.",
+   "step": {
+    "n": "2",
+    "t": "Dia 7"
+   },
+   "props": [
+    {
+     "k": "battery",
+     "x": 540,
+     "y": 900,
+     "s": 1.3,
+     "a": "pop",
+     "level": 0.8
+    }
+   ]
+  },
+  {
+   "bg": "kitchen",
+   "cam": "push",
+   "say": "Dia quinze: uma fruta começa a parecer *muito* *mais* *doce*.",
+   "step": {
+    "n": "3",
+    "t": "Dia 15"
+   },
+   "char": {
+    "pose": "cheer",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "Isso acontece porque o paladar se *acostuma* de novo.",
+   "props": [
+    {
+     "k": "heart",
+     "x": 540,
+     "y": 860,
+     "s": 1.0,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "sunset",
+   "cam": "push",
+   "say": "Dia trinta: muita gente relata menos *inchaço* e menos fome fora de hora.",
+   "step": {
+    "n": "4",
+    "t": "Dia 30"
+   },
+   "char": {
+    "pose": "cheer",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "store",
+   "cam": "push",
+   "say": "O problema? O açúcar está escondido em pão, molho e até no *suco* *de* *caixinha*.",
+   "step": {
+    "n": "*",
+    "t": "A pegadinha"
+   },
+   "props": [
+    {
+     "k": "cart",
+     "x": 540,
+     "y": 900,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Você aguentaria? Comenta, e segue pra mais.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

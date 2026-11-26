@@ -1,0 +1,175 @@
+{
+ "slug": "golpes-do-pix",
+ "title": [
+  "Os golpes de pix",
+  "que mais caem"
+ ],
+ "caption": "Os golpes de Pix que mais pegam brasileiro. 💸 O 2 já pegou alguém da sua família. Manda pra eles. #golpe #pix #seguranca",
+ "scenes": [
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "Estes são os golpes de *Pix* que mais pegam brasileiro. O segundo já pegou alguém da sua família.",
+   "props": [
+    {
+     "k": "phone",
+     "x": 540,
+     "y": 880,
+     "s": 1.5,
+     "a": "pop",
+     "label": "PIX"
+    }
+   ]
+  },
+  {
+   "bg": "room_night",
+   "cam": "push",
+   "say": "Primeiro: a *falsa* *central* do banco. Te ligam dizendo que sua conta foi invadida.",
+   "step": {
+    "n": "1",
+    "t": "Falsa\ncentral"
+   },
+   "props": [
+    {
+     "k": "phone",
+     "x": 700,
+     "y": 900,
+     "s": 1.0,
+     "a": "pop",
+     "label": "BANCO"
+    }
+   ],
+   "char": {
+    "pose": "phone",
+    "x": 360,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "red",
+   "cam": "push",
+   "say": "E pedem pra você fazer um Pix pra uma conta *segura*. Banco *nunca* pede isso.",
+   "props": [
+    {
+     "k": "cross",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "dark",
+   "cam": "push",
+   "say": "Segundo: o *parente* com número novo no WhatsApp, pedindo dinheiro urgente.",
+   "step": {
+    "n": "2",
+    "t": "Número\nnovo"
+   },
+   "props": [
+    {
+     "k": "whatsapp",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "Antes de pagar, *liga* pro número antigo da pessoa. Simples assim.",
+   "char": {
+    "pose": "phone",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3
+   }
+  },
+  {
+   "bg": "store",
+   "cam": "push",
+   "say": "Terceiro: o *QR* *code* falso, colado por cima do verdadeiro.",
+   "step": {
+    "n": "3",
+    "t": "QR code\nfalso"
+   },
+   "props": [
+    {
+     "k": "qr",
+     "x": 540,
+     "y": 880,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "Sempre confere o *nome* de quem vai receber antes de confirmar.",
+   "props": [
+    {
+     "k": "check",
+     "x": 540,
+     "y": 860,
+     "s": 1.1,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "store",
+   "cam": "push",
+   "say": "Quarto: o *falso* *vendedor* com preço bom demais. Se é muito barato, desconfia.",
+   "step": {
+    "n": "4",
+    "t": "Preço\nbom demais"
+   },
+   "props": [
+    {
+     "k": "cart",
+     "x": 540,
+     "y": 900,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "blue",
+   "cam": "push",
+   "say": "Caiu? Avisa o banco *na* *hora* e pede o MED, o mecanismo de devolução do Pix.",
+   "step": {
+    "n": "*",
+    "t": "Se cair"
+   },
+   "props": [
+    {
+     "k": "shield",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Manda pra sua mãe, seu pai e seu avô. Agora.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}

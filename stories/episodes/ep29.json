@@ -1,0 +1,163 @@
+{
+ "slug": "fim-do-dinheiro-vivo",
+ "title": [
+  "Se o dinheiro",
+  "vivo acabasse"
+ ],
+ "caption": "E se as notas de dinheiro deixassem de existir? 💵 Tem país quase lá. Você apoiaria? #dinheiro #pix #economia #polemica",
+ "scenes": [
+  {
+   "bg": "green",
+   "cam": "push",
+   "say": "E se o *dinheiro* *vivo* acabasse de vez? Só Pix e cartão.",
+   "props": [
+    {
+     "k": "money",
+     "x": 540,
+     "y": 860,
+     "s": 1.4,
+     "a": "pop"
+    },
+    {
+     "k": "cross",
+     "x": 700,
+     "y": 760,
+     "s": 0.5,
+     "a": "pop",
+     "d": 0.8
+    }
+   ]
+  },
+  {
+   "bg": "blue",
+   "cam": "push",
+   "say": "Tem país chegando perto. Na *Suécia*, menos de uma em cada dez compras é em dinheiro.",
+   "stat": {
+    "value": "menos de 10%",
+    "y": 860,
+    "top": "das compras em dinheiro",
+    "sub": "Suécia",
+    "src": "Banco Central da Suécia",
+    "size": 120
+   }
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "O lado bom: *menos* *assalto*, menos dinheiro falso, menos sonegação.",
+   "step": {
+    "n": "1",
+    "t": "O lado\nbom"
+   },
+   "props": [
+    {
+     "k": "shield",
+     "x": 540,
+     "y": 860,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "dark",
+   "cam": "push",
+   "say": "O lado ruim: *tudo* que você compra fica registrado.",
+   "step": {
+    "n": "2",
+    "t": "O lado\nruim"
+   },
+   "props": [
+    {
+     "k": "ai_eye",
+     "x": 540,
+     "y": 860,
+     "s": 1.2,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "red",
+   "cam": "shake",
+   "say": "Banco e governo sabem *onde*, *quando* e *com* *o* *quê* você gastou.",
+   "props": [
+    {
+     "k": "card",
+     "x": 540,
+     "y": 860,
+     "s": 1.3,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "store",
+   "cam": "push",
+   "say": "E se o sistema cai, ninguém consegue *pagar* *nada*.",
+   "step": {
+    "n": "3",
+    "t": "Se\ncair"
+   },
+   "props": [
+    {
+     "k": "phone",
+     "x": 540,
+     "y": 880,
+     "s": 1.1,
+     "a": "pop",
+     "screen": "#E5322D",
+     "label": "ERRO"
+    }
+   ]
+  },
+  {
+   "bg": "city_day",
+   "cam": "push",
+   "say": "Quem não tem conta ou celular, como muitos *idosos*, fica de fora.",
+   "step": {
+    "n": "4",
+    "t": "Excluídos"
+   },
+   "char": {
+    "pose": "think",
+    "x": 540,
+    "y": 1710,
+    "s": 1.3,
+    "face": "sad"
+   }
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Praticidade ou *privacidade*? Essa é a briga.",
+   "step": {
+    "n": "*",
+    "t": "A\npolêmica"
+   },
+   "props": [
+    {
+     "k": "scale",
+     "x": 540,
+     "y": 900,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  },
+  {
+   "bg": "purple",
+   "cam": "push",
+   "say": "Você apoiaria o fim das notas? Comenta sim ou não.",
+   "props": [
+    {
+     "k": "bell",
+     "x": 540,
+     "y": 830,
+     "s": 1.4,
+     "a": "pop"
+    }
+   ]
+  }
+ ]
+}
