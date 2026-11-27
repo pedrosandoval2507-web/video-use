@@ -194,6 +194,25 @@ h3{font-size:18px;font-weight:700}
 .paying{position:fixed;inset:0;background:rgba(10,10,18,.9);z-index:250;display:none;align-items:center;justify-content:center;flex-direction:column;gap:16px;font-weight:800}
 .paying.on{display:flex}
 .paying .sp{width:64px;height:64px;border-radius:50%;border:5px solid var(--card2);border-top-color:var(--accent);animation:spin .8s linear infinite}
+
+/* guia */
+.gnav{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 34px}
+.gnav a{padding:8px 14px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--muted)}
+.gnav a:hover{color:#fff;border-color:var(--red-d)}
+.gstep{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:28px 0;border-top:1px solid var(--line);scroll-margin-top:90px}
+.gstep .num{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:24px;font-weight:900;background:linear-gradient(135deg,#7C5CFF,#2DD4FF);color:#0A0A12}
+.gstep h3{font-size:22px;margin-bottom:6px}
+.gstep .where{display:inline-block;font-size:12px;font-weight:800;padding:4px 10px;border-radius:999px;margin-bottom:12px}
+.where.tt{background:rgba(255,255,255,.08);color:#F5F5FA;border:1px solid #34344A}.where.tk{background:rgba(124,92,255,.18);color:#c9bcff}
+.gstep ol,.gstep ul{margin:10px 0 0 20px;color:#d4d4dc;line-height:1.75;font-size:15px}
+.gstep li b{color:#fff}
+.path{display:inline-block;font:600 13px ui-monospace,Menlo,monospace;background:#0A0A12;border:1px solid var(--line);border-radius:8px;padding:2px 8px;color:#2DD4FF;white-space:nowrap}
+.tip{margin-top:14px;padding:12px 14px;border-radius:12px;font-size:14px;line-height:1.55;background:rgba(45,212,255,.08);border:1px solid rgba(45,212,255,.3);color:#cfefff}
+.warn{background:rgba(255,122,89,.08);border-color:rgba(255,122,89,.4);color:#ffd9cc}
+.req{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+@media(max-width:860px){.req{grid-template-columns:repeat(2,1fr)}.gstep{grid-template-columns:1fr}}
+.req div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-align:center}
+.req b{display:block;font-size:24px;font-weight:900;color:#2DD4FF}.req span{font-size:13px;color:var(--muted)}
 .empty{padding:22px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:16px}
 @media(max-width:860px){
   .ritem{grid-template-columns:34px 52px 1fr auto;gap:12px}
@@ -350,6 +369,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <nav class="links" id="nav">
       <a href="#home" data-r="home">Início</a>
       <a href="#como-funciona" data-r="como-funciona">Como funciona</a>
+      <a href="#guia" data-r="guia">Guia passo a passo</a>
       <a href="#ranking" data-r="ranking">Ranking</a>
       <a href="#planos" data-r="planos">Planos</a>
       <a href="#sobre" data-r="sobre">Sobre nós</a>
@@ -375,6 +395,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div class="hero-ctas">
           <a href="#cadastro" class="btn btn-primary">Criar minha conta →</a>
           <a href="#ranking" class="btn btn-ghost">Ver produtos em alta</a>
+          <a href="#guia" class="btn btn-ghost">📘 Guia passo a passo</a>
         </div>
         <div class="stats">
           <div><b class="hl-c">+30</b><span>marcas em alta</span></div>
@@ -711,6 +732,124 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   </section>
 </div>
 
+
+<!-- ================= GUIA ================= -->
+<div class="view" id="v-guia">
+  <section>
+    <div class="wrap" style="max-width:900px">
+      <span class="eyebrow">Guia completo · do zero à primeira comissão</span>
+      <h2 style="margin-top:14px">Passo a passo para vender no TikTok Shop com a Tikfy</h2>
+      <p class="lead" style="margin-top:12px">Siga as etapas na ordem. Algumas acontecem <b style="color:#fff">dentro do app do TikTok</b> e outras <b style="color:#fff">aqui na Tikfy</b>. Cada passo mostra onde ele é feito.</p>
+      <div class="gnav"><a href="#g0">Requisitos</a><a href="#g1">1. Conta no TikTok</a><a href="#g2">2. 1.000 seguidores</a><a href="#g3">3. Ativar afiliado</a><a href="#g4">4. Afiliar ao produto</a><a href="#g5">5. Gerar vídeos</a><a href="#g6">6. Postar com carrinho</a><a href="#g7">7. Receber comissão</a><a href="#g8">Dicas</a></div>
+
+      <div class="gstep" id="g0"><div class="num">✓</div><div>
+        <h3>Antes de começar: requisitos do TikTok Shop</h3>
+        <p class="small">Para ser afiliado no Brasil, o TikTok pede:</p>
+        <div class="req"><div><b>18+</b><span>anos de idade</span></div><div><b>1.000</b><span>seguidores (mínimo)</span></div><div><b>CPF</b><span>para verificar identidade</span></div><div><b>0</b><span>infrações graves na conta</span></div></div>
+        <div class="tip warn">⚠️ As regras são do TikTok e podem mudar. O número exato de seguidores aparece para você no próprio app, em <span class="path">TikTok Shop para Criadores</span>. Algumas páginas do TikTok citam 2.000 seguidores: sempre confira lá.</div>
+      </div></div>
+
+      <div class="gstep" id="g1"><div class="num">1</div><div>
+        <span class="where tt">📱 No app do TikTok</span>
+        <h3>Crie (ou prepare) sua conta no TikTok</h3>
+        <ol>
+          <li>Baixe o <b>TikTok</b> na App Store ou Google Play e toque em <b>Cadastrar</b>.</li>
+          <li>Use seu <b>telefone ou e-mail</b> e informe sua data de nascimento real (precisa ter 18+).</li>
+          <li>Em <span class="path">Perfil → Editar perfil</span>, coloque <b>foto</b>, <b>nome</b> e uma <b>bio</b> que diga o seu tema. Ex.: <i>"Achadinhos de saúde e beleza 💜"</i>.</li>
+          <li>Escolha um <b>nicho</b> (suplementos, beleza, casa…). Perfis focados crescem mais rápido e vendem melhor.</li>
+          <li>Use uma <b>conta pessoal ou de criador</b> (não empresarial) para participar do programa de afiliados.</li>
+        </ol>
+      </div></div>
+
+      <div class="gstep" id="g2"><div class="num">2</div><div>
+        <span class="where tt">📱 No app do TikTok</span>
+        <h3>Chegue aos 1.000 seguidores</h3>
+        <ol>
+          <li><b>Poste todo dia</b>, de 1 a 3 vídeos, sempre no mesmo nicho.</li>
+          <li>Comece com <b>conteúdo útil</b>: dicas, curiosidades, "3 motivos", antes e depois. Os formatos da Tikfy servem de inspiração.</li>
+          <li>Use os <b>primeiros 2 segundos</b> para um gancho forte (pergunta, número, "POV").</li>
+          <li>Responda comentários e use <b>hashtags do nicho</b> (ex.: <span class="path">#achadinhos</span> <span class="path">#tiktokshop</span>).</li>
+          <li>Acompanhe em <span class="path">Perfil → ☰ → TikTok Studio</span> quais vídeos tiveram mais visualizações e repita o formato.</li>
+        </ol>
+        <div class="tip">💡 Você pode assinar a Tikfy já nessa fase e usar os vídeos (sem link de produto) para crescer o perfil mais rápido.</div>
+      </div></div>
+
+      <div class="gstep" id="g3"><div class="num">3</div><div>
+        <span class="where tt">📱 No app do TikTok</span>
+        <h3>Ative o TikTok Shop para Criadores (afiliado)</h3>
+        <ol>
+          <li>Vá em <span class="path">Perfil → ☰ (menu) → TikTok Studio</span>.</li>
+          <li>Toque em <span class="path">TikTok Shop para Criadores</span> (pode aparecer como <i>"Ganhe comissões"</i> ou <i>"Afiliados"</i>).</li>
+          <li>O app mostra os <b>requisitos</b> da sua conta. Quando estiverem ✓, toque em <b>Inscrever-se</b>.</li>
+          <li>Faça a <b>verificação de identidade</b>: CPF, documento com foto e, às vezes, uma selfie.</li>
+          <li>Cadastre a <b>conta bancária</b> (no seu CPF) para receber as comissões.</li>
+          <li>Aguarde a aprovação. Normalmente chega uma notificação no próprio app.</li>
+        </ol>
+      </div></div>
+
+      <div class="gstep" id="g4"><div class="num">4</div><div>
+        <span class="where tt">📱 No app do TikTok</span>
+        <h3>Afilie-se ao produto dentro do TikTok</h3>
+        <ol>
+          <li>No TikTok Studio, abra <span class="path">TikTok Shop para Criadores → Mercado de produtos</span> (ou <i>"Marketplace de afiliados"</i>).</li>
+          <li><b>Pesquise o mesmo produto</b> que você vai escolher na Tikfy. Ex.: <i>"Dot bala energética"</i>.</li>
+          <li>Abra o produto e confira: <b>% de comissão</b>, preço e avaliações.</li>
+          <li>Toque em <b>Adicionar à vitrine</b>. Pronto: o produto fica disponível para você marcar nos vídeos.</li>
+          <li>Algumas marcas pedem <b>aprovação</b> ou oferecem <b>amostra grátis</b>. Nesse caso, toque em <i>Solicitar</i> e aguarde.</li>
+        </ol>
+        <div class="tip">💡 Use o <b>Ranking da Tikfy</b> para decidir: lá estão os produtos que mais vendem agora, com a comissão de cada um.</div>
+      </div></div>
+
+      <div class="gstep" id="g5"><div class="num">5</div><div>
+        <span class="where tk">💜 Aqui na Tikfy</span>
+        <h3>Gere os vídeos do produto</h3>
+        <ol>
+          <li><a href="#cadastro" class="hl-c">Crie sua conta</a> (nome, CPF, e-mail, telefone e seu @ do TikTok).</li>
+          <li>Escolha um <a href="#planos" class="hl-c">plano</a> e conclua o pagamento.</li>
+          <li>Vá ao <a href="#ranking" class="hl-c">Ranking</a> e clique em <b>Afiliar</b> no <b>mesmo produto</b> que você adicionou à vitrine no TikTok.</li>
+          <li>Em segundos, aparecem os vídeos prontos, <b>ordenados pela força de venda</b> (🔥 90%+ primeiro).</li>
+          <li>Use os <b>filtros</b> (POV, Dopamina, Corte…) e o <b>Editor por chat</b> se quiser ajustar algo. Ex.: <i>"no vídeo 2, adicione o texto ÚLTIMAS UNIDADES"</i>.</li>
+          <li>Clique em <b>⬇ Baixar</b> no vídeo e em <b>📋</b> para copiar a legenda.</li>
+        </ol>
+      </div></div>
+
+      <div class="gstep" id="g6"><div class="num">6</div><div>
+        <span class="where tt">📱 No app do TikTok</span>
+        <h3>Poste o vídeo com o carrinho laranja</h3>
+        <ol>
+          <li>No TikTok, toque em <b>＋</b> e depois em <b>Carregar</b>. Escolha o vídeo baixado da Tikfy.</li>
+          <li>Toque em <b>Avançar</b> e <b>cole a legenda</b> copiada da Tikfy.</li>
+          <li>Toque em <span class="path">Adicionar link → Produtos</span> e selecione o produto da sua vitrine. É isso que cria o <b>carrinho laranja</b> 🛒 no vídeo.</li>
+          <li>Se o vídeo tiver narração ou imagens geradas por IA, ative <span class="path">Mais opções → Conteúdo gerado por IA</span>. O TikTok exige esse aviso.</li>
+          <li>Toque em <b>Publicar</b>.</li>
+        </ol>
+        <div class="tip warn">⚠️ Sem o produto marcado, o carrinho não aparece e <b>a venda não conta para você</b>. Confira antes de publicar.</div>
+      </div></div>
+
+      <div class="gstep" id="g7"><div class="num">7</div><div>
+        <span class="where tt">📱 No app do TikTok</span>
+        <h3>Acompanhe vendas e receba a comissão</h3>
+        <ol>
+          <li>Em <span class="path">TikTok Studio → TikTok Shop para Criadores</span> você vê <b>cliques, vendas e comissões</b> de cada vídeo.</li>
+          <li>A comissão fica <b>pendente</b> até acabar o prazo de devolução do pedido e depois é liberada.</li>
+          <li>Quando estiver disponível, toque em <b>Sacar</b> para enviar para a conta bancária cadastrada.</li>
+        </ol>
+      </div></div>
+
+      <div class="gstep" id="g8"><div class="num">★</div><div>
+        <h3>Dicas para vender mais</h3>
+        <ul>
+          <li><b>Poste os vídeos 🔥 mais fortes primeiro</b> e veja quais formatos dão mais vendas no seu perfil.</li>
+          <li><b>Frequência ganha do perfeccionismo</b>: 2 a 4 vídeos por dia, em horários diferentes (manhã, almoço, noite).</li>
+          <li><b>Não poste o mesmo vídeo duas vezes</b>. Troque o gancho pelo Editor por chat para criar variações.</li>
+          <li><b>Responda os comentários</b> com dúvidas sobre o produto. Isso aumenta o alcance e a confiança.</li>
+          <li><b>Seja honesto</b>: só diga "desconto por pouco tempo" se a promoção existir de verdade, e não prometa resultados que o produto não garante.</li>
+        </ul>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:22px"><a href="#cadastro" class="btn btn-buy">Começar agora</a><a href="#faq" class="btn btn-ghost">Ver dúvidas frequentes</a></div>
+      </div></div>
+    </div>
+  </section>
+</div>
 <!-- ================= SOBRE ================= -->
 <div class="view" id="v-sobre">
   <section>
@@ -1213,6 +1352,7 @@ function afiliar(id){
 /* ---------- router ---------- */
 function go(r){location.hash='#'+r}
 function render(){
+  if(/^#g\d$/.test(location.hash)){const el=document.querySelector(location.hash);if(el){if(!document.getElementById('v-guia').classList.contains('on')){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id==='v-guia'))}el.scrollIntoView({behavior:'smooth'});return}}
   const r=(location.hash.replace(/^#\/?/,'')||'home').split('?')[0];
   const id='v-'+(document.getElementById('v-'+r)?r:'home');
   document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));
